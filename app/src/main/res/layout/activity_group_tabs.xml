@@ -71,7 +71,8 @@
                                     android:layout_marginLeft="0dp"
                                     android:layout_marginRight="10dp"
                                     app:layout_constraintStart_toEndOf="@+id/textView2"
-                                    tools:srcCompat="@tools:sample/avatars" />
+                                    app:srcCompat="@drawable/image"
+                                    tools:srcCompat="@drawable/image" />
 
 
                                 <TextView
@@ -89,7 +90,7 @@
                                     android:layout_marginRight="107dp"
                                     android:layout_marginBottom="8dp"
                                     android:layout_toRightOf="@+id/imageView"
-                                    android:text="@string/Group_info_1" />
+                                    android:text="this text was changed" />
 
                                 <TextView
                                     android:id="@+id/textView3"
