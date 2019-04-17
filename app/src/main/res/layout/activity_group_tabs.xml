@@ -90,7 +90,7 @@
                                     android:layout_marginRight="107dp"
                                     android:layout_marginBottom="8dp"
                                     android:layout_toRightOf="@+id/imageView"
-                                    android:text="this text was changed" />
+                                    android:text="hi there" />
 
                                 <TextView
                                     android:id="@+id/textView3"
