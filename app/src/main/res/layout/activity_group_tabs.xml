@@ -6,10 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.design.widget.BottomNavigationView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
@@ -314,7 +310,7 @@
                             android:id="@android:id/tabs"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:/>
+                            />
                     </LinearLayout>
                 </TabHost>
 
@@ -322,5 +318,4 @@
 
         </android.support.constraint.ConstraintLayout>
     </android.support.v4.widget.NestedScrollView>
-
 </android.support.design.widget.CoordinatorLayout>
