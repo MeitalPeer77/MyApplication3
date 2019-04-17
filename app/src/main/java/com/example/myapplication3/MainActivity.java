@@ -10,7 +10,7 @@ public class MainActivity extends AppCompatActivity {
     private Button loginButton;
     private Button registerbutton;
     private Button tabButton;
-    //HEY EVERYBODUDNSLFKMNVLKFSMV;Z
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
