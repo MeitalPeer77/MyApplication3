@@ -3,4 +3,5 @@
     <string name="Group_info_1">Group Name</string>
     <string name="Group_info_2">Running Days</string>
     <string name="Group_info_3">info</string>
+    <string name="Settings_name">Settings</string>
 </resources>
