@@ -1,11 +1,13 @@
 package com.example.myapplication3;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.support.v7.app.ActionBar;
@@ -15,6 +17,7 @@ import java.util.ArrayList;
 
 public class Tabs extends AppCompatActivity {
     private Toolbar myToolBar;
+    private Button popup;
 
 
     private ArrayList<String> mNames = new ArrayList<>();
@@ -28,6 +31,14 @@ public class Tabs extends AppCompatActivity {
         setContentView(R.layout.tab_host);
         initImageBitMap();
 
+        popup = (Button)findViewById(R.id.button11);
+        popup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Tabs.this, pop.class));
+
+            }
+        });
         android.widget.TabHost host = (android.widget.TabHost)findViewById(R.id.tabHost);
         host.setup();
 
