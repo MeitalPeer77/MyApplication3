@@ -38,4 +38,7 @@ dependencies {
 
     //circle image view
     implementation 'de.hdodenhof:circleimageview:3.0.0'
+
+    //expandable text view
+    implementation 'com.ms-square:expandableTextView:0.1.4'
 }
