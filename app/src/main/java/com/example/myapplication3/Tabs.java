@@ -31,18 +31,17 @@ public class Tabs extends AppCompatActivity {
         host.setup();
 
         //Tab 1
-        android.widget.TabHost.TabSpec spec = host.newTabSpec("Groups");
-        spec.setContent(R.id.group_tab);
-        spec.setIndicator("Groups");
-        host.addTab(spec);
-
-
-
-        //Tab 2
-        spec = host.newTabSpec("Suggestions");
+        android.widget.TabHost.TabSpec spec = host.newTabSpec("suggestions");
         spec.setContent(R.id.Suggestions);
         spec.setIndicator("suggestions");
         host.addTab(spec);
+
+        //Tab 2
+        spec = host.newTabSpec("groups");
+        spec.setContent(R.id.Groups);
+        spec.setIndicator("groups");
+        host.addTab(spec);
+
     }
 
 private void initImageBitMap(){
