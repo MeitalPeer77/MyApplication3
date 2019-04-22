@@ -19,12 +19,15 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
     private ArrayList<String> mImageNames= new ArrayList<>();
     private ArrayList<String> mImages = new ArrayList<>();
+    private ArrayList<String> mInfo = new ArrayList<>();
+
     private Context mContext;
 
-    public RecyclerViewAdapter(Context mContext, ArrayList<String> mImageNames, ArrayList<String> mImages) {
+    public RecyclerViewAdapter(Context mContext, ArrayList<String> mImageNames, ArrayList<String> mImages, ArrayList<String> mInfo) {
         this.mImageNames = mImageNames;
         this.mImages = mImages;
         this.mContext = mContext;
+        this.mInfo = mInfo;
     }
 
     @Override
@@ -42,6 +45,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 .into(holder.image);
 
         holder.imageName.setText(mImageNames.get(position));
+        holder.runningInfo.setText(mInfo.get(position));
+
 
         holder.parentLayout.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -65,13 +70,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         CircleImageView image;
         TextView imageName;
+        TextView runningInfo;
         RelativeLayout parentLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             image= itemView.findViewById(R.id.profile_image);
             imageName=itemView.findViewById(R.id.runners_name);
+            runningInfo=itemView.findViewById(R.id.runners_info);
             parentLayout=itemView.findViewById(R.id.parent_layout);
+
 
         }
     }

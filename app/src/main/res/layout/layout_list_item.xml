@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="150dp"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
     android:padding="15dp"
     android:id="@+id/parent_layout">
 
@@ -25,31 +25,24 @@
         android:id="@+id/runners_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        android:layout_toRightOf="@+id/profile_image"
         android:layout_below="@id/runners_name"
+        android:layout_marginLeft="47dp"
+        android:layout_marginTop="29dp"
+        android:layout_toRightOf="@+id/profile_image"
+        android:padding="15dp"
+        android:text="TextView"
         android:textColor="#000"
-        android:layout_marginLeft="30dp"
-        android:textSize="17sp"
-        android:padding="15dp"/>
+        android:textSize="17sp" />
 
     <Button
         android:id="@+id/contact"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="contact"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
         android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:textColor="#FFFFFF"
-        android:textSize="17dp"
-        android:background="@drawable/button" />
-    />
-
-
-
-
-
-    />
+        android:textSize="10dp"
+        android:background="@drawable/normalcall" />
 
 
 </RelativeLayout>
