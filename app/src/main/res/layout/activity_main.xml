@@ -6,11 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <include
-        layout="@layout/app_bar"
-        android:id="@+id/app_bar">
-    </include>
-
 
     <Button
         android:id="@+id/button"
@@ -63,7 +58,7 @@
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.398" />
+        app:layout_constraintVertical_bias="0.402" />
 
     <Button
         android:id="@+id/button5"
