@@ -11,7 +11,5 @@ public class login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        appBar = (Toolbar) findViewById(R.id.app_bar);
-        setSupportActionBar(appBar);
     }
 }
