@@ -1,11 +1,13 @@
 package com.example.myapplication3;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.support.v7.app.ActionBar;
@@ -15,6 +17,7 @@ import java.util.ArrayList;
 
 public class Tabs extends AppCompatActivity {
     private Toolbar myToolBar;
+    private Button profileButton;
 
 
     private ArrayList<String> mNames = new ArrayList<>();
@@ -28,8 +31,18 @@ public class Tabs extends AppCompatActivity {
         setContentView(R.layout.tab_host);
         initImageBitMap();
 
+
+        profileButton = (Button) findViewById(R.id.action_bar_profile);
+        profileButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                profile();
+            }
+        });
+
         android.widget.TabHost host = (android.widget.TabHost)findViewById(R.id.tabHost);
         host.setup();
+
+
 
         //Tab 1
         android.widget.TabHost.TabSpec spec = host.newTabSpec("suggestions");
@@ -64,4 +77,13 @@ private void initRecycleView(){
     recycleView.setAdapter(adapter);
     recycleView.setLayoutManager(new LinearLayoutManager(this));
 }
+
+public void profile() {
+    // Create an Intent to start the second activity
+    Intent profileIntent = new Intent(this, profile.class);
+
+    // Start the new activity.
+    startActivity(profileIntent);
+
+    }
 }
