@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
         registerbutton = (Button) findViewById(R.id.button2);
         registerbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
