@@ -9,8 +9,9 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
+        android:supportsRtl="false"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".Register3_activity"></activity>
         <activity android:name=".Tabs" />
         <activity android:name=".Register22" />
         <activity android:name=".Register0" />
