@@ -69,8 +69,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            image= itemView.findViewById(R.id.image);
-            imageName=itemView.findViewById(R.id.image_name);
+            image= itemView.findViewById(R.id.profile_image);
+            imageName=itemView.findViewById(R.id.runners_name);
             parentLayout=itemView.findViewById(R.id.parent_layout);
 
         }
