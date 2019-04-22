@@ -18,6 +18,7 @@ import java.util.ArrayList;
 public class Tabs extends AppCompatActivity {
     private Toolbar myToolBar;
     private Button profileButton;
+    private Button popup;
 
 
     private ArrayList<String> mNames = new ArrayList<>();
@@ -39,10 +40,16 @@ public class Tabs extends AppCompatActivity {
             }
         });
 
+        popup = (Button)findViewById(R.id.button11);
+        popup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Tabs.this, pop.class));
+
+            }
+        });
         android.widget.TabHost host = (android.widget.TabHost)findViewById(R.id.tabHost);
         host.setup();
-
-
 
         //Tab 1
         android.widget.TabHost.TabSpec spec = host.newTabSpec("suggestions");

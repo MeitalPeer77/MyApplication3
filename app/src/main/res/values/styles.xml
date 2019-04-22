@@ -7,8 +7,13 @@
     <style name="CustomToolBarStyle" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:background"> @color/colorPrimary</item>
         <item name="android:layout_height">?attr/actionBarSize</item>
+        
 
 
+    </style>
+    <style name="PopUp">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
     </style>
 
 </resources>
