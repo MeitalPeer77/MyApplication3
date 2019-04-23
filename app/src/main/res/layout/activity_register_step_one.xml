@@ -125,6 +125,7 @@
         app:layout_constraintVertical_bias="0.961" />
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="303dp"
         android:layout_height="80dp"
         android:layout_marginStart="8dp"
@@ -154,5 +155,23 @@
             android:ems="10"
             android:inputType="phone" />
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="76dp"
+        android:layout_height="107dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.94"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.013"
+        app:srcCompat="@drawable/women3" />
 
 </android.support.constraint.ConstraintLayout>
