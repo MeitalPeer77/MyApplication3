@@ -21,7 +21,7 @@ public class Register_step_two extends AppCompatActivity {
         Spinner spiner = (Spinner)findViewById(R.id.spinner);
         spiner.setAdapter(arrayAdap);
 
-        nextbutton = (Button) findViewById(R.id.button7);
+        nextbutton = (Button) findViewById(R.id.done_register);
         nextbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 registerNext();
