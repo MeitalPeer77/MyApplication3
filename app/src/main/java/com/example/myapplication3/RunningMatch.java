@@ -18,6 +18,7 @@ import java.util.ArrayList;
 public class RunningMatch extends AppCompatActivity {
     private Toolbar myToolBar;
     private Button profileButton;
+    private Button popupButton;
 
 
     private ArrayList<String> mNames = new ArrayList<>();
@@ -30,6 +31,14 @@ public class RunningMatch extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tab_host);
         initImageBitMap();
+
+        popupButton = (Button) findViewById(R.id.button);
+        popupButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(RunningMatch.this, pop.class));
+            }
+        });
 
         profileButton = (Button) findViewById(R.id.action_bar_profile);
         profileButton.setOnClickListener(new View.OnClickListener() {
