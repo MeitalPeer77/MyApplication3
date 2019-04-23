@@ -15,17 +15,15 @@
         <activity android:name=".Register_step_one" />
         <activity android:name=".Register_step_two" />
         <activity android:name=".MainActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".pop"
-            android:theme="@style/PopUp">
-        </activity>
-
+        <activity
+            android:name=".pop"
+            android:theme="@style/PopUp"></activity>
         <activity android:name=".profile" />
 
         <meta-data
