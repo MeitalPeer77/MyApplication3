@@ -13,7 +13,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0px"
-        android:layout_weight="3"
+        android:layout_weight="5"
         android:layout_gravity="center"
         android:orientation="vertical">
 
@@ -25,23 +25,15 @@
             android:layout_gravity="center"
             android:paddingTop="50dp"
             app:srcCompat="@drawable/couple" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0px"
-        android:orientation="vertical"
-        android:layout_weight="3"
-        >
 
         <TextView
             android:id="@+id/app_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:paddingHorizontal="30dp"
             android:text="Welcome To Runing Match"
             android:textColor="@color/darkBlue"
-            android:paddingHorizontal="30dp"
             android:textSize="25sp" />
 
         <TextView
@@ -55,6 +47,14 @@
             android:textColor="@color/pink"
 
             android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:orientation="vertical"
+        android:layout_weight="3"
+        >
 
         <EditText
             android:id="@+id/email"
@@ -83,16 +83,6 @@
             android:drawableStart="@drawable/ic_lock_outline_black_24dp"
             />
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="20dp"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:layout_gravity="center">
-
         <Button
             android:id="@+id/login_button"
 
@@ -107,12 +97,13 @@
             android:text="Log In"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0px"
-        android:layout_weight="2"
+        android:layout_weight="1.5"
         android:orientation="vertical">
 
         <TextView
@@ -157,7 +148,7 @@
         android:layout_height="0px"
         android:layout_alignParentBottom="true"
         android:gravity="center"
-        android:layout_weight="1"
+        android:layout_weight="0.5"
         android:layout_gravity="bottom"
 
         android:orientation="vertical"
