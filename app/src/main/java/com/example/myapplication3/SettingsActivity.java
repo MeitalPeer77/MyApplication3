@@ -194,6 +194,9 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             // guidelines.
             bindPreferenceSummaryToValue(findPreference("edit_phone_setting"));
             bindPreferenceSummaryToValue(findPreference("edit_email_setting"));
+            bindPreferenceSummaryToValue(findPreference("edit_gender_setting"));
+            bindPreferenceSummaryToValue(findPreference("edit_km_running"));
+            bindPreferenceSummaryToValue(findPreference("edit_time_running"));
 
 
         }
