@@ -1,12 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#E91E63">
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/couple"
+        android:layout_width="207dp"
+        android:layout_height="233dp"
+        app:srcCompat="@drawable/coupletwo" />
 
     <TextView
-        android:id="@+id/textView19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:id="@+id/textView"
+        android:layout_width="351dp"
+        android:layout_height="114dp"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="You Found Somebody To Run With!"
+        android:textColor="@color/pink"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/nunito" />
+
+
 </RelativeLayout>

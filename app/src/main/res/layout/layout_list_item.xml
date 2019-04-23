@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent" android:layout_height="wrap_content"
     android:paddingLeft="15dp"
     android:paddingRight="15dp"
@@ -16,18 +17,18 @@
     />
 
     <TextView
+        android:id="@+id/runners_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="runner name"
-        android:id="@+id/runners_name"
-        android:layout_toRightOf="@+id/profile_image"
-        android:layout_toLeftOf="@id/contact"
-        android:textColor="#000"
         android:layout_marginLeft="15dp"
-        android:textStyle="bold"
-        android:textSize="17sp"
+        android:layout_toLeftOf="@id/contact"
+        android:layout_toRightOf="@+id/profile_image"
         android:padding="15dp"
-        />
+        android:text="runner name"
+        android:textColor="@color/darkBlue"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/nunito" />
 
     <com.ms.square.android.expandabletextview.ExpandableTextView
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -37,7 +38,6 @@
         android:padding="15dp"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/profile_image"
-
         expandableTextView:maxCollapsedLines="2"
         expandableTextView:animDuration="200">
 
@@ -49,6 +49,7 @@
             android:layout_alignLeft="@id/runners_name"
             android:layout_marginTop="29dp"
             android:padding="15dp"
+            android:textColorHint="@color/darkBlue"
             android:layout_marginRight="10dp"
             android:textSize="14sp"
             android:textColor="#666666" />
