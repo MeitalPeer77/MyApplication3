@@ -14,10 +14,10 @@
         <activity android:name=".Register3_activity"></activity>
         <activity android:name=".Tabs" />
         <activity android:name=".Register22" />
-        <activity android:name=".Register0" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".login" />
         <activity android:name=".MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

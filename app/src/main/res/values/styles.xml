@@ -5,7 +5,7 @@
     </style>
         <!-- Customize your theme here. -->
     <style name="CustomToolBarStyle" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:background"> @color/colorPrimary</item>
+        <item name="android:background"> @color/red</item>
         <item name="android:layout_height">?attr/actionBarSize</item>
         
 

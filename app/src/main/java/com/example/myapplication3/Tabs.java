@@ -18,7 +18,6 @@ import java.util.ArrayList;
 public class Tabs extends AppCompatActivity {
     private Toolbar myToolBar;
     private Button profileButton;
-    private Button popup;
 
 
     private ArrayList<String> mNames = new ArrayList<>();
@@ -32,20 +31,10 @@ public class Tabs extends AppCompatActivity {
         setContentView(R.layout.tab_host);
         initImageBitMap();
 
-
         profileButton = (Button) findViewById(R.id.action_bar_profile);
         profileButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 profile();
-            }
-        });
-
-        popup = (Button)findViewById(R.id.button11);
-        popup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Tabs.this, pop.class));
-
             }
         });
         android.widget.TabHost host = (android.widget.TabHost)findViewById(R.id.tabHost);
@@ -86,11 +75,11 @@ private void initRecycleView(){
 }
 
 public void profile() {
-    // Create an Intent to start the second activity
-    Intent profileIntent = new Intent(this, profile.class);
+        // Create an Intent to start the second activity
+        Intent profileIntent = new Intent(this, profile.class);
 
-    // Start the new activity.
-    startActivity(profileIntent);
+        // Start the new activity.
+        startActivity(profileIntent);
 
     }
 }
