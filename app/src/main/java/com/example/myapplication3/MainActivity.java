@@ -24,15 +24,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        RegisterBurron = (Button) findViewById(R.id.register);
-        RegisterBurron.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                register();
-            }
-        });
-
-
-
     }
 
     public void RuningMatch(){
