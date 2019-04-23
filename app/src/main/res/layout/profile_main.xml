@@ -37,8 +37,9 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:padding="15dp"
-            android:text="name of user"
+            android:text="Lizzi Bennet"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/darkBlue"
             android:textSize="30sp"
             app:fontFamily="@font/nunito" />
 
@@ -46,9 +47,11 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:gravity="center"
             android:padding="15dp"
             android:text="looking for a partner to start running with. someone who will pusg me and wont let me give up!"
             android:textAlignment="center"
+            android:textColor="@color/darkBlue"
             android:textSize="15sp"
             app:fontFamily="@font/nunito" />
 
