@@ -5,10 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     private Button loginButton;
-    private Button RegisterBurron;
+    private TextView SignInButton;
 
 
     @Override
@@ -23,6 +24,14 @@ public class MainActivity extends AppCompatActivity {
                 RuningMatch();
             }
         });
+
+        SignInButton = (TextView) findViewById(R.id.sign_up);
+        SignInButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                register();
+            }
+        });
+
 
     }
 
