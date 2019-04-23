@@ -38,20 +38,6 @@
             android:inputType="textEmailAddress"
             android:paddingTop="40dp" />
 
-        <EditText
-            android:id="@+id/email"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:drawableStart="@drawable/ic_email_24dp"
-            android:drawableLeft="@drawable/ic_email_24dp"
-            android:drawableBottom="@+id/username"
-            android:drawablePadding="5dp"
-            android:ems="10"
-            android:hint="email"
-            android:inputType="textEmailAddress"
-            android:paddingTop="40dp" />
 
         <EditText
             android:id="@+id/password"
@@ -82,7 +68,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/login_button"
+        android:id="@+id/next_register"
 
         android:layout_width="125dp"
         android:layout_height="62dp"

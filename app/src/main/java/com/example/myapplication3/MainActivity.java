@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        SignInButton = (TextView) findViewById(R.id.sign_up);
+        SignInButton = (TextView) findViewById(R.id.sign_up_main_activity);
         SignInButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 register();
@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
     public void register() {
         // Create an Intent to start the second activity
         Intent RegisterIntent = new Intent(this, Register_step_one.class);
-
         // Start the new activity.
         startActivity(RegisterIntent);
 
