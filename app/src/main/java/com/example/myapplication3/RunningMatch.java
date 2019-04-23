@@ -15,7 +15,7 @@ import android.support.v7.app.ActionBar;
 
 import java.util.ArrayList;
 
-public class Tabs extends AppCompatActivity {
+public class RunningMatch extends AppCompatActivity {
     private Toolbar myToolBar;
     private Button profileButton;
 

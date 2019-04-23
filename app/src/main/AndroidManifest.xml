@@ -11,11 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="false"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".Register3_activity"></activity>
-        <activity android:name=".Tabs" />
-        <activity android:name=".Register22" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".login" />
+        <activity android:name=".RunningMatch" />
+        <activity android:name=".Register_step_one" />
+        <activity android:name=".Register_step_two" />
         <activity android:name=".MainActivity">
 
             <intent-filter>

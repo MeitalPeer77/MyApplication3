@@ -8,13 +8,13 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
-public class RegisterActivity extends AppCompatActivity {
+public class Register_step_two extends AppCompatActivity {
     String[] RUNlIST = {"1 km", "2 km", "4 km", "6 km", "8 km", "10 km"};
     private Button nextbutton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_register_step_two);
 
         ArrayAdapter<String> arrayAdap = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, RUNlIST);
         arrayAdap.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -31,7 +31,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     public void registerNext() {
         // Create an Intent to start the second activity
-        Intent loginIntent = new Intent(this, Tabs.class);
+        Intent loginIntent = new Intent(this, RunningMatch.class);
 
         // Start the new activity.
         startActivity(loginIntent);
