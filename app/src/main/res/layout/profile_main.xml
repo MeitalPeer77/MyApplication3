@@ -75,11 +75,12 @@
             />
 
         <Button
+            android:id="@+id/btnSetting"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:background="@drawable/settings"
             android:layout_alignParentRight="true"
-            />
+            android:background="@drawable/settings"
+            android:onClick="btnSetting_onClick" />
 
     </RelativeLayout>
 
