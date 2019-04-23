@@ -1,0 +1,79 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference
+        android:capitalize="words"
+        android:defaultValue="+972-547352416"
+        android:inputType="textCapWords"
+        android:key="edit_phone_setting"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="Phone Number" />
+
+    <EditTextPreference
+        android:capitalize="words"
+        android:defaultValue="someone@gmail.com"
+        android:inputType="textCapWords"
+        android:key="edit_email_setting"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="Email" />
+
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="edit_show_me_setting"
+        android:summary="While turned off, you will not be shown in partner suggestions. "
+        android:title="Show me in Running Match" />
+
+    <!-- NOTE: Hide buttons to simplify the UI. Users can touch outside the dialog to
+         dismiss it. -->
+    <!-- NOTE: ListPreference's summary should be set to its value by the activity code. -->
+    <ListPreference
+        android:defaultValue="-1"
+        android:entries="@array/pref_example_list_titles"
+        android:entryValues="@array/pref_example_list_values"
+        android:key="example_list"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null"
+        android:title="My Location" />
+
+    <SeekBarPreference
+        android:key="seek_bar_distance"
+        android:title="Maximum Distance"
+        android:summary="20K"
+        android:max="80"
+        android:defaultValue="20" />
+
+
+    <EditTextPreference
+        android:capitalize="words"
+        android:defaultValue="10km"
+        android:inputType="textCapWords"
+        android:key="edit_km_running"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="I'm Running" />
+
+    <EditTextPreference
+        android:capitalize="words"
+        android:defaultValue="1 hour"
+        android:inputType="textCapWords"
+        android:key="edit_time_running"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="And I'm Running it in" />
+
+
+    <ListPreference
+        android:defaultValue="-1"
+        android:entries="@array/gender_list_values"
+        android:entryValues="@array/pref_gender_list_values"
+        android:key="edit_gender_setting"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null"
+        android:title="Gender" />
+
+</PreferenceScreen>
