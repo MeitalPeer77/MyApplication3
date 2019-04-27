@@ -1,6 +1,8 @@
 package com.example.myapplication3;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,7 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.ms.square.android.expandabletextview.ExpandableTextView;
 
 import java.util.ArrayList;
 
@@ -20,15 +21,18 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
     private ArrayList<String> mImageNames= new ArrayList<>();
     private ArrayList<String> mImages = new ArrayList<>();
-    private ArrayList<String> mInfo = new ArrayList<>();
+    private ArrayList<String> mDistance = new ArrayList<>();
+    private ArrayList<String> mPace = new ArrayList<>();
+
 
     private Context mContext;
 
-    public RecyclerViewAdapter(Context mContext, ArrayList<String> mImageNames, ArrayList<String> mImages, ArrayList<String> mInfo) {
+    public RecyclerViewAdapter(Context mContext, ArrayList<String> mImageNames, ArrayList<String> mImages, ArrayList<String> mDistance, ArrayList<String> mPace) {
         this.mImageNames = mImageNames;
         this.mImages = mImages;
         this.mContext = mContext;
-        this.mInfo = mInfo;
+        this.mDistance = mDistance;
+        this.mPace = mPace;
     }
 
     @Override
@@ -46,13 +50,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 .into(holder.image);
 
         holder.imageName.setText(mImageNames.get(position));
-        holder.runningInfo.setText(mInfo.get(position));
+        holder.distance.setText(mDistance.get(position));
+        holder.Pace.setText(mPace.get(position));
+
 
         holder.parentLayout.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-
-                Toast.makeText(mContext, mImageNames.get(position), Toast.LENGTH_SHORT).show();
+                profileOthers();
             }
 
 
@@ -70,18 +75,27 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         CircleImageView image;
         TextView imageName;
-        ExpandableTextView runningInfo;
+        TextView distance;
+        TextView Pace;
         RelativeLayout parentLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             image= itemView.findViewById(R.id.profile_image);
             imageName=itemView.findViewById(R.id.runners_name);
-            runningInfo=itemView.findViewById(R.id.runners_info);
+            distance =itemView.findViewById(R.id.distance);
+            Pace = itemView.findViewById(R.id.running_pace);
             parentLayout=itemView.findViewById(R.id.parent_layout);
 
 
         }
     }
 
+    public void profileOthers() {
+        // Create an Intent to start the second activity
+        Intent profileOthersIntent = new Intent(this.mContext, profile_others.class);
+        // Start the new activity.
+        mContext.startActivity(profileOthersIntent);
+
+    }
 }

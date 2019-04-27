@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         loginButton = (Button) findViewById(R.id.login_button);
         loginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                RuningMatch();
+                RunningMatch();
             }
         });
 
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void RuningMatch(){
+    public void RunningMatch(){
         // Create an Intent to start the second activity
         Intent loginIntent = new Intent(this, RunningMatch.class);
 

@@ -84,6 +84,6 @@
 
     <string name="pref_title_vibrate">Vibrate</string>
 
-  <string name="sign_up_string"><u>Sign up</u>.</string>
+    <string name="sign_up_string"><u>Sign up</u>.</string>
 
 </resources>
