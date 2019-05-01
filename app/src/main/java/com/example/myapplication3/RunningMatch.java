@@ -19,6 +19,8 @@ import java.util.ArrayList;
 public class RunningMatch extends AppCompatActivity {
     private Toolbar myToolBar;
     private Button profileButton;
+    private Button homepageButton;
+    private Button matchButton;
     private Button popupButton;
 
 
@@ -30,41 +32,40 @@ public class RunningMatch extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.suggestion_tab);
-//        initImageBitMap();
+       
+//         popupButton = (Button) findViewById(R.id.button);
+//         popupButton.setOnClickListener(new View.OnClickListener() {
+//             @Override
+//             public void onClick(View v) {
+//                 startActivity(new Intent(RunningMatch.this, pop.class));
+//             }
+//         });
 
-//        popupButton = (Button) findViewById(R.id.content_layout);
-//        popupButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(RunningMatch.this, pop.class));
-//            }
-//        });
-
-//        profileButton = (Button) findViewById(R.id.action_bar_profile);
-//        profileButton.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                profile();
-//            }
-//        });
-
-
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        profileButton = (Button) findViewById(R.id.action_bar_profile);
+        matchButton = (Button) findViewById(R.id.action_bar_matches);
+        homepageButton = (Button) findViewById(R.id.action_bar_homepage);
+        profileButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                profile();
+            }
+        });
+      viewPager = (ViewPager) findViewById(R.id.viewpager);
         myadapter = new SlideAdapter(this);
         viewPager.setAdapter(myadapter);
 
 
-//        //Tab 1
-//        android.widget.TabHost.TabSpec spec = host.newTabSpec("suggestions");
-//        spec.setContent(R.id.Suggestions);
-//        spec.setIndicator("suggestions");
-//        host.addTab(spec);
-//
-//        //Tab 2
-//        spec = host.newTabSpec("groups");
-//        spec.setContent(R.id.Groups);
-//        spec.setIndicator("groups");
-//        host.addTab(spec);
+     
+//         //Tab 1
+//         android.widget.TabHost.TabSpec spec = host.newTabSpec("suggestions");
+//         spec.setContent(R.id.Suggestions);
+//         spec.setIndicator("suggestions");
+//         host.addTab(spec);
+
+//         //Tab 2
+//         spec = host.newTabSpec("groups");
+//         spec.setContent(R.id.Groups);
+//         spec.setIndicator("groups");
+//         host.addTab(spec);
 
     }
 
