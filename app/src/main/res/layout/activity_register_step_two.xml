@@ -181,8 +181,8 @@
     <Button
         android:id="@+id/done_register"
 
-        android:layout_width="125dp"
-        android:layout_height="62dp"
+        android:layout_width="131dp"
+        android:layout_height="45dp"
         android:layout_gravity="center"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -200,10 +200,11 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.856"
+        app:layout_constraintHorizontal_bias="0.865"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.974" />
+        app:layout_constraintVertical_bias="0.957"
+        />
 
     <TextView
         android:id="@+id/textView3"
