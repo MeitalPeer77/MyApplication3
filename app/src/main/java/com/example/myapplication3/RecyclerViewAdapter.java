@@ -86,8 +86,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             distance =itemView.findViewById(R.id.distance);
             Pace = itemView.findViewById(R.id.running_pace);
             parentLayout=itemView.findViewById(R.id.parent_layout);
-
-
         }
     }
 
