@@ -1,16 +1,22 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-    </style>
-        <!-- Customize your theme here. -->
-    <style name="CustomToolBarStyle" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:background"> @color/red</item>
-        <item name="android:layout_height">?attr/actionBarSize</item>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:textColor">@color/darkBlue</item>
+        <item name="colorPrimary">@color/darkBlue</item>
+        <item name="colorPrimaryDark">@color/darkBlue</item>
+        <item name="colorAccent">@color/red</item>
 
     </style>
-    <style name="PopUp">
+        <!-- Customize your theme here. -->
+    <!--<style name="CustomToolBarStyle" parent="Theme.AppCompat.Light.NoActionBar">-->
+        <!--<item name="android:background"> @color/red</item>-->
+        <!--<item name="android:layout_height">?attr/actionBarSize</item>-->
+        <!--<item name="android:textColor">@color/darkBlue</item>-->
+
+
+    <!--</style>-->
+    <style name="PopUp" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowCloseOnTouchOutside">true</item>
     </style>

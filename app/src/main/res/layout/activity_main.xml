@@ -13,7 +13,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0px"
-        android:layout_weight="5"
+        android:layout_weight="4.5"
         android:layout_gravity="center"
         android:orientation="vertical">
 
@@ -42,10 +42,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:paddingTop="10dp"
-
             android:text="Find the perfect running partner"
             android:textColor="@color/pink"
-
             android:textSize="20sp" />
     </LinearLayout>
 
@@ -53,16 +51,18 @@
         android:layout_width="match_parent"
         android:layout_height="0px"
         android:orientation="vertical"
-        android:layout_weight="3"
+        android:layout_weight="4.5"
         >
-
+        <View
+            android:id="@+id/divider_top"
+            android:layout_width="match_parent"
+            android:layout_height="15dp"/>
         <EditText
             android:id="@+id/email"
-            android:layout_width="250dp"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:ems="10"
-            android:paddingTop="20dp"
             android:inputType="textEmailAddress"
             android:drawableLeft="@drawable/ic_email_24dp"
             android:drawablePadding="5dp"
@@ -72,7 +72,7 @@
 
         <EditText
             android:id="@+id/password"
-            android:layout_width="250dp"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:ems="10"
@@ -83,28 +83,26 @@
             android:drawableStart="@drawable/ic_lock_outline_black_24dp"
             />
 
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"/>
+
         <Button
             android:id="@+id/login_button"
-
-            android:layout_width="280dp"
+            android:layout_width="250dp"
             android:layout_height="44dp"
             android:layout_gravity="center"
+
             android:background="@drawable/button_big"
-            android:shadowColor="#A8A8A8"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="5"
-            android:text="Log In"
+            android:text="log in"
             android:textColor="#FFFFFF"
-            android:textSize="20sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0px"
-        android:layout_weight="1.5"
-        android:orientation="vertical">
+            android:textSize="20sp"
+             />
+        <View
+            android:id="@+id/divider_2"
+            android:layout_width="match_parent"
+            android:layout_height="15dp"/>
 
         <TextView
             android:id="@+id/or"
@@ -141,6 +139,7 @@
                 android:layout_height="32dp"
                 android:background="@drawable/ic_facebook" />
         </LinearLayout>
+
     </LinearLayout>
 
     <RelativeLayout
@@ -148,7 +147,7 @@
         android:layout_height="0px"
         android:layout_alignParentBottom="true"
         android:gravity="center"
-        android:layout_weight="0.5"
+        android:layout_weight="1"
         android:layout_gravity="bottom"
 
         android:orientation="vertical"
@@ -162,6 +161,7 @@
             android:gravity="bottom"
             android:layout_alignParentBottom="true"
             android:paddingBottom="10dp"
+            android:textSize="16dp"
             android:text="Don't have an account?" />
 
         <TextView
@@ -172,6 +172,7 @@
             android:layout_toRightOf="@id/dont_have_account"
             android:clickable="true"
             android:gravity="bottom"
+            android:textSize="16dp"
             android:paddingLeft="5dp"
             android:paddingBottom="10dp"
             android:text="@string/sign_up_string"

@@ -11,9 +11,9 @@
         android:layout_width="110dp"
         android:layout_height="110dp"
         android:id="@+id/profile_image"
-        android:padding="5dp"
         android:src="@mipmap/ic_launcher"
-        android:layout_gravity = "left"
+        android:gravity = "center_vertical"
+        android:padding="10dp"
     />
 
     <TextView
@@ -21,60 +21,107 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
+        android:layout_centerHorizontal="true"
         android:layout_toLeftOf="@id/contact"
         android:layout_toRightOf="@+id/profile_image"
-        android:padding="15dp"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
         android:text="runner name"
         android:textColor="@color/darkBlue"
         android:textSize="17sp"
         android:textStyle="bold"
         app:fontFamily="@font/nunito" />
 
-    <com.ms.square.android.expandabletextview.ExpandableTextView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/runners_info"
+    <TextView
+        android:id="@+id/distance"
         android:layout_width="wrap_content"
-        android:padding="15dp"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/profile_image"
-        expandableTextView:maxCollapsedLines="2"
-        expandableTextView:animDuration="200">
+        android:text="distance"
+        android:layout_marginLeft="15dp"
+        android:paddingBottom="15dp"
+        android:layout_below="@id/runners_name"
+        app:fontFamily="@font/nunito"
 
-        <TextView
-            android:id="@id/expandable_text"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:text="expandable text"
-            android:layout_alignLeft="@id/runners_name"
-            android:layout_marginTop="29dp"
-            android:padding="15dp"
-            android:textColorHint="@color/darkBlue"
-            android:layout_marginRight="10dp"
-            android:textSize="14sp"
-            android:textColor="#666666" />
+        android:layout_toRightOf="@id/profile_image"/>
 
-        <ImageButton
-            android:id="@id/expand_collapse"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:layout_gravity="right|bottom"
-            android:background="@android:color/transparent"/>
-    </com.ms.square.android.expandabletextview.ExpandableTextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/distance"
+        android:layout_below="@id/runners_name"
+        android:text=" km. away from you"
+        android:fontFamily="@font/nunito"
+        android:layout_above="@id/runing_pace"/>
 
 
-    <Button
-        android:id="@+id/contact"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:textColor="#FFFFFF"
-        android:textSize="10dp"
-        android:background="@drawable/phone"
-        android:layout_gravity = "left"
+    <TextView
+        android:id="@+id/running_pace_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fontFamily="@font/nunito"
+        android:text="running pace: "
+        android:layout_marginLeft="15dp"
+
+        android:layout_toRightOf="@id/profile_image"
+        android:layout_below="@id/distance"/>
+
+    <TextView
+        android:id="@+id/running_pace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2.5"
+        android:paddingBottom="15dp"
+        app:fontFamily="@font/nunito"
+        android:layout_below="@id/distance"
+        android:layout_toRightOf="@id/running_pace_text"
         />
+
+
+    <!--<com.ms.square.android.expandabletextview.ExpandableTextView-->
+        <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+        <!--xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"-->
+        <!--android:id="@+id/runners_info"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:padding="15dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_toRightOf="@+id/profile_image"-->
+        <!--expandableTextView:maxCollapsedLines="2"-->
+        <!--expandableTextView:animDuration="200">-->
+
+        <!--<TextView-->
+            <!--android:id="@id/expandable_text"-->
+            <!--android:layout_width="200dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="expandable text"-->
+            <!--android:layout_alignLeft="@id/runners_name"-->
+            <!--android:layout_marginTop="29dp"-->
+            <!--android:padding="15dp"-->
+            <!--android:textColorHint="@color/darkBlue"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:textSize="14sp"-->
+            <!--android:textColor="#666666" />-->
+
+        <!--<ImageButton-->
+            <!--android:id="@id/expand_collapse"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:padding="16dp"-->
+            <!--android:layout_gravity="right|bottom"-->
+            <!--android:background="@android:color/transparent"/>-->
+    <!--</com.ms.square.android.expandabletextview.ExpandableTextView>-->
+
+
+    <!--<Button-->
+        <!--android:id="@+id/contact_from_group_view"-->
+        <!--android:layout_width="32dp"-->
+        <!--android:layout_height="32dp"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:textColor="#FFFFFF"-->
+        <!--android:textSize="10dp"-->
+        <!--android:background="@drawable/phone"-->
+        <!--android:layout_gravity = "left"-->
+        <!--/>-->
 
 
 </RelativeLayout>

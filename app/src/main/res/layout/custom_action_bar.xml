@@ -20,7 +20,7 @@
             android:id="@+id/action_bar_profile"
             android:layout_width="28dp"
             android:layout_height="28dp"
-            android:background="@drawable/manuser"
+            android:background="@drawable/ic_person_black_24dp"
             android:clickable="true" />
 
     </LinearLayout>
