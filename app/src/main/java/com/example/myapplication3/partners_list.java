@@ -20,6 +20,7 @@ public class partners_list extends AppCompatActivity {
     private ArrayList<String> mDistance = new ArrayList<>();
     private ArrayList<String> mPace = new ArrayList<>();
     private Button matchButton;
+    private Button profileButton;
 
 
     @Override
@@ -36,6 +37,13 @@ public class partners_list extends AppCompatActivity {
 
             }
 
+        });
+        profileButton = (Button) findViewById(R.id.action_bar_profile);
+        profileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                profile();
+            }
         });
 
     }
