@@ -57,6 +57,13 @@ public class RunningMatch extends AppCompatActivity {
         myadapter = new SlideAdapter(this);
         viewPager.setAdapter(myadapter);
 
+        popupButton = (Button)findViewById(R.id.lets_run);
+        popupButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(RunningMatch.this, pop.class));
+            }
+        });
 
     }
 
@@ -77,5 +84,6 @@ public class RunningMatch extends AppCompatActivity {
         startActivity(partnersIntent);
 
     }
+
 
 }
