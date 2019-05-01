@@ -19,7 +19,10 @@ import java.util.ArrayList;
 public class RunningMatch extends AppCompatActivity {
     private Toolbar myToolBar;
     private Button profileButton;
+    private Button homepageButton;
+    private Button matchButton;
     private Button popupButton;
+
 
 
     private ArrayList<String> mNames = new ArrayList<>();
@@ -47,6 +50,8 @@ public class RunningMatch extends AppCompatActivity {
         });
 
         profileButton = (Button) findViewById(R.id.action_bar_profile);
+        matchButton = (Button) findViewById(R.id.action_bar_matches);
+        homepageButton = (Button) findViewById(R.id.action_bar_homepage);
         profileButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 profile();
