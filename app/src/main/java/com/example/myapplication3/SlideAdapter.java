@@ -32,10 +32,10 @@ public class SlideAdapter extends PagerAdapter {
     }   ;
     // list of descriptions
     public String[] lst_description = {
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,"
+            "I just want to stay in shape, go on short runs like once a week",
+            "I just want to stay in shape, go on short runs like once a week",
+            "I just want to stay in shape, go on short runs like once a week",
+            "I just want to stay in shape, go on short runs like once a week",
     };
     // list of background colors
 //    public int[]  lst_backgroundcolor = {
