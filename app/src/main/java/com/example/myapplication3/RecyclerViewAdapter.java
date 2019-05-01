@@ -1,5 +1,6 @@
 package com.example.myapplication3;
 
+
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -86,8 +87,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             distance =itemView.findViewById(R.id.distance);
             Pace = itemView.findViewById(R.id.running_pace);
             parentLayout=itemView.findViewById(R.id.parent_layout);
-
-
         }
     }
 

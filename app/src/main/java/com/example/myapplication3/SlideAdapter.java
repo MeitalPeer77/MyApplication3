@@ -20,9 +20,9 @@ public class SlideAdapter extends PagerAdapter {
 
     // list of images
     public int[] lst_images = {
-            R.drawable.person1,
-            R.drawable.person3,
-            R.drawable.person2,
+            R.drawable.women3,
+            R.drawable.women3,
+            R.drawable.women3,
     };
     // list of titles
     public String[] lst_title = {

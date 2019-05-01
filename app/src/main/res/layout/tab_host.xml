@@ -16,7 +16,7 @@
             android:id="@+id/include"
             layout="@layout/custom_action_bar"
             app:layout_constraintBottom_toTopOf="@+id/cardView"
-            app:layout_constraintVertical_chainStyle="spread_inside" />
+            app:layout_constraintVertical_chainStyle="packed" />
 
 
         <android.support.v7.widget.CardView
