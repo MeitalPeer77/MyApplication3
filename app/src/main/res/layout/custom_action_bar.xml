@@ -22,6 +22,19 @@
             android:layout_height="28dp"
             android:background="@drawable/ic_person_black_24dp"
             android:clickable="true" />
+        <Button
+            android:id="@+id/action_bar_homepage"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="@drawable/ic_phone_iphone_black_24dp"
+            android:clickable="true" />
+
+        <Button
+            android:id="@+id/action_bar_matches"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="@drawable/ic_directions_run_black_24dp"
+            android:clickable="true" />
 
     </LinearLayout>
 
