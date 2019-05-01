@@ -74,6 +74,7 @@
         <Spinner
             android:id="@+id/spinner"
             android:layout_width="107dp"
+            app:fontFamily="@font/nunito"
             android:layout_height="35dp" />
     </LinearLayout>
 
@@ -111,6 +112,7 @@
             android:layout_width="84dp"
             android:layout_height="54dp"
             android:ems="10"
+            app:fontFamily="@font/nunito"
             android:inputType="number" />
 
         <TextView
@@ -176,6 +178,7 @@
         app:layout_constraintHorizontal_bias="0.137"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:fontFamily="@font/nunito"
         app:layout_constraintVertical_bias="0.705" />
 
     <Button
@@ -203,6 +206,7 @@
         app:layout_constraintHorizontal_bias="0.856"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:fontFamily="@font/nunito"
         app:layout_constraintVertical_bias="0.974" />
 
     <TextView
@@ -224,6 +228,7 @@
         app:layout_constraintHorizontal_bias="0.027"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:fontFamily="@font/nunito"
         app:layout_constraintVertical_bias="0.087" />
 
     <ImageView
