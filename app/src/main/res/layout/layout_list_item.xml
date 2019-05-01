@@ -26,7 +26,7 @@
         android:layout_toRightOf="@+id/profile_image"
         android:paddingBottom="15dp"
         android:paddingTop="15dp"
-        android:text="runner name"
+        android:text="runner's name"
         android:textColor="@color/darkBlue"
         android:textSize="17sp"
         android:textStyle="bold"
