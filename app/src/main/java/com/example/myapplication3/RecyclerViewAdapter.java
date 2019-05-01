@@ -10,10 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.ms.square.android.expandabletextview.ExpandableTextView;
 
 import java.util.ArrayList;
 
@@ -24,6 +22,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private ArrayList<String> mImages = new ArrayList<>();
     private ArrayList<String> mDistance = new ArrayList<>();
     private ArrayList<String> mPace = new ArrayList<>();
+
 
 
     private Context mContext;
@@ -55,16 +54,19 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.Pace.setText(mPace.get(position));
 
 
-        holder.parentLayout.setOnClickListener(new View.OnClickListener(){
+        holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
-                profileOthers();
+            public void onClick(View v) {
+
+                Intent newIntent = new Intent(mContext, ProfileGallery.class);
+                newIntent.putExtra("image", mImages.get(position));
+                newIntent.putExtra("profile name", mImageNames.get(position));
+                newIntent.putExtra("distance", mDistance.get(position));
+                mContext.startActivity(newIntent);
             }
-
-
         });
-
     }
+
 
     @Override
     public int getItemCount() {
@@ -90,11 +92,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         }
     }
 
-    public void profileOthers() {
-        // Create an Intent to start the second activity
-        Intent profileOthersIntent = new Intent(this.mContext, profile_others.class);
-        // Start the new activity.
-        mContext.startActivity(profileOthersIntent);
-
-    }
+//    public void profileOthers() {
+//         Create an Intent to start the second activity
+//        Intent profileOthersIntent = new Intent(this.mContext, ProfileGallery.class);
+//         Start the new activity.
+//        mContext.startActivity(profileOthersIntent);
+//
+//    }
 }

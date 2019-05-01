@@ -19,6 +19,7 @@ public class partners_list extends AppCompatActivity {
     private ArrayList<String> mImageUrls = new ArrayList<>();
     private ArrayList<String> mDistance = new ArrayList<>();
     private ArrayList<String> mPace = new ArrayList<>();
+    private ArrayList<String> mInfo = new ArrayList<>();
     private Button matchButton;
     private Button profileButton;
 
@@ -54,12 +55,14 @@ public class partners_list extends AppCompatActivity {
         mNames.add("Nathaniel Tavisal");
         mDistance.add("3.1");
         mPace.add("6");
+        mInfo.add("info 1");
 
 
         mImageUrls.add("https://scontent.ftlv6-1.fna.fbcdn.net/v/t1.0-9/314570_2286081785515_743884461_n.jpg?_nc_cat=108&_nc_ht=scontent.ftlv6-1.fna&oh=72538202dcbfa0c5da9f3f8aeb3b8435&oe=5D75FC76");
         mNames.add("Meital Peer");
         mDistance.add("1.5");
         mPace.add("5");
+        mInfo.add("info 2");
 
         mImageUrls.add("https://scontent.ftlv6-1.fna.fbcdn.net/v/t31.0-8/21122579_1833916359957237_6719538012298659073_o.jpg?_nc_cat=109&_nc_ht=scontent.ftlv6-1.fna&oh=b0fd68b0be099e148062a31a3d20a348&oe=5D2AC9E7");
         mNames.add("Shira Weitman");

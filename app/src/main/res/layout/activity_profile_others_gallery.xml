@@ -27,15 +27,17 @@
 
 
         <de.hdodenhof.circleimageview.CircleImageView
+
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:id="@+id/profile_image"
+            android:id="@+id/profile_other_image"
             android:padding="5dp"
             android:src="@drawable/netta"
             android:paddingBottom="15dp"
             />
 
         <TextView
+            android:id="@+id/profile_other_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -48,7 +50,15 @@
 
 
         <TextView
+            android:id="@+id/profile_other_distance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <TextView
             android:layout_width="300dp"
+            android:id="@+id/profile_other_info"
+
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:gravity="center"

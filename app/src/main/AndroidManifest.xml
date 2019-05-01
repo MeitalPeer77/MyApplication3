@@ -15,7 +15,7 @@
             android:name=".partners_list"
             android:label="@string/title_activity_partners_list"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".profile_others" />
+        <activity android:name=".ProfileGallery" />
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"

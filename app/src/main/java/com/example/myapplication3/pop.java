@@ -43,7 +43,7 @@ public class pop extends Activity {
 
     public void MainProfile(){
         // Create an Intent to start the second activity
-        Intent loginIntent = new Intent(this, profile_others.class);
+        Intent loginIntent = new Intent(this, ProfileGallery.class);
 
         // Start the new activity.
         startActivity(loginIntent);
