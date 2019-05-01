@@ -17,22 +17,21 @@
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
-        android:paddingTop="50dp"
         android:layout_width="match_parent"
-        android:layout_height="430dp"
-        >
+        android:layout_height="450dp"
+        android:paddingTop="50dp"
+        android:paddingBottom="10dp">
 
     </android.support.v4.view.ViewPager>
 
     <Button
         android:id="@+id/lets_run"
-
+        android:paddingTop="-5dp"
         android:layout_width="131dp"
         android:layout_height="45dp"
         android:layout_gravity="center"
-        android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="-8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"

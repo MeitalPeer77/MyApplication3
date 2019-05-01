@@ -7,89 +7,109 @@
     android:paddingBottom="10dp"
     android:orientation="vertical"
     android:layout_width="350dp"
-    android:layout_height="430dp"
+    android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:id="@+id/slidelinearlayout"
     app:cardCornerRadius="10dp">
 
     <LinearLayout
         android:layout_width="320dp"
-        android:layout_height="415dp"
+        android:layout_height="363dp"
+        android:layout_gravity="center"
         android:background="@drawable/customborder"
         android:orientation="vertical"
-        android:paddingTop="50dp"
-        android:layout_gravity = "center"
-        >
+        android:paddingTop="50dp">
 
 
         <ImageView
             android:id="@+id/slideimg"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_gravity = "center"
+            android:layout_width="99dp"
+            android:layout_height="88dp"
+            android:layout_gravity="center"
             android:src="@mipmap/ic_launcher" />
 
         <TextView
             android:id="@+id/txttitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="15dp"
             android:layout_gravity="center"
+            android:padding="15dp"
             android:paddingTop="120dp"
             android:text="runner's name"
             android:textColor="@android:color/black"
             android:textSize="20sp"
-            app:fontFamily="@font/nunito"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:fontFamily="@font/nunito" />
 
         <LinearLayout
             android:id="@+id/location"
-            android:layout_below="@+id/slideimg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:orientation="horizontal"
-            >
+            android:layout_below="@+id/slideimg"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/locationBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ic_location_on_black_24dp"/>
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/ic_location_on_black_24dp" />
 
             <TextView
                 android:id="@+id/kmtext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:fontFamily="@font/nunito"
+                android:text="1.7 km from you   |  "
                 android:textSize="15sp"
-                android:text="1.7 km from you" />
+                app:fontFamily="@font/nunito" />
+
+            <ImageView
+                android:id="@+id/watch_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/stopclock"
+                android:paddingLeft="10dp" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:paddingLeft="5dp"
                 android:layout_height="wrap_content"
-                app:fontFamily="@font/nunito"
+                android:paddingLeft="5dp"
+                android:text="Short Distance"
                 android:textSize="15sp"
-                android:text="  | Short Distance unner" />
+                app:fontFamily="@font/nunito" />
 
         </LinearLayout>
-        <TextView
+
+        <LinearLayout
             android:layout_width="wrap_content"
-             android:layout_gravity="center"
             android:layout_height="wrap_content"
-            app:fontFamily="@font/nunito"
-            android:textSize="15sp"
-            android:text=" Pace: 5" />
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/shoe_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/running" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text=" Pace: 5"
+                android:textSize="15sp"
+                app:fontFamily="@font/nunito" />
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/content_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_above="@id/slideimg"
+            android:layout_below="@id/location"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
-            android:layout_below="@id/location"
             android:orientation="vertical">
 
             <TextView
@@ -98,8 +118,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:textColor="@android:color/black"
-                app:fontFamily="@font/nunito"
-                android:textSize="18dp" />
+                android:textSize="18dp"
+                app:fontFamily="@font/nunito" />
 
         </LinearLayout>
     </LinearLayout>

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/popup_border"
     tools:context=".Register_step_two">
 
     <TextView
@@ -26,7 +27,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.361" />
 
     <Button
         android:id="@+id/contact"
@@ -40,23 +42,23 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        app:fontFamily="@font/nunito"
         android:background="@drawable/button_big"
-
-
         android:shadowColor="#A8A8A8"
+
+
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="5"
         android:text="Contact"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
+        app:fontFamily="@font/nunito"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.847"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.662"
+        app:layout_constraintVertical_bias="0.716"
 
         />
 
@@ -72,23 +74,23 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        app:fontFamily="@font/nunito"
         android:background="@drawable/button_big"
-
-
         android:shadowColor="#A8A8A8"
+
+
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="5"
         android:text="Not Now"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
+        app:fontFamily="@font/nunito"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.169"
+        app:layout_constraintHorizontal_bias="0.166"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.662"
+        app:layout_constraintVertical_bias="0.716"
 
         />
 
