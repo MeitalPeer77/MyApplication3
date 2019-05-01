@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 
@@ -18,6 +19,7 @@ public class partners_list extends AppCompatActivity {
     private ArrayList<String> mImageUrls = new ArrayList<>();
     private ArrayList<String> mDistance = new ArrayList<>();
     private ArrayList<String> mPace = new ArrayList<>();
+    private Button matchButton;
 
 
     @Override
@@ -26,7 +28,18 @@ public class partners_list extends AppCompatActivity {
         setContentView(R.layout.group_tab);
         initImageBitMap();
 
+        matchButton = (Button) findViewById(R.id.action_bar_homepage);
+        matchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                suggestions();
+
+            }
+
+        });
+
     }
+
 
     private void initImageBitMap(){
         mImageUrls.add("https://i.ibb.co/6bcnB4V/runner5.png");
@@ -71,6 +84,15 @@ public class partners_list extends AppCompatActivity {
 
         // Start the new activity.
         startActivity(profileIntent);
+
+    }
+
+    public void suggestions() {
+        // Create an Intent to start the second activity
+        Intent suggestiosIntent = new Intent(this, RunningMatch.class);
+
+        // Start the new activity.
+        startActivity(suggestiosIntent);
 
     }
 }

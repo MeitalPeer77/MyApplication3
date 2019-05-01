@@ -42,8 +42,18 @@ public class RunningMatch extends AppCompatActivity {
 //             }
 //         });
 
-//        profileButton = (Button) findViewById(R.id.action_bar_profile);
+//        profileButton = (Button) findViewById(R.id.action_bar_profile)
+//;
         matchButton = (Button) findViewById(R.id.action_bar_matches);
+        matchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                partners();
+
+            }
+
+        });
+
 //        homepageButton = (Button) findViewById(R.id.action_bar_homepage);
 //        profileButton.setOnClickListener(new View.OnClickListener() {
 //            public void onClick(View v) {
@@ -53,6 +63,8 @@ public class RunningMatch extends AppCompatActivity {
       viewPager = (ViewPager) findViewById(R.id.viewpager);
         myadapter = new SlideAdapter(this);
         viewPager.setAdapter(myadapter);
+
+
 
 
      
@@ -78,5 +90,13 @@ public class RunningMatch extends AppCompatActivity {
 //        startActivity(profileIntent);
 //
 //    }
+        public void partners() {
+        // Create an Intent to start the second activity
+        Intent partnersIntent = new Intent(this, partners_list.class);
+
+        // Start the new activity.
+        startActivity(partnersIntent);
+
+    }
 
 }
