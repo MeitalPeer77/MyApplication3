@@ -31,7 +31,7 @@
             android:layout_height="150dp"
             android:id="@+id/profile_image"
             android:padding="5dp"
-            android:src="@drawable/runner1"
+            android:src="@drawable/netta"
             android:paddingBottom="15dp"
             />
 
@@ -39,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="Runners Name"
+            android:text="Netta Zohar"
             android:paddingBottom="15dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textColor="@color/darkBlue"
