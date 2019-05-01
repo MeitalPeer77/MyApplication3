@@ -36,7 +36,7 @@ public class pop extends Activity {
 
 
         int width = (int) (dm.widthPixels*0.8);
-        int high = (int) (dm.heightPixels*0.6);
+        int high = (int) (dm.heightPixels*0.5);
 
         getWindow().setLayout(width, high);
     }
