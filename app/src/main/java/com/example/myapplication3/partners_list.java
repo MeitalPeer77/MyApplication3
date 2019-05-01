@@ -50,29 +50,29 @@ public class partners_list extends AppCompatActivity {
 
 
     private void initImageBitMap(){
-        mImageUrls.add("https://i.ibb.co/6bcnB4V/runner5.png");
-        mNames.add("Runners Name");
+        mImageUrls.add("https://scontent.ftlv6-1.fna.fbcdn.net/v/t1.0-9/10570528_663942363682968_3472551542158599282_n.jpg?_nc_cat=108&_nc_ht=scontent.ftlv6-1.fna&oh=4b5e98824fb8295aad9b55de97be83be&oe=5D6910B9");
+        mNames.add("Nathaniel Tavisal");
         mDistance.add("3.1");
-        mPace.add("5.5");
+        mPace.add("6");
 
 
-        mImageUrls.add("https://i.ibb.co/d5cgNH1/runner1.png");
-        mNames.add("Runners Name");
+        mImageUrls.add("https://scontent.ftlv6-1.fna.fbcdn.net/v/t1.0-9/314570_2286081785515_743884461_n.jpg?_nc_cat=108&_nc_ht=scontent.ftlv6-1.fna&oh=72538202dcbfa0c5da9f3f8aeb3b8435&oe=5D75FC76");
+        mNames.add("Meital Peer");
         mDistance.add("1.5");
         mPace.add("5");
 
-        mImageUrls.add("https://i.ibb.co/9HZfDHy/runner2.png");
-        mNames.add("Runners Name");
+        mImageUrls.add("https://scontent.ftlv6-1.fna.fbcdn.net/v/t31.0-8/21122579_1833916359957237_6719538012298659073_o.jpg?_nc_cat=109&_nc_ht=scontent.ftlv6-1.fna&oh=b0fd68b0be099e148062a31a3d20a348&oe=5D2AC9E7");
+        mNames.add("Shira Weitman");
         mDistance.add("0.5");
         mPace.add("4.5");
 
-        mImageUrls.add("https://i.ibb.co/L5C4KJk/runner3.png");
-        mNames.add("Runners Name");
+        mImageUrls.add("https://scontent.ftlv6-1.fna.fbcdn.net/v/t1.0-9/559079_10151809848077388_1166275349_n.jpg?_nc_cat=102&_nc_ht=scontent.ftlv6-1.fna&oh=7aade7d7463f3d5ed16c32c2f30562ef&oe=5D326041");
+        mNames.add("Michal Gordon");
         mDistance.add("2.0");
         mPace.add("6");
 
-        mImageUrls.add("https://i.ibb.co/q99CG0T/runner4.png");
-        mNames.add("Runners Name");
+        mImageUrls.add("https://scontent.ftlv6-1.fna.fbcdn.net/v/t1.0-9/10898096_10152956054335912_5153974417356391101_n.jpg?_nc_cat=109&_nc_ht=scontent.ftlv6-1.fna&oh=f131a44166cc0a4d57b4737366da0a16&oe=5D6512E9");
+        mNames.add("Liav Alter");
         mDistance.add("2.5");
         mPace.add("5.5");
 
