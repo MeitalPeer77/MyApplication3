@@ -35,9 +35,10 @@
             android:padding="15dp"
             android:layout_gravity="center"
             android:paddingTop="120dp"
-            android:text="runner name"
+            android:text="runner's name"
             android:textColor="@android:color/black"
             android:textSize="20sp"
+            app:fontFamily="@font/nunito"
             android:textStyle="bold" />
 
         <RelativeLayout
@@ -55,6 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="0dp"
+                app:fontFamily="@font/nunito"
                 android:text="1.7 km from you" />
             <ImageView
                 android:id="@+id/locationBtn"
@@ -81,6 +83,7 @@
                 android:layout_gravity="bottom"
                 android:text="Hi, my goal is to fimd a good running partner and to run half marathon. after all running could be fun with a good teamate "
                 android:textColor="@android:color/black"
+                app:fontFamily="@font/nunito"
                 android:textSize="20dp" />
 
 
