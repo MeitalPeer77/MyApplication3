@@ -43,24 +43,9 @@
             android:paddingBottom="15dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textColor="@color/darkBlue"
-            android:textSize="30sp"
+            android:textSize="26sp"
             app:fontFamily="@font/nunito" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="1.5 KM from you"
-            android:paddingBottom="15dp"
-            app:fontFamily="@font/nunito"
-            android:gravity="center"/>
-
-        <TextView
-            android:id="@+id/gender"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingBottom="15dp"
-            app:fontFamily="@font/nunito"
-            android:text="Female" />
 
         <TextView
             android:layout_width="300dp"
@@ -73,14 +58,6 @@
             android:textColor="@color/darkBlue"
             android:textSize="15sp"
             app:fontFamily="@font/nunito" />
-
-        <TextView
-            android:id="@+id/runing_pace"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            app:fontFamily="@font/nunito"
-            android:text="Running pace: 5.5" />
 
 
     </LinearLayout>

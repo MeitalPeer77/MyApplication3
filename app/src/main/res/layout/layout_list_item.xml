@@ -24,11 +24,11 @@
         android:layout_centerHorizontal="true"
         android:layout_toLeftOf="@id/contact"
         android:layout_toRightOf="@+id/profile_image"
-        android:paddingBottom="15dp"
-        android:paddingTop="15dp"
+        android:paddingBottom="5dp"
+        android:paddingTop="10dp"
         android:text="runner's name"
         android:textColor="@color/darkBlue"
-        android:textSize="17sp"
+        android:textSize="22sp"
         android:textStyle="bold"
         app:fontFamily="@font/nunito" />
 
@@ -38,10 +38,10 @@
         android:layout_height="wrap_content"
         android:text="distance"
         android:layout_marginLeft="15dp"
-        android:paddingBottom="15dp"
+        android:paddingBottom="5dp"
         android:layout_below="@id/runners_name"
         app:fontFamily="@font/nunito"
-
+        android:textSize="15sp"
         android:layout_toRightOf="@id/profile_image"/>
 
     <TextView
@@ -51,7 +51,8 @@
         android:layout_below="@id/runners_name"
         android:text=" km. away from you"
         android:fontFamily="@font/nunito"
-        android:layout_above="@id/runing_pace"/>
+        android:textSize="15sp"
+        android:layout_above="@id/running_pace"/>
 
 
     <TextView
@@ -61,7 +62,7 @@
         app:fontFamily="@font/nunito"
         android:text="running pace: "
         android:layout_marginLeft="15dp"
-
+        android:textSize="15sp"
         android:layout_toRightOf="@id/profile_image"
         android:layout_below="@id/distance"/>
 
@@ -69,10 +70,11 @@
         android:id="@+id/running_pace"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2.5"
+        android:text="5.5"
         android:paddingBottom="15dp"
         app:fontFamily="@font/nunito"
         android:layout_below="@id/distance"
+        android:textSize="15sp"
         android:layout_toRightOf="@id/running_pace_text"
         />
 

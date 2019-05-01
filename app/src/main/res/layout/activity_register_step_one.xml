@@ -113,6 +113,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
+        app:fontFamily="@font/nunito"
         android:background="@drawable/button_big"
 
 
