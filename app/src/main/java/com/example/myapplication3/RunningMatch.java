@@ -32,6 +32,7 @@ public class RunningMatch extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.suggestion_tab);
        
 //         popupButton = (Button) findViewById(R.id.button);
 //         popupButton.setOnClickListener(new View.OnClickListener() {
@@ -42,7 +43,7 @@ public class RunningMatch extends AppCompatActivity {
 //         });
 
 //        profileButton = (Button) findViewById(R.id.action_bar_profile);
-//        matchButton = (Button) findViewById(R.id.action_bar_matches);
+        matchButton = (Button) findViewById(R.id.action_bar_matches);
 //        homepageButton = (Button) findViewById(R.id.action_bar_homepage);
 //        profileButton.setOnClickListener(new View.OnClickListener() {
 //            public void onClick(View v) {
