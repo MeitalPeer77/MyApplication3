@@ -9,7 +9,6 @@
         <item name="android:layout_height">?attr/actionBarSize</item>
         <item name="android:textColor">@color/darkBlue</item>
 
-
     </style>
     <style name="PopUp">
         <item name="android:windowIsTranslucent">true</item>
