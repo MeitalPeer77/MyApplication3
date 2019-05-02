@@ -18,13 +18,14 @@
         android:layout_gravity="center"
         android:background="@drawable/customborder"
         android:orientation="vertical"
+        android:paddingBottom="5dp"
         android:paddingTop="50dp">
 
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/slideimg"
-            android:layout_width="99dp"
-            android:layout_height="88dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:layout_gravity="center"
             android:src="@mipmap/ic_launcher" />
 
@@ -36,7 +37,6 @@
             android:padding="15dp"
             android:paddingTop="120dp"
             android:text="runner's name"
-            android:textColor="@android:color/black"
             android:textSize="20sp"
             android:textStyle="bold"
             app:fontFamily="@font/nunito" />
@@ -114,11 +114,12 @@
 
             <TextView
                 android:id="@+id/txtdescription"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textColor="@android:color/black"
+                android:textAlignment="center"
+                android:text="sample text"
                 android:textSize="18dp"
+                android:layout_gravity="center"
                 app:fontFamily="@font/nunito" />
 
         </LinearLayout>

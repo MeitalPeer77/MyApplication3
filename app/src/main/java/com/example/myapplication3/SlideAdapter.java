@@ -20,14 +20,20 @@ public class SlideAdapter extends PagerAdapter {
 
     // list of images
     public int[] lst_images = {
-            R.drawable.women3,
-            R.drawable.women3,
-            R.drawable.women3,
+            R.drawable.maayanm,
+            R.drawable.yehonatans,
+            R.drawable.noam,
+//            R.drawable.liors,
+//            R.drawable.toms,
+//            R.drawable.almoga,
+
+
+
     };
     // list of titles
     public String[] lst_title = {
-            "Maayan",
-            "Amir",
+            "Maayan Yossef Magenheim",
+            "Jehonathan Spigelman",
             "Almog",
     }   ;
     // list of descriptions
