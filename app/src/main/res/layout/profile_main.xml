@@ -9,7 +9,7 @@
 
     <include
         android:id="@+id/include"
-        layout="@layout/custom_action_bar"
+        layout="@layout/custom_action_bar_profile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"

@@ -23,10 +23,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private ArrayList<String> mDistances = new ArrayList<>();
     private ArrayList<String> mPace = new ArrayList<>();
     private ArrayList<String> mLocation = new ArrayList<>();
-
-
-
-
     private Context mContext;
 
     public RecyclerViewAdapter(Context mContext, ArrayList<String> mImageNames, ArrayList<String> mImages, ArrayList<String> mDistance, ArrayList<String> mPace, ArrayList<String> mLocation) {
