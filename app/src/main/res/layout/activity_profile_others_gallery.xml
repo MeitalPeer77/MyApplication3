@@ -49,11 +49,85 @@
             app:fontFamily="@font/nunito" />
 
 
-        <TextView
-            android:id="@+id/profile_other_distance"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_below="@+id/slideimg"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/locationBtn"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/ic_location_on_black_24dp" />
+
+            <TextView
+                android:id="@+id/profile_other_location_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="input"
+                android:textSize="15sp"
+                app:fontFamily="@font/nunito" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito"
+                android:text=" KM. away"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="10dp"
+                android:text="|"/>
+
+            <ImageView
+                android:id="@+id/watch_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/stopclock"
+                android:paddingLeft="10dp" />
+
+            <TextView
+                android:id="@+id/prifile_other_distances_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:text="Short Distances"
+                android:textSize="15sp"
+                app:fontFamily="@font/nunito" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/shoe_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/running" />
+
+
+            <TextView
+                android:id="@+id/profile_other_pace_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text=" input"
+                android:textSize="15sp"
+                app:fontFamily="@font/nunito" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito"
+                android:text=" per KM."/>
+        </LinearLayout>
 
         <TextView
             android:layout_width="300dp"
@@ -63,6 +137,7 @@
             android:layout_centerInParent="true"
             android:gravity="center"
             android:paddingBottom="15dp"
+            android:paddingTop="10dp"
             android:text="looking for a partner to start running with. someone who will push me and wont let me give up!"
             android:textAlignment="center"
             android:textColor="@color/darkBlue"

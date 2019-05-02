@@ -20,18 +20,21 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
     private ArrayList<String> mImageNames= new ArrayList<>();
     private ArrayList<String> mImages = new ArrayList<>();
-    private ArrayList<String> mDistance = new ArrayList<>();
+    private ArrayList<String> mDistances = new ArrayList<>();
     private ArrayList<String> mPace = new ArrayList<>();
+    private ArrayList<String> mLocation = new ArrayList<>();
+
 
 
 
     private Context mContext;
 
-    public RecyclerViewAdapter(Context mContext, ArrayList<String> mImageNames, ArrayList<String> mImages, ArrayList<String> mDistance, ArrayList<String> mPace) {
+    public RecyclerViewAdapter(Context mContext, ArrayList<String> mImageNames, ArrayList<String> mImages, ArrayList<String> mDistance, ArrayList<String> mPace, ArrayList<String> mLocation) {
         this.mImageNames = mImageNames;
         this.mImages = mImages;
         this.mContext = mContext;
-        this.mDistance = mDistance;
+        this.mDistances = mDistance;
+        this.mLocation = mLocation;
         this.mPace = mPace;
     }
 
@@ -50,19 +53,24 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 .into(holder.image);
 
         holder.imageName.setText(mImageNames.get(position));
-        holder.distance.setText(mDistance.get(position));
+        holder.distance.setText(mDistances.get(position));
         holder.Pace.setText(mPace.get(position));
+        holder.location.setText(mLocation.get(position));
 
 
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent newIntent = new Intent(mContext, ProfileGallery.class);
-                newIntent.putExtra("image", mImages.get(position));
-                newIntent.putExtra("profile name", mImageNames.get(position));
-                newIntent.putExtra("distance", mDistance.get(position));
-                mContext.startActivity(newIntent);
+                Intent intent = new Intent(mContext, ProfileGallery.class);
+                intent.putExtra("image", mImages.get(position));
+                intent.putExtra("profile name", mImageNames.get(position));
+                intent.putExtra("location", mLocation.get(position));
+                intent.putExtra("pace", mPace.get(position));
+                intent.putExtra("distances", mDistances.get(position));
+
+
+                mContext.startActivity(intent);
             }
         });
     }
@@ -80,15 +88,18 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         TextView imageName;
         TextView distance;
         TextView Pace;
+        TextView location;
         RelativeLayout parentLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             image= itemView.findViewById(R.id.profile_image);
             imageName=itemView.findViewById(R.id.runners_name);
-            distance =itemView.findViewById(R.id.distance);
-            Pace = itemView.findViewById(R.id.running_pace);
+            distance =itemView.findViewById(R.id.prifile_other_distances_input);
+            Pace = itemView.findViewById(R.id.profile_other_pace_input);
+            location = itemView.findViewById(R.id.profile_other_location_input);
             parentLayout=itemView.findViewById(R.id.parent_layout);
+
         }
     }
 
