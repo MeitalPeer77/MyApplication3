@@ -17,20 +17,29 @@ public class ProfileGallery extends AppCompatActivity {
     }
 
     private void getIncomingIntent(){
-        if(getIntent().hasExtra("image") && getIntent().hasExtra("profile name") && getIntent().hasExtra("distance")){
+        if(getIntent().hasExtra("image") && getIntent().hasExtra("profile name") && getIntent().hasExtra("distance") && getIntent().hasExtra("location") && getIntent().hasExtra("pace")){
             String imageUrl = getIntent().getStringExtra("image");
             String name = getIntent().getStringExtra("profile name");
             String distance = getIntent().getStringExtra("distance");
+            String location = getIntent().getStringExtra("location");
+            String pace = getIntent().getStringExtra("pace");
 
-            setProfileContent(imageUrl, name, distance);
+
+            setProfileContent(imageUrl, name, distance, location, pace);
         }
     }
-    private void setProfileContent(String imageUrl, String profileName, String profileDistance){
+    private void setProfileContent(String imageUrl, String profileName, String profileDistance, String profilePace, String profileLocation){
         TextView name = findViewById(R.id.profile_other_name);
         name.setText(profileName);
 
-        TextView distance = findViewById(R.id.profile_other_distance);
+        TextView distance = findViewById(R.id.prifile_other_distances_input);
         distance.setText(profileDistance);
+
+        TextView pace = findViewById(R.id.profile_other_pace_input);
+        pace.setText(profilePace);
+
+        TextView location = findViewById(R.id.profile_other_location_input);
+        location.setText(profileLocation);
 
         ImageView image = findViewById(R.id.profile_other_image);
         Glide.with(this)
