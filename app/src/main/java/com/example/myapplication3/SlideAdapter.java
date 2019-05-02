@@ -20,21 +20,27 @@ public class SlideAdapter extends PagerAdapter {
 
     // list of images
     public int[] lst_images = {
+            R.drawable.netta,
             R.drawable.maayanm,
             R.drawable.yehonatans,
             R.drawable.noam,
-//            R.drawable.liors,
-//            R.drawable.toms,
-//            R.drawable.almoga,
+            R.drawable.liors,
+            R.drawable.toms,
+            R.drawable.almoga,
 
 
 
     };
     // list of titles
     public String[] lst_title = {
+            "Netta Zhoar",
             "Maayan Yossef Magenheim",
             "Jehonathan Spigelman",
-            "Almog",
+            "Noa Menasheof",
+            "Lior Saadon",
+            "Tom Saltsberg",
+            "Almog Argaman"
+
     }   ;
     // list of descriptions
     public String[] lst_description = {
@@ -42,6 +48,10 @@ public class SlideAdapter extends PagerAdapter {
             "I just want to stay in shape, go on short runs like once a week",
             "I just want to stay in shape, go on short runs like once a week",
             "I just want to stay in shape, go on short runs like once a week",
+            "I just want to stay in shape, go on short runs like once a week",
+            "I just want to stay in shape, go on short runs like once a week",
+            "I just want to stay in shape, go on short runs like once a week",
+
     };
     // list of background colors
 //    public int[]  lst_backgroundcolor = {
