@@ -10,20 +10,20 @@
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="110dp"
         android:layout_height="110dp"
-        android:id="@+id/profile_image"
+        android:id="@+id/partner_list_image"
         android:src="@mipmap/ic_launcher"
         android:gravity = "center_vertical"
         android:padding="10dp"
     />
 
     <TextView
-        android:id="@+id/runners_name"
+        android:id="@+id/partner_list_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:layout_centerHorizontal="true"
         android:layout_toLeftOf="@id/contact"
-        android:layout_toRightOf="@+id/profile_image"
+        android:layout_toRightOf="@+id/partner_list_image"
         android:paddingBottom="5dp"
         android:paddingTop="10dp"
         android:text="runner's name"
@@ -33,26 +33,25 @@
         app:fontFamily="@font/nunito" />
 
     <TextView
-        android:id="@+id/distance"
+        android:id="@+id/partner_list_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="distance"
         android:layout_marginLeft="15dp"
         android:paddingBottom="5dp"
-        android:layout_below="@id/runners_name"
+        android:layout_below="@id/partner_list_name"
         app:fontFamily="@font/nunito"
         android:textSize="15sp"
-        android:layout_toRightOf="@id/profile_image"/>
+        android:layout_toRightOf="@id/partner_list_image"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/distance"
-        android:layout_below="@id/runners_name"
+        android:layout_toRightOf="@id/partner_list_location"
+        android:layout_below="@id/partner_list_name"
         android:text=" km. away from you"
         android:fontFamily="@font/nunito"
-        android:textSize="15sp"
-        android:layout_above="@id/running_pace"/>
+        android:textSize="15sp" />
 
 
     <TextView
@@ -63,17 +62,17 @@
         android:text="running pace: "
         android:layout_marginLeft="15dp"
         android:textSize="15sp"
-        android:layout_toRightOf="@id/profile_image"
-        android:layout_below="@id/distance"/>
+        android:layout_toRightOf="@id/partner_list_image"
+        android:layout_below="@id/partner_list_location"/>
 
     <TextView
-        android:id="@+id/running_pace"
+        android:id="@+id/partner_list_pace"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="5.5"
         android:paddingBottom="15dp"
         app:fontFamily="@font/nunito"
-        android:layout_below="@id/distance"
+        android:layout_below="@id/partner_list_location"
         android:textSize="15sp"
         android:layout_toRightOf="@id/running_pace_text"
         />

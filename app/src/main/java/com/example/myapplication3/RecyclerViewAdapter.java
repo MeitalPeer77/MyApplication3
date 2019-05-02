@@ -20,12 +20,12 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
     private ArrayList<String> mImageNames= new ArrayList<>();
     private ArrayList<String> mImages = new ArrayList<>();
+    private ArrayList<String> mLocation = new ArrayList<>();
     private ArrayList<String> mDistances = new ArrayList<>();
     private ArrayList<String> mPace = new ArrayList<>();
-    private ArrayList<String> mLocation = new ArrayList<>();
     private Context mContext;
 
-    public RecyclerViewAdapter(Context mContext, ArrayList<String> mImageNames, ArrayList<String> mImages, ArrayList<String> mDistance, ArrayList<String> mPace, ArrayList<String> mLocation) {
+    public RecyclerViewAdapter(Context mContext, ArrayList<String> mImageNames, ArrayList<String> mImages,ArrayList<String> mLocation, ArrayList<String> mDistance, ArrayList<String> mPace) {
         this.mImageNames = mImageNames;
         this.mImages = mImages;
         this.mContext = mContext;
@@ -48,10 +48,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 .load(mImages.get(position))
                 .into(holder.image);
 
+        //layout_list_item holders
         holder.imageName.setText(mImageNames.get(position));
-        holder.distance.setText(mDistances.get(position));
-        holder.Pace.setText(mPace.get(position));
         holder.location.setText(mLocation.get(position));
+        holder.Pace.setText(mPace.get(position));
 
 
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
@@ -64,7 +64,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 intent.putExtra("location", mLocation.get(position));
                 intent.putExtra("pace", mPace.get(position));
                 intent.putExtra("distances", mDistances.get(position));
-
 
                 mContext.startActivity(intent);
             }
@@ -82,18 +81,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         CircleImageView image;
         TextView imageName;
-        TextView distance;
         TextView Pace;
         TextView location;
         RelativeLayout parentLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            image= itemView.findViewById(R.id.profile_image);
-            imageName=itemView.findViewById(R.id.runners_name);
-            distance =itemView.findViewById(R.id.prifile_other_distances_input);
-            Pace = itemView.findViewById(R.id.profile_other_pace_input);
-            location = itemView.findViewById(R.id.profile_other_location_input);
+            image= itemView.findViewById(R.id.partner_list_image);
+            imageName=itemView.findViewById(R.id.partner_list_name);
+            Pace = itemView.findViewById(R.id.partner_list_pace);
+            location = itemView.findViewById(R.id.partner_list_location);
             parentLayout=itemView.findViewById(R.id.parent_layout);
 
         }

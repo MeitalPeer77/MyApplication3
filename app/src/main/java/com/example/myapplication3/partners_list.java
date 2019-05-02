@@ -19,7 +19,6 @@ public class partners_list extends AppCompatActivity {
     private ArrayList<String> mImageUrls = new ArrayList<>();
     private ArrayList<String> mDistance = new ArrayList<>();
     private ArrayList<String> mPace = new ArrayList<>();
-    private ArrayList<String> mInfo = new ArrayList<>();
     private ArrayList<String> mLocations = new ArrayList<>();
 
 
@@ -58,7 +57,7 @@ public class partners_list extends AppCompatActivity {
         mNames.add("Nathaniel Tavisal");
         mDistance.add("Long Distance");
         mPace.add("6");
-        mInfo.add("info 1");
+//        mInfo.add("info 1");
         mLocations.add("0.7");
 
 
@@ -66,7 +65,7 @@ public class partners_list extends AppCompatActivity {
         mNames.add("Meital Peer");
         mDistance.add("short distance");
         mPace.add("5");
-        mInfo.add("info 2");
+//        mInfo.add("info 2");
         mLocations.add("1.3");
 
         mImageUrls.add("https://scontent.ftlv6-1.fna.fbcdn.net/v/t31.0-8/21122579_1833916359957237_6719538012298659073_o.jpg?_nc_cat=109&_nc_ht=scontent.ftlv6-1.fna&oh=b0fd68b0be099e148062a31a3d20a348&oe=5D2AC9E7");
@@ -95,7 +94,7 @@ public class partners_list extends AppCompatActivity {
 
     private void initRecycleView(){
         RecyclerView recycleView = findViewById(R.id.recycler_view);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mNames, mImageUrls, mDistance, mPace, mLocations);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mNames, mImageUrls, mLocations, mDistance, mPace);
         recycleView.setAdapter(adapter);
         recycleView.setLayoutManager(new LinearLayoutManager(this));
     }

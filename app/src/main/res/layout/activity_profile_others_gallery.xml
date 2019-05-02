@@ -110,6 +110,7 @@
                 android:id="@+id/shoe_icon"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
+                android:paddingRight="2dp"
                 android:background="@drawable/running" />
 
 
@@ -125,13 +126,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nunito"
-                android:text=" per KM."/>
+                android:text=" min.per KM."/>
         </LinearLayout>
 
         <TextView
             android:layout_width="300dp"
             android:id="@+id/profile_other_info"
-
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:gravity="center"
