@@ -23,9 +23,9 @@ public class SlideAdapter extends PagerAdapter {
             R.drawable.maayanm,
             R.drawable.yehonatans,
             R.drawable.noam,
-//            R.drawable.liors,
-//            R.drawable.toms,
-//            R.drawable.almoga,
+            R.drawable.liors,
+            R.drawable.toms,
+            R.drawable.almoga,
 
 
 
@@ -34,7 +34,7 @@ public class SlideAdapter extends PagerAdapter {
     public String[] lst_title = {
             "Maayan Yossef Magenheim",
             "Jehonathan Spigelman",
-            "Almog",
+            "Noa",
     }   ;
     // list of descriptions
     public String[] lst_description = {
