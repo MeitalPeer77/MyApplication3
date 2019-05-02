@@ -11,7 +11,7 @@
     >
     <include
         android:id="@+id/include"
-        layout="@layout/custom_action_bar_partners"
+        layout="@layout/custom_action_bar"
         app:layout_constraintVertical_chainStyle="packed" />
 
 
