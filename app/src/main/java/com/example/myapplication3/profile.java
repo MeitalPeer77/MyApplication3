@@ -10,7 +10,7 @@ import android.widget.Button;
 public class profile extends AppCompatActivity {
     private Button homePageButton;
     private Button partnersButton;
-
+    private Button personalDetalisBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +34,15 @@ public class profile extends AppCompatActivity {
             }
 
         });
+        personalDetalisBtn = (Button) findViewById(R.id.edit_button);
+        personalDetalisBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                personalDetails();
+
+            }
+
+        });
     }
 
     public void btnSetting_onClick(View view) {
@@ -41,6 +50,14 @@ public class profile extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void personalDetails() {
+        // Create an Intent to start the second activity
+        Intent personalDetailsIntent = new Intent(this, PersonalDetails.class);
+
+        // Start the new activity.
+        startActivity(personalDetailsIntent);
+
+    }
     public void suggestions() {
         // Create an Intent to start the second activity
         Intent suggestiosIntent = new Intent(this, RunningMatch.class);

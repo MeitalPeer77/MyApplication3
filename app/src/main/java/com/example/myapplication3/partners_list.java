@@ -49,7 +49,6 @@ public class partners_list extends AppCompatActivity {
                 profile();
             }
         });
-
     }
 
 
@@ -73,6 +72,7 @@ public class partners_list extends AppCompatActivity {
         mNames.add("Shira Weitman");
         mDistance.add("medium distance");
         mPace.add("4.5");
+        mInfo.add("info 3");
         mLocations.add("1.8");
 
 
@@ -81,6 +81,8 @@ public class partners_list extends AppCompatActivity {
         mDistance.add("Long Distance");
         mPace.add("6");
         mLocations.add("1.7");
+        mInfo.add("info 4");
+
 
 
         mImageUrls.add("https://scontent.ftlv6-1.fna.fbcdn.net/v/t1.0-9/10898096_10152956054335912_5153974417356391101_n.jpg?_nc_cat=109&_nc_ht=scontent.ftlv6-1.fna&oh=f131a44166cc0a4d57b4737366da0a16&oe=5D6512E9");
@@ -88,6 +90,8 @@ public class partners_list extends AppCompatActivity {
         mDistance.add("Long Distance");
         mPace.add("5.5");
         mLocations.add("1.9");
+        mInfo.add("info 1");
+
 
 
         initRecycleView();
@@ -95,7 +99,7 @@ public class partners_list extends AppCompatActivity {
 
     private void initRecycleView(){
         RecyclerView recycleView = findViewById(R.id.recycler_view);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mNames, mImageUrls, mDistance, mPace, mLocations);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mNames, mImageUrls, mPace, mLocations, mInfo);
         recycleView.setAdapter(adapter);
         recycleView.setLayoutManager(new LinearLayoutManager(this));
     }

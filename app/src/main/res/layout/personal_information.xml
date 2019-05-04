@@ -32,6 +32,7 @@
             android:text="Male"
             android:textColor="@color/darkBlue"
             android:textSize="15sp"
+            android:checked="true"
             app:fontFamily="@font/nunito" />
 
         <RadioButton
@@ -113,6 +114,7 @@
             android:layout_width="84dp"
             android:layout_height="54dp"
             android:ems="10"
+            android:text="7"
             android:inputType="number"
             app:fontFamily="@font/nunito" />
 
@@ -126,23 +128,42 @@
             app:fontFamily="@font/nunito" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="105dp"
-        android:layout_height="113dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.31"
-        app:srcCompat="@drawable/upload" />
+        >
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="110dp"
+            android:layout_height="118dp"
+            android:id="@+id/profile_image"
+            android:src="@drawable/amircagan"
+            android:gravity = "center_vertical"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:background="@null"
+            app:srcCompat="@drawable/ic_edit_black_24dp" />
+
+
+    </LinearLayout>
 
     <EditText
         android:id="@+id/editText5"
@@ -157,7 +178,7 @@
         android:background="@drawable/border"
         android:ems="10"
         android:gravity="start|top"
-        android:hint="When do you love to run? ,do you have any running goal..?"
+        android:text="Like long runs on the beach, at sun set"
         android:textSize="15sp"
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -203,7 +224,7 @@
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="5"
-        android:text="Done!"
+        android:text="Save"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
