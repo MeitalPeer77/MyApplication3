@@ -95,6 +95,16 @@
             android:drawableStart="@drawable/ic_lock_outline_black_24dp"
             />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forgot password?"
+            android:textColor="@color/pink"
+            android:fontFamily="@font/nunito"
+            android:textSize="10dp"
+            android:layout_gravity="right"
+            android:paddingRight="60dp"
+            />
         <View
             android:id="@+id/divider"
             android:layout_width="match_parent"

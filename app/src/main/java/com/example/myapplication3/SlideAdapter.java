@@ -28,8 +28,6 @@ public class SlideAdapter extends PagerAdapter {
             R.drawable.toms,
             R.drawable.almoga,
 
-
-
     };
     // list of titles
     public String[] lst_title = {

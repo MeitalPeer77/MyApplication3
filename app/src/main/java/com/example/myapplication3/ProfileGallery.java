@@ -17,33 +17,28 @@ public class ProfileGallery extends AppCompatActivity {
     }
 
     private void getIncomingIntent(){
-        if(getIntent().hasExtra("image") && getIntent().hasExtra("profile name") && getIntent().hasExtra("location") && getIntent().hasExtra("pace") && getIntent().hasExtra("info")){
+        if(getIntent().hasExtra("image") && getIntent().hasExtra("profile name") && getIntent().hasExtra("distance") && getIntent().hasExtra("location") && getIntent().hasExtra("pace")){
             String imageUrl = getIntent().getStringExtra("image");
             String name = getIntent().getStringExtra("profile name");
-//            String distance = getIntent().getStringExtra("distance");
+            String distance = getIntent().getStringExtra("distances");
             String location = getIntent().getStringExtra("location");
             String pace = getIntent().getStringExtra("pace");
-            String info = getIntent().getStringExtra("info");
 
-
-            setProfileContent(imageUrl, name, location, pace, info);
+            setProfileContent(imageUrl, name, distance, location, pace);
         }
     }
-    private void setProfileContent(String imageUrl, String profileName, String profilePace, String profileLocation, String profileInfo){
+    private void setProfileContent(String imageUrl, String profileName, String profileDistance, String profileLocation, String profilePace){
         TextView name = findViewById(R.id.profile_other_name);
         name.setText(profileName);
 
-//        TextView distance = findViewById(R.id.prifile_other_distances_input);
-//        distance.setText(profileDistance);
+        TextView distance = findViewById(R.id.prifile_other_distances_input);
+        distance.setText(profileDistance);
 
         TextView pace = findViewById(R.id.profile_other_pace_input);
         pace.setText(profilePace);
 
         TextView location = findViewById(R.id.profile_other_location_input);
         location.setText(profileLocation);
-
-        TextView info = findViewById(R.id.profile_other_info);
-        info.setText(profileInfo);
 
         ImageView image = findViewById(R.id.profile_other_image);
         Glide.with(this)
