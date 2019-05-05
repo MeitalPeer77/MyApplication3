@@ -86,5 +86,6 @@
 
     <string name="sign_up_string"><u>Sign up</u>.</string>
     <string name="title_activity_partners_list">partners_list</string>
+    <string name="title_activity_location">Location</string>
 
 </resources>
