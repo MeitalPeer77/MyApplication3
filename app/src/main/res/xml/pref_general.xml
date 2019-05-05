@@ -20,6 +20,29 @@
         android:singleLine="true"
         android:title="Email" />
 
+
+    <EditTextPreference
+        android:capitalize="words"
+        android:defaultValue="BestRunnerEver"
+        android:inputType="textCapWords"
+        android:key="edit_user_name_setting"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="User Name" />
+
+
+    <EditTextPreference
+        android:capitalize="words"
+        android:defaultValue="hi1234567"
+        android:inputType="textCapWords"
+        android:key="edit_password_setting"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:password="true"
+        android:title="Password" />
+
     <SwitchPreference
         android:defaultValue="true"
         android:key="edit_show_me_setting"
@@ -41,39 +64,18 @@
     <SeekBarPreference
         android:key="seek_bar_distance"
         android:title="Maximum Distance"
-        android:summary="20K"
+        android:summary="20 KM"
         android:max="80"
         android:defaultValue="20" />
 
 
-    <EditTextPreference
-        android:capitalize="words"
-        android:defaultValue="10km"
-        android:inputType="textCapWords"
-        android:key="edit_km_running"
-        android:maxLines="1"
-        android:selectAllOnFocus="true"
-        android:singleLine="true"
-        android:title="I'm Running" />
-
-    <EditTextPreference
-        android:capitalize="words"
-        android:defaultValue="1 hour"
-        android:inputType="textCapWords"
-        android:key="edit_time_running"
-        android:maxLines="1"
-        android:selectAllOnFocus="true"
-        android:singleLine="true"
-        android:title="And I'm Running it in" />
-
-
-    <ListPreference
-        android:defaultValue="-1"
-        android:entries="@array/gender_list_values"
-        android:entryValues="@array/pref_gender_list_values"
-        android:key="edit_gender_setting"
-        android:negativeButtonText="@null"
-        android:positiveButtonText="@null"
-        android:title="Gender" />
+    <!--<ListPreference-->
+        <!--android:defaultValue="-1"-->
+        <!--android:entries="@array/gender_list_values"-->
+        <!--android:entryValues="@array/pref_gender_list_values"-->
+        <!--android:key="edit_gender_setting"-->
+        <!--android:negativeButtonText="@null"-->
+        <!--android:positiveButtonText="@null"-->
+        <!--android:title="Gender" />-->
 
 </PreferenceScreen>

@@ -20,15 +20,14 @@ public class ProfileGallery extends AppCompatActivity {
         if(getIntent().hasExtra("image") && getIntent().hasExtra("profile name") && getIntent().hasExtra("distance") && getIntent().hasExtra("location") && getIntent().hasExtra("pace")){
             String imageUrl = getIntent().getStringExtra("image");
             String name = getIntent().getStringExtra("profile name");
-            String distance = getIntent().getStringExtra("distance");
+            String distance = getIntent().getStringExtra("distances");
             String location = getIntent().getStringExtra("location");
             String pace = getIntent().getStringExtra("pace");
-
 
             setProfileContent(imageUrl, name, distance, location, pace);
         }
     }
-    private void setProfileContent(String imageUrl, String profileName, String profileDistance, String profilePace, String profileLocation){
+    private void setProfileContent(String imageUrl, String profileName, String profileDistance, String profileLocation, String profilePace){
         TextView name = findViewById(R.id.profile_other_name);
         name.setText(profileName);
 
