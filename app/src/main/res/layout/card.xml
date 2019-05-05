@@ -67,14 +67,14 @@
                 android:id="@+id/watch_icon"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:background="@drawable/stopclock"
+                android:background="@drawable/running"
                 android:paddingLeft="10dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="5dp"
-                android:text="running 5km"
+                android:text="Runs: 5 km"
                 android:textSize="15sp"
                 app:fontFamily="@font/nunito" />
 
@@ -90,14 +90,14 @@
                 android:id="@+id/shoe_icon"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:background="@drawable/running" />
+                android:background="@drawable/stopclock" />
 
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text=" Pace: 5"
+                android:text=" 30 min"
                 android:textSize="15sp"
                 app:fontFamily="@font/nunito" />
         </LinearLayout>

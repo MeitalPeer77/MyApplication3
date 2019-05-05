@@ -74,7 +74,7 @@
             app:fontFamily="@font/nunito" />
 
         <Spinner
-            android:id="@+id/spinner"
+            android:id="@+id/spinner_km"
             android:layout_width="107dp"
             android:layout_height="35dp"
             app:fontFamily="@font/nunito" />

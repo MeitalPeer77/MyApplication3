@@ -67,63 +67,33 @@
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="37dp"
-            android:text="Currantly Running:"
+            android:text="Current pace:"
             android:textColor="@color/darkBlue"
             android:textSize="15sp"
             app:fontFamily="@font/nunito" />
 
         <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="107dp"
-            android:layout_height="35dp"
-            app:fontFamily="@font/nunito" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="300dp"
-        android:layout_height="76dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        android:orientation="horizontal"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.594">
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="149dp"
-            android:layout_height="38dp"
-            android:layout_marginBottom="148dp"
-            android:text="And it takes me"
-            android:textColor="@color/darkBlue"
-            android:textSize="15sp"
-            app:fontFamily="@font/nunito" />
-
-        <EditText
-            android:id="@+id/editText4"
-            android:layout_width="84dp"
-            android:layout_height="54dp"
-            android:ems="10"
-            android:inputType="number"
-            app:fontFamily="@font/nunito" />
-
-        <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/spinner_km"
             android:layout_width="wrap_content"
-            android:layout_height="26dp"
-            android:text="Minutes"
-            android:textColor="@color/darkBlue"
-            android:textSize="15sp"
+            android:layout_height="wrap_content"
             app:fontFamily="@font/nunito" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="km /" />
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner_min">
+
+        </Spinner>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="minutes"/>
     </LinearLayout>
 
     <ImageView
@@ -157,7 +127,7 @@
         android:background="@drawable/border"
         android:ems="10"
         android:gravity="start|top"
-        android:hint="your running schedule, when and where do you like running, and any other info you would like to share!..."
+        android:hint="Your running schedule, where you like to run, and any other info you would like to share!"
         android:textSize="15sp"
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -224,7 +194,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Personal information "
+        android:text="Running Profile"
         android:textColor="@color/darkBlue"
         android:textSize="24sp"
         android:textStyle="bold"

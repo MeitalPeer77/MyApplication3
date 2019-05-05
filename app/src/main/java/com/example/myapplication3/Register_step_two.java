@@ -9,17 +9,24 @@ import android.widget.Button;
 import android.widget.Spinner;
 
 public class Register_step_two extends AppCompatActivity {
-    String[] RUNlIST = {"1 km", "2 km", "4 km", "6 km", "8 km", "10 km"};
+    String[] kmArray = {"1", "2", "3", "4","5", "6","7", "8","9", "10", "11", "12", "13", "14", "15"};
+    String [] minArray = {"5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60"};
+
     private Button nextbutton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_step_two);
 
-        ArrayAdapter<String> arrayAdap = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, RUNlIST);
-        arrayAdap.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        Spinner spiner = (Spinner)findViewById(R.id.spinner);
-        spiner.setAdapter(arrayAdap);
+        ArrayAdapter<String> arrayaddapterKm = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, kmArray);
+        arrayaddapterKm.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        Spinner spinnerKm = (Spinner)findViewById(R.id.spinner_km);
+        spinnerKm.setAdapter(arrayaddapterKm);
+
+        ArrayAdapter<String> arrayaddapterMin = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, minArray);
+        arrayaddapterMin.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        Spinner spinnerMin = (Spinner)findViewById(R.id.spinner_min);
+        spinnerMin.setAdapter(arrayaddapterMin);
 
         nextbutton = (Button) findViewById(R.id.done_register);
         nextbutton.setOnClickListener(new View.OnClickListener() {

@@ -18,7 +18,7 @@ public class PersonalDetails extends AppCompatActivity {
 
         ArrayAdapter<String> arrayAdap = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, RUNlIST);
         arrayAdap.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        Spinner spiner = (Spinner)findViewById(R.id.spinner);
+        Spinner spiner = (Spinner)findViewById(R.id.spinner_km);
         spiner.setAdapter(arrayAdap);
 
         nextbutton = (Button) findViewById(R.id.done_register);

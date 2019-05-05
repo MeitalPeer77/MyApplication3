@@ -49,33 +49,33 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/partner_list_location"
         android:layout_below="@id/partner_list_name"
-        android:text=" km. away from you"
+        android:text=" km from you"
         android:fontFamily="@font/nunito"
         android:textSize="15sp" />
 
 
-    <TextView
-        android:id="@+id/running_pace_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:fontFamily="@font/nunito"
-        android:text="running pace: "
-        android:layout_marginLeft="15dp"
-        android:textSize="15sp"
-        android:layout_toRightOf="@id/partner_list_image"
-        android:layout_below="@id/partner_list_location"/>
+    <!--<TextView-->
+        <!--android:id="@+id/running_pace_text"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:fontFamily="@font/nunito"-->
+        <!--android:text="Pace: "-->
+        <!--android:layout_marginLeft="15dp"-->
+        <!--android:textSize="15sp"-->
+        <!--android:layout_toRightOf="@id/partner_list_image"-->
+        <!--android:layout_below="@id/partner_list_location"/>-->
 
-    <TextView
-        android:id="@+id/partner_list_pace"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="5.5"
-        android:paddingBottom="15dp"
-        app:fontFamily="@font/nunito"
-        android:layout_below="@id/partner_list_location"
-        android:textSize="15sp"
-        android:layout_toRightOf="@id/running_pace_text"
-        />
+    <!--<TextView-->
+        <!--android:id="@+id/partner_list_pace"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="5.5"-->
+        <!--android:paddingBottom="15dp"-->
+        <!--app:fontFamily="@font/nunito"-->
+        <!--android:layout_below="@id/partner_list_location"-->
+        <!--android:textSize="15sp"-->
+        <!--android:layout_toRightOf="@id/running_pace_text"-->
+        <!--/>-->
 
 
     <!--<com.ms.square.android.expandabletextview.ExpandableTextView-->

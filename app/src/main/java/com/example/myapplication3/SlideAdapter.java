@@ -42,13 +42,13 @@ public class SlideAdapter extends PagerAdapter {
     }   ;
     // list of descriptions
     public String[] lst_description = {
-            "Looking for a partner to start running with. someone who will push me and wont let me give up!",
-            "I just want to stay in shape, go on short runs like once a week",
-            "Want to run the JLM marathon next year, looking for a partner to train with ",
-            "looking for a partner to run twice a week with, in the early mornings",
-            "like running at night, at like 10 pm",
-            "hate running but want to stay in shape, help me do this!",
-            "I just want to stay in shape, go on short runs like once a week",
+            "Looking for a running partner who will keep me motivated!",
+            "I just want to stay in shape with short runs once a week.",
+            "Running the marathon next year and need a partner to train with.",
+            "Looking for a running partner. Twice a week. Early mornings.",
+            "I like running at night. 10pm at the earliest.",
+            "I hate running but want to stay in shape. Help me do this!",
+            "I'm a serious sprinter. Catch me if you can!",
 
     };
     // list of background colors

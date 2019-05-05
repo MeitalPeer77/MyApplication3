@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:gravity="center"
-            android:text="Welcome To Running Match"
+            android:text="Welcome to Running Match"
             android:textColor="@color/darkBlue"
             app:fontFamily="@font/nunito"
             android:textSize="26sp"

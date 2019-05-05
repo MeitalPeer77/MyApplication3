@@ -18,7 +18,7 @@
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/placeholder" />
+            />
 
         <TextView
             android:paddingTop="50dp"
@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Location Services allows apps to gather and
-use data indicating your approximate location"
+use data indicating your approximate location."
             android:textSize="15sp"
             android:paddingLeft="40dp"
             android:paddingRight="40dp"
