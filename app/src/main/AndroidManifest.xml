@@ -28,7 +28,9 @@
         <activity android:name=".RunningMatch" />
         <activity android:name=".Register_step_one" />
         <activity android:name=".Register_step_two" />
+        <activity android:name=".PersonalDetails" />
         <activity android:name=".MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

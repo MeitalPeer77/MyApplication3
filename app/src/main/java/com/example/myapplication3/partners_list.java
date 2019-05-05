@@ -57,7 +57,7 @@ public class partners_list extends AppCompatActivity {
         mNames.add("Nathaniel Tavisal");
         mDistance.add("Long Distance");
         mPace.add("6");
-//        mInfo.add("info 1");
+  //      mInfo.add("info 1");
         mLocations.add("0.7");
 
 

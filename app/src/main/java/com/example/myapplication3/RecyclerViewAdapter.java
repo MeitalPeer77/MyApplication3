@@ -30,7 +30,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         this.mImages = mImages;
         this.mContext = mContext;
         this.mDistances = mDistance;
-        this.mLocation = mLocation;
+        this.mLocation= mLocation;
         this.mPace = mPace;
     }
 
@@ -52,7 +52,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.imageName.setText(mImageNames.get(position));
         holder.location.setText(mLocation.get(position));
         holder.Pace.setText(mPace.get(position));
-
 
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override

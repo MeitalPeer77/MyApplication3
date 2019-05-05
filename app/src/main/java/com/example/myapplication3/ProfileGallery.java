@@ -13,12 +13,11 @@ public class ProfileGallery extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_others_gallery);
-
         getIncomingIntent();
     }
 
     private void getIncomingIntent(){
-        if(getIntent().hasExtra("image") && getIntent().hasExtra("profile name") && getIntent().hasExtra("distances") && getIntent().hasExtra("location") && getIntent().hasExtra("pace")){
+        if(getIntent().hasExtra("image") && getIntent().hasExtra("profile name") && getIntent().hasExtra("distance") && getIntent().hasExtra("location") && getIntent().hasExtra("pace")){
             String imageUrl = getIntent().getStringExtra("image");
             String name = getIntent().getStringExtra("profile name");
             String distance = getIntent().getStringExtra("distances");
