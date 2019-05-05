@@ -31,7 +31,7 @@ public class SlideAdapter extends PagerAdapter {
     };
     // list of titles
     public String[] lst_title = {
-            "Netta Zhoar",
+            "Netta Zohar",
             "Maayan Yossef Magenheim",
             "Jehonathan Spigelman",
             "Noa Menasheof",
