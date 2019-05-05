@@ -100,7 +100,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="5dp"
-                android:text="input"
+                android:text=" 5"
                 android:textSize="15sp"
                 app:fontFamily="@font/nunito" />
             <TextView
@@ -130,7 +130,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="input"
+                android:text=" 30"
                 android:textSize="15sp"
                 app:fontFamily="@font/nunito" />
             <TextView
