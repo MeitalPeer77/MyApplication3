@@ -88,4 +88,9 @@
     <string name="title_activity_partners_list">partners_list</string>
     <string name="title_activity_location">Location</string>
 
+    <!--Facebook-->
+
+    <string name="facebook_app_id">1399001953587656</string>
+    <string name="fb_login_protocol_scheme">fb1399001953587656</string>
+
 </resources>
