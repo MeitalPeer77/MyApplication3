@@ -1,4 +1,4 @@
-package com.example.myapplication3;
+package com.example.RunningMatch;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void RunningMatch(){
         // Create an Intent to start the second activity
-        Intent loginIntent = new Intent(this, RunningMatch.class);
+        Intent loginIntent = new Intent(this, RunningMatchHomePage.class);
 
         // Start the new activity.
         startActivity(loginIntent);

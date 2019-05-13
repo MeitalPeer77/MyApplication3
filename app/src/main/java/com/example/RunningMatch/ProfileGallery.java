@@ -1,4 +1,4 @@
-package com.example.myapplication3;
+package com.example.RunningMatch;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -87,7 +87,7 @@ public class ProfileGallery extends AppCompatActivity {
 
     public void suggestions() {
         // Create an Intent to start the second activity
-        Intent suggestiosIntent = new Intent(this, RunningMatch.class);
+        Intent suggestiosIntent = new Intent(this, RunningMatchHomePage.class);
 
         // Start the new activity.
         startActivity(suggestiosIntent);

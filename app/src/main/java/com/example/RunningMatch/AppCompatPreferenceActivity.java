@@ -1,4 +1,4 @@
-package com.example.myapplication3;
+package com.example.RunningMatch;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
