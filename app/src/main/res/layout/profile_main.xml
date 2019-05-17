@@ -51,7 +51,7 @@
             android:layout_centerInParent="true"
             android:gravity="center"
             android:padding="15dp"
-            android:text="Like long run's on the beach, at sun set."
+            android:text="I enjoy long runs on the beach at sunset. Also I'm single."
             android:textAlignment="center"
             android:textColor="@color/darkBlue"
             android:textSize="15sp"

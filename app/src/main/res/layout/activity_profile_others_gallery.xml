@@ -9,7 +9,7 @@
 
     <include
         android:id="@+id/include"
-        layout="@layout/custom_action_bar"
+        layout="@layout/custom_action_bar_partners"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -74,7 +74,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nunito"
-                android:text=" KM. away"
+                android:text=" km from you"
                 />
             <TextView
                 android:layout_width="wrap_content"
@@ -86,17 +86,28 @@
                 android:id="@+id/watch_icon"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:background="@drawable/stopclock"
+                android:background="@drawable/running"
                 android:paddingLeft="10dp" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="runs: "
+                android:textSize="15sp"
+                android:fontFamily="@font/nunito"/>
             <TextView
                 android:id="@+id/prifile_other_distances_input"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="5dp"
-                android:text="Short Distances"
+                android:text=" 5"
                 android:textSize="15sp"
                 app:fontFamily="@font/nunito" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text=" km"/>
 
         </LinearLayout>
 
@@ -111,7 +122,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:paddingRight="2dp"
-                android:background="@drawable/running" />
+                android:background="@drawable/stopclock" />
 
 
             <TextView
@@ -119,14 +130,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text=" input"
+                android:text=" 30"
                 android:textSize="15sp"
                 app:fontFamily="@font/nunito" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nunito"
-                android:text=" min.per KM."/>
+                android:textSize="15sp"
+                android:text=" minutes"/>
+
+
         </LinearLayout>
 
         <TextView
@@ -137,7 +151,7 @@
             android:gravity="center"
             android:paddingBottom="15dp"
             android:paddingTop="10dp"
-            android:text="looking for a partner to start running with. someone who will push me and wont let me give up!"
+            android:text="I'm looking for a partner to start running with!"
             android:textAlignment="center"
             android:textColor="@color/darkBlue"
             android:textSize="15sp"

@@ -1,9 +1,8 @@
 
-package com.example.myapplication3;
+package com.example.RunningMatch;
 
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.myapplication3.R;
+import com.example.RunningMatch.R;
 
 public class SlideAdapter extends PagerAdapter {
     Context context;
@@ -31,7 +30,7 @@ public class SlideAdapter extends PagerAdapter {
     };
     // list of titles
     public String[] lst_title = {
-            "Netta Zhoar",
+            "Netta Zohar",
             "Maayan Yossef Magenheim",
             "Jehonathan Spigelman",
             "Noa Menasheof",
@@ -42,13 +41,13 @@ public class SlideAdapter extends PagerAdapter {
     }   ;
     // list of descriptions
     public String[] lst_description = {
-            "Looking for a partner to start running with. someone who will push me and wont let me give up!",
-            "I just want to stay in shape, go on short runs like once a week",
-            "Want to run the JLM marathon next year, looking for a partner to train with ",
-            "looking for a partner to run twice a week with, in the early mornings",
-            "like running at night, at like 10 pm",
-            "hate running but want to stay in shape, help me do this!",
-            "I just want to stay in shape, go on short runs like once a week",
+            "Looking for a running partner who will keep me motivated!",
+            "I just want to stay in shape with short runs once a week.",
+            "Running the marathon next year and need a partner to train with.",
+            "Looking for a running partner. Twice a week. Early mornings.",
+            "I like running at night. 10pm at the earliest.",
+            "I hate running but want to stay in shape. Help me do this!",
+            "I'm a serious sprinter. Catch me if you can!",
 
     };
     // list of background colors

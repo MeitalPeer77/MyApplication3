@@ -1,4 +1,4 @@
-package com.example.myapplication3;
+package com.example.RunningMatch;
 
 
 import android.content.Context;
@@ -30,7 +30,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         this.mImages = mImages;
         this.mContext = mContext;
         this.mDistances = mDistance;
-        this.mLocation = mLocation;
+        this.mLocation= mLocation;
         this.mPace = mPace;
     }
 
@@ -51,8 +51,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         //layout_list_item holders
         holder.imageName.setText(mImageNames.get(position));
         holder.location.setText(mLocation.get(position));
-        holder.Pace.setText(mPace.get(position));
-
+//        holder.Pace.setText(mPace.get(position));
 
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,7 +88,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             super(itemView);
             image= itemView.findViewById(R.id.partner_list_image);
             imageName=itemView.findViewById(R.id.partner_list_name);
-            Pace = itemView.findViewById(R.id.partner_list_pace);
+//            Pace = itemView.findViewById(R.id.partner_list_pace);
             location = itemView.findViewById(R.id.partner_list_location);
             parentLayout=itemView.findViewById(R.id.parent_layout);
 

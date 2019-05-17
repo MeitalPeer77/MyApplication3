@@ -34,7 +34,7 @@
             android:drawableLeft="@drawable/ic_face_black_24dp"
             android:drawablePadding="5dp"
             android:ems="10"
-            android:hint="Username"
+            android:hint="username"
             android:inputType="textEmailAddress"
             android:textSize="15dp" />
 
@@ -53,7 +53,7 @@
             android:drawablePadding="5dp"
 
             android:ems="10"
-            android:hint="Email"
+            android:hint="email"
             android:inputType="textEmailAddress"
             android:textSize="15dp" />
 
@@ -157,7 +157,7 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="140dp"
+        android:layout_width="wrap_content"
         android:layout_height="54dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -165,7 +165,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Register"
+        android:text="Create an Account"
         android:textColor="@color/darkBlue"
         android:textSize="24sp"
         android:textStyle="bold"
