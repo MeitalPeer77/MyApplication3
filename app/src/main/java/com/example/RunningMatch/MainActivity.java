@@ -19,6 +19,7 @@ import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
     private LoginButton loginButton;
+    private Button tryButton; //just for test location
     private TextView SignInButton;
     private CallbackManager callbackManager;
     private static final String EMAIL = "email";
@@ -42,6 +43,13 @@ public class MainActivity extends AppCompatActivity {
         SignInButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 register();
+            }
+        });
+
+        tryButton = (Button) findViewById(R.id.tryButton);
+        tryButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                location();
             }
         });
 //
@@ -86,6 +94,14 @@ public class MainActivity extends AppCompatActivity {
         Intent RegisterIntent = new Intent(this, Register_step_one.class);
         // Start the new activity.
         startActivity(RegisterIntent);
+
+    }
+
+    public void location() {
+        // Create an Intent to start the second activity
+        Intent locationIntent = new Intent(this, Location.class);
+        // Start the new activity.
+        startActivity(locationIntent);
 
     }
 

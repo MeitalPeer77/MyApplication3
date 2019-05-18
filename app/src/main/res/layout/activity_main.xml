@@ -49,6 +49,12 @@
             android:textColor="@color/pink"
             app:fontFamily="@font/nunito"
             android:textSize="22sp" />
+
+        <Button
+            android:id="@+id/tryButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
     </LinearLayout>
 
     <LinearLayout
