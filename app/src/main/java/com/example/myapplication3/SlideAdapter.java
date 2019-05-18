@@ -49,6 +49,7 @@ public class SlideAdapter extends PagerAdapter {
             "I like running at night. 10pm at the earliest.",
             "I hate running but want to stay in shape. Help me do this!",
             "I'm a serious sprinter. Catch me if you can!",
+            
 
     };
     // list of background colors
