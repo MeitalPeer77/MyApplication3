@@ -1,9 +1,8 @@
 
-package com.example.myapplication3;
+package com.example.RunningMatch;
 
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.myapplication3.R;
+import com.example.RunningMatch.R;
 
 public class SlideAdapter extends PagerAdapter {
     Context context;

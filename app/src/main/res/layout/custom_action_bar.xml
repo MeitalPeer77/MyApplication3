@@ -35,6 +35,7 @@
             android:layout_centerHorizontal="true"
             android:clickable="true" />
 
+
         <Button
             android:id="@+id/action_bar_matches"
             android:layout_width="34dp"

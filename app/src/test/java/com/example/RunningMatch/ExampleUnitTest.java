@@ -1,4 +1,4 @@
-package com.example.myapplication3;
+package com.example.RunningMatch;
 
 import org.junit.Test;
 

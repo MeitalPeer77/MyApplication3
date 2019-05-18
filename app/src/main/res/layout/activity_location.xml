@@ -31,17 +31,18 @@
             app:fontFamily="@font/nunito"/>
 
         <TextView
-            android:paddingTop="50dp"
-            android:textAlignment="center"
+            android:id="@+id/text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingLeft="40dp"
+            android:paddingTop="50dp"
+            android:paddingRight="40dp"
             android:text="Location Services allows apps to gather and
 use data indicating your approximate location."
+            android:textAlignment="center"
             android:textSize="15sp"
-            android:paddingLeft="40dp"
-            android:paddingRight="40dp"
-            android:layout_gravity="center"
-            app:fontFamily="@font/nunito"/>
+            app:fontFamily="@font/nunito" />
 
         <Button
             android:id="@+id/lets_run"
@@ -71,6 +72,12 @@ use data indicating your approximate location."
             app:layout_constraintVertical_bias="0.957"
 
             />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
     </LinearLayout>
 
 

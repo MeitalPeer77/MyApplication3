@@ -1,13 +1,10 @@
-package com.example.myapplication3;
+package com.example.RunningMatch;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
@@ -110,7 +107,7 @@ public class partners_list extends AppCompatActivity {
 
     public void suggestions() {
         // Create an Intent to start the second activity
-        Intent suggestiosIntent = new Intent(this, RunningMatch.class);
+        Intent suggestiosIntent = new Intent(this, RunningMatchHomePage.class);
 
         // Start the new activity.
         startActivity(suggestiosIntent);
