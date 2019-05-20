@@ -38,7 +38,7 @@ public class Register_step_two extends AppCompatActivity {
 
     public void registerNext() {
         // Create an Intent to start the second activity
-        Intent loginIntent = new Intent(this, Location.class);
+        Intent loginIntent = new Intent(this, LocationScreen.class);
 
         // Start the new activity.
         startActivity(loginIntent);
