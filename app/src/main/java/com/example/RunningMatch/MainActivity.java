@@ -16,6 +16,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
 //    private LoginButton loginButton;
@@ -28,12 +30,15 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private Button loginButton;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private DatabaseReference databaseUsers;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        FacebookSdk.sdkInitialize(getApplicationContext());
-//        AppEventsLogger.activateApp(this);
         setContentView(R.layout.activity_main);
+
+        databaseUsers = FirebaseDatabase.getInstance().getReference();
 
         mEmailField = (EditText) findViewById(R.id.email);
         mPasswordField = (EditText) findViewById(R.id.password);
@@ -44,11 +49,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if (firebaseAuth.getCurrentUser() != null) {
-                    RunningMatch();
+                    DatabaseReference ref =  databaseUsers.getDatabase().getReference("users");
 
+                    String email =  firebaseAuth.getCurrentUser().getEmail();
+                    email = email.replace(".", "");
+                    String km = ref.child(email).child("km").toString();
+                    String name = this.getClass().getSimpleName();
+                    Toast.makeText(MainActivity.this, name, Toast.LENGTH_LONG).show();
+                    if (name.equals("MainActivity")){
+                        Register2();
 
+                    }
+                    else {
+                        RunningMatch();
+                    }
                 }
-
             }
         };
 
@@ -56,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
         loginButton = (Button) findViewById(R.id.login_button);
         loginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
                 startSignIn();
 
             }
@@ -76,15 +90,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
     }
 
     public void RunningMatch(){
         // Create an Intent to start the second activity
-        Intent loginIntent = new Intent(this, RunningMatchHomePage.class);
+        Intent homeIntent = new Intent(this, RunningMatchHomePage.class);
 
         // Start the new activity.
-        startActivity(loginIntent);
+        startActivity(homeIntent);
+
+    }
+
+    public void Register2(){
+        // Create an Intent to start the second activity
+        Intent register2Intent = new Intent(this, Register_step_two.class);
+
+        // Start the new activity.
+        startActivity(register2Intent);
 
     }
 

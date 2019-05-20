@@ -13,9 +13,13 @@ import android.widget.TextView;
 
 import com.example.RunningMatch.R;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class SlideAdapter extends PagerAdapter {
     Context context;
     LayoutInflater inflater;
+    ArrayList<User> users;
 
     // list of images
     public int[] lst_images = {
@@ -25,9 +29,10 @@ public class SlideAdapter extends PagerAdapter {
             R.drawable.noam,
             R.drawable.liors,
             R.drawable.toms,
-            R.drawable.almoga,
+            R.drawable.almoga, R.drawable.almoga, R.drawable.almoga
 
     };
+
     // list of titles
     public String[] lst_title = {
             "Netta Zohar",
@@ -51,22 +56,16 @@ public class SlideAdapter extends PagerAdapter {
             
 
     };
-    // list of background colors
-//    public int[]  lst_backgroundcolor = {
-//            Color.rgb(55,55,55),
-//            Color.rgb(239,85,85),
-//            Color.rgb(110,49,89),
-//            Color.rgb(1,188,212)
-//    };
 
 
-    public SlideAdapter(Context context) {
+    public SlideAdapter(Context context, ArrayList<User> users) {
         this.context = context;
+        this.users = users;
     }
 
     @Override
     public int getCount() {
-        return lst_title.length;
+        return users.size()-1;
     }
 
     @Override
@@ -78,14 +77,18 @@ public class SlideAdapter extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
         inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.card,container,false);
+
         LinearLayout layoutslide = (LinearLayout) view.findViewById(R.id.slidelinearlayout);
         ImageView imgslide = (ImageView)  view.findViewById(R.id.slideimg);
         TextView txttitle= (TextView) view.findViewById(R.id.txttitle);
         TextView description = (TextView) view.findViewById(R.id.txtdescription);
-//        layoutslide.setBackgroundColor(lst_backgroundcolor[position]);
-        imgslide.setImageResource(lst_images[position]);
-        txttitle.setText(lst_title[position]);
-        description.setText(lst_description[position]);
+
+        String userName = users.get(position).getUserName();
+        String des = users.get(position).getUserDescription();
+
+        imgslide.setImageResource(R.drawable.yehonatans);
+        txttitle.setText(userName);
+        description.setText(des);
         container.addView(view);
         return view;
     }
