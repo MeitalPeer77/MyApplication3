@@ -1,18 +1,25 @@
 package com.example.RunningMatch;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
+
+
 
 public class Register_step_two extends AppCompatActivity {
     String[] kmArray = {"1", "2", "3", "4","5", "6","7", "8","9", "10", "11", "12", "13", "14", "15"};
     String [] minArray = {"5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60"};
 
     private Button nextbutton;
+    private ImageButton nSelectImage;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +41,11 @@ public class Register_step_two extends AppCompatActivity {
                 registerNext();
             }
         });
+
+        nSelectImage = (ImageButton) findViewById(R.id.defaultBt);
+
+
+
     }
 
     public void registerNext() {
