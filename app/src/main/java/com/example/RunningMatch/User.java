@@ -1,8 +1,14 @@
 package com.example.RunningMatch;
 
-public class User {
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
-    String userId;
+public class User {
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    String userId = mAuth.getUid();
+    String userName;
+
+
 
     String location;
 
@@ -17,5 +23,9 @@ public class User {
 
     public String getLocation() {
         return location;
+    }
+
+    public String getUserName() {
+        return userName;
     }
 }

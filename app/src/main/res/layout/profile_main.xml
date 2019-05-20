@@ -87,6 +87,14 @@
             android:background="@drawable/settings"
             android:onClick="btnSetting_onClick" />
 
+        <Button
+            android:id="@+id/sign_out"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="110dp"
+            android:background="@drawable/pencil" />
+
     </RelativeLayout>
 
 </RelativeLayout>

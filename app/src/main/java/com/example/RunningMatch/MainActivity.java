@@ -75,31 +75,7 @@ public class MainActivity extends AppCompatActivity {
                 location();
             }
         });
-//
-//        callbackManager = CallbackManager.Factory.create();
 
-
-//        loginButton = (LoginButton) findViewById(R.id.facebook_login_button);
-//        loginButton.setReadPermissions(Arrays.asList(EMAIL));
-//        // If you are using in a fragment, call loginButton.setFragment(this);
-//
-//        // Callback registration
-//        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-//            @Override
-//            public void onSuccess(LoginResult loginResult) {
-//                // App code
-//            }
-//
-//            @Override
-//            public void onCancel() {
-//                // App code
-//            }
-//
-//            @Override
-//            public void onError(FacebookException exception) {
-//                // App code
-//            }
-//        });
 
     }
 

@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 public class RunningMatchHomePage extends AppCompatActivity {
     private Toolbar myToolBar;
@@ -24,6 +27,8 @@ public class RunningMatchHomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.suggestion_tab);
+
+
 
 
         profileButton = (Button) findViewById(R.id.action_bar_profile);

@@ -6,16 +6,29 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 
 public class profile extends AppCompatActivity {
     private Button homePageButton;
     private Button partnersButton;
     private Button personalDetalisBtn;
+    private Button signOutBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_main);
 
+
+        signOutBtn = (Button) findViewById(R.id.sign_out);
+        signOutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signOut();
+
+            }
+
+        });
         homePageButton = (Button) findViewById(R.id.action_bar_homepage);
         homePageButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +86,12 @@ public class profile extends AppCompatActivity {
         // Start the new activity.
         startActivity(partnersIntent);
 
+    }
+
+    public void signOut(){
+        FirebaseAuth.getInstance().signOut();
+        Intent logOut = new Intent(this, MainActivity.class);
+        startActivity(logOut);
     }
 
 }
