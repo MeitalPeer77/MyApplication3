@@ -115,8 +115,6 @@ public class LocationScreen extends AppCompatActivity {
         // Create an Intent to start the second activity
         Intent suggestiosIntent = new Intent(this, RunningMatchHomePage.class);
         String id = databaseReference.push().getKey();
-        User user = new User(id, "1");
-        databaseReference.child(id).setValue(user);
 
         // Start the new activity.
         startActivity(suggestiosIntent);
