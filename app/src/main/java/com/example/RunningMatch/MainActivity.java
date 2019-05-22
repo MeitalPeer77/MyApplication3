@@ -21,7 +21,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
 //    private LoginButton loginButton;
-    private Button tryButton; //just for test location
     private TextView SignInButton;
     private CallbackManager callbackManager;
     private static final String EMAIL = "email";
@@ -29,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText mPasswordField;
     private FirebaseAuth mAuth;
     private Button loginButton;
+    private Button signUp;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private DatabaseReference databaseUsers;
 
@@ -85,12 +85,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        tryButton = (Button) findViewById(R.id.tryButton);
-        tryButton.setOnClickListener(new View.OnClickListener() {
+        signUp = (Button)findViewById(R.id.signUp);
+        signUp.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                location();
+                register();
             }
         });
+
+
 
     }
 

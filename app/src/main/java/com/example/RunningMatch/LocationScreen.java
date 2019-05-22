@@ -45,8 +45,8 @@ public class LocationScreen extends AppCompatActivity {
     String password;
     String phone;
     String name;
-    String longitude;
-    String latitude;
+    String longitude = "0";
+    String latitude = "0";
     String km;
     String gender;
     private String time;
