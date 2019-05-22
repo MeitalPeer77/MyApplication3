@@ -24,7 +24,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.*;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 public class Register_step_two extends AppCompatActivity {
 
@@ -39,9 +41,6 @@ public class Register_step_two extends AppCompatActivity {
     String gender;
     EditText userDescription;
     String description;
-
-
-
 
     String[] kmArray = {"1", "2", "3", "4","5", "6","7", "8","9", "10", "11", "12", "13", "14", "15"};
     String [] minArray = {"5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60"};

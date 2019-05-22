@@ -9,8 +9,8 @@ public class User {
     private String userDescription;
     private int DistanceRangeFromUser = 20;
     private String phoneNumber;
-    private String latitude;
-    private String longitude;
+    private String latitude="0";
+    private String longitude= "0";
     private String databaseId;
     private String email;
 
