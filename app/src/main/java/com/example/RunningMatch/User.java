@@ -1,6 +1,7 @@
 package com.example.RunningMatch;
 
 public class User {
+    private String userId;
     private String userName;
     private String gender;
     private String km;
@@ -8,12 +9,15 @@ public class User {
     private String userDescription;
     private int DistanceRangeFromUser = 20;
     private String phoneNumber;
+    private double latitude;
+    private double longitude;
+    private String databaseId;
     private String email;
 
 
     String location;
 
-    public User(String email,  String phoneNumber, String km, String time, String userName, String userDescription, String gender){
+    public User(String email,  String phoneNumber, String km, String time, String userName, String userDescription, String gender, double longitude, double latitude){
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.km = km;
@@ -21,6 +25,18 @@ public class User {
         this.userName = userName;
         this.userDescription = userDescription;
         this.gender = gender;
+        this.longitude = longitude;
+        this.latitude = latitude;
+
+
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     private String getLocation() {
@@ -84,4 +100,22 @@ public class User {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+
 }

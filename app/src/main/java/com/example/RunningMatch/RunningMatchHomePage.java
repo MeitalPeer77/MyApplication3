@@ -78,6 +78,8 @@ public class RunningMatchHomePage extends AppCompatActivity {
             }
         });
 
+
+
     }
 
     private void getUsers(){
@@ -129,6 +131,8 @@ public class RunningMatchHomePage extends AppCompatActivity {
         startActivity(partnersIntent);
 
     }
+
+
 
 
 }

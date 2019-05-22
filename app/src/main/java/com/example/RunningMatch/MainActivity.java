@@ -58,8 +58,10 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, name, Toast.LENGTH_LONG).show();
                     if (name.equals("MainActivity")){
                         Register2();
-
                     }
+
+
+
                     else {
                         RunningMatch();
                     }

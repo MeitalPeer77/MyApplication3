@@ -34,6 +34,8 @@ public class Register_step_two extends AppCompatActivity {
     String gender;
     EditText userDescription;
     String description;
+    double longitude = 0;
+    double latitude = 0;
 
     String[] kmArray = {"1", "2", "3", "4","5", "6","7", "8","9", "10", "11", "12", "13", "14", "15"};
     String [] minArray = {"5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60"};
@@ -132,42 +134,50 @@ public class Register_step_two extends AppCompatActivity {
     protected void registerNext() {
 
         mAuth = FirebaseAuth.getInstance();
-        createAccount(email, password);
+//        createAccount(email, password);
 
 
 //        String id = databaseUsers.push().getKey();
         description  = userDescription.getText().toString();
-        User newUser = new User(email, phone, km, time, name, description, gender);
+//        User newUser = new User(email, phone, km, time, name, description, gender, longitude, latitude);
         email = email.replace(".", "");
-        databaseUsers.child("users").child(email).setValue(newUser);
+//        databaseUsers.child("users").child(email).setValue(newUser);
 
-        Intent loginIntent = new Intent(this, RunningMatchHomePage.class);
+        Intent loginIntent = new Intent(this, LocationScreen.class);
+        loginIntent.putExtra("email", email);
+        loginIntent.putExtra("password", password);
+        loginIntent.putExtra("phoneNumber", phone);
+        loginIntent.putExtra("userName", name);
+        loginIntent.putExtra("km", km);
+        loginIntent.putExtra("description", description);
+        loginIntent.putExtra("gender", gender);
+        loginIntent.putExtra("time", time);
 
         // Start the new activity.
         startActivity(loginIntent);
 
     }
-    private void createAccount(String email, String password) {
-        // [START create_user_with_email]
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            FirebaseUser user = mAuth.getCurrentUser();
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Toast.makeText(Register_step_two.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-
-                        }
-
-                        // [START_EXCLUDE]
-                        // [END_EXCLUDE]
-                    }
-                });
-        // [END create_user_with_email]
-    }
+//    private void createAccount(String email, String password) {
+//        // [START create_user_with_email]
+//        mAuth.createUserWithEmailAndPassword(email, password)
+//                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<AuthResult> task) {
+//                        if (task.isSuccessful()) {
+//                            // Sign in success, update UI with the signed-in user's information
+//                            FirebaseUser user = mAuth.getCurrentUser();
+//                        } else {
+//                            // If sign in fails, display a message to the user.
+//                            Toast.makeText(Register_step_two.this, "Authentication failed.",
+//                                    Toast.LENGTH_SHORT).show();
+//
+//                        }
+//
+//                        // [START_EXCLUDE]
+//                        // [END_EXCLUDE]
+//                    }
+//                });
+//        // [END create_user_with_email]
+//    }
 
 }
