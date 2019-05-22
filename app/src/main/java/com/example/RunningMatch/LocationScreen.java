@@ -34,7 +34,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class LocationScreen extends AppCompatActivity {
 
     DatabaseReference databaseReference;
-    private FirebaseAnalytics mFirebaseAnalytics;
+    //private FirebaseAnalytics mFirebaseAnalytics;
 
 
     private Button b;
@@ -47,8 +47,8 @@ public class LocationScreen extends AppCompatActivity {
     String password;
     String phone;
     String name;
-    String longitude;
-    String latitude;
+    String longitude = "0";
+    String latitude = "0";
     String km;
     String gender;
     private String time;
@@ -62,7 +62,7 @@ public class LocationScreen extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
 
-        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        //mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         setContentView(R.layout.activity_location);
 
@@ -93,10 +93,27 @@ public class LocationScreen extends AppCompatActivity {
             }
 
             public String getLatitude(Location location){
-                return String.valueOf(location.getLatitude());
+                Double lat;
+                lat = location.getLatitude();
+
+                if (lat!= null){
+                    return (String.valueOf(location.getLatitude()));
+                }
+                else{
+                    return "0";
+                }
             }
             public String getLongitude(Location location){
-                return String.valueOf(location.getLongitude());
+
+                Double longtitude_get;
+                longtitude_get = location.getLongitude();
+
+                if (longtitude_get!= null){
+                    return (String.valueOf(location.getLongitude()));
+                }
+                else{
+                    return "0";
+                }
             }
 
             @Override
@@ -150,7 +167,7 @@ public class LocationScreen extends AppCompatActivity {
                 createAccount(email, password);
 //                String key_email = email;
                 User newUser = new User(email, phone, km, time, name, description, gender, longitude, latitude);
-                mFirebaseAnalytics.setUserProperty("km", km);
+                //mFirebaseAnalytics.setUserProperty("km", km);
                 databaseReference.child("users").child(email).setValue(newUser);
                 locationManager.requestLocationUpdates("gps", 5000, 0, listener);
 
