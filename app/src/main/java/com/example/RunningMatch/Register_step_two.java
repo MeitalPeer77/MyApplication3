@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -21,8 +22,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.*;
 
 public class Register_step_two extends AppCompatActivity {
+
     private DatabaseReference databaseUsers;
     private FirebaseAuth mAuth;
     Spinner spinnerKm;
@@ -34,13 +37,20 @@ public class Register_step_two extends AppCompatActivity {
     String gender;
     EditText userDescription;
     String description;
-    double longitude = 0;
-    double latitude = 0;
+
+
+
 
     String[] kmArray = {"1", "2", "3", "4","5", "6","7", "8","9", "10", "11", "12", "13", "14", "15"};
     String [] minArray = {"5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60"};
 
     private Button nextbutton;
+    private StorageReference mStorage;
+    private ImageButton mSelectImage;
+
+    private static final int GALERRY_INTENT = 2;
+
+
 
     Bundle extras;
     String km;
@@ -51,6 +61,21 @@ public class Register_step_two extends AppCompatActivity {
         setContentView(R.layout.activity_register_step_two);
 
         userDescription = (EditText) findViewById(R.id.editText5);
+
+        mStorage = FirebaseStorage.getInstance().getReference();
+
+        mSelectImage = (ImageButton) findViewById(R.id.defaultBt);
+
+        mSelectImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_PICK);
+
+                intent.setType("image/*");
+
+                startActivityForResult(intent, GALERRY_INTENT);
+            }
+        });
 
 
         extras = getIntent().getExtras();
