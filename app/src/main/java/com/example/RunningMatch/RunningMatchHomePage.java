@@ -62,6 +62,8 @@ public class RunningMatchHomePage extends AppCompatActivity {
             }
         });
 
+
+
     }
 
     public void profile() {
@@ -81,6 +83,8 @@ public class RunningMatchHomePage extends AppCompatActivity {
         startActivity(partnersIntent);
 
     }
+
+
 
 
 }

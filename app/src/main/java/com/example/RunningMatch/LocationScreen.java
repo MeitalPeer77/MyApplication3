@@ -19,7 +19,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -32,6 +38,18 @@ public class LocationScreen extends AppCompatActivity {
     private TextView t;
     private LocationManager locationManager;
     private LocationListener listener;
+    private FirebaseAuth mAuth;
+    String email;
+    Bundle extras;
+    String password;
+    String phone;
+    String name;
+    double longitude;
+    double latitude;
+    String km;
+    String gender;
+    private String time;
+    private String description;
 
 
     @Override
@@ -39,7 +57,7 @@ public class LocationScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
-
+        mAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.activity_location);
 
         t = (TextView) findViewById(R.id.textView5);
@@ -47,11 +65,32 @@ public class LocationScreen extends AppCompatActivity {
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
+        extras = getIntent().getExtras();
+        password = extras.getString("password");
+        email = extras.getString("email");
+        phone = extras.getString("phoneNumber");
+        name = extras.getString("userName");
+        km = extras.getString("km");
+        gender = extras.getString("gender");
+        time = extras.getString("time");
+        description = extras.getString("description");
+
 
         listener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
-                t.append("\n " + location.getLongitude() + " " + location.getLatitude());
+//                t.append("\n " + location.getLongitude() + " " + location.getLatitude());
+
+
+                databaseReference.child("users").child(email).child("longitude").setValue(location.getLongitude());
+                databaseReference.child("users").child(email).child("latitude").setValue(location.getLatitude());
+            }
+
+            public double getLatitude(Location location){
+                return location.getLatitude();
+            }
+            public double getLongitude(Location location){
+                return location.getLongitude();
             }
 
             @Override
@@ -102,6 +141,10 @@ public class LocationScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //noinspection MissingPermission
+                createAccount(email, password);
+//                String key_email = email;
+                User newUser = new User(email, phone, km, time, name, description, gender, longitude, latitude);
+                databaseReference.child("users").child(email).setValue(newUser);
                 locationManager.requestLocationUpdates("gps", 5000, 0, listener);
 
 
@@ -112,13 +155,38 @@ public class LocationScreen extends AppCompatActivity {
 
 
     public void suggestions() {
+//        createAccount(email, password);
+//        User newUser = new User(email, phone, km, time, name, description, gender, longitude, latitude);
+//        databaseReference.child("users").child(email).setValue(newUser);
+
         // Create an Intent to start the second activity
         Intent suggestiosIntent = new Intent(this, RunningMatchHomePage.class);
-        String id = databaseReference.push().getKey();
 
         // Start the new activity.
         startActivity(suggestiosIntent);
 
+    }
+    private void createAccount(String email, String password) {
+        // [START create_user_with_email]
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            FirebaseUser user = mAuth.getCurrentUser();
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Toast.makeText(LocationScreen.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+
+                        }
+
+                        // [START_EXCLUDE]
+                        // [END_EXCLUDE]
+                    }
+                });
+        // [END create_user_with_email]
     }
 
 }
