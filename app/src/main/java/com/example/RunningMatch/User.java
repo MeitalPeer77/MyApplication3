@@ -9,15 +9,15 @@ public class User {
     private String userDescription;
     private int DistanceRangeFromUser = 20;
     private String phoneNumber;
-    private double latitude;
-    private double longitude;
+    private String latitude;
+    private String longitude;
     private String databaseId;
     private String email;
 
 
     String location;
 
-    public User(String email,  String phoneNumber, String km, String time, String userName, String userDescription, String gender, double longitude, double latitude){
+    public User(String email,  String phoneNumber, String km, String time, String userName, String userDescription, String gender, String longitude, String latitude){
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.km = km;
@@ -101,19 +101,19 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public double getLatitude() {
+    public String getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(double latitude) {
+    public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
 
-    public double getLongitude() {
+    public String getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(double longitude) {
+    public void setLongitude(String longitude) {
         this.longitude = longitude;
     }
 

@@ -44,8 +44,8 @@ public class LocationScreen extends AppCompatActivity {
     String password;
     String phone;
     String name;
-    double longitude;
-    double latitude;
+    String longitude;
+    String latitude;
     String km;
     String gender;
     private String time;
@@ -86,11 +86,11 @@ public class LocationScreen extends AppCompatActivity {
                 databaseReference.child("users").child(email).child("latitude").setValue(location.getLatitude());
             }
 
-            public double getLatitude(Location location){
-                return location.getLatitude();
+            public String getLatitude(Location location){
+                return String.valueOf(location.getLatitude());
             }
-            public double getLongitude(Location location){
-                return location.getLongitude();
+            public String getLongitude(Location location){
+                return String.valueOf(location.getLongitude());
             }
 
             @Override
