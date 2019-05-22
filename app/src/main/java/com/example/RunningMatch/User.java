@@ -1,21 +1,23 @@
 package com.example.RunningMatch;
 
 public class User {
+    private String userId;
     private String userName;
     private String gender;
     private String km;
     private String time;
     private String userDescription;
-    private String DistanceRangeFromUser = "20";
-    private String latitude;
-    private String longitude;
+    private int DistanceRangeFromUser = 20;
     private String phoneNumber;
+    private double latitude;
+    private double longitude;
+    private String databaseId;
     private String email;
 
 
     String location;
 
-    public User(String email,  String phoneNumber, String km, String time, String userName, String userDescription, String gender, String longitude, String latitude){
+    public User(String email,  String phoneNumber, String km, String time, String userName, String userDescription, String gender, double longitude, double latitude){
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.km = km;
@@ -23,8 +25,22 @@ public class User {
         this.userName = userName;
         this.userDescription = userDescription;
         this.gender = gender;
-        this.latitude = latitude;
         this.longitude = longitude;
+        this.latitude = latitude;
+
+
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    private String getLocation() {
+        return location;
     }
 
 
@@ -36,21 +52,22 @@ public class User {
         this.userDescription = userDescription;
     }
 
-    public int getKm() {
-        return Integer.parseInt(this.km);
+    public String getKm() {
+        return km;
     }
 
     public void setKm(String km) {
         this.km = km;
     }
 
-    public int getTime() {
-        return Integer.parseInt(this.time);
+    public String getTime() {
+        return time;
     }
 
     public void setTime(String time) {
         this.time = time;
     }
+
 
     public String getGender() {
         return gender;
@@ -69,33 +86,36 @@ public class User {
     }
 
     public int getDistanceRangeFromUser() {
-        return Integer.parseInt(DistanceRangeFromUser);
+        return DistanceRangeFromUser;
     }
 
-    public void setDistanceRangeFromUser(String distance){
+    public void setDistanceRangeFromUser(int distance){
         DistanceRangeFromUser = distance;
     }
 
-    public int getPhoneNumber() {
-        return Integer.parseInt(phoneNumber);
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-    public void setLatitude (String  latitude) {
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 
-    public void setLongitude (String  longitude) {
-        this.longitude = longitude;
-    }
-    public double getLatitude() {
-        return Integer.parseInt(latitude);
+    public double getLongitude() {
+        return longitude;
     }
 
-    public double getlongitude() {
-        return Integer.parseInt(this.longitude);
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
     }
+
 
 }

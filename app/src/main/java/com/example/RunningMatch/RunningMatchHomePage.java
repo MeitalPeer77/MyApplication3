@@ -78,6 +78,8 @@ public class RunningMatchHomePage extends AppCompatActivity {
             }
         });
 
+
+
     }
 
     private void getUsers(){
@@ -87,21 +89,20 @@ public class RunningMatchHomePage extends AppCompatActivity {
                 Iterator<DataSnapshot> items = dataSnapshot.getChildren().iterator();
                 usersArray.clear();
                 while (items.hasNext()){
-                    DataSnapshot item = items.next();
-                    String name, km, time, phoneNumber, description,gender, email, longitude, latitude ;
+                    DataSnapshot   item = items.next();
+                    String email = item.getKey();
+                    String name, km, time, phoneNumber, description,gender ;
                     name = item.child("userName").getValue().toString();
                     km = item.child("km").getValue().toString();
                     time = item.child("time").getValue().toString();
                     phoneNumber = item.child("phoneNumber").getValue().toString();
                     description = item.child("userDescription").getValue().toString();
                     gender = item.child("gender").getValue().toString();
-                    email = item.child("email").getValue().toString();
-                    longitude = item.child("longitude").getValue().toString();
-                    latitude = item.child("longitude").getValue().toString();
 
-                    User user = new User(email, phoneNumber, km, time, name, description, gender, longitude, latitude);
+                    User user = new User(email, phoneNumber, km, time, name, description, gender);
                     usersArray.add(user);
                 }
+
                 myadapter = new SlideAdapter(context, usersArray);
                 viewPager.setAdapter(myadapter);
 
@@ -130,6 +131,8 @@ public class RunningMatchHomePage extends AppCompatActivity {
         startActivity(partnersIntent);
 
     }
+
+
 
 
 }
