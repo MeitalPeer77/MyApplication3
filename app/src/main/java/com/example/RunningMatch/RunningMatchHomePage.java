@@ -88,14 +88,14 @@ public class RunningMatchHomePage extends AppCompatActivity {
                 usersArray.clear();
                 while (items.hasNext()){
                     DataSnapshot item = items.next();
-                    String name, km, time, phoneNumber, description,gender, email ;
+                    String email = item.getKey();
+                    String name, km, time, phoneNumber, description,gender ;
                     name = item.child("userName").getValue().toString();
                     km = item.child("km").getValue().toString();
                     time = item.child("time").getValue().toString();
                     phoneNumber = item.child("phoneNumber").getValue().toString();
                     description = item.child("userDescription").getValue().toString();
                     gender = item.child("gender").getValue().toString();
-                    email = item.child("email").getValue().toString();
 
                     User user = new User(email, phoneNumber, km, time, name, description, gender);
                     usersArray.add(user);
