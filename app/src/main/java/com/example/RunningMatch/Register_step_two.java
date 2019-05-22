@@ -1,6 +1,7 @@
 package com.example.RunningMatch;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -76,6 +78,7 @@ public class Register_step_two extends AppCompatActivity {
                 startActivityForResult(intent, GALERRY_INTENT);
             }
         });
+
 
 
         extras = getIntent().getExtras();
@@ -156,6 +159,8 @@ public class Register_step_two extends AppCompatActivity {
         });
     }
 
+
+
     protected void registerNext() {
 
         mAuth = FirebaseAuth.getInstance();
@@ -182,27 +187,25 @@ public class Register_step_two extends AppCompatActivity {
         startActivity(loginIntent);
 
     }
-//    private void createAccount(String email, String password) {
-//        // [START create_user_with_email]
-//        mAuth.createUserWithEmailAndPassword(email, password)
-//                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<AuthResult> task) {
-//                        if (task.isSuccessful()) {
-//                            // Sign in success, update UI with the signed-in user's information
-//                            FirebaseUser user = mAuth.getCurrentUser();
-//                        } else {
-//                            // If sign in fails, display a message to the user.
-//                            Toast.makeText(Register_step_two.this, "Authentication failed.",
-//                                    Toast.LENGTH_SHORT).show();
-//
-//                        }
-//
-//                        // [START_EXCLUDE]
-//                        // [END_EXCLUDE]
-//                    }
-//                });
-//        // [END create_user_with_email]
-//    }
+
+    @Override
+    protected void onActivityResult(int requsetCode, int resultCode, Intent data){
+        super.onActivityResult(requsetCode, resultCode, data);
+        if (requsetCode == GALERRY_INTENT && resultCode == RESULT_OK){
+            Uri uri = data.getData();
+
+            StorageReference filePath = mStorage.child("Photos").child(uri.getLastPathSegment());
+
+            filePath.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    Toast.makeText(Register_step_two.this, "upload done", Toast.LENGTH_LONG).show();
+                }
+            });
+
+
+
+        }
+    }
 
 }
