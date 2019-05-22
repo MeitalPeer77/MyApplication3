@@ -37,7 +37,6 @@ public class Register_step_two extends AppCompatActivity {
     double longitude = 0;
     double latitude = 0;
 
-
     String[] kmArray = {"1", "2", "3", "4","5", "6","7", "8","9", "10", "11", "12", "13", "14", "15"};
     String [] minArray = {"5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60"};
 
@@ -87,7 +86,6 @@ public class Register_step_two extends AppCompatActivity {
         spinnerKm = (Spinner)findViewById(R.id.spinner_km);
         spinnerKm.setAdapter(arrayaddapterKm);
 
-
         spinnerKm.setOnItemSelectedListener(new OnItemSelectedListener(){
 
             @Override
@@ -101,8 +99,6 @@ public class Register_step_two extends AppCompatActivity {
 
             }
         });
-
-
 
         ArrayAdapter<String> arrayaddapterMin = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, minArray);
         arrayaddapterMin.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

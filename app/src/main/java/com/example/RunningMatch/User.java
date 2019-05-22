@@ -116,4 +116,6 @@ public class User {
     public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
+
+
 }
