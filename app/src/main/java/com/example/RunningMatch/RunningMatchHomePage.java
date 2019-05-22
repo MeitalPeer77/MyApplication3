@@ -88,7 +88,7 @@ public class RunningMatchHomePage extends AppCompatActivity {
                 usersArray.clear();
                 while (items.hasNext()){
                     DataSnapshot item = items.next();
-                    String name, km, time, phoneNumber, description,gender, email ;
+                    String name, km, time, phoneNumber, description,gender, email, longitude, latitude ;
                     name = item.child("userName").getValue().toString();
                     km = item.child("km").getValue().toString();
                     time = item.child("time").getValue().toString();
@@ -96,11 +96,14 @@ public class RunningMatchHomePage extends AppCompatActivity {
                     description = item.child("userDescription").getValue().toString();
                     gender = item.child("gender").getValue().toString();
                     email = item.child("email").getValue().toString();
+                    longitude = item.child("longitude").getValue().toString();
+                    latitude = item.child("longitude").getValue().toString();
 
-                    User user = new User(email, phoneNumber, km, time, name, description, gender);
+                    User user = new User(email, phoneNumber, km, time, name, description, gender, longitude, latitude);
                     usersArray.add(user);
                 }
-
+                String email = mAuth.getCurrentUser().getEmail().replace(".", "");
+                RateComperator sort = new RateComperator(email);
                 myadapter = new SlideAdapter(context, usersArray);
                 viewPager.setAdapter(myadapter);
 

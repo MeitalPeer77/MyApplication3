@@ -6,14 +6,16 @@ public class User {
     private String km;
     private String time;
     private String userDescription;
-    private int DistanceRangeFromUser = 20;
+    private String DistanceRangeFromUser = "20";
+    private String latitude;
+    private String longitude;
     private String phoneNumber;
     private String email;
 
 
     String location;
 
-    public User(String email,  String phoneNumber, String km, String time, String userName, String userDescription, String gender){
+    public User(String email,  String phoneNumber, String km, String time, String userName, String userDescription, String gender, String longitude, String latitude){
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.km = km;
@@ -21,10 +23,8 @@ public class User {
         this.userName = userName;
         this.userDescription = userDescription;
         this.gender = gender;
-    }
-
-    private String getLocation() {
-        return location;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
 
@@ -36,22 +36,21 @@ public class User {
         this.userDescription = userDescription;
     }
 
-    public String getKm() {
-        return km;
+    public int getKm() {
+        return Integer.parseInt(this.km);
     }
 
     public void setKm(String km) {
         this.km = km;
     }
 
-    public String getTime() {
-        return time;
+    public int getTime() {
+        return Integer.parseInt(this.time);
     }
 
     public void setTime(String time) {
         this.time = time;
     }
-
 
     public String getGender() {
         return gender;
@@ -70,18 +69,33 @@ public class User {
     }
 
     public int getDistanceRangeFromUser() {
-        return DistanceRangeFromUser;
+        return Integer.parseInt(DistanceRangeFromUser);
     }
 
-    public void setDistanceRangeFromUser(int distance){
+    public void setDistanceRangeFromUser(String distance){
         DistanceRangeFromUser = distance;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public int getPhoneNumber() {
+        return Integer.parseInt(phoneNumber);
     }
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+    public void setLatitude (String  latitude) {
+        this.latitude = latitude;
+    }
+
+    public void setLongitude (String  longitude) {
+        this.longitude = longitude;
+    }
+    public double getLatitude() {
+        return Integer.parseInt(latitude);
+    }
+
+    public double getlongitude() {
+        return Integer.parseInt(this.longitude);
+    }
+
 }
