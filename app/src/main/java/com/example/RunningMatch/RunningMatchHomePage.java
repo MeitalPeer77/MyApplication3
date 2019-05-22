@@ -40,18 +40,35 @@ public class RunningMatchHomePage extends AppCompatActivity {
 
     private Context context;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.suggestion_tab);
         context = this;
 
-        user = FirebaseAuth.getInstance().getCurrentUser();
+        //user = FirebaseAuth.getInstance().getCurrentUser();
+
 
         mAuth = FirebaseAuth.getInstance();
         mDataBase = FirebaseDatabase.getInstance().getReference();
-        
+
+
+
+
+        mDataBase.child("users").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String email = mAuth.getCurrentUser().getEmail();
+                email = email.replace(".", "");
+                String user_km;
+                user_km = dataSnapshot.child(email).child("km").getValue().toString();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         getUsers();
 

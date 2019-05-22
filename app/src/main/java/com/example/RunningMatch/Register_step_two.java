@@ -169,7 +169,6 @@ public class Register_step_two extends AppCompatActivity {
 //        String id = databaseUsers.push().getKey();
         description  = userDescription.getText().toString();
 //        User newUser = new User(email, phone, km, time, name, description, gender, longitude, latitude);
-        email = email.replace(".", "");
 //        databaseUsers.child("users").child(email).setValue(newUser);
 
         Intent loginIntent = new Intent(this, LocationScreen.class);

@@ -166,8 +166,8 @@ public class LocationScreen extends AppCompatActivity {
                 //noinspection MissingPermission
                 createAccount(email, password);
 //                String key_email = email;
+                email = email.replace(".", "");
                 User newUser = new User(email, phone, km, time, name, description, gender, longitude, latitude);
-                //mFirebaseAnalytics.setUserProperty("km", km);
                 databaseReference.child("users").child(email).setValue(newUser);
                 locationManager.requestLocationUpdates("gps", 5000, 0, listener);
 
