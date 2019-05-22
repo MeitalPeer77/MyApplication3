@@ -102,8 +102,6 @@ public class RunningMatchHomePage extends AppCompatActivity {
                     User user = new User(email, phoneNumber, km, time, name, description, gender, longitude, latitude);
                     usersArray.add(user);
                 }
-                String email = mAuth.getCurrentUser().getEmail().replace(".", "");
-                RateComperator sort = new RateComperator(email);
                 myadapter = new SlideAdapter(context, usersArray);
                 viewPager.setAdapter(myadapter);
 
