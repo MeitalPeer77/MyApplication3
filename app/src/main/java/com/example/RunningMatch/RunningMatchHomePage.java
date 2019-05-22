@@ -87,7 +87,7 @@ public class RunningMatchHomePage extends AppCompatActivity {
                 Iterator<DataSnapshot> items = dataSnapshot.getChildren().iterator();
                 usersArray.clear();
                 while (items.hasNext()){
-                    DataSnapshot item = items.next();
+                    DataSnapshot   item = items.next();
                     String email = item.getKey();
                     String name, km, time, phoneNumber, description,gender ;
                     name = item.child("userName").getValue().toString();
