@@ -1,6 +1,7 @@
 package com.example.RunningMatch;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,20 +10,24 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.*;
 
 public class Register_step_two extends AppCompatActivity {
+
     private DatabaseReference databaseUsers;
     private FirebaseAuth mAuth;
     Spinner spinnerKm;
@@ -34,13 +39,20 @@ public class Register_step_two extends AppCompatActivity {
     String gender;
     EditText userDescription;
     String description;
-    double longitude = 0;
-    double latitude = 0;
+
+
+
 
     String[] kmArray = {"1", "2", "3", "4","5", "6","7", "8","9", "10", "11", "12", "13", "14", "15"};
     String [] minArray = {"5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60"};
 
     private Button nextbutton;
+    private StorageReference mStorage;
+    private ImageButton mSelectImage;
+
+    private static final int GALERRY_INTENT = 2;
+
+
 
     Bundle extras;
     String km;
@@ -51,6 +63,22 @@ public class Register_step_two extends AppCompatActivity {
         setContentView(R.layout.activity_register_step_two);
 
         userDescription = (EditText) findViewById(R.id.editText5);
+
+        mStorage = FirebaseStorage.getInstance().getReference();
+
+        mSelectImage = (ImageButton) findViewById(R.id.defaultBt);
+
+        mSelectImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_PICK);
+
+                intent.setType("image/*");
+
+                startActivityForResult(intent, GALERRY_INTENT);
+            }
+        });
+
 
 
         extras = getIntent().getExtras();
@@ -131,6 +159,8 @@ public class Register_step_two extends AppCompatActivity {
         });
     }
 
+
+
     protected void registerNext() {
 
         mAuth = FirebaseAuth.getInstance();
@@ -157,27 +187,25 @@ public class Register_step_two extends AppCompatActivity {
         startActivity(loginIntent);
 
     }
-//    private void createAccount(String email, String password) {
-//        // [START create_user_with_email]
-//        mAuth.createUserWithEmailAndPassword(email, password)
-//                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<AuthResult> task) {
-//                        if (task.isSuccessful()) {
-//                            // Sign in success, update UI with the signed-in user's information
-//                            FirebaseUser user = mAuth.getCurrentUser();
-//                        } else {
-//                            // If sign in fails, display a message to the user.
-//                            Toast.makeText(Register_step_two.this, "Authentication failed.",
-//                                    Toast.LENGTH_SHORT).show();
-//
-//                        }
-//
-//                        // [START_EXCLUDE]
-//                        // [END_EXCLUDE]
-//                    }
-//                });
-//        // [END create_user_with_email]
-//    }
+
+    @Override
+    protected void onActivityResult(int requsetCode, int resultCode, Intent data){
+        super.onActivityResult(requsetCode, resultCode, data);
+        if (requsetCode == GALERRY_INTENT && resultCode == RESULT_OK){
+            Uri uri = data.getData();
+
+            StorageReference filePath = mStorage.child("Photos").child(uri.getLastPathSegment());
+
+            filePath.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    Toast.makeText(Register_step_two.this, "upload done", Toast.LENGTH_LONG).show();
+                }
+            });
+
+
+
+        }
+    }
 
 }

@@ -35,7 +35,7 @@ dependencies {
 
 
 //    //galery
-//    implementation 'com.google.firebase:firebase-storage:17.0.9'
+    implementation 'com.google.firebase:firebase-storage:17.0.0'
     implementation 'com.squareup.picasso:picasso:2.5.2'
 
     //firebase
