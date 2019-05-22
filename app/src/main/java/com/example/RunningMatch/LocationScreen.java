@@ -23,6 +23,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -32,6 +33,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class LocationScreen extends AppCompatActivity {
 
     DatabaseReference databaseReference;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
 
     private Button b;
@@ -58,6 +60,9 @@ public class LocationScreen extends AppCompatActivity {
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
+
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
         setContentView(R.layout.activity_location);
 
         t = (TextView) findViewById(R.id.textView5);
@@ -144,6 +149,7 @@ public class LocationScreen extends AppCompatActivity {
                 createAccount(email, password);
 //                String key_email = email;
                 User newUser = new User(email, phone, km, time, name, description, gender, longitude, latitude);
+                mFirebaseAnalytics.setUserProperty("km", km);
                 databaseReference.child("users").child(email).setValue(newUser);
                 locationManager.requestLocationUpdates("gps", 5000, 0, listener);
 

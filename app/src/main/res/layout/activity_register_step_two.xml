@@ -203,12 +203,4 @@
         app:layout_constraintVertical_bias="0.046"
         app:srcCompat="@drawable/men3" />
 
-    <ImageButton
-        android:id="@+id/defaultBt"
-        android:layout_width="117dp"
-        android:layout_height="139dp"
-        app:srcCompat="@drawable/com_facebook_profile_picture_blank_portrait"
-        tools:layout_editor_absoluteX="147dp"
-        tools:layout_editor_absoluteY="192dp" />
-
 </android.support.constraint.ConstraintLayout>
