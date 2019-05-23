@@ -135,9 +135,13 @@ public class RunningMatchHomePage extends AppCompatActivity {
                     latitude = item.child("latitude").getValue().toString();
                     longtitude = item.child("longitude").getValue().toString();
 
+
                     if(!email.equals(currentUserEmail)) {
                         User user = new User(email, phoneNumber, km, time, name, description, gender, latitude, longtitude);
-                        usersArray.add(user);
+                        double distance = CalculateRate.calculateDistance(currentUser, user);
+                        if (distance <= currentUser.getDistanceRangeFromUser()) {
+                            usersArray.add(user);
+                        }
                     }
                 }
                 RateComperator sorter = new RateComperator(currentUser);
