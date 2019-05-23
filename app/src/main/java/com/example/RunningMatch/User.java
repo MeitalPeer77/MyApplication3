@@ -7,14 +7,12 @@ public class User {
     private String km;
     private String time;
     private String userDescription;
-    private int DistanceRangeFromUser = 20;
+    private String DistanceRangeFromUser = "20";
     private String phoneNumber;
-    private String latitude;
-    private String longitude;
+    private String latitude="0";
+    private String longitude= "0";
     private String databaseId;
     private String email;
-
-
     String location;
 
     public User(String email,  String phoneNumber, String km, String time, String userName, String userDescription, String gender, String longitude, String latitude){
@@ -39,11 +37,6 @@ public class User {
         this.userId = userId;
     }
 
-    private String getLocation() {
-        return location;
-    }
-
-
     public String getUserDescription() {
         return userDescription;
     }
@@ -52,16 +45,16 @@ public class User {
         this.userDescription = userDescription;
     }
 
-    public String getKm() {
-        return km;
+    public int getKm() {
+        return Integer.parseInt(this.km);
     }
 
     public void setKm(String km) {
         this.km = km;
     }
 
-    public String getTime() {
-        return time;
+    public int getTime() {
+        return Integer.parseInt(time);
     }
 
     public void setTime(String time) {
@@ -86,31 +79,31 @@ public class User {
     }
 
     public int getDistanceRangeFromUser() {
-        return DistanceRangeFromUser;
+        return Integer.parseInt(DistanceRangeFromUser);
     }
 
-    public void setDistanceRangeFromUser(int distance){
+    public void setDistanceRangeFromUser(String distance){
         DistanceRangeFromUser = distance;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public int getPhoneNumber() {
+        return Integer.parseInt(phoneNumber);
     }
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getLatitude() {
-        return latitude;
+    public double getLatitude() {
+        return Double.parseDouble(latitude);
     }
 
     public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
 
-    public String getLongitude() {
-        return longitude;
+    public double getLongitude() {
+        return Double.parseDouble(longitude);
     }
 
     public void setLongitude(String longitude) {

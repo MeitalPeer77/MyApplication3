@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.google.android.gms.auth.api.signin.internal.Storage;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -33,6 +34,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class LocationScreen extends AppCompatActivity {
 
     DatabaseReference databaseReference;
+    //private FirebaseAnalytics mFirebaseAnalytics;
 
 
     private Button b;
@@ -45,8 +47,8 @@ public class LocationScreen extends AppCompatActivity {
     String password;
     String phone;
     String name;
-    String longitude;
-    String latitude;
+    String longitude = "0";
+    String latitude = "0";
     String km;
     String gender;
     private String time;
@@ -59,6 +61,9 @@ public class LocationScreen extends AppCompatActivity {
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
+
+        //mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
         setContentView(R.layout.activity_location);
 
         t = (TextView) findViewById(R.id.textView5);
@@ -88,10 +93,27 @@ public class LocationScreen extends AppCompatActivity {
             }
 
             public String getLatitude(Location location){
-                return String.valueOf(location.getLatitude());
+                Double lat;
+                lat = location.getLatitude();
+
+                if (lat!= null){
+                    return (String.valueOf(location.getLatitude()));
+                }
+                else{
+                    return "0";
+                }
             }
             public String getLongitude(Location location){
-                return String.valueOf(location.getLongitude());
+
+                Double longtitude_get;
+                longtitude_get = location.getLongitude();
+
+                if (longtitude_get!= null){
+                    return (String.valueOf(location.getLongitude()));
+                }
+                else{
+                    return "0";
+                }
             }
 
             @Override
@@ -143,7 +165,9 @@ public class LocationScreen extends AppCompatActivity {
             public void onClick(View view) {
                 //noinspection MissingPermission
                 createAccount(email, password);
+                mAuth.signInWithEmailAndPassword(email, password);
 //                String key_email = email;
+                email = email.replace(".", "");
                 User newUser = new User(email, phone, km, time, name, description, gender, longitude, latitude);
                 databaseReference.child("users").child(email).setValue(newUser);
                 locationManager.requestLocationUpdates("gps", 5000, 0, listener);
