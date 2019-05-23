@@ -15,7 +15,7 @@ public class User {
     private String email;
     String location;
 
-    public User(String email,  String phoneNumber, String km, String time, String userName, String userDescription, String gender, String longitude, String latitude){
+    public User(String email,  String phoneNumber, String km, String time, String userName, String userDescription, String gender, String latitude, String longitude){
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.km = km;

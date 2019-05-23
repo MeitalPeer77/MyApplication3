@@ -69,7 +69,7 @@ public class RunningMatchHomePage extends AppCompatActivity {
                 String longi = dataSnapshot.child(currentUserEmail).child("longitude").getValue().toString();
                 String lati = dataSnapshot.child(currentUserEmail).child("latitude").getValue().toString();
 
-                currentUser = new User(currentUserEmail,phoneNumber, km, time, user_name, description, gender, longi, lati);
+                currentUser = new User(currentUserEmail,phoneNumber, km, time, user_name, description, gender, lati, longi);
 
             }
 
