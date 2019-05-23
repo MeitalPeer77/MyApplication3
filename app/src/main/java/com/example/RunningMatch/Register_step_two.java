@@ -1,8 +1,8 @@
 package com.example.RunningMatch;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,18 +10,16 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 
-import com.google.android.gms.tasks.OnCompleteListener;
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -47,10 +45,11 @@ public class Register_step_two extends AppCompatActivity {
 
     private Button nextbutton;
     private StorageReference mStorage;
-    private ImageButton mSelectImage;
+    private Button mSelectImage;
+    private ProgressDialog progressDialog;
+    private ImageView mImageView;
 
     private static final int GALERRY_INTENT = 2;
-
 
 
     Bundle extras;
@@ -65,7 +64,11 @@ public class Register_step_two extends AppCompatActivity {
 
         mStorage = FirebaseStorage.getInstance().getReference();
 
-        mSelectImage = (ImageButton) findViewById(R.id.defaultBt);
+        mSelectImage = (Button) findViewById(R.id.uploadImage);
+
+        mImageView = (ImageView) findViewById(R.id.imageView2);
+
+        progressDialog = new ProgressDialog(this);
 
         mSelectImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -191,17 +194,36 @@ public class Register_step_two extends AppCompatActivity {
     protected void onActivityResult(int requsetCode, int resultCode, Intent data){
         super.onActivityResult(requsetCode, resultCode, data);
         if (requsetCode == GALERRY_INTENT && resultCode == RESULT_OK){
+
+            progressDialog.setMessage("Uploading...");
+            progressDialog.show();
+
             Uri uri = data.getData();
 
             StorageReference filePath = mStorage.child("Photos").child(uri.getLastPathSegment());
 
+
             filePath.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                    Task<Uri> downloadUri = taskSnapshot.getStorage().getDownloadUrl();
+
+                    Uri generatedFilePath = downloadUri.getResult();
+
+                    Glide.with(Register_step_two.this)
+                            .asBitmap()
+                            .load(generatedFilePath)
+                            .into(mImageView);
+
+                    //Picasso.get().load(generatedFilePath).fit().centerCrop().into(mImageView);
+
+                    progressDialog.dismiss();
+
                     Toast.makeText(Register_step_two.this, "upload done", Toast.LENGTH_LONG).show();
+
                 }
             });
-
 
 
         }

@@ -60,7 +60,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499">
+        app:layout_constraintVertical_bias="0.537">
 
 
         <TextView
@@ -84,16 +84,18 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="km /" />
+
         <Spinner
+            android:id="@+id/spinner_min"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/spinner_min">
+            android:layout_height="wrap_content">
 
         </Spinner>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="minutes"/>
+            android:text="minutes" />
     </LinearLayout>
 
     <EditText
@@ -203,12 +205,39 @@
         app:layout_constraintVertical_bias="0.046"
         app:srcCompat="@drawable/men3" />
 
-    <ImageButton
-        android:id="@+id/defaultBt"
-        android:layout_width="117dp"
-        android:layout_height="139dp"
-        app:srcCompat="@drawable/com_facebook_profile_picture_blank_portrait"
-        tools:layout_editor_absoluteX="147dp"
-        tools:layout_editor_absoluteY="192dp" />
+    <Button
+        android:id="@+id/uploadImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Uplaod"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.472" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="115dp"
+        android:layout_height="106dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.328"
+        app:srcCompat="@drawable/com_facebook_profile_picture_blank_square" />
 
 </android.support.constraint.ConstraintLayout>

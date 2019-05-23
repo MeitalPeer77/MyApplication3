@@ -13,7 +13,9 @@ import android.widget.TextView;
 
 import com.example.RunningMatch.R;
 
+import java.io.InputStream;
 import java.lang.reflect.Array;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class SlideAdapter extends PagerAdapter {
@@ -85,6 +87,7 @@ public class SlideAdapter extends PagerAdapter {
 
         String userName = users.get(position).getUserName();
         String des = users.get(position).getUserDescription();
+
 
         imgslide.setImageResource(R.drawable.yehonatans);
         txttitle.setText(userName);

@@ -50,6 +50,7 @@ public class partners_list extends AppCompatActivity {
 
 
     private void initImageBitMap(){
+        //mImageUrls.add("https://firebasestorage.googleapis.com/v0/b/runningmatch-f9e90.appspot.com/o/Photos%2F6433?alt=media&token=2deb2ceb-13bc-4d0b-8969-5640ea8530af");
         mImageUrls.add("https://scontent.ftlv6-1.fna.fbcdn.net/v/t1.0-9/10570528_663942363682968_3472551542158599282_n.jpg?_nc_cat=108&_nc_ht=scontent.ftlv6-1.fna&oh=4b5e98824fb8295aad9b55de97be83be&oe=5D6910B9");
         mNames.add("Nathaniel Tavisal");
         mDistance.add("5");
