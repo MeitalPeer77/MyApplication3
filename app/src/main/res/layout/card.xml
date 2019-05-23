@@ -13,6 +13,7 @@
     app:cardCornerRadius="10dp">
 
     <LinearLayout
+        android:id="@+id/minutes_text"
         android:layout_width="320dp"
         android:layout_height="363dp"
         android:layout_gravity="center"
@@ -56,10 +57,18 @@
                 android:background="@drawable/ic_location_on_black_24dp" />
 
             <TextView
-                android:id="@+id/kmtext"
+                android:id="@+id/distance_input"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1.7 km from you   |  "
+                android:text="distance"
+                android:textSize="15sp"
+                app:fontFamily="@font/nunito" />
+
+            <TextView
+                android:id="@+id/distance_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" km from you   |  "
                 android:textSize="15sp"
                 app:fontFamily="@font/nunito" />
 
@@ -71,10 +80,21 @@
                 android:paddingLeft="10dp" />
 
             <TextView
+                android:id="@+id/km_input"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="5dp"
-                android:text="Runs: 5 km"
+                android:text="Runs: "
+                android:textSize="15sp"
+
+                app:fontFamily="@font/nunito" />
+
+            <TextView
+                android:id="@+id/km_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:text="km"
                 android:textSize="15sp"
                 app:fontFamily="@font/nunito" />
 
@@ -92,12 +112,22 @@
                 android:layout_height="24dp"
                 android:background="@drawable/stopclock" />
 
-
             <TextView
+                android:id="@+id/time_input"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text=" 30 min"
+                android:paddingLeft="5dp"
+                android:text="minutes"
+                android:textSize="15sp"
+                app:fontFamily="@font/nunito" />
+
+            <TextView
+                android:id="@+id/time_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text=" min"
                 android:textSize="15sp"
                 app:fontFamily="@font/nunito" />
         </LinearLayout>

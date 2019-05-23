@@ -14,12 +14,14 @@ import android.widget.TextView;
 import com.example.RunningMatch.R;
 
 import java.lang.reflect.Array;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class SlideAdapter extends PagerAdapter {
     Context context;
     LayoutInflater inflater;
     ArrayList<User> users;
+    CalculateRate calculator = new CalculateRate();
 
     // list of images
     public int[] lst_images = {
@@ -82,14 +84,33 @@ public class SlideAdapter extends PagerAdapter {
         ImageView imgslide = (ImageView)  view.findViewById(R.id.slideimg);
         TextView txttitle= (TextView) view.findViewById(R.id.txttitle);
         TextView description = (TextView) view.findViewById(R.id.txtdescription);
+        TextView time = (TextView) view.findViewById(R.id.time_input);
+        TextView km = (TextView) view.findViewById(R.id.km_input);
+        TextView distance = (TextView) view.findViewById(R.id.distance_input);
 
         String userName = users.get(position).getUserName();
         String des = users.get(position).getUserDescription();
+        String timeInput = users.get(position).getTime();
+        String kmInput = users.get(position).getKm();
+
+
+        double currentLat = Double.parseDouble(RunningMatchHomePage.currentUser.getLatitude());
+        double currentLong = Double.parseDouble(RunningMatchHomePage.currentUser.getLongitude());
+        double usersLat = Double.parseDouble(users.get(position).getLatitude());
+        double usersLong = Double.parseDouble(users.get(position).getLongitude());
+        double doubleDistance = calculator.distance(currentLat, currentLong, usersLat, usersLong);
+        float distanceInput = (float) doubleDistance;
+
+
 
         imgslide.setImageResource(R.drawable.yehonatans);
         txttitle.setText(userName);
         description.setText(des);
         container.addView(view);
+        time.setText(timeInput);
+        km.setText(kmInput);
+        DecimalFormat df = new DecimalFormat("#.#");
+        distance.setText(df.format(distanceInput));
         return view;
     }
 

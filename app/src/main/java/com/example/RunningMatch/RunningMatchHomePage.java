@@ -28,7 +28,7 @@ public class RunningMatchHomePage extends AppCompatActivity {
     private Button homepageButton;
     private Button matchButton;
     private Button popupButton;
-    public User currentUser;
+    public static User currentUser;
     public String currentUserEmail;
 
 
@@ -140,10 +140,14 @@ public class RunningMatchHomePage extends AppCompatActivity {
                         usersArray.add(user);
                     }
                 }
+
                 RateComperator sorter = new RateComperator(currentUser);
                 Collections.sort(usersArray, sorter);
+
                 myadapter = new SlideAdapter(context, usersArray);
                 viewPager.setAdapter(myadapter);
+
+
 
             }
 

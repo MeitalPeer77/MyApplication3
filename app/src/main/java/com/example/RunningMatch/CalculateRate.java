@@ -11,7 +11,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class CalculateRate  extends AppCompatActivity {
 
-    private static double distance(double lat1, double lon1, double lat2, double lon2) {
+    public static double distance(double lat1, double lon1, double lat2, double lon2) {
         double theta = lon1 - lon2;
         double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta));
         dist = Math.acos(dist);
@@ -29,7 +29,7 @@ public class CalculateRate  extends AppCompatActivity {
     }
 
     public static double calculateDistance(User mainUser, User user) {
-        double myDistance = distance(mainUser.getLatitude(), mainUser.getLongitude(), user.getLatitude(), user.getLongitude());
+        double myDistance = distance(Double.parseDouble(mainUser.getLatitude()), Double.parseDouble(mainUser.getLongitude()), Double.parseDouble(user.getLatitude()), Double.parseDouble(user.getLongitude()));
         return myDistance;
 
     }
@@ -50,8 +50,8 @@ public class CalculateRate  extends AppCompatActivity {
     }
 
     private static int paceRate (User mainUser, User user) {
-        double myPace = (double) mainUser.getTime()/(double) mainUser.getKm();
-        double userPace = (double) user.getTime()/(double) user.getKm();
+        double myPace = Double.parseDouble(mainUser.getTime())/Double.parseDouble(mainUser.getKm());
+        double userPace = Double.parseDouble(user.getTime())/Double.parseDouble(user.getKm());
 
         if (myPace*1.05 > userPace  && userPace > myPace*0.95) {
             return 3;
@@ -69,9 +69,9 @@ public class CalculateRate  extends AppCompatActivity {
     private  int kmeRate (User mainUser, User user) {
         if (mainUser.getKm() == user.getKm()) {
             return 3;
-        } else if (user.getKm() + 1 == mainUser.getKm() || user.getKm() - 1 == mainUser.getKm()) {
+        } else if (Integer.parseInt(user.getKm()) + 1 == Integer.parseInt(mainUser.getKm()) || Integer.parseInt(user.getKm()) - 1 == Integer.parseInt(mainUser.getKm())) {
             return 2;
-        } else if (user.getKm() + 2 == mainUser.getKm() || user.getKm() - 2 == mainUser.getKm()) {
+        } else if (Integer.parseInt(user.getKm()) + 2 == Integer.parseInt(mainUser.getKm()) || Integer.parseInt(user.getKm()) - 2 == Integer.parseInt(mainUser.getKm())) {
             return 1;
         }
         return 0;
