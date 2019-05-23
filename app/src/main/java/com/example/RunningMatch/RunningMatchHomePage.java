@@ -29,6 +29,7 @@ public class RunningMatchHomePage extends AppCompatActivity {
     private Button matchButton;
     private Button popupButton;
     public User currentUser;
+    public String currentUserEmail;
 
 
     // card slide suggestions
@@ -56,19 +57,19 @@ public class RunningMatchHomePage extends AppCompatActivity {
         mDataBase.child("users").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String email = mAuth.getCurrentUser().getEmail();
-                email = email.replace(".", "");
-                String km = dataSnapshot.child(email).child("km").getValue().toString();
-                String time = dataSnapshot.child(email).child("time").getValue().toString();
-                String description = dataSnapshot.child(email).child("userDescription").getValue().toString();
-                String gender = dataSnapshot.child(email).child("gender").getValue().toString();
-                String user_name = dataSnapshot.child(email).child("userName").getValue().toString();
-                String distanceRange = dataSnapshot.child(email).child("distanceRangeFromUser").getValue().toString();
-                String phoneNumber = dataSnapshot.child(email).child("phoneNumber").getValue().toString();
-                String longi = dataSnapshot.child(email).child("longitude").getValue().toString();
-                String lati = dataSnapshot.child(email).child("latitude").getValue().toString();
+                currentUserEmail = mAuth.getCurrentUser().getEmail();
+                currentUserEmail = currentUserEmail.replace(".", "");
+                String km = dataSnapshot.child(currentUserEmail).child("km").getValue().toString();
+                String time = dataSnapshot.child(currentUserEmail).child("time").getValue().toString();
+                String description = dataSnapshot.child(currentUserEmail).child("userDescription").getValue().toString();
+                String gender = dataSnapshot.child(currentUserEmail).child("gender").getValue().toString();
+                String user_name = dataSnapshot.child(currentUserEmail).child("userName").getValue().toString();
+                String distanceRange = dataSnapshot.child(currentUserEmail).child("distanceRangeFromUser").getValue().toString();
+                String phoneNumber = dataSnapshot.child(currentUserEmail).child("phoneNumber").getValue().toString();
+                String longi = dataSnapshot.child(currentUserEmail).child("longitude").getValue().toString();
+                String lati = dataSnapshot.child(currentUserEmail).child("latitude").getValue().toString();
 
-                currentUser = new User(email,phoneNumber, km, time, user_name, description, gender, longi, lati);
+                currentUser = new User(currentUserEmail,phoneNumber, km, time, user_name, description, gender, longi, lati);
 
             }
 
@@ -134,9 +135,10 @@ public class RunningMatchHomePage extends AppCompatActivity {
                     latitude = item.child("latitude").getValue().toString();
                     longtitude = item.child("longitude").getValue().toString();
 
-
-                    User user = new User(email, phoneNumber, km, time, name, description, gender, latitude, longtitude);
-                    usersArray.add(user);
+                    if(!email.equals(currentUserEmail)) {
+                        User user = new User(email, phoneNumber, km, time, name, description, gender, latitude, longtitude);
+                        usersArray.add(user);
+                    }
                 }
                 RateComperator sorter = new RateComperator(currentUser);
                 Collections.sort(usersArray, sorter);
