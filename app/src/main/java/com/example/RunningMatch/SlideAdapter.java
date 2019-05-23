@@ -13,7 +13,9 @@ import android.widget.TextView;
 
 import com.example.RunningMatch.R;
 
+import java.io.InputStream;
 import java.lang.reflect.Array;
+import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
@@ -55,7 +57,6 @@ public class SlideAdapter extends PagerAdapter {
             "I like running at night. 10pm at the earliest.",
             "I hate running but want to stay in shape. Help me do this!",
             "I'm a serious sprinter. Catch me if you can!",
-            
 
     };
 
@@ -100,6 +101,7 @@ public class SlideAdapter extends PagerAdapter {
         double usersLong = Double.parseDouble(users.get(position).getLongitude());
         double doubleDistance = calculator.distance(currentLat, currentLong, usersLat, usersLong);
         float distanceInput = (float) doubleDistance;
+
 
 
 
