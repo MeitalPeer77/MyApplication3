@@ -19,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import android.content.Context;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 
 public class RunningMatchHomePage extends AppCompatActivity {
@@ -27,8 +28,8 @@ public class RunningMatchHomePage extends AppCompatActivity {
     private Button homepageButton;
     private Button matchButton;
     private Button popupButton;
-
-    private FirebaseUser user;
+    public User currentUser;
+    public String currentUserEmail;
 
 
     // card slide suggestions
@@ -40,20 +41,47 @@ public class RunningMatchHomePage extends AppCompatActivity {
 
     private Context context;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.suggestion_tab);
         context = this;
 
-        user = FirebaseAuth.getInstance().getCurrentUser();
+        //user = FirebaseAuth.getInstance().getCurrentUser();
+
 
         mAuth = FirebaseAuth.getInstance();
         mDataBase = FirebaseDatabase.getInstance().getReference();
-        
+
+
+        mDataBase.child("users").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                currentUserEmail = mAuth.getCurrentUser().getEmail();
+                currentUserEmail = currentUserEmail.replace(".", "");
+                String km = dataSnapshot.child(currentUserEmail).child("km").getValue().toString();
+                String time = dataSnapshot.child(currentUserEmail).child("time").getValue().toString();
+                String description = dataSnapshot.child(currentUserEmail).child("userDescription").getValue().toString();
+                String gender = dataSnapshot.child(currentUserEmail).child("gender").getValue().toString();
+                String user_name = dataSnapshot.child(currentUserEmail).child("userName").getValue().toString();
+                String distanceRange = dataSnapshot.child(currentUserEmail).child("distanceRangeFromUser").getValue().toString();
+                String phoneNumber = dataSnapshot.child(currentUserEmail).child("phoneNumber").getValue().toString();
+                String longi = dataSnapshot.child(currentUserEmail).child("longitude").getValue().toString();
+                String lati = dataSnapshot.child(currentUserEmail).child("latitude").getValue().toString();
+
+                currentUser = new User(currentUserEmail,phoneNumber, km, time, user_name, description, gender, longi, lati);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         getUsers();
+
+
 
         profileButton = (Button) findViewById(R.id.action_bar_profile);
         profileButton.setOnClickListener(new View.OnClickListener() {
@@ -107,11 +135,13 @@ public class RunningMatchHomePage extends AppCompatActivity {
                     latitude = item.child("latitude").getValue().toString();
                     longtitude = item.child("longitude").getValue().toString();
 
-
-                    User user = new User(email, phoneNumber, km, time, name, description, gender, latitude, longtitude);
-                    usersArray.add(user);
+                    if(!email.equals(currentUserEmail)) {
+                        User user = new User(email, phoneNumber, km, time, name, description, gender, latitude, longtitude);
+                        usersArray.add(user);
+                    }
                 }
-
+                RateComperator sorter = new RateComperator(currentUser);
+                Collections.sort(usersArray, sorter);
                 myadapter = new SlideAdapter(context, usersArray);
                 viewPager.setAdapter(myadapter);
 
