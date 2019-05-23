@@ -165,6 +165,7 @@ public class LocationScreen extends AppCompatActivity {
             public void onClick(View view) {
                 //noinspection MissingPermission
                 createAccount(email, password);
+                mAuth.signInWithEmailAndPassword(email, password);
 //                String key_email = email;
                 email = email.replace(".", "");
                 User newUser = new User(email, phone, km, time, name, description, gender, longitude, latitude);
