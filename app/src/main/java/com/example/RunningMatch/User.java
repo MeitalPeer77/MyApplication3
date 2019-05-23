@@ -45,16 +45,16 @@ public class User {
         this.userDescription = userDescription;
     }
 
-    public int getKm() {
-        return Integer.parseInt(this.km);
+    public String  getKm() {
+        return this.km;
     }
 
     public void setKm(String km) {
         this.km = km;
     }
 
-    public int getTime() {
-        return Integer.parseInt(time);
+    public String getTime() {
+        return time;
     }
 
     public void setTime(String time) {
@@ -94,16 +94,16 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public double getLatitude() {
-        return Double.parseDouble(latitude);
+    public String  getLatitude() {
+        return latitude;
     }
 
     public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
 
-    public double getLongitude() {
-        return Double.parseDouble(longitude);
+    public String  getLongitude() {
+        return longitude;
     }
 
     public void setLongitude(String longitude) {
