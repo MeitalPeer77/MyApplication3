@@ -28,6 +28,10 @@ public class RunningMatchHomePage extends AppCompatActivity {
     private Button homepageButton;
     private Button matchButton;
     private Button popupButton;
+
+    //event
+    private Button eventButton;
+
     public static User currentUser;
     public String currentUserEmail;
 
@@ -99,6 +103,14 @@ public class RunningMatchHomePage extends AppCompatActivity {
 
             }
 
+        });
+
+        eventButton = (Button)findViewById(R.id.action_bar_event);
+        eventButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                event();
+            }
         });
 
 
@@ -179,6 +191,15 @@ public class RunningMatchHomePage extends AppCompatActivity {
 
     }
 
+
+    public void event() {
+        // Create an Intent to start the second activity
+        Intent eventIntent = new Intent(this, Event_acticity.class);
+
+        // Start the new activity.
+        startActivity(eventIntent);
+
+    }
 
 
 

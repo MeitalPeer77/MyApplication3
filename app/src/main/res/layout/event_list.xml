@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:padding="15dp"
+    android:id="@+id/event_parent_layout">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:id="@+id/event_image"
+        android:src="@mipmap/ic_launcher"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Marathon"
+        android:id="@+id/event_name"
+        android:layout_toRightOf="@id/event_image"
+        android:textColor="@color/darkBlue"
+        android:layout_marginLeft="30dp"
+        android:textSize="17sp"
+        android:layout_alignTop="@id/event_image"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Haifa, 01.01.20"
+        android:layout_toRightOf="@id/event_image"
+        android:layout_marginLeft="30dp"
+        android:layout_centerVertical="true"
+        android:id="@+id/event_details"
+        />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign Up"
+            android:id="@+id/sign_up_event"
+            android:layout_toRightOf="@id/event_image"
+            android:layout_alignBottom="@id/event_image"
+            android:layout_marginLeft="30dp"
+            />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:text="Join"
+        android:id="@+id/join_button"
+        android:background="@drawable/join_button"
+
+        />
+
+</RelativeLayout>
