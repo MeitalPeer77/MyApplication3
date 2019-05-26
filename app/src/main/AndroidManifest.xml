@@ -73,6 +73,10 @@
         <activity android:name=".LocationScreen" />
 
 
+
     </application>
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
 
 </manifest>

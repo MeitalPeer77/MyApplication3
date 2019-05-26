@@ -15,7 +15,13 @@ public class User {
     private String email;
     String location;
 
-    public User(String email,  String phoneNumber, String km, String time, String userName, String userDescription, String gender, String latitude, String longitude){
+    //TODO: check how it is on firebase
+    private String myLikesArray;
+    private String matches;
+
+    public User(String email,  String phoneNumber, String km, String time, String userName,
+                String userDescription, String gender, String latitude, String longitude ,
+                String myLikesArray, String matches){
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.km = km;
@@ -25,6 +31,8 @@ public class User {
         this.gender = gender;
         this.longitude = longitude;
         this.latitude = latitude;
+        this.myLikesArray = myLikesArray;
+        this.matches = matches;
 
 
     }
@@ -45,6 +53,9 @@ public class User {
         this.userDescription = userDescription;
     }
 
+    public String getEmail(){
+        return email;
+    }
     public String  getKm() {
         return this.km;
     }
@@ -86,8 +97,8 @@ public class User {
         DistanceRangeFromUser = distance;
     }
 
-    public int getPhoneNumber() {
-        return Integer.parseInt(phoneNumber);
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
     public void setPhoneNumber(String phoneNumber) {
