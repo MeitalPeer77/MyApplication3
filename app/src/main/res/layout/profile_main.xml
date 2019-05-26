@@ -89,11 +89,14 @@
 
         <Button
             android:id="@+id/sign_out"
-            android:layout_width="48dp"
+            android:layout_width="wrap_content"
             android:layout_height="48dp"
+            android:layout_below="@id/btnSetting"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="110dp"
-            android:background="@drawable/pencil" />
+            android:layout_marginLeft="64dp"
+            android:text = "sign out"
+            android:shadowColor="@color/pink"
+            android:textColor="@color/pink"/>
 
     </RelativeLayout>
 
