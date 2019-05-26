@@ -1,11 +1,14 @@
 package com.example.RunningMatch;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -18,12 +21,43 @@ public class Event_acticity extends AppCompatActivity {
     private ArrayList<String> mImagesURI = new ArrayList<>();
     private ArrayList<String> mEventDetails = new ArrayList<>();
     private ArrayList<Integer> mSighUp = new ArrayList<>();
-    
+
+    private Button homePageButton;
+    private Button partnersButton;
+    private Button profileButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_acticity);
+
+        homePageButton = (Button) findViewById(R.id.action_bar_homepage);
+        homePageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                suggestions();
+
+            }
+
+        });
+        partnersButton = (Button) findViewById(R.id.action_bar_matches);
+        partnersButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                partners();
+
+            }
+
+        });
+
+        profileButton = (Button) findViewById(R.id.action_bar_profile);
+        profileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                profile();
+            }
+        });
 
 
         Log.d(TAG, "onCreate: started.");
@@ -78,5 +112,26 @@ public class Event_acticity extends AppCompatActivity {
         recyclerViewAdapter.setAdapter(adapter);
         recyclerViewAdapter.setLayoutManager(new LinearLayoutManager(this));
 
+    }
+
+    public void suggestions() {
+        // Create an Intent to start the second activity
+        Intent suggestiosIntent = new Intent(this, RunningMatchHomePage.class);
+        // Start the new activity.
+        startActivity(suggestiosIntent);
+    }
+
+    public void partners() {
+        // Create an Intent to start the second activity
+        Intent partnersIntent = new Intent(this, partners_list.class);
+        // Start the new activity.
+        startActivity(partnersIntent);
+    }
+
+    public void profile() {
+        // Create an Intent to start the second activity
+        Intent profileIntent = new Intent(this, profile.class);
+        // Start the new activity.
+        startActivity(profileIntent);
     }
 }

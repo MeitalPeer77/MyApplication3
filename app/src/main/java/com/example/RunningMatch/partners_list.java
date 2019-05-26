@@ -8,6 +8,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 
 public class partners_list extends AppCompatActivity {
@@ -17,18 +21,33 @@ public class partners_list extends AppCompatActivity {
     private ArrayList<String> mDistance = new ArrayList<>();
     private ArrayList<String> mPace = new ArrayList<>();
     private ArrayList<String> mLocations = new ArrayList<>();
-
+    private DatabaseReference mDataBase;
+    public ArrayList<User> matchesArray;
+    private FirebaseAuth mAuth;
 
     private Button matchButton;
     private Button profileButton;
+    private Button eventButton;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.group_tab);
+//        getMatches();
         initImageBitMap();
 
+
+        eventButton = (Button)findViewById(R.id.action_bar_event);
+        eventButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                event();
+            }
+        });
+
+        mAuth = FirebaseAuth.getInstance();
+        mDataBase = FirebaseDatabase.getInstance().getReference();
         matchButton = (Button) findViewById(R.id.action_bar_homepage);
         matchButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,7 +74,7 @@ public class partners_list extends AppCompatActivity {
         mNames.add("Nathaniel Tavisal");
         mDistance.add("5");
         mPace.add("35");
-        //      mInfo.add("info 1");
+  //      mInfo.add("info 1");
         mLocations.add("0.7");
 
 
@@ -114,4 +133,54 @@ public class partners_list extends AppCompatActivity {
         startActivity(suggestiosIntent);
 
     }
+
+    public void event() {
+        // Create an Intent to start the second activity
+        Intent eventIntent = new Intent(this, Event_acticity.class);
+
+        // Start the new activity.
+        startActivity(eventIntent);
+    }
+
+//    private void getMatches(){
+//        mDataBase = FirebaseDatabase.getInstance().getReference();
+//        String email = mAuth.getCurrentUser().getEmail();
+//
+//        mDataBase.child("users").child(email).child("matches").addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                Iterator<DataSnapshot> items = dataSnapshot.getChildren().iterator();
+//                usersArray.clear();
+//                while (items.hasNext()){
+//                    DataSnapshot   item = items.next();
+//                    String email = item.getKey();
+//                    String name, km, time, phoneNumber, description,gender, latitude, longtitude ,myLikes, myMatches;
+//                    name = item.child("userName").getValue().toString();
+//                    km = item.child("km").getValue().toString();
+//                    time = item.child("time").getValue().toString();
+//                    phoneNumber = item.child("phoneNumber").getValue().toString();
+//                    description = item.child("userDescription").getValue().toString();
+//                    gender = item.child("gender").getValue().toString();
+//                    latitude = item.child("latitude").getValue().toString();
+//                    longtitude = item.child("longitude").getValue().toString();
+//                    myLikes = item.child("myLikesArray").getValue().toString();
+//                    myMatches = item.child("matches").getValue().toString();
+//
+//
+//                        User user = new User(email, phoneNumber, km, time, name, description, gender, latitude, longtitude, myLikes, myMatches);
+//                        matchesArray.add(user);
+//
+//
+//
+//                }
+//
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+//    }
 }

@@ -105,7 +105,7 @@ public class SlideAdapter extends PagerAdapter {
         float distanceInput = (float) doubleDistance;
 
 
-        imgslide.setImageResource(R.drawable.yehonatans);
+        imgslide.setImageResource(R.mipmap.ic_launcher);
         txttitle.setText(userName);
         description.setText(des);
         container.addView(view);
