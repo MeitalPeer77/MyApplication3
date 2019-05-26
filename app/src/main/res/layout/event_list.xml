@@ -43,15 +43,26 @@
             />
 
 
-    <Button
+   <!-- <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
         android:text="Join"
         android:id="@+id/join_button"
-        android:background="@drawable/join_button"
+        android:background="@drawable/join_button"-->
 
         />
+
+    <ToggleButton
+        android:id="@+id/join"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/event_toggle_selector"
+        android:checked="false"
+        android:textOff="Join"
+        android:textOn="Going"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"/>
 
 </RelativeLayout>
