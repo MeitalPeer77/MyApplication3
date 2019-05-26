@@ -8,7 +8,7 @@
 
     <include
         android:id="@+id/include"
-        layout="@layout/custom_action_bar"
+        layout="@layout/custom_action_bar_events"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <android.support.v7.widget.RecyclerView

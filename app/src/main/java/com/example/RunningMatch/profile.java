@@ -10,10 +10,14 @@ import com.google.firebase.auth.FirebaseAuth;
 
 
 public class profile extends AppCompatActivity {
+
     private Button homePageButton;
     private Button partnersButton;
     private Button personalDetalisBtn;
     private Button signOutBtn;
+    private Button eventButton;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +60,15 @@ public class profile extends AppCompatActivity {
             }
 
         });
+
+        eventButton = (Button)findViewById(R.id.action_bar_event);
+        eventButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                event();
+            }
+        });
+
     }
 
     public void btnSetting_onClick(View view) {
@@ -92,6 +105,15 @@ public class profile extends AppCompatActivity {
         FirebaseAuth.getInstance().signOut();
         Intent logOut = new Intent(this, MainActivity.class);
         startActivity(logOut);
+    }
+
+    public void event() {
+        // Create an Intent to start the second activity
+        Intent eventIntent = new Intent(this, Event_acticity.class);
+
+        // Start the new activity.
+        startActivity(eventIntent);
+
     }
 
 }

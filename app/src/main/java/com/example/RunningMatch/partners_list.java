@@ -21,6 +21,7 @@ public class partners_list extends AppCompatActivity {
 
     private Button matchButton;
     private Button profileButton;
+    private Button eventButton;
 
 
     @Override
@@ -28,6 +29,14 @@ public class partners_list extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.group_tab);
         initImageBitMap();
+
+        eventButton = (Button)findViewById(R.id.action_bar_event);
+        eventButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                event();
+            }
+        });
 
         matchButton = (Button) findViewById(R.id.action_bar_homepage);
         matchButton.setOnClickListener(new View.OnClickListener() {
@@ -113,5 +122,13 @@ public class partners_list extends AppCompatActivity {
         // Start the new activity.
         startActivity(suggestiosIntent);
 
+    }
+
+    public void event() {
+        // Create an Intent to start the second activity
+        Intent eventIntent = new Intent(this, Event_acticity.class);
+
+        // Start the new activity.
+        startActivity(eventIntent);
     }
 }

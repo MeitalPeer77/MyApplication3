@@ -12,6 +12,7 @@
     android:id="@+id/slidelinearlayout"
     app:cardCornerRadius="10dp">
 
+
     <LinearLayout
         android:id="@+id/minutes_text"
         android:layout_width="320dp"
@@ -19,8 +20,8 @@
         android:layout_gravity="center"
         android:background="@drawable/customborder"
         android:orientation="vertical"
-        android:paddingBottom="5dp"
-        android:paddingTop="50dp">
+        android:paddingTop="25dp"
+        android:paddingBottom="5dp">
 
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -101,6 +102,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -132,24 +134,51 @@
                 app:fontFamily="@font/nunito" />
         </LinearLayout>
 
+
+        <LinearLayout
+            android:id="@+id/goals_display"
+            android:paddingTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/icon_10k" />
+            <View
+                android:id="@+id/divider_top"
+                android:layout_width="15dp"
+                android:layout_height="match_parent"/>
+
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/cardiogram" />
+
+        </LinearLayout>
+
         <LinearLayout
             android:id="@+id/content_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@id/slideimg"
-            android:layout_below="@id/location"
+            android:layout_below="@id/goals_display"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/txtdescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:text="sample text"
-                android:textSize="18dp"
                 android:layout_gravity="center"
+                android:text="sample text"
+                android:textAlignment="center"
+                android:textSize="18dp"
                 app:fontFamily="@font/nunito" />
 
         </LinearLayout>
