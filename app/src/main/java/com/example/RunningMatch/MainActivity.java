@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     private EditText mPasswordField;
     private FirebaseAuth mAuth;
     private Button loginButton;
-    private Button signUp;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private DatabaseReference databaseUsers;
 
@@ -85,12 +84,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        signUp = (Button)findViewById(R.id.signUp);
-        signUp.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                register();
-            }
-        });
+
 
 
 
