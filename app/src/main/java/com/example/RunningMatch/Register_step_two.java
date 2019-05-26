@@ -23,6 +23,8 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ToggleButton;
 
 import com.bumptech.glide.Glide;
+import com.google.android.flexbox.FlexDirection;
+import com.google.android.flexbox.FlexboxLayout;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -84,6 +86,7 @@ public class Register_step_two extends AppCompatActivity {
         mImageView = (ImageView) findViewById(R.id.imageView2);
 
         progressDialog = new ProgressDialog(this);
+
 
         togle1 = (ToggleButton) findViewById(R.id.run_5K);
         togle1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
