@@ -53,8 +53,7 @@
             android:layout_height="45dp"
             android:layout_marginLeft="87dp"
             android:layout_toRightOf="@id/action_bar_profile"
-            android:background="@drawable/event"
-            android:text="Button" />
+            android:background="@drawable/event" />
 
     </RelativeLayout>
 
