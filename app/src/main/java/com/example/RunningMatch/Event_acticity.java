@@ -117,26 +117,21 @@ public class Event_acticity extends AppCompatActivity {
     public void suggestions() {
         // Create an Intent to start the second activity
         Intent suggestiosIntent = new Intent(this, RunningMatchHomePage.class);
-
         // Start the new activity.
         startActivity(suggestiosIntent);
-
     }
+
     public void partners() {
         // Create an Intent to start the second activity
         Intent partnersIntent = new Intent(this, partners_list.class);
-
         // Start the new activity.
         startActivity(partnersIntent);
-
     }
 
     public void profile() {
         // Create an Intent to start the second activity
         Intent profileIntent = new Intent(this, profile.class);
-
         // Start the new activity.
         startActivity(profileIntent);
-
     }
 }

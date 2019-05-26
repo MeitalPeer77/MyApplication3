@@ -2,6 +2,7 @@ package com.example.RunningMatch;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -11,16 +12,24 @@ public class pop extends Activity {
     private Button contactButton;
     private Button notNow;
 
+    Bundle extras;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.popupwindow);
 
+
+        extras = getIntent().getExtras();
+        final String phoneNumber = extras.getString("phoneNumber");
+
         contactButton = (Button)findViewById(R.id.contact);
         contactButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                MainProfile();
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:"+phoneNumber));
+                startActivity(intent);
             }
         });
 

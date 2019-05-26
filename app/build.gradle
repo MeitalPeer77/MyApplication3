@@ -63,5 +63,5 @@ dependencies {
     implementation 'com.ms-square:expandableTextView:0.1.4'
     implementation 'com.google.firebase:firebase-auth:17.0.0'
 }
-//firebase
-apply plugin: 'com.google.gms.google-services'
+    //firebase
+    apply plugin: 'com.google.gms.google-services'

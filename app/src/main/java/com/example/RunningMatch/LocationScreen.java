@@ -87,10 +87,11 @@ public class LocationScreen extends AppCompatActivity {
             @Override
             public void onLocationChanged(Location location) {
 //                t.append("\n " + location.getLongitude() + " " + location.getLatitude());
+                String long_1 = String.valueOf(location.getLongitude());
+                String lat_1 = String.valueOf(location.getLatitude());
 
-
-                databaseReference.child("users").child(email).child("longitude").setValue(location.getLongitude());
-                databaseReference.child("users").child(email).child("latitude").setValue(location.getLatitude());
+                databaseReference.child("users").child(email).child("longitude").setValue(long_1);
+                databaseReference.child("users").child(email).child("latitude").setValue(lat_1);
             }
 
             public String getLatitude(Location location){
@@ -165,12 +166,13 @@ public class LocationScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //noinspection MissingPermission
+                databaseReference = FirebaseDatabase.getInstance().getReference();
 
 //                mAuth.signInWithEmailAndPassword(email, password);
 //                String key_email = email;
                 cleanEmail = email;
                 email = email.replace(".", "");
-                User newUser = new User(email, phone, km, time, name, description, gender, longitude, latitude);
+                User newUser = new User(email, phone, km, time, name, description, gender, longitude, latitude, "", "");
                 databaseReference.child("users").child(email).setValue(newUser);
                 locationManager.requestLocationUpdates("gps", 5000, 0, listener);
                 createAccount(cleanEmail, password);

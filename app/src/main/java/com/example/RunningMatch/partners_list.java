@@ -2,13 +2,22 @@ package com.example.RunningMatch;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class partners_list extends AppCompatActivity {
 
@@ -17,6 +26,9 @@ public class partners_list extends AppCompatActivity {
     private ArrayList<String> mDistance = new ArrayList<>();
     private ArrayList<String> mPace = new ArrayList<>();
     private ArrayList<String> mLocations = new ArrayList<>();
+    private DatabaseReference mDataBase;
+    public ArrayList<User> matchesArray;
+    private FirebaseAuth mAuth;
 
 
     private Button matchButton;
@@ -28,6 +40,7 @@ public class partners_list extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.group_tab);
+        getMatches();
         initImageBitMap();
 
         eventButton = (Button)findViewById(R.id.action_bar_event);
@@ -38,6 +51,8 @@ public class partners_list extends AppCompatActivity {
             }
         });
 
+        mAuth = FirebaseAuth.getInstance();
+        mDataBase = FirebaseDatabase.getInstance().getReference();
         matchButton = (Button) findViewById(R.id.action_bar_homepage);
         matchButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,5 +145,47 @@ public class partners_list extends AppCompatActivity {
 
         // Start the new activity.
         startActivity(eventIntent);
+    }
+
+    private void getMatches(){
+        mDataBase = FirebaseDatabase.getInstance().getReference();
+        String email = mAuth.getCurrentUser().getEmail();
+
+        mDataBase.child("users").child(email).child("matches").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Iterator<DataSnapshot> items = dataSnapshot.getChildren().iterator();
+//                usersArray.clear();
+                while (items.hasNext()){
+                    DataSnapshot   item = items.next();
+                    String email = item.getKey();
+                    String name, km, time, phoneNumber, description,gender, latitude, longtitude ,myLikes, myMatches;
+                    name = item.child("userName").getValue().toString();
+                    km = item.child("km").getValue().toString();
+                    time = item.child("time").getValue().toString();
+                    phoneNumber = item.child("phoneNumber").getValue().toString();
+                    description = item.child("userDescription").getValue().toString();
+                    gender = item.child("gender").getValue().toString();
+                    latitude = item.child("latitude").getValue().toString();
+                    longtitude = item.child("longitude").getValue().toString();
+                    myLikes = item.child("myLikesArray").getValue().toString();
+                    myMatches = item.child("matches").getValue().toString();
+
+
+                        User user = new User(email, phoneNumber, km, time, name, description, gender, latitude, longtitude, myLikes, myMatches);
+                        matchesArray.add(user);
+
+
+
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 }

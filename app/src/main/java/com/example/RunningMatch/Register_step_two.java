@@ -85,16 +85,16 @@ public class Register_step_two extends AppCompatActivity {
 
         progressDialog = new ProgressDialog(this);
 
-        togle1 = (ToggleButton) findViewById(R.id.run_5K);
-        togle1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    // The toggle is enabled
-                } else {
-                    // The toggle is disabled
-                }
-            }
-        });
+//        togle1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                if  togle1 = (ToggleButton) findViewById(R.id.run_5K);
+//                (isChecked) {
+//                    // The toggle is enabled
+//                } else {
+//                    // The toggle is disabled
+//                }
+//            }
+//        });
 
 
         mSelectImage.setOnClickListener(new View.OnClickListener() {

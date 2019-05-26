@@ -19,6 +19,7 @@ import java.lang.reflect.Array;
 import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class SlideAdapter extends PagerAdapter {
     Context context;
@@ -104,7 +105,7 @@ public class SlideAdapter extends PagerAdapter {
         float distanceInput = (float) doubleDistance;
 
 
-        imgslide.setImageResource(R.drawable.yehonatans);
+        imgslide.setImageResource(R.mipmap.ic_launcher);
         txttitle.setText(userName);
         description.setText(des);
         container.addView(view);
