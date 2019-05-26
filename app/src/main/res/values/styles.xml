@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -29,4 +29,12 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppThemeToggle" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:textColorPrimary">#ff7043</item>
+        <item name="colorAccent">#26a69a</item>
+        <item name="android:colorControlNormal" tools:targetApi="lollipop">@color/darkBlue</item>
+        <item name="android:colorControlHighlight" tools:targetApi="lollipop">@color/pink</item>
+        <item name="android:colorButtonNormal" tools:targetApi="lollipop">@color/red</item>
+    </style>
 </resources>

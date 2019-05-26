@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.RunningMatch.R;
 
 import java.io.InputStream;
@@ -101,8 +102,6 @@ public class SlideAdapter extends PagerAdapter {
         double usersLong = Double.parseDouble(users.get(position).getLongitude());
         double doubleDistance = calculator.distance(currentLat, currentLong, usersLat, usersLong);
         float distanceInput = (float) doubleDistance;
-
-
 
 
         imgslide.setImageResource(R.drawable.yehonatans);
