@@ -80,7 +80,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         CircleImageView image;
         TextView imageName;
-        TextView Pace;
         TextView location;
         RelativeLayout parentLayout;
 
@@ -88,7 +87,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             super(itemView);
             image= itemView.findViewById(R.id.partner_list_image);
             imageName=itemView.findViewById(R.id.partner_list_name);
-//            Pace = itemView.findViewById(R.id.partner_list_pace);
             location = itemView.findViewById(R.id.partner_list_location);
             parentLayout=itemView.findViewById(R.id.parent_layout);
 

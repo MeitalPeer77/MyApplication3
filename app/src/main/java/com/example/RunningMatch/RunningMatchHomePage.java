@@ -161,6 +161,7 @@ public class RunningMatchHomePage extends AppCompatActivity {
             }
         });
     }
+
     public void profile() {
         // Create an Intent to start the second activity
         Intent profileIntent = new Intent(this, profile.class);

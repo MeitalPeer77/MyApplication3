@@ -13,12 +13,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ToggleButton;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -60,6 +62,8 @@ public class Register_step_two extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private ImageView mImageView;
 
+    private ToggleButton togle1;
+
     private static final int GALERRY_INTENT = 2;
 
 
@@ -80,6 +84,18 @@ public class Register_step_two extends AppCompatActivity {
         mImageView = (ImageView) findViewById(R.id.imageView2);
 
         progressDialog = new ProgressDialog(this);
+
+        togle1 = (ToggleButton) findViewById(R.id.run_5K);
+        togle1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    // The toggle is enabled
+                } else {
+                    // The toggle is disabled
+                }
+            }
+        });
+
 
         mSelectImage.setOnClickListener(new View.OnClickListener() {
             @Override
