@@ -12,12 +12,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -31,17 +25,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private ArrayList<String> mPace = new ArrayList<>();
     private Context mContext;
 
-    private ArrayList<User> mMatches;
-
-    public RecyclerViewAdapter(Context mContext,ArrayList<User> mMatches, ArrayList<String> mImageNames, ArrayList<String> mImages,ArrayList<String> mLocation, ArrayList<String> mDistance, ArrayList<String> mPace) {
+    public RecyclerViewAdapter(Context mContext, ArrayList<String> mImageNames, ArrayList<String> mImages,ArrayList<String> mLocation, ArrayList<String> mDistance, ArrayList<String> mPace) {
         this.mImageNames = mImageNames;
         this.mImages = mImages;
         this.mContext = mContext;
         this.mDistances = mDistance;
         this.mLocation= mLocation;
         this.mPace = mPace;
-
-        this.mMatches = mMatches;
     }
 
     @Override
@@ -59,32 +49,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 .into(holder.image);
 
         //layout_list_item holders
-        holder.imageName.setText(mMatches.get(position).getUserName());
-        //holder.Pace.setText(mPace.get(position));
-
-
-        /////try location
-        FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        final String email = mAuth.getCurrentUser().getEmail();
-        email.replace(".", "");
-        DatabaseReference mDataBase = FirebaseDatabase.getInstance().getReference();
-        final double[] distance = new double[1];
-        mDataBase.child("users").child(email).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                double latitude = Double.parseDouble(dataSnapshot.child(email).child("latitude").getValue().toString());
-                double longitude = Double.parseDouble(dataSnapshot.child(email).child("longitude").getValue().toString());
-                distance[0] = CalculateRate.distance(latitude, longitude,Double.parseDouble(mMatches.get(position).getLatitude()), Double.parseDouble(mMatches.get(position).getLongitude()));
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-
-            });
-
-            ///try location
-        holder.location.setText(String.valueOf((float)distance[0]));
+        holder.imageName.setText(mImageNames.get(position));
+        holder.location.setText(mLocation.get(position));
+//        holder.Pace.setText(mPace.get(position));
 
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,10 +59,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
                 Intent intent = new Intent(mContext, ProfileGallery.class);
                 intent.putExtra("image", mImages.get(position));
-                intent.putExtra("profile name", mMatches.get(position).getUserName());
+                intent.putExtra("profile name", mImageNames.get(position));
                 intent.putExtra("location", mLocation.get(position));
-                intent.putExtra("pace", mMatches.get(position).getTime());
-                intent.putExtra("distances", mMatches.get(position).getKm());
+                intent.putExtra("pace", mPace.get(position));
+                intent.putExtra("distances", mDistances.get(position));
 
                 mContext.startActivity(intent);
             }
@@ -113,6 +80,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         CircleImageView image;
         TextView imageName;
+        TextView Pace;
         TextView location;
         RelativeLayout parentLayout;
 
@@ -120,10 +88,18 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             super(itemView);
             image= itemView.findViewById(R.id.partner_list_image);
             imageName=itemView.findViewById(R.id.partner_list_name);
+//            Pace = itemView.findViewById(R.id.partner_list_pace);
             location = itemView.findViewById(R.id.partner_list_location);
             parentLayout=itemView.findViewById(R.id.parent_layout);
 
         }
     }
 
+//    public void profileOthers() {
+//         Create an Intent to start the second activity
+//        Intent profileOthersIntent = new Intent(this.mContext, ProfileGallery.class);
+//         Start the new activity.
+//        mContext.startActivity(profileOthersIntent);
+//
+//    }
 }

@@ -19,6 +19,7 @@ import java.lang.reflect.Array;
 import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class SlideAdapter extends PagerAdapter {
     Context context;

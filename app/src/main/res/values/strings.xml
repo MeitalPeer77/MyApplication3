@@ -93,4 +93,30 @@
     <string name="facebook_app_id">1399001953587656</string>
     <string name="fb_login_protocol_scheme">fb1399001953587656</string>
 
+
+    <!--Links-->
+    <string name="golan_link">
+        <a href="https://www.realtiming.co.il/site/892">Sign Up</a>
+    </string>
+
+    <string name="kiryat_gat_link">
+        <a href="https://www.realtiming.co.il/site/843">Sign Up</a>
+    </string>
+
+    <string name="work_link">
+        <a href="https://www.realtiming.co.il/site/871">Sign Up</a>
+    </string>
+
+    <string name="shahar_link">
+        <a href="https://www.shvoong.co.il/events/%D7%A8%D7%A6%D7%99%D7%9D-%D7%A2%D7%9D-%D7%A9%D7%97%D7%A8-5/">Sign Up</a>
+    </string>
+
+    <string name="arad_link">
+        <a href="https://aradmasadarun.co.il/">Sign Up</a>
+    </string>
+
+    <string name="nachal_link">
+        <a href="https://riverrun.shvoong.co.il/">Sign Up</a>
+    </string>
+
 </resources>
