@@ -1,6 +1,4 @@
-
 package com.example.RunningMatch;
-
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
@@ -10,25 +8,28 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
-import com.example.RunningMatch.R;
-
-import java.io.InputStream;
-import java.lang.reflect.Array;
-import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.HashMap;
 
+/**
+ * The slide adapter of Running match home page
+ */
 public class SlideAdapter extends PagerAdapter {
+
+    /* The context of the activity */
     Context context;
+
+    /* The inflater which enters the information to the slides*/
     LayoutInflater inflater;
+
+    /* Potential running partners array*/
     ArrayList<User> users;
+
+    /* Calculate the rate of a potential partner */
     CalculateRate calculator = new CalculateRate();
 
-    // list of images
-    public int[] lst_images = {
+    /* The images of the potential running partners */
+    int[] lstImages = {
             R.drawable.netta,
             R.drawable.maayanm,
             R.drawable.yehonatans,
@@ -39,8 +40,8 @@ public class SlideAdapter extends PagerAdapter {
 
     };
 
-    // list of titles
-    public String[] lst_title = {
+    /* The names of the potential running partners */
+    public String[] lstNames = {
             "Netta Zohar",
             "Maayan Yossef Magenheim",
             "Jehonathan Spigelman",
@@ -50,7 +51,8 @@ public class SlideAdapter extends PagerAdapter {
             "Almog Argaman"
 
     }   ;
-    // list of descriptions
+
+    /* The descriptions of the potential running partners */
     public String[] lst_description = {
             "Looking for a running partner who will keep me motivated!",
             "I just want to stay in shape with short runs once a week.",
@@ -62,22 +64,42 @@ public class SlideAdapter extends PagerAdapter {
 
     };
 
-
+    /**
+     * Creates a Slide Adapter object
+     * @param context
+     * @param users
+     */
     public SlideAdapter(Context context, ArrayList<User> users) {
         this.context = context;
         this.users = users;
     }
 
+    /**
+     * Gets the number of potential users
+     * @return
+     */
     @Override
     public int getCount() {
         return users.size()-1;
     }
 
+    /**
+     * Checks if the view is an object?
+     * @param view
+     * @param object
+     * @return
+     */
     @Override
     public boolean isViewFromObject(View view, Object object) {
-        return (view==(LinearLayout)object);
+        return (view == (LinearLayout)object);
     }
 
+    /**
+     * Enters the information of the potential partners to the slides
+     * @param container
+     * @param position
+     * @return
+     */
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
@@ -116,6 +138,12 @@ public class SlideAdapter extends PagerAdapter {
         return view;
     }
 
+    /**
+     * Removes item from the slides
+     * @param container
+     * @param position
+     * @param object
+     */
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
         container.removeView((LinearLayout)object);

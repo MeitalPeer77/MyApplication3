@@ -1,20 +1,32 @@
 package com.example.RunningMatch;
 
-import com.example.RunningMatch.CalculateRate;
-import com.example.RunningMatch.User;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-
 import java.util.Comparator;
 
-public class RateComperator implements Comparator<User> {
+/**
+ * The rate comparator for each potential running partner
+ */
+public class RateComparator implements Comparator<User> {
+
+    /* The current user */
     private User currentUser;
+
+    /* Calculate the rate for each potential user */
     private CalculateRate calculator = new CalculateRate();
 
-    public RateComperator(User currentUser){
+    /**
+     * Creates a Rate Comparator object
+     * @param currentUser
+     */
+    public RateComparator(User currentUser){
         this.currentUser = currentUser;
     }
 
+    /**
+     * the compare method
+     * @param o1
+     * @param o2
+     * @return
+     */
     @Override
     public int compare(User o1, User o2) {
         Double user1Rate = calculator.rateCalculator(currentUser, o1);

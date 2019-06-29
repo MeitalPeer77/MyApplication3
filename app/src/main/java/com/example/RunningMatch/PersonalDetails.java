@@ -8,9 +8,22 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
+/**
+ * Represents the personal details screen
+ */
 public class PersonalDetails extends AppCompatActivity {
+
+    //******************  Buttons and fields ****************//
+    /* possible Km list */
     String[] RUNlIST = {"1 km", "2 km", "4 km", "6 km", "8 km", "10 km"};
+
+    /* The button for the next page */
     private Button nextbutton;
+
+    /**
+     * Creates the buttons and their listeners
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,9 +42,12 @@ public class PersonalDetails extends AppCompatActivity {
         });
     }
 
+    /**
+     * transfer back to Profile screen
+     */
     public void backToProflie() {
-        // Create an Intent to start the second activity
-        Intent profileIntent = new Intent(this, profile.class);
+        // Create an Intent to start the  activity
+        Intent profileIntent = new Intent(this, Profile.class);
 
         // Start the new activity.
         startActivity(profileIntent);

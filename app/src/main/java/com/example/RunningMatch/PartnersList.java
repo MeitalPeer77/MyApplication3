@@ -7,36 +7,68 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.ArrayList;
 
-public class partners_list extends AppCompatActivity {
+/**
+ * Represents the matched running partners screen
+ */
+public class PartnersList extends AppCompatActivity {
 
-    private ArrayList<String> mNames = new ArrayList<>();
-    private ArrayList<String> mImageUrls = new ArrayList<>();
-    private ArrayList<String> mDistance = new ArrayList<>();
-    private ArrayList<String> mPace = new ArrayList<>();
-    private ArrayList<String> mLocations = new ArrayList<>();
-    private DatabaseReference mDataBase;
-    public ArrayList<User> matchesArray;
-    private FirebaseAuth mAuth;
+    //******************  Buttons and fields ****************//
 
+                      //  Action Bar Buttons //
+    /* A button that navigated to the matched partners screen */
     private Button matchButton;
+
+    /* A button that navigates to the Profile screen of the user */
     private Button profileButton;
+
+    /* A button that navigated to the events screen */
     private Button eventButton;
 
+                     // Partners information //
+    /* The names of the matched partners */
+    private ArrayList<String> mNames = new ArrayList<>();
 
+    /* The Images of the matched partners */
+    private ArrayList<String> mImageUrls = new ArrayList<>();
+
+    /* The Distances of the matched partners */
+    private ArrayList<String> mDistance = new ArrayList<>();
+
+    /* The paces of the matched partners */
+    private ArrayList<String> mPace = new ArrayList<>();
+
+    /* The Locations of the matched partners */
+    private ArrayList<String> mLocations = new ArrayList<>();
+
+    /* A list of all the matched users */
+    public ArrayList<User> matchesArray;
+
+    //******************  Firebase Objects ****************//
+
+    /* Represents the database */
+    private DatabaseReference mDataBase;
+
+    /* The authentication object of the app */
+    private FirebaseAuth mAuth;
+
+
+    /**
+     * Creates the buttons and their listeners
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.group_tab);
+        mAuth = FirebaseAuth.getInstance();
+        mDataBase = FirebaseDatabase.getInstance().getReference();
 //        getMatches();
         initImageBitMap();
-
 
         eventButton = (Button)findViewById(R.id.action_bar_event);
         eventButton.setOnClickListener(new View.OnClickListener() {
@@ -46,8 +78,6 @@ public class partners_list extends AppCompatActivity {
             }
         });
 
-        mAuth = FirebaseAuth.getInstance();
-        mDataBase = FirebaseDatabase.getInstance().getReference();
         matchButton = (Button) findViewById(R.id.action_bar_homepage);
         matchButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +87,7 @@ public class partners_list extends AppCompatActivity {
             }
 
         });
+
         profileButton = (Button) findViewById(R.id.action_bar_profile);
         profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,14 +98,16 @@ public class partners_list extends AppCompatActivity {
 
     }
 
-
+    /**
+     * Add the images of he matched partners
+     */
     private void initImageBitMap(){
+        //Todo: add from firebase, do it in a loop
         //mImageUrls.add("https://firebasestorage.googleapis.com/v0/b/runningmatch-f9e90.appspot.com/o/Photos%2F6433?alt=media&token=2deb2ceb-13bc-4d0b-8969-5640ea8530af");
         mImageUrls.add("https://scontent.ftlv6-1.fna.fbcdn.net/v/t1.0-9/10570528_663942363682968_3472551542158599282_n.jpg?_nc_cat=108&_nc_ht=scontent.ftlv6-1.fna&oh=4b5e98824fb8295aad9b55de97be83be&oe=5D6910B9");
         mNames.add("Nathaniel Tavisal");
         mDistance.add("5");
         mPace.add("35");
-  //      mInfo.add("info 1");
         mLocations.add("0.7");
 
 
@@ -82,7 +115,6 @@ public class partners_list extends AppCompatActivity {
         mNames.add("Meital Peer");
         mDistance.add("5");
         mPace.add("30");
-//        mInfo.add("info 2");
         mLocations.add("1.3");
 
         mImageUrls.add("https://scontent.ftlv6-1.fna.fbcdn.net/v/t31.0-8/21122579_1833916359957237_6719538012298659073_o.jpg?_nc_cat=109&_nc_ht=scontent.ftlv6-1.fna&oh=b0fd68b0be099e148062a31a3d20a348&oe=5D2AC9E7");
@@ -105,10 +137,12 @@ public class partners_list extends AppCompatActivity {
         mPace.add("25");
         mLocations.add("1.9");
 
-
         initRecycleView();
     }
 
+    /**
+     * Initialize the recycle view
+     */
     private void initRecycleView(){
         RecyclerView recycleView = findViewById(R.id.recycler_view);
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mNames, mImageUrls, mLocations, mDistance, mPace);
@@ -116,17 +150,23 @@ public class partners_list extends AppCompatActivity {
         recycleView.setLayoutManager(new LinearLayoutManager(this));
     }
 
+    /**
+     * Transfer to the Profile screen
+     */
     public void profile() {
-        // Create an Intent to start the second activity
-        Intent profileIntent = new Intent(this, profile.class);
+        // Create an Intent to start the  activity
+        Intent profileIntent = new Intent(this, Profile.class);
 
         // Start the new activity.
         startActivity(profileIntent);
 
     }
 
+    /**
+     * Transfer to the suggestions page
+     */
     public void suggestions() {
-        // Create an Intent to start the second activity
+        // Create an Intent to start the  activity
         Intent suggestiosIntent = new Intent(this, RunningMatchHomePage.class);
 
         // Start the new activity.
@@ -134,14 +174,18 @@ public class partners_list extends AppCompatActivity {
 
     }
 
+    /**
+     * Transfer to the events page
+     */
     public void event() {
-        // Create an Intent to start the second activity
-        Intent eventIntent = new Intent(this, Event_acticity.class);
+        // Create an Intent to start the activity
+        Intent eventIntent = new Intent(this, EventActivity.class);
 
         // Start the new activity.
         startActivity(eventIntent);
     }
 
+    //Todo: use it to get the past matches!
 //    private void getMatches(){
 //        mDataBase = FirebaseDatabase.getInstance().getReference();
 //        String email = mAuth.getCurrentUser().getEmail();

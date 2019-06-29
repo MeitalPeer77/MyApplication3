@@ -1,61 +1,98 @@
 package com.example.RunningMatch;
 
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.media.audiofx.Equalizer;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.android.gms.auth.api.signin.internal.Storage;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+/**
+ * Represents the last step of registration activity- location screen
+ */
 public class LocationScreen extends AppCompatActivity {
 
-    DatabaseReference databaseReference;
-    //private FirebaseAnalytics mFirebaseAnalytics;
+    //******************  Buttons and fields ****************//
 
+    /* The button of moving to the next screen */
+    private Button enableLocation;
 
-    private Button b;
-    private TextView t;
+    /* Shows the location of the user*/
+    private TextView locationView;
+
+    /* Location manager of Android */
     private LocationManager locationManager;
+
+    /* Location listener of Android */
     private LocationListener listener;
-    private FirebaseAuth mAuth;
+
+    /* The email the user entered */
     String email;
+
+    /* The email the user entered without "." */
     String cleanEmail;
+
+    /* The bundle of the extras from the previous screen*/
     Bundle extras;
+
+    /* The password the user entered */
     String password;
+
+    /* The phone the user entered */
     String phone;
+
+    /* The mane the user entered */
     String name;
+
+    /* Initial location longitude of the user */
     String longitude = "0";
+
+    /* Initial location latitude of the user */
     String latitude = "0";
+
+    /* The km specified by the user*/
     String km;
+
+    /* The gender the user entered */
     String gender;
+
+    /* The time specified by the user */
     private String time;
+
+    /* The description the user entered */
     private String description;
 
+    //******************  Firebase Objects ****************//
 
+    /* Represents the database */
+    DatabaseReference databaseReference;
+
+    /* The authentication object of the app */
+    private FirebaseAuth mAuth;
+
+
+    /**
+     * Creates the buttons and their listeners, and takes the information from the previous screen
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,12 +100,10 @@ public class LocationScreen extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
 
-        //mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
-
         setContentView(R.layout.activity_location);
 
-        t = (TextView) findViewById(R.id.textView5);
-        b = (Button) findViewById(R.id.lets_run);
+        locationView = (TextView) findViewById(R.id.textView5);
+        enableLocation = (Button) findViewById(R.id.lets_run);
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
@@ -86,7 +121,6 @@ public class LocationScreen extends AppCompatActivity {
         listener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
-//                t.append("\n " + location.getLongitude() + " " + location.getLatitude());
                 String long_1 = String.valueOf(location.getLongitude());
                 String lat_1 = String.valueOf(location.getLatitude());
 
@@ -139,6 +173,12 @@ public class LocationScreen extends AppCompatActivity {
         configure_button();
     }
 
+    /**
+     * Requests a permission from the user to get it's location
+     * @param requestCode
+     * @param permissions
+     * @param grantResults
+     */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         switch (requestCode){
@@ -150,6 +190,9 @@ public class LocationScreen extends AppCompatActivity {
         }
     }
 
+    /**
+     * Takes the current location from the user
+     */
     void configure_button(){
         // first check for permissions
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -161,15 +204,12 @@ public class LocationScreen extends AppCompatActivity {
         }
 
 
-        // this code won't execute IF permissions are not allowed, because in the line above there is return statement.
-        b.setOnClickListener(new View.OnClickListener() {
+        // this code won'locationView execute IF permissions are not allowed, because in the line above there is return statement.
+        enableLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //noinspection MissingPermission
                 databaseReference = FirebaseDatabase.getInstance().getReference();
-
-//                mAuth.signInWithEmailAndPassword(email, password);
-//                String key_email = email;
                 cleanEmail = email;
                 email = email.replace(".", "");
                 User newUser = new User(email, phone, km, time, name, description, gender, longitude, latitude, "", "");
@@ -177,18 +217,15 @@ public class LocationScreen extends AppCompatActivity {
                 locationManager.requestLocationUpdates("gps", 5000, 0, listener);
                 createAccount(cleanEmail, password);
 
-
 //                suggestions();
             }
         });
     }
 
-
+    /**
+     * Go to next page- suggestions
+     */
     public void suggestions() {
-//        createAccount(email, password);
-//        User newUser = new User(email, phone, km, time, name, description, gender, longitude, latitude);
-//        databaseReference.child("users").child(email).setValue(newUser);
-
         // Create an Intent to start the second activity
         Intent suggestiosIntent = new Intent(this, RunningMatchHomePage.class);
 
@@ -196,6 +233,12 @@ public class LocationScreen extends AppCompatActivity {
         startActivity(suggestiosIntent);
 
     }
+
+    /**
+     * Creates an account from the user
+     * @param email
+     * @param password
+     */
     private void createAccount(String email, String password) {
         // [START create_user_with_email]
         mAuth.createUserWithEmailAndPassword(email, password)

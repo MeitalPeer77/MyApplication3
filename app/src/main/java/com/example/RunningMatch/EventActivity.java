@@ -5,28 +5,47 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class Event_acticity extends AppCompatActivity {
+/**
+ * Represents the events screen
+ */
+public class EventActivity extends AppCompatActivity {
 
-    private static final String TAG = "Event_acticity";
+    private static final String TAG = "EventActivity";
 
+    /* A list of the names of the events */
     private ArrayList<String> mNames = new ArrayList<>();
+
+    /* A list of the images of the events */
     private ArrayList<String> mImagesURI = new ArrayList<>();
+
+    /* A list of the details of the events */
     private ArrayList<String> mEventDetails = new ArrayList<>();
+
+    /* A list of the sign uo urls of the events */
     private ArrayList<Integer> mSighUp = new ArrayList<>();
 
+    //******************  Buttons and fields ****************//
+
+                      //  Action Bar Buttons //
+    /* A button that navigated to the home page screen */
     private Button homePageButton;
+
+    /* A button that navigated to the matched partners screen */
     private Button partnersButton;
+
+    /* A button that navigated to the Profile screen */
     private Button profileButton;
 
-
+    /**
+     * Creates the buttons and their listeners
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +60,7 @@ public class Event_acticity extends AppCompatActivity {
             }
 
         });
+
         partnersButton = (Button) findViewById(R.id.action_bar_matches);
         partnersButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,16 +79,16 @@ public class Event_acticity extends AppCompatActivity {
             }
         });
 
-
         Log.d(TAG, "onCreate: started.");
 
         initImageBotmap();
-
     }
 
+    /**
+     * Initialize the events information
+     */
     private void initImageBotmap() {
         Log.d(TAG, "initImageBotmap: prapering bitmap");
-
 
         mImagesURI.add("http://www.winning.co.il/events/2019/golan/header.png");
         mNames.add("Golan Race");
@@ -104,33 +124,45 @@ public class Event_acticity extends AppCompatActivity {
 
     }
 
+    /**
+     * initialize the recycle view
+     */
     private void initRecyclerView(){
         Log.d(TAG, "initRecyclerView: init recyclerView");
         RecyclerView recyclerViewAdapter = findViewById(R.id.event_recycler);
-        EventRecyclerAdapet adapter = new EventRecyclerAdapet(this, mNames, mImagesURI,
+        EventRecyclerAdapter adapter = new EventRecyclerAdapter(this, mNames, mImagesURI,
                 mEventDetails, mSighUp);
         recyclerViewAdapter.setAdapter(adapter);
         recyclerViewAdapter.setLayoutManager(new LinearLayoutManager(this));
 
     }
 
+    /**
+     * Transfer to home page screen
+     */
     public void suggestions() {
-        // Create an Intent to start the second activity
+        // Create an Intent to start the  activity
         Intent suggestiosIntent = new Intent(this, RunningMatchHomePage.class);
         // Start the new activity.
         startActivity(suggestiosIntent);
     }
 
+    /**
+     * Transfer to partners screen
+     */
     public void partners() {
         // Create an Intent to start the second activity
-        Intent partnersIntent = new Intent(this, partners_list.class);
+        Intent partnersIntent = new Intent(this, PartnersList.class);
         // Start the new activity.
         startActivity(partnersIntent);
     }
 
+    /**
+     * transfer to Profile screen
+     */
     public void profile() {
-        // Create an Intent to start the second activity
-        Intent profileIntent = new Intent(this, profile.class);
+        // Create an Intent to start the  activity
+        Intent profileIntent = new Intent(this, Profile.class);
         // Start the new activity.
         startActivity(profileIntent);
     }

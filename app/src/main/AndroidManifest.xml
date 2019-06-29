@@ -16,27 +16,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Event_acticity"></activity>
+        <activity android:name=".EventActivity"></activity>
         <activity
             android:name=".LocationScreen"
             android:label="@string/title_activity_location"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".partners_list"
+            android:name=".PartnersList"
             android:label="@string/title_activity_partners_list"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ProfileGallery" />
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName=".profile">
+            android:parentActivityName=".Profile">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".profile" />
+                android:value=".Profile" />
         </activity>
         <activity android:name=".RunningMatchHomePage" />
-        <activity android:name=".Register_step_one" />
-        <activity android:name=".Register_step_two" />
+        <activity android:name=".RegisterStepOne" />
+        <activity android:name=".RegisterStepTwo" />
         <activity android:name=".PersonalDetails" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -46,9 +46,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".pop"
+            android:name=".MatchingPopUP"
             android:theme="@style/PopUp" />
-        <activity android:name=".profile" />
+        <activity android:name=".Profile" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

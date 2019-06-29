@@ -5,13 +5,9 @@ import android.support.annotation.NonNull;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
-
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,45 +15,78 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import android.content.Context;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
 
+/**
+ * Represents the homepage screen
+ */
 public class RunningMatchHomePage extends AppCompatActivity {
-    private Toolbar myToolBar;
-    private Button profileButton;
-    private Button homepageButton;
-    private Button matchButton;
-    private Button popupButton;
 
-    //event
+    //******************  Buttons and fields ****************//
+
+                  //  Action Bar Buttons //
+    /* A button that navigates to the Profile screen of the user */
+    private Button profileButton;
+
+    /* A button that navigated to the matched partners screen */
+    private Button matchButton;
+
+    /* A button that navigated to the events screen */
     private Button eventButton;
 
-    public static User currentUser;
-    public String currentUserEmail;
+                      // Cards Buttons //
+    /* Match button for the current card of a potential running partner*/
+    private Button popupButton;
+
+    /* Not for me button for the current card of a potential running partner*/
     private Button not4meButton;
 
-
     // card slide suggestions
+    /* The view pager of the cards */
     private ViewPager viewPager;
+
+    /* The slide adaoter of the cards */
     private SlideAdapter myadapter;
-    private FirebaseAuth mAuth;
-    private DatabaseReference mDataBase;
+
+    /* User's data*/
     private ArrayList<User> usersArray= new ArrayList<User>();
+
+    /* All the suggestions for the current user*/
     private HashMap<String, User> usersMap = new HashMap<String, User>();
     private String myLikesArray ="myLikesArray";
     private String matches="matches";
     private Context context;
 
+    /* The current logged-in user */
+    public static User currentUser;
+
+    /* The email of the current user */
+    public String currentUserEmail;
+
+    //******************  Firebase Objects ****************//
+
+    /* The authentication object of the app */
+    private FirebaseAuth mAuth;
+
+    /* Represents the database */
+    private DatabaseReference mDataBase;
+
+    /**
+     * Get the current user's details, creates the buttons of the screen and their listeners
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.suggestion_tab);
         context = this;
+
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        getUsers();
+
         mAuth = FirebaseAuth.getInstance();
         mDataBase = FirebaseDatabase.getInstance().getReference();
-
         mDataBase.child("users").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -83,7 +112,6 @@ public class RunningMatchHomePage extends AppCompatActivity {
             }
         });
 
-
         profileButton = (Button) findViewById(R.id.action_bar_profile);
         profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,16 +119,13 @@ public class RunningMatchHomePage extends AppCompatActivity {
                 profile();
             }
         });
-//;
+
         matchButton = (Button) findViewById(R.id.action_bar_matches);
         matchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 partners();
-
             }
-
         });
 
         eventButton = (Button)findViewById(R.id.action_bar_event);
@@ -110,11 +135,6 @@ public class RunningMatchHomePage extends AppCompatActivity {
                 event();
             }
         });
-
-
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
-
-        getUsers();
 
         not4meButton = (Button) findViewById(R.id.reject);
         not4meButton.setOnClickListener(new View.OnClickListener() {
@@ -127,7 +147,6 @@ public class RunningMatchHomePage extends AppCompatActivity {
                 myadapter = new SlideAdapter(context, users);
                 viewPager.setAdapter(myadapter);
             }
-
         });
 
 
@@ -154,7 +173,7 @@ public class RunningMatchHomePage extends AppCompatActivity {
 
                                 String phone =(String) item.child(user.getPhoneNumber()).getValue();
 
-                                Intent popup = new Intent(RunningMatchHomePage.this,  pop.class);
+                                Intent popup = new Intent(RunningMatchHomePage.this,  MatchingPopUP.class);
                                 popup.putExtra("phoneNumber", phone);
                                 startActivity(popup);
 
@@ -177,15 +196,9 @@ public class RunningMatchHomePage extends AppCompatActivity {
         });
     }
 
-    public void profile() {
-        // Create an Intent to start the second activity
-        Intent profileIntent = new Intent(this, profile.class);
-
-        // Start the new activity.
-        startActivity(profileIntent);
-
-    }
-
+    /**
+     * Get all the relevent suggestions fo the current user
+     */
     private void getUsers(){
         mDataBase = FirebaseDatabase.getInstance().getReference();
 
@@ -194,7 +207,6 @@ public class RunningMatchHomePage extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Iterator<DataSnapshot> items = dataSnapshot.getChildren().iterator();
                 usersMap.clear();
-//                usersArray.clear();
                 while (items.hasNext()){
                     DataSnapshot   item = items.next();
                     String email = item.getKey();
@@ -221,7 +233,7 @@ public class RunningMatchHomePage extends AppCompatActivity {
                         myMatches = item.child("matches").getValue().toString();
                     }
 
-
+                    //TODO: Enter tha rate calculator. not showing everybody!
                     if(!email.equals(currentUserEmail)) {
 
                         User user = new User(email, phoneNumber, km, time, name, description, gender, latitude, longtitude, myLikesArray, matches);
@@ -236,7 +248,7 @@ public class RunningMatchHomePage extends AppCompatActivity {
                     }
                 }
 
-//                RateComperator sorter = new RateComperator(currentUser);
+//                RateComparator sorter = new RateComparator(currentUser);
 //                Collections.sort(usersArray, sorter);
 
                 ArrayList<User> users = new ArrayList<User>(usersMap.values());
@@ -254,9 +266,24 @@ public class RunningMatchHomePage extends AppCompatActivity {
         });
     }
 
+    /**
+     * Transfer to Profile page
+     */
+    public void profile() {
+        // Create an Intent to start the activity
+        Intent profileIntent = new Intent(this, Profile.class);
+
+        // Start the new activity.
+        startActivity(profileIntent);
+
+    }
+
+    /**
+     * Transfer to matched partners page
+     */
     public void partners() {
-        // Create an Intent to start the second activity
-        Intent partnersIntent = new Intent(this, partners_list.class);
+        // Create an Intent to start the  activity
+        Intent partnersIntent = new Intent(this, PartnersList.class);
         partnersIntent.putExtra("userArray", usersArray);
 
         // Start the new activity.
@@ -264,16 +291,16 @@ public class RunningMatchHomePage extends AppCompatActivity {
 
     }
 
-
+    /**
+     * Transfer to event page
+     */
     public void event() {
         // Create an Intent to start the second activity
-        Intent eventIntent = new Intent(this, Event_acticity.class);
+        Intent eventIntent = new Intent(this, EventActivity.class);
 
         // Start the new activity.
         startActivity(eventIntent);
 
     }
-
-
 
 }

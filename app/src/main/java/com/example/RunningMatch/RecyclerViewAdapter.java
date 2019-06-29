@@ -1,6 +1,5 @@
 package com.example.RunningMatch;
 
-
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -10,21 +9,42 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
-
 import java.util.ArrayList;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 
+/**
+ * Represents the recycler vie adapter of partners list screen
+ */
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
+
+    /* The images names of the partners */
     private ArrayList<String> mImageNames= new ArrayList<>();
+
+    /* The images of the partners */
     private ArrayList<String> mImages = new ArrayList<>();
+
+    /* The locations of the partners */
     private ArrayList<String> mLocation = new ArrayList<>();
+
+    /* The distances from the partners */
     private ArrayList<String> mDistances = new ArrayList<>();
+
+    /* The paces of the partners */
     private ArrayList<String> mPace = new ArrayList<>();
+
+    /* The context of the current activity */
     private Context mContext;
 
+    /**
+     * Creates a Recycle view adapter object
+     * @param mContext
+     * @param mImageNames
+     * @param mImages
+     * @param mLocation
+     * @param mDistance
+     * @param mPace
+     */
     public RecyclerViewAdapter(Context mContext, ArrayList<String> mImageNames, ArrayList<String> mImages,ArrayList<String> mLocation, ArrayList<String> mDistance, ArrayList<String> mPace) {
         this.mImageNames = mImageNames;
         this.mImages = mImages;
@@ -34,6 +54,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         this.mPace = mPace;
     }
 
+    /**
+     * Creates the vew holder of each partner
+     * @param parent
+     * @param viewType
+     * @return
+     */
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_list_item, parent, false);
@@ -41,6 +67,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return holder;
     }
 
+    /**
+     * Binds the view holder of the partner with his information
+     * @param holder
+     * @param position
+     */
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         Glide.with(mContext)
@@ -59,7 +90,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
                 Intent intent = new Intent(mContext, ProfileGallery.class);
                 intent.putExtra("image", mImages.get(position));
-                intent.putExtra("profile name", mImageNames.get(position));
+                intent.putExtra("Profile name", mImageNames.get(position));
                 intent.putExtra("location", mLocation.get(position));
                 intent.putExtra("pace", mPace.get(position));
                 intent.putExtra("distances", mDistances.get(position));
@@ -69,21 +100,39 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         });
     }
 
-
+    /**
+     * Gets the number of partners
+     * @return
+     */
     @Override
     public int getItemCount() {
-
         return mImageNames.size();
     }
 
+    /**
+     * Represents the view holder of each partner
+     */
     public class ViewHolder extends RecyclerView.ViewHolder{
 
+        /* The image of the partner */
         CircleImageView image;
+
+        /* The image name of the partner */
         TextView imageName;
+
+        /* The pace of the partner */
         TextView Pace;
+
+        /* The location of the partner */
         TextView location;
+
+        /* The layout of the partner */
         RelativeLayout parentLayout;
 
+        /**
+         * Creates a view holder object for the partner
+         * @param itemView
+         */
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             image= itemView.findViewById(R.id.partner_list_image);
@@ -95,11 +144,4 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         }
     }
 
-//    public void profileOthers() {
-//         Create an Intent to start the second activity
-//        Intent profileOthersIntent = new Intent(this.mContext, ProfileGallery.class);
-//         Start the new activity.
-//        mContext.startActivity(profileOthersIntent);
-//
-//    }
 }

@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
 
 public class ProfileGallery extends AppCompatActivity {
@@ -54,9 +53,9 @@ public class ProfileGallery extends AppCompatActivity {
     }
 
     private void getIncomingIntent(){
-        if(getIntent().hasExtra("image") && getIntent().hasExtra("profile name") && getIntent().hasExtra("distances") && getIntent().hasExtra("location") && getIntent().hasExtra("pace")){
+        if(getIntent().hasExtra("image") && getIntent().hasExtra("Profile name") && getIntent().hasExtra("distances") && getIntent().hasExtra("location") && getIntent().hasExtra("pace")){
             String imageUrl = getIntent().getStringExtra("image");
-            String name = getIntent().getStringExtra("profile name");
+            String name = getIntent().getStringExtra("Profile name");
             String distance = getIntent().getStringExtra("distances");
             String location = getIntent().getStringExtra("location");
             String pace = getIntent().getStringExtra("pace");
@@ -96,7 +95,7 @@ public class ProfileGallery extends AppCompatActivity {
 
     public void profile() {
         // Create an Intent to start the second activity
-        Intent profileIntent = new Intent(this, profile.class);
+        Intent profileIntent = new Intent(this, Profile.class);
 
         // Start the new activity.
         startActivity(profileIntent);
@@ -104,7 +103,7 @@ public class ProfileGallery extends AppCompatActivity {
     }
     public void partners() {
         // Create an Intent to start the second activity
-        Intent partnersIntent = new Intent(this, partners_list.class);
+        Intent partnersIntent = new Intent(this, PartnersList.class);
 
         // Start the new activity.
         startActivity(partnersIntent);
