@@ -1,5 +1,8 @@
 package com.example.RunningMatch;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 /**
  * Class represents the user in running match-app
  */
@@ -37,6 +40,9 @@ public class User {
     /* The email of the user */
     private String email;
 
+    //TODO try adding an array
+    private ArrayList<String> goals;
+
     //TODO: check how it is on firebase
     private String myLikesArray;
     private String matches;
@@ -57,7 +63,7 @@ public class User {
      */
     public User(String email,  String phoneNumber, String km, String time, String userName,
                 String userDescription, String gender, String latitude, String longitude ,
-                String myLikesArray, String matches){
+                String myLikesArray, String matches, ArrayList<String> goals){
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.km = km;
@@ -69,6 +75,7 @@ public class User {
         this.latitude = latitude;
         this.myLikesArray = myLikesArray;
         this.matches = matches;
+        this.goals = goals;
 
 
     }
@@ -221,6 +228,14 @@ public class User {
      */
     public void setLongitude(String longitude) {
         this.longitude = longitude;
+    }
+
+    public ArrayList<String> getGoals(){
+        return this.goals;
+    }
+
+    public void setGoals(ArrayList<String> goals){
+        this.goals = goals;
     }
 
 }

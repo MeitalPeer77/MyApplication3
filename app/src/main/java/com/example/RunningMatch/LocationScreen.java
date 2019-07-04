@@ -94,6 +94,8 @@ public class LocationScreen extends AppCompatActivity {
     /* The description the user entered */
     private String description;
 
+    private ArrayList<String> goals;
+
 //    /* The new user after getting all his information*/
 //    User newUSer;
 
@@ -141,6 +143,8 @@ public class LocationScreen extends AppCompatActivity {
         gender = extras.getString("gender");
         time = extras.getString("time");
         description = extras.getString("description");
+        goals = extras.getStringArrayList("goals");
+
 
 
         listener = new LocationListener() {
@@ -211,6 +215,7 @@ public class LocationScreen extends AppCompatActivity {
             }
         };
 
+
         configure_button();
     }
 
@@ -260,7 +265,8 @@ public class LocationScreen extends AppCompatActivity {
 
                 cleanEmail = email;
                 email = email.replace(".", "");
-                User newUser = new User(email, phone, km, time, name, description, gender, longitude, latitude, "", "");
+                User newUser = new User(email, phone, km, time, name, description, gender, longitude, latitude, "", "", goals);
+
                 //todo: delete if using firestore
                 databaseReference.child("users").child(email).setValue(newUser);
                 createAccount(cleanEmail, password, newUser);

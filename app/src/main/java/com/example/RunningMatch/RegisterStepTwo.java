@@ -9,12 +9,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ToggleButton;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -25,6 +27,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+
+import java.util.ArrayList;
 
 /**
  * Presents the register step two screen
@@ -60,6 +64,8 @@ public class RegisterStepTwo extends AppCompatActivity {
     /* The description the user entered */
     String description;
 
+    ArrayList<String> goals;
+
     /* The possibilities given in the km spinner*/
     String[] kmArray = {"1", "2", "3", "4","5", "6","7", "8","9", "10", "11", "12", "13", "14", "15"};
 
@@ -71,6 +77,12 @@ public class RegisterStepTwo extends AppCompatActivity {
 
     /* The button for uploading an image */
     private Button mSelectImage;
+
+    private ToggleButton toggleGoal1;
+    private ToggleButton toggleGoal2;
+
+
+
 
     private ProgressDialog progressDialog;
 
@@ -200,6 +212,25 @@ public class RegisterStepTwo extends AppCompatActivity {
             }
         });
 
+        goals = new ArrayList<>();
+
+        toggleGoal1 = (ToggleButton) findViewById(R.id.run_marathon);
+        toggleGoal1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked)
+                    goals.add("marathon");
+            }
+        });
+        toggleGoal2 = (ToggleButton) findViewById(R.id.stay_in_shape);
+        toggleGoal2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked)
+                    goals.add("stay in shape");
+            }
+        });
+
+
+
 
 
     }
@@ -220,6 +251,7 @@ public class RegisterStepTwo extends AppCompatActivity {
         registerNextIntent.putExtra("description", description);
         registerNextIntent.putExtra("gender", gender);
         registerNextIntent.putExtra("time", time);
+        registerNextIntent.putStringArrayListExtra("goals", goals);
 
         // Start the new activity.
         startActivity(registerNextIntent);

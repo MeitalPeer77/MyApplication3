@@ -12,10 +12,6 @@
         android:right="10dp"
         android:bottom="10dp"
         />-->
-    <size
-        android:width="40dp"
-        android:height="20dp"
-        />
     <stroke
         android:width="2dp"
         android:color="@color/lightBlue"
