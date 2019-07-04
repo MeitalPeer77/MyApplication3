@@ -215,7 +215,9 @@ public class RunningMatchHomePage extends AppCompatActivity {
                                 longtitude = userMap.get("longitude").toString();
                                 //TODO MAKE SURE TO ADD GOALS AND EVENTS
                                 ArrayList<String> goals = (ArrayList<String>) userMap.get("goals");
-                                User otherUser = new User(email, phoneNumber, km, time, name, description, gender, latitude, longtitude, "", "", goals);
+                                ArrayList<String> times = (ArrayList<String>) userMap.get("times");
+
+                                User otherUser = new User(email, phoneNumber, km, time, name, description, gender, latitude, longtitude, "", "", goals,times );
 
                                 if (!email.equals(currentUserEmail)){
                                     usersMap.put(email, otherUser);
