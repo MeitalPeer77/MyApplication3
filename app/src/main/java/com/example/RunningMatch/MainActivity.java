@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -15,6 +17,12 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 /**
  * Presents the main Screen of the app
@@ -34,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
     /* The field object of entering password */
     private EditText mPasswordField;
 
-
     //******************  Firebase Objects ****************//
     /* The authentication object of the app */
     private FirebaseAuth mAuth;
@@ -45,6 +52,11 @@ public class MainActivity extends AppCompatActivity {
     /* Represents the database */
     private DatabaseReference databaseUsers;
 
+    /* Represents the FireStore database */
+    FirebaseFirestore fireStoreDatabase;
+
+    Server server;
+
 
     /**
      * Creates the listeners for the buttons and the authentication process
@@ -53,40 +65,35 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         setContentView(R.layout.activity_main);
 
-        databaseUsers = FirebaseDatabase.getInstance().getReference();
+        server = new Server();
 
         mEmailField = (EditText) findViewById(R.id.email);
         mPasswordField = (EditText) findViewById(R.id.password);
 
         mAuth = FirebaseAuth.getInstance();
 
+        //create the listener in case of signing in
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if (firebaseAuth.getCurrentUser() != null) {
-                    DatabaseReference ref = databaseUsers.getDatabase().getReference("users");
-
-                    String email = firebaseAuth.getCurrentUser().getEmail();
-                    email = email.replace(".", "");
-                    String km = ref.child(email).child("km").toString();
-                    String name = this.getClass().getSimpleName();
-                    Toast.makeText(MainActivity.this, name, Toast.LENGTH_LONG).show();
-                    if (name.equals("MainActivity")) {
-                        Register2();
-                    } else {
-                        RunningMatch();
+                    RunningMatch();
                     }
                 }
-            }
         };
 
+        onStart();
 
         loginButton = (Button) findViewById(R.id.login_button);
         loginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startSignIn();
+                String email = mEmailField.getText().toString();
+                String password = mPasswordField.getText().toString();
+                startSignIn(email, password);
 
             }
         });
@@ -98,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
     /**
      * Transfer to the home page of the app
@@ -111,6 +119,20 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Checks the govem email and password for signing in and takes care of it's result
+     */
+    public void startSignIn(String email, String password) {
+        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    RunningMatch();
+                }
+
+            }
+        });
+    }
     /**
      * Transfer to register step two screen
      */
@@ -134,23 +156,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    /**
-     * Checks the govem email and password for signing in and takes care of it's result
-     */
-    public void startSignIn() {
-        String email = mEmailField.getText().toString();
-        String password = mPasswordField.getText().toString();
-        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-
-                if (!task.isSuccessful()) {
-                    Toast.makeText(MainActivity.this, "login failed", Toast.LENGTH_LONG).show();
-                }
-
-            }
-        });
-    }
 
     /**
      * Defines the authentication listener

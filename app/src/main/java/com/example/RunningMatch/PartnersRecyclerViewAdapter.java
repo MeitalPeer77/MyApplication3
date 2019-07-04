@@ -16,7 +16,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 /**
  * Represents the recycler vie adapter of partners list screen
  */
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
+public class PartnersRecyclerViewAdapter extends RecyclerView.Adapter<PartnersRecyclerViewAdapter.ViewHolder>{
 
     /* The images names of the partners */
     private ArrayList<String> mImageNames= new ArrayList<>();
@@ -45,7 +45,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
      * @param mDistance
      * @param mPace
      */
-    public RecyclerViewAdapter(Context mContext, ArrayList<String> mImageNames, ArrayList<String> mImages,ArrayList<String> mLocation, ArrayList<String> mDistance, ArrayList<String> mPace) {
+    public PartnersRecyclerViewAdapter(Context mContext, ArrayList<String> mImageNames, ArrayList<String> mImages, ArrayList<String> mLocation, ArrayList<String> mDistance, ArrayList<String> mPace) {
         this.mImageNames = mImageNames;
         this.mImages = mImages;
         this.mContext = mContext;

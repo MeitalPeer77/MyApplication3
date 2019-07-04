@@ -62,7 +62,7 @@ public class CalculateRate  extends AppCompatActivity {
      */
     private static int distanceRate (User mainUser, User user){
         double myDistance = calculateDistance(mainUser, user);
-        double distanceRange = mainUser.getDistanceRangeFromUser();
+        double distanceRange = Integer.parseInt(mainUser.getDistanceRangeFromUser());
 
         if (myDistance < distanceRange/(double)3) {
             return 3;

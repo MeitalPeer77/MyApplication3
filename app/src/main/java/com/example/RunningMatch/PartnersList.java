@@ -145,7 +145,7 @@ public class PartnersList extends AppCompatActivity {
      */
     private void initRecycleView(){
         RecyclerView recycleView = findViewById(R.id.recycler_view);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mNames, mImageUrls, mLocations, mDistance, mPace);
+        PartnersRecyclerViewAdapter adapter = new PartnersRecyclerViewAdapter(this, mNames, mImageUrls, mLocations, mDistance, mPace);
         recycleView.setAdapter(adapter);
         recycleView.setLayoutManager(new LinearLayoutManager(this));
     }

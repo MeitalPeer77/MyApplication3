@@ -14,7 +14,7 @@ import java.util.ArrayList;
 /**
  * The slide adapter of Running match home page
  */
-public class SlideAdapter extends PagerAdapter {
+public class RunningMatchSlideAdapter extends PagerAdapter {
 
     /* The context of the activity */
     Context context;
@@ -27,6 +27,7 @@ public class SlideAdapter extends PagerAdapter {
 
     /* Calculate the rate of a potential partner */
     CalculateRate calculator = new CalculateRate();
+
 
     /* The images of the potential running partners */
     int[] lstImages = {
@@ -69,7 +70,7 @@ public class SlideAdapter extends PagerAdapter {
      * @param context
      * @param users
      */
-    public SlideAdapter(Context context, ArrayList<User> users) {
+    public RunningMatchSlideAdapter(Context context, ArrayList<User> users) {
         this.context = context;
         this.users = users;
     }
@@ -117,7 +118,6 @@ public class SlideAdapter extends PagerAdapter {
         String des = users.get(position).getUserDescription();
         String timeInput = users.get(position).getTime();
         String kmInput = users.get(position).getKm();
-
 
         double currentLat = Double.parseDouble(RunningMatchHomePage.currentUser.getLatitude());
         double currentLong = Double.parseDouble(RunningMatchHomePage.currentUser.getLongitude());

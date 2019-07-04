@@ -73,6 +73,9 @@ public class User {
 
     }
 
+    public User(){
+
+    }
     /**
      * Get the user's ID
      */
@@ -167,8 +170,8 @@ public class User {
     /**
      * Gets the user's maximum distance from a running partner
      */
-    public int getDistanceRangeFromUser() {
-        return Integer.parseInt(DistanceRangeFromUser);
+    public String getDistanceRangeFromUser() {
+        return DistanceRangeFromUser;
     }
 
     /**

@@ -13,17 +13,31 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 
 /**
  * Represents the last step of registration activity- location screen
@@ -80,6 +94,9 @@ public class LocationScreen extends AppCompatActivity {
     /* The description the user entered */
     private String description;
 
+//    /* The new user after getting all his information*/
+//    User newUSer;
+
     //******************  Firebase Objects ****************//
 
     /* Represents the database */
@@ -87,6 +104,12 @@ public class LocationScreen extends AppCompatActivity {
 
     /* The authentication object of the app */
     private FirebaseAuth mAuth;
+
+    /* Represents the FireStore database */
+
+    FirebaseFirestore fireStoreDatabase;
+
+
 
 
     /**
@@ -96,6 +119,8 @@ public class LocationScreen extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        fireStoreDatabase = FirebaseFirestore.getInstance();
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
@@ -122,10 +147,26 @@ public class LocationScreen extends AppCompatActivity {
             @Override
             public void onLocationChanged(Location location) {
                 String long_1 = String.valueOf(location.getLongitude());
-                String lat_1 = String.valueOf(location.getLatitude());
+                final String lat_1 = String.valueOf(location.getLatitude());
 
                 databaseReference.child("users").child(email).child("longitude").setValue(long_1);
                 databaseReference.child("users").child(email).child("latitude").setValue(lat_1);
+
+                final DocumentReference busRef = fireStoreDatabase.collection("users").document(email.replace(".", ""));
+                busRef.update("longitude", long_1).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+
+                        busRef.update("latitude", lat_1).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                            }
+
+                        });
+                    }
+
+                });
+
             }
 
             public String getLatitude(Location location){
@@ -209,19 +250,45 @@ public class LocationScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //noinspection MissingPermission
-                databaseReference = FirebaseDatabase.getInstance().getReference();
+//                databaseReference = FirebaseDatabase.getInstance().getReference();
+//                cleanEmail = email;
+//                email = email.replace(".", "");
+//                User newUser = new User(email, phone, km, time, name, description, gender, longitude, latitude, "", "");
+//                databaseReference.child("users").child(email).setValue(newUser);
+//                RunningMatchHomePage.currentUser = newUser;
+                locationManager.requestLocationUpdates("gps", 5000, 0, listener);
+
                 cleanEmail = email;
                 email = email.replace(".", "");
                 User newUser = new User(email, phone, km, time, name, description, gender, longitude, latitude, "", "");
+                //todo: delete if using firestore
                 databaseReference.child("users").child(email).setValue(newUser);
-                locationManager.requestLocationUpdates("gps", 5000, 0, listener);
-                createAccount(cleanEmail, password);
+                createAccount(cleanEmail, password, newUser);
 
 //                suggestions();
+//                addUser(newUser);
             }
         });
     }
 
+
+    /**
+     * Creates a new user and adds it to DB
+     */
+    public void addUser(User user){
+        final DocumentReference busRef = fireStoreDatabase.collection("users").document(user.getEmail());
+        busRef.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+
+                busRef.collection("myLikesArray");
+                busRef.collection("matches");
+            }
+
+        });
+
+
+    }
     /**
      * Go to next page- suggestions
      */
@@ -239,7 +306,7 @@ public class LocationScreen extends AppCompatActivity {
      * @param email
      * @param password
      */
-    private void createAccount(String email, String password) {
+    private void createAccount(String email, String password, final User newUser) {
         // [START create_user_with_email]
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -247,7 +314,7 @@ public class LocationScreen extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            FirebaseUser user = mAuth.getCurrentUser();
+                            addUser(newUser);
                         } else {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(LocationScreen.this, "Authentication failed.",
