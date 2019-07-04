@@ -128,6 +128,16 @@ public class CalculateRate  extends AppCompatActivity {
         return 0;
     }
 
+    private int timesRate(User mainUser, User user) {
+        ArrayList<String> userTimes = user.getTimes();
+        for (String time : mainUser.getTimes()) {
+            if (userTimes.contains(time)) {
+                return 10;
+            }
+        }
+        return 0;
+    }
+
 
 
     /**
@@ -142,7 +152,8 @@ public class CalculateRate  extends AppCompatActivity {
         int paceRate = paceRate(mainUser, user);
         int kmtRate = kmRate(mainUser, user);
         int goalsRate = goalsRate(mainUser, user);
-        return distRate+paceRate+kmtRate+goalsRate;
+        int timeRate = timesRate(mainUser, user);
+        return distRate+paceRate+kmtRate+goalsRate+timeRate;
     }
 
 }
