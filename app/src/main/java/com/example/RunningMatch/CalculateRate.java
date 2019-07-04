@@ -2,6 +2,8 @@ package com.example.RunningMatch;
 
 import android.support.v7.app.AppCompatActivity;
 
+import java.util.ArrayList;
+
 /**
  * Calculates the rate for each potential running partner
  */
@@ -65,13 +67,13 @@ public class CalculateRate  extends AppCompatActivity {
         double distanceRange = Integer.parseInt(mainUser.getDistanceRangeFromUser());
 
         if (myDistance < distanceRange/(double)3) {
-            return 3;
+            return 25;
         }
         else if (myDistance < distanceRange*((double)2/(double) 3)) {
-            return 2;
+            return 17;
         }
         else if (myDistance < distanceRange) {
-            return 1;
+            return 10;
         }
         return 0;
     }
@@ -87,13 +89,13 @@ public class CalculateRate  extends AppCompatActivity {
         double userPace = Double.parseDouble(user.getTime())/Double.parseDouble(user.getKm());
 
         if (myPace*1.05 > userPace  && userPace > myPace*0.95) {
-            return 3;
+            return 30;
         }
         else if (myPace*1.1 > userPace  && userPace > myPace*0.9) {
-            return 2;
+            return 20;
         }
         else if (myPace*1.15 > userPace  && userPace > myPace*0.85) {
-            return 1;
+            return 10;
         }
         return 0;
 
@@ -107,14 +109,26 @@ public class CalculateRate  extends AppCompatActivity {
      */
     private  int kmRate(User mainUser, User user) {
         if (mainUser.getKm() == user.getKm()) {
-            return 3;
+            return 25;
         } else if (Integer.parseInt(user.getKm()) + 1 == Integer.parseInt(mainUser.getKm()) || Integer.parseInt(user.getKm()) - 1 == Integer.parseInt(mainUser.getKm())) {
-            return 2;
+            return 17;
         } else if (Integer.parseInt(user.getKm()) + 2 == Integer.parseInt(mainUser.getKm()) || Integer.parseInt(user.getKm()) - 2 == Integer.parseInt(mainUser.getKm())) {
-            return 1;
+            return 10;
         }
         return 0;
     }
+
+    private int goalsRate(User mainUser, User user){
+        ArrayList<String> userGoals = user.getGoals();
+        for (String goal : mainUser.getGoals()){
+            if(userGoals.contains(goal)){
+                return 10;
+            }
+        }
+        return 0;
+    }
+
+
 
     /**
      * Returns a final matching rate for 2 users
@@ -122,12 +136,13 @@ public class CalculateRate  extends AppCompatActivity {
      * @param user
      * @return
      */
-    public double rateCalculator(User mainUser, User user) {
+    public int rateCalculator(User mainUser, User user) {
 
-        double distRate = distanceRate(mainUser, user)*0.3;
-        double paceRate = paceRate(mainUser, user)*0.4;
-        double kmtRate = kmRate(mainUser, user)*0.3;
-        return distRate+paceRate+kmtRate;
+        int distRate = distanceRate(mainUser, user);
+        int paceRate = paceRate(mainUser, user);
+        int kmtRate = kmRate(mainUser, user);
+        int goalsRate = goalsRate(mainUser, user);
+        return distRate+paceRate+kmtRate+goalsRate;
     }
 
 }
