@@ -43,14 +43,17 @@ public class User {
     /* The email of the user */
     private String email;
 
+    /* List of the goals the user want to achieve */
     private ArrayList<String> goals;
 
+    /* Events the user is going to*/
     private ArrayList<String> events = new ArrayList<>();
 
+    /* Times in the day that the user want to run*/
     private ArrayList<String> times;
 
+    /* Runner the user does't want to run with */
     private ArrayList<String> not4me;
-
 
 
     //TODO: check how it is on firebase
