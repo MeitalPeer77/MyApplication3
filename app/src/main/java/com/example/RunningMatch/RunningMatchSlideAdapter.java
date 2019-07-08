@@ -2,9 +2,12 @@ package com.example.RunningMatch;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -81,7 +84,7 @@ public class RunningMatchSlideAdapter extends PagerAdapter {
      */
     @Override
     public int getCount() {
-        return users.size()-1;
+        return users.size();
     }
 
     /**
@@ -104,15 +107,21 @@ public class RunningMatchSlideAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.card,container,false);
+        View view = inflater.inflate(R.layout.newcard,container,false);
 
-        LinearLayout layoutslide = (LinearLayout) view.findViewById(R.id.slidelinearlayout);
-        ImageView imgslide = (ImageView)  view.findViewById(R.id.slideimg);
-        TextView txttitle= (TextView) view.findViewById(R.id.txttitle);
-        TextView description = (TextView) view.findViewById(R.id.txtdescription);
-        TextView time = (TextView) view.findViewById(R.id.time_input);
-        TextView km = (TextView) view.findViewById(R.id.km_input);
-        TextView distance = (TextView) view.findViewById(R.id.distance_input);
+        LinearLayout layoutslide = (LinearLayout) view.findViewById(R.id.slidelinearlayout2);
+        ImageView imgslide = (ImageView)  view.findViewById(R.id.slideimg2);
+        TextView txttitle= (TextView) view.findViewById(R.id.txttitle2);
+        TextView description = (TextView) view.findViewById(R.id.txtdescription2);
+        TextView time = (TextView) view.findViewById(R.id.time_input2);
+        TextView km = (TextView) view.findViewById(R.id.km_input2);
+        TextView distance = (TextView) view.findViewById(R.id.distance_input2);
+        RecyclerView goalsAdapter = view.findViewById(R.id.goals_adapter);
+        GoalsAdapter adapter = new GoalsAdapter(context, users.get(position));
+        goalsAdapter.setAdapter(adapter);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
+        goalsAdapter.setLayoutManager(layoutManager);
+
 
         String userName = users.get(position).getUserName();
         String des = users.get(position).getUserDescription();
@@ -135,6 +144,7 @@ public class RunningMatchSlideAdapter extends PagerAdapter {
         km.setText(kmInput);
         DecimalFormat df = new DecimalFormat("#.#");
         distance.setText(df.format(distanceInput));
+
         return view;
     }
 
