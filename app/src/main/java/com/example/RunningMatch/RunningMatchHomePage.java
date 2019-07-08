@@ -27,6 +27,7 @@ import com.google.firebase.firestore.WriteBatch;
 
 import android.content.Context;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -218,15 +219,24 @@ public class RunningMatchHomePage extends AppCompatActivity {
 
                                 User otherUser = new User(email, phoneNumber, km, time, name, description, gender, latitude, longtitude, "", "", goals,times );
 
+
                                 if (!email.equals(currentUserEmail)){
-                                    usersMap.put(email, otherUser);
-                                }
-                                else{
+                                        usersMap.put(email, otherUser);
+
+                                }else{
                                     currentUser = otherUser;
                                 }
                             }
-                            ArrayList<User> users = new ArrayList<User>(usersMap.values());
-                            myAdapter = new RunningMatchSlideAdapter(context, users);
+                            //get only relevant users, aka are in distance range
+                            for (User user: usersMap.values()) {
+                                if(currentUser.isInRange(user)){
+                                    usersArray.add(user);
+                                }
+                            }
+
+                            RateComparator sorter = new RateComparator(currentUser);
+                            Collections.sort(usersArray, sorter);
+                            myAdapter = new RunningMatchSlideAdapter(context, usersArray);
                             viewPager.setAdapter(myAdapter);
                         }
                     }

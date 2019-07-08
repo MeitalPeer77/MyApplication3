@@ -129,7 +129,6 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
             sighUpText = itemView.findViewById(R.id.sign_up_event);
             sighUpText.setMovementMethod(LinkMovementMethod.getInstance());
 
-
         }
     }
 
