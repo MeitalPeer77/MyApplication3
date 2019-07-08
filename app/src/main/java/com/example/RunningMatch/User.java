@@ -3,6 +3,9 @@ package com.example.RunningMatch;
 import java.util.ArrayList;
 import java.util.Map;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 /**
  * Class represents the user in running match-app
  */
@@ -40,6 +43,14 @@ public class User {
     /* The email of the user */
     private String email;
 
+    private ArrayList<String> goals;
+
+    private ArrayList<String> events = new ArrayList<>();
+
+    private ArrayList<String> times;
+
+
+
     //TODO: check how it is on firebase
     private ArrayList<String> myLikesArray;
     private String matches;
@@ -57,10 +68,11 @@ public class User {
      * @param longitude
      * @param myLikesArray
      * @param matches
+     *
      */
     public User(String email,  String phoneNumber, String km, String time, String userName,
                 String userDescription, String gender, String latitude, String longitude ,
-                ArrayList<String> myLikesArray, String matches){
+                ArrayList<String> myLikesArray, String matches, ArrayList<String> goals, ArrayList<String> times){
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.km = km;
@@ -72,6 +84,8 @@ public class User {
         this.latitude = latitude;
         this.myLikesArray = myLikesArray;
         this.matches = matches;
+        this.goals = goals;
+        this.times = times;
 
 
     }
@@ -233,4 +247,31 @@ public class User {
     public void setMyLikesArray(ArrayList<String> lst) {
         this.myLikesArray= lst;
     }
+    public ArrayList<String> getGoals(){
+        return this.goals;
+    }
+
+    public void setGoals(ArrayList<String> goals){
+        this.goals = goals;
+    }
+
+    public ArrayList<String> getTimes(){
+        return this.times;
+    }
+
+    public void setTimes(ArrayList<String> times){
+        this.times = times;
+    }
+
+    public ArrayList<String> getEvents(){
+        return this.events;
+    }
+
+    public void setevents(ArrayList<String> events){
+        this.events = events;
+    }
+
+
+
+
 }
