@@ -260,7 +260,7 @@ public class RunningMatchHomePage extends AppCompatActivity {
                                 latitude = userMap.get("latitude").toString();
                                 longtitude = userMap.get("longitude").toString();
                                 ArrayList<String> myLikesArray = (ArrayList<String>) userMap.get("myLikesArray");
-                                ArrayList<String> matches = (ArrayList<String>) userMap.get("myLikesArray");
+                                ArrayList<String> matches = (ArrayList<String>) userMap.get("matches");
                                 //TODO MAKE SURE TO ADD GOALS AND EVENTS
                                 ArrayList<String> goals = (ArrayList<String>) userMap.get("goals");
                                 ArrayList<String> times = (ArrayList<String>) userMap.get("times");
