@@ -94,6 +94,8 @@ public class LocationScreen extends AppCompatActivity {
     /* The description the user entered */
     private String description;
 
+    private ArrayList<String> myLikesArray;
+
 //    /* The new user after getting all his information*/
 //    User newUSer;
 
@@ -260,7 +262,7 @@ public class LocationScreen extends AppCompatActivity {
 
                 cleanEmail = email;
                 email = email.replace(".", "");
-                User newUser = new User(email, phone, km, time, name, description, gender, longitude, latitude, "", "");
+                User newUser = new User(email, phone, km, time, name, description, gender, longitude, latitude, myLikesArray, "");
                 //todo: delete if using firestore
                 databaseReference.child("users").child(email).setValue(newUser);
                 createAccount(cleanEmail, password, newUser);

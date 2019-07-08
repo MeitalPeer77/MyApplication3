@@ -67,7 +67,7 @@ public class RunningMatchHomePage extends AppCompatActivity {
 
     /* All the suggestions for the current user*/
     private HashMap<String, User> usersMap = new HashMap<String, User>();
-    private String myLikesArray ="myLikesArray";
+
     private String matches="matches";
     private Context context;
 
@@ -103,14 +103,13 @@ public class RunningMatchHomePage extends AppCompatActivity {
 //        FirebaseAuth.getInstance().signOut();
         mAuth = FirebaseAuth.getInstance();
         fireStoreDatabase = FirebaseFirestore.getInstance();
-
+        getUsers();
         currentUserEmail = mAuth.getCurrentUser().getEmail();
         currentUserEmail = currentUserEmail.replace(".", "");
 
         server.getUser(currentUserEmail, user);
         context = this;
 
-        getUsers();
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
 
@@ -162,14 +161,21 @@ public class RunningMatchHomePage extends AppCompatActivity {
                 // update fire store
                 DocumentReference busRef_1 = fireStoreDatabase.collection("users").
                         document(currentUserEmail).collection("myLikesArray").document(user.getEmail());
+                ArrayList<String> myLikes = currentUser.getMyLikesArray();
+                ArrayList<String> stam = new ArrayList<>();
+                stam.add("1");
+                stam.add("2");
+                System.out.println(stam);
+                currentUser.setMyLikesArray(stam);
+                System.out.println(currentUser.getMyLikesArray());
 
                 WriteBatch batch = fireStoreDatabase.batch();
-                batch.set(busRef_1, user);
+                batch.update(busRef_1, user.getEmail(), "1");
 
                 DocumentReference busRef_2 = fireStoreDatabase.collection("users").
                         document(currentUserEmail).collection("matches").document(user.getEmail());
 
-                batch.set(busRef_2, user);
+                batch.update(busRef_2, user.getEmail(), "1");
 
                 String phone = user.getPhoneNumber();
 
@@ -213,8 +219,9 @@ public class RunningMatchHomePage extends AppCompatActivity {
                                 gender = userMap.get("gender").toString();
                                 latitude = userMap.get("latitude").toString();
                                 longtitude = userMap.get("longitude").toString();
+                                ArrayList<String> myLikesArray = (ArrayList<String>) userMap.get("myLikesArray");
 
-                                User otherUser = new User(email, phoneNumber, km, time, name, description, gender, latitude, longtitude, "", "");
+                                User otherUser = new User(email, phoneNumber, km, time, name, description, gender, latitude, longtitude, myLikesArray, "myMatches");
 
                                 if (!email.equals(currentUserEmail)){
                                     usersMap.put(email, otherUser);
