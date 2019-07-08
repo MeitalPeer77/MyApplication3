@@ -41,9 +41,16 @@ public class GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.ViewHolder> 
                 case "run 5K":
                     drawables.add(R.drawable.icon_5k);
                     break;
+                case "marathon":
+                    drawables.add(R.drawable.marathon);
+                    break;
+                case "run half marathon":
+                    drawables.add(R.drawable.hMarathon);
+                    break;
+                case "run for fun":
+                    drawables.add(R.drawable.run_for_fun);
+                    break;
 
-                default:
-                    drawables.add(R.drawable.cardiogram);
             }
         }
         return drawables;
