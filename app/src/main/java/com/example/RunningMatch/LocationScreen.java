@@ -275,7 +275,9 @@ public class LocationScreen extends AppCompatActivity {
                 myLikesArray.add("check");
                 ArrayList<String> matches = new ArrayList<>();
                 matches.add("check");
-                User newUser = new User(email, phone, km, time, name, description, gender, longitude, latitude, myLikesArray, matches, goals, times);
+                ArrayList<String> not4me = new ArrayList<>();
+                not4me.add("check");
+                User newUser = new User(email, phone, km, time, name, description, gender, longitude, latitude, myLikesArray, matches,not4me, goals, times);
 
                 //todo: delete if using firestore
                 databaseReference.child("users").child(email).setValue(newUser);

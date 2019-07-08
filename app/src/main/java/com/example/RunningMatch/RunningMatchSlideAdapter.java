@@ -81,7 +81,7 @@ public class RunningMatchSlideAdapter extends PagerAdapter {
      */
     @Override
     public int getCount() {
-        return users.size()-1;
+        return users.size();
     }
 
     /**

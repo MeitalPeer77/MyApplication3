@@ -146,10 +146,11 @@ public class RunningMatchHomePage extends AppCompatActivity {
             public void onClick(View v) {
                 int a = viewPager.getCurrentItem();
                 final User user = myAdapter.users.get(a);
-                usersMap.remove(user.getEmail());
-                ArrayList<User> users = new ArrayList<User>(usersMap.values());
-                myAdapter = new RunningMatchSlideAdapter(context, users);
-                viewPager.setAdapter(myAdapter);
+                ArrayList<String> not4meArray = currentUser.getNot4me();
+                not4meArray.add(user.getEmail());
+                currentUser.setNot4me(not4meArray);
+                fireStoreDatabase.collection("users").document(currentUserEmail).update("not4me", not4meArray);
+                getUsers();
             }
         });
 
@@ -165,18 +166,11 @@ public class RunningMatchHomePage extends AppCompatActivity {
                 DocumentReference busRef_1 = fireStoreDatabase.collection("users").
                         document(currentUserEmail).collection("myLikesArray").document(user.getEmail());
                 ArrayList<String> myLikes = currentUser.getMyLikesArray();
-
                 myLikes.add(user.getEmail());
                 currentUser.setMyLikesArray(myLikes);
                 fireStoreDatabase.collection("users").document(currentUserEmail).update("myLikesArray", myLikes);
 
-//                WriteBatch batch = fireStoreDatabase.batch();
-//                batch.set(busRef_1, user);
-//
-//                DocumentReference busRef_2 = fireStoreDatabase.collection("users").
-//                        document(currentUserEmail).collection("matches").document(user.getEmail());
 
-//                batch.set(busRef_2, user);
                 ArrayList<String> otherUserLikesArray = user.getMyLikesArray();
                 if (otherUserLikesArray != null) {
 
@@ -205,28 +199,12 @@ public class RunningMatchHomePage extends AppCompatActivity {
                     }
                 }
 
-//                DocumentReference docRef = fireStoreDatabase.collection("users").
-//                        document(user.getEmail());
-//
-//                docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-//                    @Override
-//                    public void onSuccess(DocumentSnapshot documentSnapshot) {
-//                        if()
-//                    }
-//                });{
-//
-//                }
-// future.get() blocks on response
+
                 String phone = user.getPhoneNumber();
 
-                usersMap.remove(user.getEmail());
-                ArrayList<User> users = new ArrayList<User>(usersMap.values());
-                myAdapter = new RunningMatchSlideAdapter(context, users);
-                viewPager.setAdapter(myAdapter);
 
-//                Intent popup = new Intent(RunningMatchHomePage.this, MatchingPopUP.class);
-//                popup.putExtra("phoneNumber", phone);
-//                startActivity(popup);
+                getUsers();
+
 
             }
 
@@ -238,6 +216,8 @@ public class RunningMatchHomePage extends AppCompatActivity {
      * Gets all Users except me
      */
     private void getUsers(){
+        usersArray.clear();
+        usersMap.clear();
         final ArrayList<User> users_arr = new ArrayList<User>();
         fireStoreDatabase.collection("users").get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -261,11 +241,12 @@ public class RunningMatchHomePage extends AppCompatActivity {
                                 longtitude = userMap.get("longitude").toString();
                                 ArrayList<String> myLikesArray = (ArrayList<String>) userMap.get("myLikesArray");
                                 ArrayList<String> matches = (ArrayList<String>) userMap.get("matches");
+                                ArrayList<String> not4me = (ArrayList<String>) userMap.get("not4me");
                                 //TODO MAKE SURE TO ADD GOALS AND EVENTS
                                 ArrayList<String> goals = (ArrayList<String>) userMap.get("goals");
                                 ArrayList<String> times = (ArrayList<String>) userMap.get("times");
 
-                                User otherUser = new User(email, phoneNumber, km, time, name, description, gender, latitude, longtitude, myLikesArray, matches, goals,times );
+                                User otherUser = new User(email, phoneNumber, km, time, name, description, gender, latitude, longtitude, myLikesArray, matches, not4me,goals,times );
 
 
                                 if (!email.equals(currentUserEmail)){
@@ -276,10 +257,12 @@ public class RunningMatchHomePage extends AppCompatActivity {
                                 }
                             }
 
-                            ArrayList<User> users = new ArrayList<User>(usersMap.values());
+                            ArrayList<String> myLikes = currentUser.getMyLikesArray();
+                            ArrayList<String> not4me = currentUser.getNot4me();
+
                             //get only relevant users, aka are in distance range
                             for (User user: usersMap.values()) {
-                                if(currentUser.isInRange(user)){
+                                if(currentUser.isInRange(user) && !(myLikes.contains(user.getEmail())) && !(not4me.contains(user.getEmail()))){
                                     usersArray.add(user);
                                 }
                             }
@@ -287,73 +270,12 @@ public class RunningMatchHomePage extends AppCompatActivity {
                             RateComparator sorter = new RateComparator(currentUser);
                             Collections.sort(usersArray, sorter);
                             myAdapter = new RunningMatchSlideAdapter(context, usersArray);
+                            myAdapter.notifyDataSetChanged();
                             viewPager.setAdapter(myAdapter);
                         }
                     }
                 });
     }
-//
-//        mDataBase = FirebaseDatabase.getInstance().getReference();
-//
-//        mDataBase.child("users").addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                Iterator<DataSnapshot> items = dataSnapshot.getChildren().iterator();
-//                usersMap.clear();
-//                while (items.hasNext()){
-//                    DataSnapshot   item = items.next();
-//                    String email = item.getKey();
-//                    String name, km, time, phoneNumber, description,gender, latitude, longtitude ,myLikes, myMatches;
-//                    name = item.child("userName").getValue().toString();
-//                    km = item.child("km").getValue().toString();
-//                    time = item.child("time").getValue().toString();
-//                    phoneNumber = item.child("phoneNumber").getValue().toString();
-//                    description = item.child("userDescription").getValue().toString();
-//                    gender = item.child("gender").getValue().toString();
-//                    latitude = item.child("latitude").getValue().toString();
-//                    longtitude = item.child("longitude").getValue().toString();
-//
-//                    //todo: what is the purpose of it?
-//                    if (item.child("myLikesArray").getValue() == null){
-//                        myLikes = "";
-//                    }
-//                    else {
-//                        myLikes = item.child("myLikesArray").getValue().toString();
-//                    }
-//
-//                    if (item.child("matches").getValue() == null){
-//                        myMatches = "";
-//                    }
-//                    else {
-//                        myMatches = item.child("matches").getValue().toString();
-//                    }
-//
-//                    //TODO: Enter tha rate calculator. not showing everybody!
-//                    if(!email.equals(currentUserEmail)) {
-//
-//                        User user = new User(email, phoneNumber, km, time, name, description, gender, latitude, longtitude, myLikesArray, matches);
-////                        double distance = CalculateRate.calculateDistance(currentUser, user);
-////                        if (distance <= currentUser.getDistanceRangeFromUser()) {
-////                            usersArray.add(user);
-////                        }
-//
-//                        usersMap.put(email, user);
-
-
-//                    }
-//                }
-
-//                RateComparator sorter = new RateComparator(currentUser);
-//                Collections.sort(usersArray, sorter);
-
-
-
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
-//    }
 
     /**
      * Transfer to Profile page
@@ -373,7 +295,7 @@ public class RunningMatchHomePage extends AppCompatActivity {
     public void partners() {
         // Create an Intent to start the  activity
         Intent partnersIntent = new Intent(this, PartnersList.class);
-        partnersIntent.putExtra("userArray", usersArray);
+        partnersIntent.putExtra("userArray", currentUser.getMatches());
 
         // Start the new activity.
         startActivity(partnersIntent);
