@@ -90,7 +90,7 @@ public class RunningMatchHomePage extends AppCompatActivity {
 
     Server server = new Server();
 
-    static final User[] user= new User[1];
+    static final User[] user = new User[1];
 
 
     /**
