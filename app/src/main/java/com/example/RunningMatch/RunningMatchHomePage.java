@@ -90,7 +90,7 @@ public class RunningMatchHomePage extends AppCompatActivity {
 
     Server server = new Server();
 
-    static final User[] user= new User[1];
+    static final User[] user = new User[1];
 
 
     /**
@@ -241,18 +241,26 @@ public class RunningMatchHomePage extends AppCompatActivity {
 
                                 User otherUser = new User(email, phoneNumber, km, time, name, description, gender, latitude, longtitude, myLikesArray, "", goals,times );
 
+
                                 if (!email.equals(currentUserEmail)){
-                                    usersMap.put(email, otherUser);
-                                }
-                                else{
+                                        usersMap.put(email, otherUser);
+
+                                }else{
                                     currentUser = otherUser;
                                 }
                             }
 
                             ArrayList<User> users = new ArrayList<User>(usersMap.values());
+                            //get only relevant users, aka are in distance range
+                            for (User user: usersMap.values()) {
+                                if(currentUser.isInRange(user)){
+                                    usersArray.add(user);
+                                }
+                            }
+
                             RateComparator sorter = new RateComparator(currentUser);
                             Collections.sort(usersArray, sorter);
-                            myAdapter = new RunningMatchSlideAdapter(context, users);
+                            myAdapter = new RunningMatchSlideAdapter(context, usersArray);
                             viewPager.setAdapter(myAdapter);
                         }
                     }

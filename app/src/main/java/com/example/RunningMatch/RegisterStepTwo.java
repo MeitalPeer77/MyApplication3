@@ -80,6 +80,12 @@ public class RegisterStepTwo extends AppCompatActivity {
 
     private ToggleButton toggleGoal1;
     private ToggleButton toggleGoal2;
+    private ToggleButton toggleGoal3;
+    private ToggleButton toggleGoal4;
+    private ToggleButton toggleGoal5;
+    private ToggleButton toggleGoal6;
+
+
 
 
 
@@ -226,6 +232,34 @@ public class RegisterStepTwo extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked)
                     goals.add("stay in shape");
+            }
+        });
+        toggleGoal3 = (ToggleButton) findViewById(R.id.run_half_marathon);
+        toggleGoal3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked)
+                    goals.add("run half marathon");
+            }
+        });
+        toggleGoal4 = (ToggleButton) findViewById(R.id.run_5K);
+        toggleGoal4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked)
+                    goals.add("run 5K");
+            }
+        });
+        toggleGoal5 = (ToggleButton) findViewById(R.id.run_for_fun);
+        toggleGoal5.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked)
+                    goals.add("run for fun");
+            }
+        });
+        toggleGoal6 = (ToggleButton) findViewById(R.id.run_10K);
+        toggleGoal6.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked)
+                    goals.add("run 10K");
             }
         });
 

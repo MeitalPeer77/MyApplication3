@@ -271,6 +271,11 @@ public class User {
         this.events = events;
     }
 
+    public boolean isInRange(User otherUser){
+        double distance = CalculateRate.calculateDistance(this, otherUser);
+        return (distance <= Double.parseDouble(this.getDistanceRangeFromUser()));
+    }
+
 
 
 
