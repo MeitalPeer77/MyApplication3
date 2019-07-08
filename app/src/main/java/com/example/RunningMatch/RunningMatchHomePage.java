@@ -27,6 +27,7 @@ import com.google.firebase.firestore.WriteBatch;
 
 import android.content.Context;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -227,6 +228,8 @@ public class RunningMatchHomePage extends AppCompatActivity {
                                 }
                             }
                             ArrayList<User> users = new ArrayList<User>(usersMap.values());
+                            RateComparator sorter = new RateComparator(currentUser);
+                            Collections.sort(usersArray, sorter);
                             myAdapter = new RunningMatchSlideAdapter(context, users);
                             viewPager.setAdapter(myAdapter);
                         }
