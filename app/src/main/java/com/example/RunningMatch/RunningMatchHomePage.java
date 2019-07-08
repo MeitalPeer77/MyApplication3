@@ -68,7 +68,7 @@ public class RunningMatchHomePage extends AppCompatActivity {
 
     /* All the suggestions for the current user*/
     private HashMap<String, User> usersMap = new HashMap<String, User>();
-    private String myLikesArray ="myLikesArray";
+
     private String matches="matches";
     private Context context;
 
@@ -112,6 +112,7 @@ public class RunningMatchHomePage extends AppCompatActivity {
         context = this;
 
         getUsers();
+
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
 
@@ -163,15 +164,34 @@ public class RunningMatchHomePage extends AppCompatActivity {
                 // update fire store
                 DocumentReference busRef_1 = fireStoreDatabase.collection("users").
                         document(currentUserEmail).collection("myLikesArray").document(user.getEmail());
+                ArrayList<String> myLikes = currentUser.getMyLikesArray();
 
-                WriteBatch batch = fireStoreDatabase.batch();
-                batch.set(busRef_1, user);
+                myLikes.add(user.getEmail());
+                currentUser.setMyLikesArray(myLikes);
+                fireStoreDatabase.collection("users").document(currentUserEmail).update("myLikesArray", myLikes);
 
-                DocumentReference busRef_2 = fireStoreDatabase.collection("users").
-                        document(currentUserEmail).collection("matches").document(user.getEmail());
+//                WriteBatch batch = fireStoreDatabase.batch();
+//                batch.set(busRef_1, user);
+//
+//                DocumentReference busRef_2 = fireStoreDatabase.collection("users").
+//                        document(currentUserEmail).collection("matches").document(user.getEmail());
 
-                batch.set(busRef_2, user);
+//                batch.set(busRef_2, user);
+                DocumentReference busRef_3 = fireStoreDatabase.collection("users").
+                        document(user.getEmail()).collection("matches").document(user.getEmail());
 
+//                DocumentReference docRef = fireStoreDatabase.collection("users").
+//                        document(user.getEmail());
+//
+//                docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+//                    @Override
+//                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+//                        if()
+//                    }
+//                });{
+//
+//                }
+// future.get() blocks on response
                 String phone = user.getPhoneNumber();
 
                 usersMap.remove(user.getEmail());
@@ -214,10 +234,12 @@ public class RunningMatchHomePage extends AppCompatActivity {
                                 gender = userMap.get("gender").toString();
                                 latitude = userMap.get("latitude").toString();
                                 longtitude = userMap.get("longitude").toString();
+                                ArrayList<String> myLikesArray = (ArrayList<String>) userMap.get("myLikesArray");
+                                //TODO MAKE SURE TO ADD GOALS AND EVENTS
                                 ArrayList<String> goals = (ArrayList<String>) userMap.get("goals");
                                 ArrayList<String> times = (ArrayList<String>) userMap.get("times");
 
-                                User otherUser = new User(email, phoneNumber, km, time, name, description, gender, latitude, longtitude, "", "", goals,times );
+                                User otherUser = new User(email, phoneNumber, km, time, name, description, gender, latitude, longtitude, myLikesArray, "", goals,times );
 
 
                                 if (!email.equals(currentUserEmail)){
@@ -227,6 +249,8 @@ public class RunningMatchHomePage extends AppCompatActivity {
                                     currentUser = otherUser;
                                 }
                             }
+
+                            ArrayList<User> users = new ArrayList<User>(usersMap.values());
                             //get only relevant users, aka are in distance range
                             for (User user: usersMap.values()) {
                                 if(currentUser.isInRange(user)){
