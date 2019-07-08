@@ -241,6 +241,7 @@ public class RegisterStepTwo extends AppCompatActivity {
                     goals.add("run half marathon");
             }
         });
+
         toggleGoal4 = (ToggleButton) findViewById(R.id.run_5K);
         toggleGoal4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
