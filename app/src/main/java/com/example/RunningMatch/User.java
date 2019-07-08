@@ -49,11 +49,13 @@ public class User {
 
     private ArrayList<String> times;
 
+    private ArrayList<String> not4me;
+
 
 
     //TODO: check how it is on firebase
     private ArrayList<String> myLikesArray;
-    private String matches;
+    private ArrayList<String> matches;
 
     /**
      * Creates a User object
@@ -72,7 +74,7 @@ public class User {
      */
     public User(String email,  String phoneNumber, String km, String time, String userName,
                 String userDescription, String gender, String latitude, String longitude ,
-                ArrayList<String> myLikesArray, String matches, ArrayList<String> goals, ArrayList<String> times){
+                ArrayList<String> myLikesArray, ArrayList<String> matches, ArrayList<String> not4me, ArrayList<String> goals, ArrayList<String> times){
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.km = km;
@@ -86,6 +88,7 @@ public class User {
         this.matches = matches;
         this.goals = goals;
         this.times = times;
+        this.not4me = not4me;
 
 
     }
@@ -247,6 +250,15 @@ public class User {
     public void setMyLikesArray(ArrayList<String> lst) {
         this.myLikesArray= lst;
     }
+
+    public ArrayList<String> getMatches() {
+        return matches;
+    }
+
+    public void setMatches(ArrayList<String> matches) {
+        this.matches = matches;
+    }
+
     public ArrayList<String> getGoals(){
         return this.goals;
     }
@@ -276,7 +288,11 @@ public class User {
         return (distance <= Double.parseDouble(this.getDistanceRangeFromUser()));
     }
 
+    public ArrayList<String> getNot4me() {
+        return not4me;
+    }
 
-
-
+    public void setNot4me(ArrayList<String> not4me) {
+        this.not4me = not4me;
+    }
 }

@@ -96,7 +96,7 @@ public class LocationScreen extends AppCompatActivity {
     /* The description the user entered */
     private String description;
 
-    private ArrayList<String> myLikesArray;
+
 
 //    /* The new user after getting all his information*/
 //    User newUSer;
@@ -271,7 +271,13 @@ public class LocationScreen extends AppCompatActivity {
                 ArrayList<String> times = new ArrayList<>();
                 times.add("morning");
                 times.add("evening");
-                User newUser = new User(email, phone, km, time, name, description, gender, longitude, latitude, myLikesArray, "", goals, times);
+                ArrayList<String> myLikesArray = new ArrayList<>();
+                myLikesArray.add("check");
+                ArrayList<String> matches = new ArrayList<>();
+                matches.add("check");
+                ArrayList<String> not4me = new ArrayList<>();
+                not4me.add("check");
+                User newUser = new User(email, phone, km, time, name, description, gender, longitude, latitude, myLikesArray, matches,not4me, goals, times);
 
                 //todo: delete if using firestore
                 databaseReference.child("users").child(email).setValue(newUser);
