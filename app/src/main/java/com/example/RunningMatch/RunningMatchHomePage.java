@@ -213,7 +213,6 @@ public class RunningMatchHomePage extends AppCompatActivity {
                                 gender = userMap.get("gender").toString();
                                 latitude = userMap.get("latitude").toString();
                                 longtitude = userMap.get("longitude").toString();
-                                //TODO MAKE SURE TO ADD GOALS AND EVENTS
                                 ArrayList<String> goals = (ArrayList<String>) userMap.get("goals");
                                 ArrayList<String> times = (ArrayList<String>) userMap.get("times");
 

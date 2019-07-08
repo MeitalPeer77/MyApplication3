@@ -29,8 +29,8 @@ public class RateComparator implements Comparator<User> {
      */
     @Override
     public int compare(User o1, User o2) {
-        Double user1Rate = calculator.rateCalculator(currentUser, o1);
-        Double user2Rate = calculator.rateCalculator(currentUser, o2);
+        Integer user1Rate = calculator.rateCalculator(currentUser, o1);
+        Integer user2Rate = calculator.rateCalculator(currentUser, o2);
         Double user1Distance = CalculateRate.calculateDistance(currentUser, o1);
         Double user2Distance = CalculateRate.calculateDistance(currentUser, o2);
 
