@@ -1,10 +1,8 @@
 package com.example.RunningMatch;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,7 +43,7 @@ public class GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.ViewHolder> 
                     drawables.add(R.drawable.marathon);
                     break;
                 case "run half marathon":
-                    drawables.add(R.drawable.hMarathon);
+                    drawables.add(R.drawable.hmarathon);
                     break;
                 case "run for fun":
                     drawables.add(R.drawable.run_for_fun);
