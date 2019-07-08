@@ -177,8 +177,33 @@ public class RunningMatchHomePage extends AppCompatActivity {
 //                        document(currentUserEmail).collection("matches").document(user.getEmail());
 
 //                batch.set(busRef_2, user);
-                DocumentReference busRef_3 = fireStoreDatabase.collection("users").
-                        document(user.getEmail()).collection("matches").document(user.getEmail());
+                ArrayList<String> otherUserLikesArray = user.getMyLikesArray();
+                if (otherUserLikesArray != null) {
+
+
+                    for (String usr : otherUserLikesArray) {
+                        if (usr.equals(currentUserEmail)) {
+                            String phone = user.getPhoneNumber();
+
+                            // update other user match Array
+                            ArrayList<String> otherUserMatches = user.getMatches();
+                            otherUserMatches.add(currentUserEmail);
+                            fireStoreDatabase.collection("users").document(user.getEmail()).update("matches", otherUserMatches);
+                            user.setMatches(otherUserMatches);
+
+                            // update current user match Array
+                            ArrayList<String> myMatches = currentUser.getMatches();
+                            myMatches.add(user.getEmail());
+                            fireStoreDatabase.collection("users").document(currentUserEmail).update("matches", myMatches);
+                            currentUser.setMatches(myMatches);
+                            //pop up
+                            Intent popup = new Intent(RunningMatchHomePage.this, MatchingPopUP.class);
+                            popup.putExtra("phoneNumber", phone);
+                            startActivity(popup);
+
+                        }
+                    }
+                }
 
 //                DocumentReference docRef = fireStoreDatabase.collection("users").
 //                        document(user.getEmail());
@@ -199,9 +224,9 @@ public class RunningMatchHomePage extends AppCompatActivity {
                 myAdapter = new RunningMatchSlideAdapter(context, users);
                 viewPager.setAdapter(myAdapter);
 
-                Intent popup = new Intent(RunningMatchHomePage.this, MatchingPopUP.class);
-                popup.putExtra("phoneNumber", phone);
-                startActivity(popup);
+//                Intent popup = new Intent(RunningMatchHomePage.this, MatchingPopUP.class);
+//                popup.putExtra("phoneNumber", phone);
+//                startActivity(popup);
 
             }
 
@@ -235,11 +260,12 @@ public class RunningMatchHomePage extends AppCompatActivity {
                                 latitude = userMap.get("latitude").toString();
                                 longtitude = userMap.get("longitude").toString();
                                 ArrayList<String> myLikesArray = (ArrayList<String>) userMap.get("myLikesArray");
+                                ArrayList<String> matches = (ArrayList<String>) userMap.get("myLikesArray");
                                 //TODO MAKE SURE TO ADD GOALS AND EVENTS
                                 ArrayList<String> goals = (ArrayList<String>) userMap.get("goals");
                                 ArrayList<String> times = (ArrayList<String>) userMap.get("times");
 
-                                User otherUser = new User(email, phoneNumber, km, time, name, description, gender, latitude, longtitude, myLikesArray, "", goals,times );
+                                User otherUser = new User(email, phoneNumber, km, time, name, description, gender, latitude, longtitude, myLikesArray, matches, goals,times );
 
 
                                 if (!email.equals(currentUserEmail)){
