@@ -88,7 +88,11 @@ public class LocationScreen extends AppCompatActivity {
     /* The gender the user entered */
     String gender;
 
+    /* the goals of this user */
     ArrayList<String> goals;
+
+    /* the times of this user */
+    ArrayList<String> times;
 
     /* The time specified by the user */
     private String time;
@@ -145,7 +149,7 @@ public class LocationScreen extends AppCompatActivity {
         time = extras.getString("time");
         description = extras.getString("description");
         goals = extras.getStringArrayList("goals");
-
+        times = extras.getStringArrayList("times");
 
 
         listener = new LocationListener() {
@@ -266,10 +270,6 @@ public class LocationScreen extends AppCompatActivity {
 
                 cleanEmail = email;
                 email = email.replace(".", "");
-                //TODO update times after adding it to layout
-                ArrayList<String> times = new ArrayList<>();
-                times.add("morning");
-                times.add("evening");
                 ArrayList<String> myLikesArray = new ArrayList<>();
                 myLikesArray.add("check");
                 ArrayList<String> matches = new ArrayList<>();

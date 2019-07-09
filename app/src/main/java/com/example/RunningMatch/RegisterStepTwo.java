@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -59,6 +60,9 @@ public class RegisterStepTwo extends AppCompatActivity {
     /* The gender the user entered */
     String gender;
 
+    /* The times of day the user likes running */
+    ArrayList<String> times = new ArrayList<>();
+
 
 
     /* The field of the user description */
@@ -72,9 +76,6 @@ public class RegisterStepTwo extends AppCompatActivity {
     /* The possibilities given in the km spinner*/
     String[] kmArray = {"1", "2", "3", "4","5", "6","7", "8","9", "10", "11", "12", "13", "14", "15"};
 
-    /* The possibilities given in the time spinner*/
-    String [] minArray = {"5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60"};
-
     /* The next button of the screen */
     private Button nextButton;
 
@@ -87,8 +88,6 @@ public class RegisterStepTwo extends AppCompatActivity {
     private ToggleButton toggleGoal4;
     private ToggleButton toggleGoal5;
     private ToggleButton toggleGoal6;
-
-
 
     private ProgressDialog progressDialog;
 
@@ -166,8 +165,6 @@ public class RegisterStepTwo extends AppCompatActivity {
 
 
         // creates the km spinner
-        ArrayAdapter<String> arrayaddapterKm = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, kmArray);
-        arrayaddapterKm.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         pickerKm = findViewById(R.id.spinner_km);
         pickerKm.setMinValue(1);
         pickerKm.setMaxValue(50);
@@ -178,6 +175,8 @@ public class RegisterStepTwo extends AppCompatActivity {
                 km = val.toString();
             }
         });
+
+
 
         // creates the time spinner
         pickerMin = findViewById(R.id.spinner_min);
@@ -190,6 +189,20 @@ public class RegisterStepTwo extends AppCompatActivity {
                 time = val.toString();
             }
         });
+
+        //get times this users likes running
+        CheckBox checkBox = (CheckBox) findViewById(R.id.morning);
+        if(checkBox.isChecked())
+            times.add("morning");
+        checkBox = (CheckBox) findViewById(R.id.noon);
+        if(checkBox.isChecked())
+            times.add("noon");
+        checkBox = (CheckBox) findViewById(R.id.evening);
+        if(checkBox.isChecked())
+            times.add("evening");
+        checkBox = (CheckBox) findViewById(R.id.anytime);
+        if(checkBox.isChecked())
+            times.add("any time");
 
 
         goals = new ArrayList<>();
@@ -240,9 +253,9 @@ public class RegisterStepTwo extends AppCompatActivity {
 
 
 
-
-
     }
+
+
 
     /**
      * Transfer the user's information to the next register screen and open it
@@ -261,6 +274,7 @@ public class RegisterStepTwo extends AppCompatActivity {
         registerNextIntent.putExtra("gender", gender);
         registerNextIntent.putExtra("time", time);
         registerNextIntent.putStringArrayListExtra("goals", goals);
+        registerNextIntent.putStringArrayListExtra("times", times);
 
         // Start the new activity.
         startActivity(registerNextIntent);
