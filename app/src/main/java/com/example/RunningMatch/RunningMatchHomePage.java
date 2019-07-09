@@ -28,9 +28,11 @@ import com.google.firebase.firestore.WriteBatch;
 import android.content.Context;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Represents the homepage screen
@@ -209,7 +211,6 @@ public class RunningMatchHomePage extends AppCompatActivity {
             }
 
                 });
-
     }
 
     /**
@@ -245,8 +246,9 @@ public class RunningMatchHomePage extends AppCompatActivity {
                                 //TODO MAKE SURE TO ADD GOALS AND EVENTS
                                 ArrayList<String> goals = (ArrayList<String>) userMap.get("goals");
                                 ArrayList<String> times = (ArrayList<String>) userMap.get("times");
+                                ArrayList<String> events = (ArrayList<String>) userMap.get("events");
 
-                                User otherUser = new User(email, phoneNumber, km, time, name, description, gender, latitude, longtitude, myLikesArray, matches, not4me,goals,times );
+                                User otherUser = new User(email, phoneNumber, km, time, name, description, gender, latitude, longtitude, myLikesArray, matches, not4me,goals,times, events );
 
 
                                 if (!email.equals(currentUserEmail)){
@@ -272,9 +274,12 @@ public class RunningMatchHomePage extends AppCompatActivity {
                             myAdapter = new RunningMatchSlideAdapter(context, usersArray, currentUser);
                             myAdapter.notifyDataSetChanged();
                             viewPager.setAdapter(myAdapter);
+
+                            //checkLastSignIn();
                         }
                     }
                 });
+
     }
 
     /**
@@ -306,12 +311,26 @@ public class RunningMatchHomePage extends AppCompatActivity {
      * Transfer to event page
      */
     public void event() {
+
         // Create an Intent to start the second activity
         Intent eventIntent = new Intent(this, EventActivity.class);
-
+        eventIntent.putExtra("user", currentUser);
         // Start the new activity.
         startActivity(eventIntent);
 
+    }
+
+    private boolean checkLastSignIn(){
+        TimeUnit timeUnit = TimeUnit.SECONDS;
+        Date date = new Date();
+        currentUser.getEmail();
+/*        long signInTime = currentUser.getSignInTime().getTime();
+        long timeDifference = date.getTime() - signInTime;
+        long timeInSeconds = timeUnit.convert(timeDifference,TimeUnit.SECONDS);
+        // TODO return timeInSeconds < 30
+        System.out.println(timeInSeconds < 30);
+        */
+        return false;
     }
 
 

@@ -2,7 +2,9 @@ package com.example.RunningMatch;
 
 import android.content.Intent;
 
+import java.sql.Time;
 import java.util.Comparator;
+import java.util.Date;
 
 /**
  * The rate comparator for each potential running partner

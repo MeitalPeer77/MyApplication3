@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:layout_centerHorizontal="true"
-        android:layout_toLeftOf="@id/contact"
+        android:layout_toLeftOf="@id/update"
         android:layout_toRightOf="@+id/partner_list_image"
         android:paddingBottom="5dp"
         android:paddingTop="10dp"

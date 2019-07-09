@@ -7,9 +7,13 @@ import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+
 import java.util.ArrayList;
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -30,8 +34,14 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
     /* A list of the sign uo urls of the events */
     private ArrayList<Integer> mSignUp = new ArrayList<>();
 
+    private ArrayList<Button> mJoinButtons = new ArrayList<>();
+
     /* The context of the activity */
     private Context mContext;
+
+    private User currentUser;
+
+    private FirebaseFirestore fireStoreDatabase;
 
     /**
      * Creates a EventRecyclerAdapter object
@@ -43,14 +53,16 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
      */
     public EventRecyclerAdapter(Context mContext, ArrayList<String> mImageName,
                                 ArrayList<String> mImages, ArrayList<String> mEventDetails,
-                                ArrayList<Integer> mRegister) {
+                                ArrayList<Integer> mRegister,
+                                ArrayList<Button> mJoin,
+                                User currentUser) {
         this.mImageName = mImageName;
         this.mImages = mImages;
         this.mDetails = mEventDetails;
         this.mSignUp = mRegister;
+        this.mJoinButtons = mJoin;
         this.mContext = mContext;
-
-
+        this.currentUser = currentUser;
     }
 
     /**
@@ -82,6 +94,18 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
         holder.eventDetails.setText(mDetails.get(position));
         holder.sighUpText.setText(mSignUp.get(position));
 
+        holder.mJoinBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fireStoreDatabase = FirebaseFirestore.getInstance();
+                String eventName = mImageName.get(position);
+                ArrayList<String> newEvents = currentUser.setSingleEvent(eventName);
+                currentUser.setevents(newEvents);
+                fireStoreDatabase.collection("users").document(currentUser.getEmail()).update("events", newEvents);
+
+                //fireStoreDatabase.collection("users").document(user.getEmail()).update("matches", otherUserMatches);
+            }
+        });
     }
 
     /**
@@ -113,6 +137,8 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
         /* The sign up to event text*/
         TextView sighUpText;
 
+        Button mJoinBtn;
+
         /**
          * Creates the view holder for the event
          * @param itemView
@@ -125,6 +151,7 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
             imageName = itemView.findViewById(R.id.event_name);
             eventDetails = itemView.findViewById(R.id.event_details);
             parentLayout = itemView.findViewById(R.id.event_parent_layout);
+            mJoinBtn = itemView.findViewById(R.id.join);
 
             sighUpText = itemView.findViewById(R.id.sign_up_event);
             sighUpText.setMovementMethod(LinkMovementMethod.getInstance());
