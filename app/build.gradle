@@ -72,6 +72,8 @@ dependencies {
 
     implementation 'com.android.support:multidex:1.0.3'
 
+    //custom spinner
+    implementation 'com.github.travijuu:numberpicker:1.0.7'
 
 }
 //firebase

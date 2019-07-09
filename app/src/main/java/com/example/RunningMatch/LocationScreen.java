@@ -88,7 +88,11 @@ public class LocationScreen extends AppCompatActivity {
     /* The gender the user entered */
     String gender;
 
+    /* the goals of this user */
     ArrayList<String> goals;
+
+    /* the times of this user */
+    ArrayList<String> times;
 
     /* The time specified by the user */
     private String time;
@@ -131,8 +135,7 @@ public class LocationScreen extends AppCompatActivity {
 
         setContentView(R.layout.activity_location);
 
-        locationView = (TextView) findViewById(R.id.textView5);
-        enableLocation = (Button) findViewById(R.id.lets_run);
+        enableLocation = (Button) findViewById(R.id.enable_location);
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
@@ -146,7 +149,7 @@ public class LocationScreen extends AppCompatActivity {
         time = extras.getString("time");
         description = extras.getString("description");
         goals = extras.getStringArrayList("goals");
-
+        times = extras.getStringArrayList("times");
 
 
         listener = new LocationListener() {

@@ -261,7 +261,7 @@ public class RunningMatchHomePage extends AppCompatActivity {
 
                             ArrayList<String> myLikes = currentUser.getMyLikesArray();
                             ArrayList<String> not4me = currentUser.getNot4me();
-
+                            ArrayList<HashMap> trythis = new ArrayList<>();
                             //get only relevant users, aka are in distance range
                             for (User user: usersMap.values()) {
                                 if(currentUser.isInRange(user) && !(myLikes.contains(user.getEmail())) && !(not4me.contains(user.getEmail()))){
