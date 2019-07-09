@@ -117,6 +117,7 @@ public class RunningMatchSlideAdapter extends PagerAdapter {
 
         ImageView imgslide = (ImageView)  view.findViewById(R.id.card_image);
         TextView txttitle= (TextView) view.findViewById(R.id.txttitle);
+        TextView times = (TextView) view.findViewById(R.id.times_input) ;
         TextView time = (TextView) view.findViewById(R.id.time_input);
         TextView km = (TextView) view.findViewById(R.id.km_input);
         TextView distance = (TextView) view.findViewById(R.id.distance_input);
@@ -130,7 +131,6 @@ public class RunningMatchSlideAdapter extends PagerAdapter {
 
 
         String userName = users.get(position).getUserName();
-//        String des = users.get(position).getUserDescription();
         String timeInput = users.get(position).getTime();
         String kmInput = users.get(position).getKm();
 
@@ -149,6 +149,7 @@ public class RunningMatchSlideAdapter extends PagerAdapter {
         container.addView(view);
         time.setText(timeInput);
         km.setText(kmInput);
+        times.setText(getTimesString(users.get(position)));
         DecimalFormat df = new DecimalFormat("#.#");
         distance.setText(df.format(distanceInput));
 
@@ -209,6 +210,19 @@ public class RunningMatchSlideAdapter extends PagerAdapter {
         int randIndex = rand.nextInt(possibleTeezers.size());
         return possibleTeezers.get(randIndex);
 
+    }
+
+    private String getTimesString(User user){
+        ArrayList<String> times = user.getTimes();
+        String newString = "";
+        int len = times.size();
+        if(len==1)
+            return times.get(0);
+        for(int i=0; i< len; i++){
+            if(i == len-1)
+                return "and "+ times.get(i);
+            newString = newString+(times.get(i)+", ");
+        }return newString;
     }
 
 
