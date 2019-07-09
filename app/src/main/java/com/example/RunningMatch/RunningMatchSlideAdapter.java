@@ -220,7 +220,7 @@ public class RunningMatchSlideAdapter extends PagerAdapter {
             return times.get(0);
         for(int i=0; i< len; i++){
             if(i == len-1)
-                return "and "+ times.get(i);
+                return newString + " and "+ times.get(i);
             newString = newString+(times.get(i)+", ");
         }return newString;
     }
