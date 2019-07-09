@@ -269,7 +269,7 @@ public class RunningMatchHomePage extends AppCompatActivity {
 
                             RateComparator sorter = new RateComparator(currentUser);
                             Collections.sort(usersArray, sorter);
-                            myAdapter = new RunningMatchSlideAdapter(context, usersArray);
+                            myAdapter = new RunningMatchSlideAdapter(context, usersArray, currentUser);
                             myAdapter.notifyDataSetChanged();
                             viewPager.setAdapter(myAdapter);
                         }

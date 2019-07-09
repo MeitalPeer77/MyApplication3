@@ -15,7 +15,7 @@
 
     <LinearLayout
         android:id="@+id/minutes_text"
-        android:layout_width="320dp"
+        android:layout_width="match_parent"
         android:layout_height="363dp"
         android:layout_gravity="center"
         android:background="@drawable/customborder"
@@ -32,6 +32,7 @@
                 android:id="@+id/slideimg2"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
+                android:paddingRight="10dp"
                 android:layout_gravity="center"
                 android:src="@mipmap/ic_launcher" />
 
@@ -178,8 +179,8 @@
 
         <TextView
             android:id="@+id/txtdescription2"
-            android:layout_width="293dp"
-            android:layout_height="59dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="sample text"
             android:textAlignment="center"
@@ -203,13 +204,31 @@
                 />
 
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/goals_adapter"
+                android:id="@+id/goals_adapter2"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:orientation="horizontal">
 
             </android.support.v7.widget.RecyclerView>
 
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="teezer here"
+                android:textSize="20sp"
+                android:textColor="@color/red"
+                android:textAllCaps="true"
+                app:fontFamily="@font/nunito"/>
 
         </LinearLayout>
 

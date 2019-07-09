@@ -2,9 +2,6 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:paddingLeft="15dp"
-    android:paddingRight="15dp"
-    android:paddingBottom="10dp"
     android:orientation="vertical"
     android:layout_width="350dp"
     android:layout_height="wrap_content"
@@ -16,19 +13,21 @@
     <LinearLayout
         android:id="@+id/minutes_text"
         android:layout_width="320dp"
-        android:layout_height="363dp"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
         android:background="@drawable/customborder"
         android:orientation="vertical"
-        android:paddingTop="25dp"
+        android:elevation="3dp"
         android:paddingBottom="5dp">
 
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/slideimg"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:id="@+id/card_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:paddingTop="10dp"
             android:layout_gravity="center"
+            android:clickable="true"
             android:src="@mipmap/ic_launcher" />
 
         <TextView
@@ -36,12 +35,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:padding="15dp"
-            android:paddingTop="120dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="15dp"
             android:text="runner's name"
             android:textSize="20sp"
             android:textStyle="bold"
             app:fontFamily="@font/nunito" />
+
 
         <LinearLayout
             android:id="@+id/location"
@@ -69,33 +69,7 @@
                 android:id="@+id/distance_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" km from you   |  "
-                android:textSize="15sp"
-                app:fontFamily="@font/nunito" />
-
-            <ImageView
-                android:id="@+id/watch_icon"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:background="@drawable/running"
-                android:paddingLeft="10dp" />
-
-            <TextView
-                android:id="@+id/km_input"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:text="Runs: "
-                android:textSize="15sp"
-
-                app:fontFamily="@font/nunito" />
-
-            <TextView
-                android:id="@+id/km_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:text="km"
+                android:text=" km from you  "
                 android:textSize="15sp"
                 app:fontFamily="@font/nunito" />
 
@@ -109,10 +83,51 @@
             android:orientation="horizontal">
 
             <ImageView
+                android:id="@+id/watch_icon"
+                android:layout_width="24dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/running"
+                android:paddingLeft="10dp" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="  Runs " />
+
+            <TextView
+                android:id="@+id/km_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:text="5"
+                android:textSize="15sp"
+
+                app:fontFamily="@font/nunito" />
+
+            <TextView
+                android:id="@+id/km_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:text=" km   "
+                android:textSize="15sp"
+                app:fontFamily="@font/nunito" />
+
+            <ImageView
                 android:id="@+id/shoe_icon"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:background="@drawable/stopclock" />
+                android:background="@drawable/chronometer"
+                android:text="km   |" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="  In " />
 
             <TextView
                 android:id="@+id/time_input"
@@ -120,7 +135,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:paddingLeft="5dp"
-                android:text="minutes"
+                android:text="30"
                 android:textSize="15sp"
                 app:fontFamily="@font/nunito" />
 
@@ -129,9 +144,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text=" min"
+                android:text=" minutes"
                 android:textSize="15sp"
                 app:fontFamily="@font/nunito" />
+
         </LinearLayout>
 
 
@@ -147,49 +163,44 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:id="@+id/goals"
-                android:text="My Goals: "
+                android:text="Goals "
                 android:paddingRight="10dp"
                 />
 
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/icon_10k" />
-            <View
-                android:id="@+id/divider_top"
-                android:layout_width="15dp"
-                android:layout_height="match_parent"/>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/goals_adapter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
+            </android.support.v7.widget.RecyclerView>
 
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:background="@drawable/cardiogram" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/content_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@id/slideimg"
-            android:layout_below="@id/goals_display"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
 
             <TextView
-                android:id="@+id/txtdescription"
+                android:id="@+id/teezer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="sample text"
+                android:text="OMG! you are both going to the TLV marathon!"
+                android:textAllCaps="true"
+                android:padding="10dp"
+                android:textColor="@color/lightBlue"
                 android:textAlignment="center"
-                android:textSize="18dp"
+                android:textSize="20sp"
                 app:fontFamily="@font/nunito" />
 
+
+
         </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>

@@ -9,7 +9,7 @@
     <LinearLayout
         android:id="@+id/linearLayout5"
         android:layout_width="341dp"
-        android:layout_height="407dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -25,79 +25,140 @@
         app:layout_constraintVertical_bias="0.584">
 
 
-        <EditText
-            android:id="@+id/username"
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:drawableStart="@drawable/ic_face_black_24dp"
-            android:drawableLeft="@drawable/ic_face_black_24dp"
-            android:drawablePadding="5dp"
-            android:ems="10"
-            android:hint="username"
-            android:inputType="textEmailAddress"
-            android:textSize="15dp" />
-
-        <View
-            android:id="@+id/divider_4"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp" />
-
-        <EditText
-            android:id="@+id/inputemail"
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:drawableStart="@drawable/ic_email_24dp"
-            android:drawableLeft="@drawable/ic_email_24dp"
-            android:drawablePadding="5dp"
-
-            android:ems="10"
-            android:hint="email"
-            android:inputType="textEmailAddress"
-            android:textSize="15dp" />
-
-        <View
-            android:id="@+id/divider_5"
-            android:layout_width="match_parent"
-            android:layout_height="30dp" />
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/register_border"
+            >
+            <View
+                android:id="@+id/divider_3"
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
 
 
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:drawableStart="@drawable/ic_lock_outline_black_24dp"
-            android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
-            android:drawablePadding="5dp"
-            android:ems="10"
-            android:hint="password"
-            android:inputType="textPassword"
-            android:textSize="15dp" />
+            <EditText
+                android:id="@+id/username"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableStart="@drawable/ic_face_black_24dp"
+                android:drawableLeft="@drawable/ic_face_black_24dp"
+                android:drawablePadding="5dp"
+                android:ems="10"
+                android:hint="username"
+                android:inputType="textEmailAddress"
+                android:textSize="15dp" />
+            <View
+                android:id="@+id/divider_4"
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
 
-        <View
-            android:id="@+id/divider_6"
-            android:layout_width="match_parent"
-            android:layout_height="30dp" />
 
-        <EditText
-            android:id="@+id/phonenumber"
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:drawableStart="@drawable/ic_phone_black_24dp"
-            android:drawableLeft="@drawable/ic_phone_black_24dp"
-            android:drawablePadding="5dp"
-            android:ems="10"
-            android:hint="phone number"
-            android:inputType="textPassword"
-            android:textSize="15dp" />
+            <EditText
+                android:id="@+id/inputemail"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableStart="@drawable/ic_email_24dp"
+                android:drawableLeft="@drawable/ic_email_24dp"
+                android:drawablePadding="5dp"
 
-        <View
-            android:id="@+id/divider_7"
-            android:layout_width="match_parent"
-            android:layout_height="15dp" />
+                android:ems="10"
+                android:hint="email"
+                android:inputType="textEmailAddress"
+                android:textSize="15dp" />
+            <View
+                android:id="@+id/divider_5"
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
+
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableStart="@drawable/ic_lock_outline_black_24dp"
+                android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
+                android:drawablePadding="5dp"
+                android:ems="10"
+                android:hint="password"
+                android:inputType="textPassword"
+                android:textSize="15dp" />
+            <View
+                android:id="@+id/divider_6"
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
+
+
+            <EditText
+                android:id="@+id/phonenumber"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableStart="@drawable/ic_phone_black_24dp"
+                android:drawableLeft="@drawable/ic_phone_black_24dp"
+                android:drawablePadding="5dp"
+                android:ems="10"
+                android:hint="phone number"
+                android:inputType="number"
+                android:textSize="15dp" />
+            <View
+                android:id="@+id/divider_7"
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:layout_below="@id/running_profile"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="I am : "
+                    android:textSize="15sp" />
+
+                <RadioButton
+                    android:id="@+id/radioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_alignTop="@+id/radioGroup"
+                    android:layout_weight="1"
+                    android:text="Male"
+                    android:textColor="@color/darkBlue"
+                    android:textSize="15sp"
+                    app:fontFamily="@font/nunito" />
+
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:text="Female"
+                    android:textColor="@color/darkBlue"
+                    android:textSize="15sp"
+                    app:fontFamily="@font/nunito" />
+                <RadioButton
+                    android:id="@+id/radioButton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:text="other"
+                    android:textColor="@color/darkBlue"
+                    android:textSize="15sp"
+                    app:fontFamily="@font/nunito" />
+
+            </RadioGroup>
+
+
+        </LinearLayout>
+
+
 
     </LinearLayout>
 

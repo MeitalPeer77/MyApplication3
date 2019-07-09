@@ -16,171 +16,247 @@
         app:layout_constraintTop_toBottomOf="parent"
         />
 
+
     <LinearLayout
-        android:paddingTop="150dp"
-        android:id="@+id/profile_header"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_height="match_parent"
+        android:isScrollContainer="true"
+
         android:orientation="vertical">
 
 
-        <de.hdodenhof.circleimageview.CircleImageView
-
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:id="@+id/profile_other_image"
-            android:padding="5dp"
-            android:src="@drawable/netta"
-            android:paddingBottom="15dp"
-            />
-
-        <TextView
-            android:id="@+id/profile_other_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="Netta Zohar"
-            android:paddingBottom="15dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textColor="@color/darkBlue"
-            android:textSize="26sp"
-            app:fontFamily="@font/nunito" />
-
-
         <LinearLayout
-            android:id="@+id/location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/slideimg"
-            android:layout_gravity="center"
-            android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/locationBtn"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:background="@drawable/ic_location_on_black_24dp" />
+            android:id="@+id/profile_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="100dp">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+
+                android:id="@+id/profile_other_image"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:padding="5dp"
+                android:paddingBottom="15dp"
+                android:src="@mipmap/ic_launcher" />
 
             <TextView
-                android:id="@+id/profile_other_location_input"
+                android:id="@+id/profile_other_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="input"
-                android:textSize="15sp"
+                android:layout_centerInParent="true"
+                android:paddingBottom="15dp"
+                android:text="name"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/darkBlue"
+                android:textSize="26sp"
                 app:fontFamily="@font/nunito" />
 
-            <TextView
+
+            <LinearLayout
+                android:id="@+id/location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nunito"
-                android:text=" km from you"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="10dp"
-                android:text="|"/>
+                android:layout_below="@+id/slideimg"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/watch_icon"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:background="@drawable/running"
-                android:paddingLeft="10dp" />
+                <ImageView
+                    android:id="@+id/locationBtn"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/ic_location_on_black_24dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="runs: "
-                android:textSize="15sp"
-                android:fontFamily="@font/nunito"/>
-            <TextView
-                android:id="@+id/prifile_other_distances_input"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:text=" 5"
-                android:textSize="15sp"
-                app:fontFamily="@font/nunito" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:text=" km"/>
+                <TextView
+                    android:id="@+id/profile_other_location_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="input"
+                    android:textSize="15sp"
+                    app:fontFamily="@font/nunito" />
 
-        </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito"
+                    android:text=" km from you" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="horizontal">
+            </LinearLayout>
 
-            <ImageView
-                android:id="@+id/shoe_icon"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:paddingRight="2dp"
-                android:background="@drawable/stopclock" />
-
-
-            <TextView
-                android:id="@+id/profile_other_pace_input"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text=" 30"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/watch_icon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/running"
+                    android:paddingLeft="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito"
+                    android:text="runs"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/prifile_other_distances_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:text=" 5"
+                    android:textSize="15sp"
+                    app:fontFamily="@font/nunito" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="  km"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="10dp"
+                    android:text="|" />
+
+                <ImageView
+                    android:id="@+id/shoe_icon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/chronometer"
+                    android:paddingRight="2dp" />
+
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="  In " />
+
+                <TextView
+                    android:id="@+id/profile_other_pace_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text=" 30"
+                    android:textSize="15sp"
+                    app:fontFamily="@font/nunito" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito"
+                    android:text=" minutes"
+                    android:textSize="15sp" />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/profile_other_info"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="15dp"
+                android:text="I'm looking for a partner to start running with!"
+                android:textAlignment="center"
+                android:textColor="@color/darkBlue"
                 android:textSize="15sp"
                 app:fontFamily="@font/nunito" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/nunito"
-                android:textSize="15sp"
-                android:text=" minutes"/>
 
 
         </LinearLayout>
 
-        <TextView
-            android:layout_width="300dp"
-            android:id="@+id/profile_other_info"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:paddingBottom="15dp"
-            android:paddingTop="10dp"
-            android:text="I'm looking for a partner to start running with!"
-            android:textAlignment="center"
-            android:textColor="@color/darkBlue"
-            android:textSize="15sp"
-            app:fontFamily="@font/nunito" />
+        <LinearLayout
+            android:id="@+id/goals_display"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:padding="5dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="15dp">
+
+            <TextView
+                android:id="@+id/goals_others_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:paddingRight="10dp"
+                android:textSize="18dp"
+                android:text="Goals " />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/goals_adapter_others_profile"
+                android:layout_width="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            </android.support.v7.widget.RecyclerView>
+
+        </LinearLayout>
 
 
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:padding="5dp"
+            android:orientation="horizontal">
 
-    <LinearLayout
+            <TextView
+                android:id="@+id/events_others_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="18dp"
+                android:fontFamily="@font/nunito"
+                android:text="Events " />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/events_adapter_others_profile"
+                android:layout_width="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            </android.support.v7.widget.RecyclerView>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_below="@id/profile_header"
-        android:paddingLeft="50dp"
-        android:paddingTop="20dp"
-        android:paddingRight="40dp"
-        android:layout_alignParentBottom="true">
+        android:padding="10dp"
+        >
 
         <Button
             android:id="@+id/contact"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_gravity="right"
-
             android:background="@drawable/phone"
             android:textColor="#FFFFFF"
+            app:layout_constraintVertical_bias="1.5"
             android:textSize="10dp" />
     </LinearLayout>
 
 
+    </LinearLayout>
 
 </RelativeLayout>

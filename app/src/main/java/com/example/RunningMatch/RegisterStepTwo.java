@@ -58,6 +58,8 @@ public class RegisterStepTwo extends AppCompatActivity {
     /* The gender the user entered */
     String gender;
 
+
+
     /* The field of the user description */
     EditText userDescription;
 
@@ -84,9 +86,6 @@ public class RegisterStepTwo extends AppCompatActivity {
     private ToggleButton toggleGoal4;
     private ToggleButton toggleGoal5;
     private ToggleButton toggleGoal6;
-
-
-
 
 
 
@@ -132,7 +131,7 @@ public class RegisterStepTwo extends AppCompatActivity {
 
         userDescription = (EditText) findViewById(R.id.editText5);
         mStorage = FirebaseStorage.getInstance().getReference();
-        mImageView = (ImageView) findViewById(R.id.imageView2);
+        mImageView = (ImageView) findViewById(R.id.profile_pucture_upload);
         progressDialog = new ProgressDialog(this);
 
         nextButton = (Button) findViewById(R.id.done_register);
@@ -141,7 +140,7 @@ public class RegisterStepTwo extends AppCompatActivity {
                 registerNext();
             }
         });
-        mSelectImage = (Button) findViewById(R.id.uploadImage);
+        mSelectImage = (Button) findViewById(R.id.profile_pucture_upload);
         mSelectImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -158,27 +157,12 @@ public class RegisterStepTwo extends AppCompatActivity {
         email = extras.getString("email");
         phone = extras.getString("phoneNumber");
         name = extras.getString("userName");
+        gender = extras.getString("userName");
+
 
 
         databaseUsers = FirebaseDatabase.getInstance().getReference();
 
-        RadioGroup rg = (RadioGroup) findViewById(R.id.radioGroup);
-        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
-        {
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch(checkedId){
-                    case R.id.radioButton:
-                        gender = "male";
-                        // do operations specific to this selection
-                        break;
-                    case R.id.radioButton2:
-                        gender = "female";
-                        // do operations specific to this selection
-                        break;
-
-                }
-            }
-        });
 
         // creates the km spinner
         ArrayAdapter<String> arrayaddapterKm = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, kmArray);

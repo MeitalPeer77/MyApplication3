@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:weightSum="15"
-    android:padding="10dp"
-    tools:context=".RegisterStepTwo">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="5dp"
         android:orientation="vertical">
 
+
         <RelativeLayout
-            android:layout_height="0px"
-            android:layout_weight="2.5"
             android:padding="20dp"
+            android:layout_height="wrap_content"
             android:layout_width="match_parent"
             >
 
@@ -26,238 +24,333 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Running Profile"
-                android:paddingBottom="40dp"
+                android:layout_centerVertical="true"
                 android:textColor="@color/darkBlue"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/profile_pucture_upload"
                 android:layout_width="110dp"
                 android:layout_height="110dp"
+                android:clickable="true"
                 android:layout_alignParentRight="true"
                 android:src="@drawable/com_facebook_profile_picture_blank_portrait" />
 
-            <Button
-                android:id="@+id/uploadImage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/imageView2"
-                android:layout_alignParentRight="true"
-                android:text="Uplaod" />
-
-            <RadioGroup
-                android:id="@+id/radioGroup"
-                android:layout_width="wrap_content"
-                android:layout_height="70dp"
-                android:layout_below="@id/running_profile"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="I am : "
-                    android:textSize="15sp" />
-
-                <RadioButton
-                    android:id="@+id/radioButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="60dp"
-                    android:layout_alignTop="@+id/radioGroup"
-                    android:layout_weight="1"
-                    android:text="Male"
-                    android:textColor="@color/darkBlue"
-                    android:textSize="15sp"
-                    app:fontFamily="@font/nunito" />
-
-                <RadioButton
-                    android:id="@+id/radioButton2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="60dp"
-                    android:layout_weight="1"
-                    android:text="Female"
-                    android:textColor="@color/darkBlue"
-                    android:textSize="15sp"
-                    app:fontFamily="@font/nunito" />
-            </RadioGroup>
 
         </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0px"
-            android:layout_weight="1"
-            android:padding="20dp"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:background="@drawable/register_border"
+            android:orientation="vertical">
 
+            <View
+                android:id="@+id/divider3"
+                android:layout_width="match_parent"
+                android:layout_height="5dp" />
 
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Current pace: "
+                android:layout_gravity="center_horizontal"
                 android:textColor="@color/darkBlue"
                 android:textSize="15sp"
+                android:textAllCaps="true"
                 app:fontFamily="@font/nunito" />
 
-            <Spinner
-                android:id="@+id/spinner_km"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                app:fontFamily="@font/nunito" />
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="5dp" />
 
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="km/ " />
 
-            <Spinner
-                android:id="@+id/spinner_min"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-            </Spinner>
+                <Spinner
+                    android:id="@+id/spinner_km"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:fontFamily="@font/nunito" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="minutes" />
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="km/ " />
+
+                <Spinner
+                    android:id="@+id/spinner_min"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </Spinner>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="minutes" />
+
+            </LinearLayout>
+
 
         </LinearLayout>
 
-
-        <RelativeLayout
+        <View
+            android:id="@+id/divider8"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2.5">
+            android:layout_height="10dp" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:background="@drawable/register_border">
+
+            <View
+                android:id="@+id/divider5"
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
 
             <TextView
-                android:id="@+id/goal_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:textSize="17sp"
-                android:textColor="@color/darkBlue"
-                app:fontFamily="@font/nunito"
-                android:text="what are you'r goals? " />
+                android:textAllCaps="true"
 
-            <android.support.v7.widget.GridLayout
+                android:text="time of day i like runing" />
+
+            <View
+                android:id="@+id/divider6"
                 android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/darkBlue"
+                    android:textSize="15sp"
+                    android:text="morning" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/darkBlue"
+                    android:textSize="15sp"
+
+                    android:text="noon" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/darkBlue"
+                    android:textSize="15sp"
+
+                    android:text="evening" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/darkBlue"
+                    android:textSize="15sp"
+
+                    android:text="any time!" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider9"
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider22"
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/register_border"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <View
+                android:id="@+id/divider10"
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:orientation="vertical"
-                app:rowCount="2"
-                app:columnCount="3"
-                android:padding="5dp"
-                app:useDefaultMargins="true"
-                android:layout_below="@id/goal_title">
+                android:textAllCaps="true"
+                android:text="Goals" />
+
+            <View
+                android:id="@+id/divider21"
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+
+            <GridLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:columnCount="3"
+                android:rowCount="3">
+
+                <View
+                    android:id="@+id/divider20"
+                    android:layout_width="7dp"
+                    android:layout_height="5dp" />
+
+
+                <ToggleButton
+                    android:id="@+id/run_10K"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:padding="5dp"
+                    android:background="@drawable/toggleselector"
+                    android:checked="false"
+                    android:textOff="run 10 Km."
+                    android:textOn="run 10 km."
+                    android:textSize="10sp"
+                    app:layout_column="6"
+                    app:layout_row="0" />
+
+                <View
+                    android:id="@+id/divider12"
+                    android:layout_width="7dp"
+                    android:layout_height="5dp" />
+
 
                 <ToggleButton
                     android:id="@+id/run_marathon"
                     android:layout_width="wrap_content"
-                    android:layout_height="30dp"
+                    android:layout_height="20dp"
                     android:padding="5dp"
                     android:background="@drawable/toggleselector"
                     android:checked="false"
                     android:textOff="run marathon"
                     android:textOn="run marathon"
-                    android:textSize="12sp" />
+                    android:textSize="10dp" />
+
+                <View
+                    android:id="@+id/divider15"
+                    android:layout_width="7dp"
+                    android:layout_height="5dp" />
+
 
                 <ToggleButton
                     android:id="@+id/run_5K"
                     android:layout_width="wrap_content"
-                    android:layout_height="30dp"
+                    android:layout_height="20dp"
                     android:padding="5dp"
                     android:background="@drawable/toggleselector"
                     android:checked="false"
                     android:textOff="run 5 Km."
                     android:textOn="run 5 km."
-                    android:textSize="12sp" />
+                    android:textSize="10sp" />
+
+                <View
+                    android:id="@+id/divider13"
+                    android:layout_width="10dp"
+                    android:layout_height="5dp" />
+
+
 
                 <ToggleButton
                     android:id="@+id/stay_in_shape"
                     android:layout_width="wrap_content"
-                    android:layout_height="30dp"
+                    android:layout_height="20dp"
                     android:padding="5dp"
                     android:background="@drawable/toggleselector"
                     android:checked="false"
                     android:textOff="stay in shape"
                     android:textOn="stay in shape"
-                    android:textSize="12sp" />
+                    android:textSize="10sp" />
+                <View
+                    android:id="@+id/divider16"
+                    android:layout_width="7dp"
+                    android:layout_height="5dp" />
+
 
                 <ToggleButton
 
                     android:id="@+id/run_for_fun"
                     android:layout_width="wrap_content"
-                    android:layout_height="30dp"
+                    android:layout_height="20dp"
                     android:padding="5dp"
                     android:background="@drawable/toggleselector"
                     android:checked="false"
                     android:textOff="run for fun"
                     android:textOn="run for fun"
-                    android:textSize="12sp" />
+                    android:textSize="10sp" />
+
+                <View
+                    android:id="@+id/divider14"
+                    android:layout_width="5dp"
+                    android:layout_height="5dp" />
+
 
                 <ToggleButton
                     android:id="@+id/run_half_marathon"
                     android:layout_width="wrap_content"
-                    android:layout_height="30dp"
+                    android:layout_height="20dp"
                     android:padding="5dp"
                     android:layout_marginStart="0dp"
                     android:layout_marginLeft="0dp"
                     android:background="@drawable/toggleselector"
                     android:checked="false"
                     android:textOff="run half marathon"
-
                     android:textOn="run half marathon"
-                    android:textSize="12sp" />
-
-                <ToggleButton
-                    android:id="@+id/run_10K"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:padding="5dp"
-                    android:background="@drawable/toggleselector"
-                    android:checked="false"
-                    android:textOff="run 10 Km."
-                    android:textOn="run 10 km."
-                    android:textSize="12sp" />
-            </android.support.v7.widget.GridLayout>
+                    android:textSize="10sp" />
+                <View
+                    android:id="@+id/divider17"
+                    android:layout_width="7dp"
+                    android:layout_height="5dp" />
 
 
-        </RelativeLayout>
+            </GridLayout>
+            <View
+                android:id="@+id/divider11"
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
 
-        <RelativeLayout
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider23"
             android:layout_width="match_parent"
-            android:layout_height="0px"
-            android:layout_weight="2.5">
+            android:layout_height="20dp" />
 
-            <Button
 
-                android:id="@+id/done_register"
-                android:layout_width="131dp"
-                android:layout_height="45dp"
-                android:layout_alignParentRight="true"
-                android:layout_below="@id/editText5"
-                android:background="@drawable/button_big"
-                android:shadowColor="#A8A8A8"
-                android:shadowDx="0"
-                android:shadowDy="0"
-                android:shadowRadius="5"
-                android:text="Done!"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp" />
-
-            <EditText
-                android:id="@+id/editText5"
-                android:layout_width="343dp"
-                android:layout_height="100dp"
-                android:layout_below="@id/textView17"
-                android:background="@drawable/border"
-                android:ems="10"
-                android:gravity="start|top"
-                android:hint="Your running schedule, where you like to run, and any other info you would like to share!"
-                android:inputType="textMultiLine"
-                android:textSize="15sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@drawable/register_border"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView17"
@@ -267,11 +360,62 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
+                android:textAllCaps="true"
                 android:layout_marginRight="8dp"
                 android:text="Tell other runners about yourself!"
                 android:textSize="16sp" />
-        </RelativeLayout>
+
+            <EditText
+                android:id="@+id/editText5"
+                android:layout_width="343dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textView17"
+                android:ems="10"
+
+                android:gravity="start|top"
+                android:hint="Your running schedule, where you like to run, and any other info you would like to share!"
+                android:inputType="textMultiLine"
+                android:textSize="15sp" />
+
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider24"
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="right"
+            >
+
+            <Button
+
+                android:id="@+id/done_register"
+                android:layout_width="131dp"
+                android:layout_height="45dp"
+                android:layout_below="@id/editText5"
+
+                android:background="@drawable/button_big"
+                android:shadowColor="#A8A8A8"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="5"
+                android:text="Done!"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+
 
     </LinearLayout>
 
-</LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

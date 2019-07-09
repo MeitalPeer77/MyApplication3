@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -31,6 +32,10 @@ public class RegisterStepOne extends AppCompatActivity {
     /* The field object of entering phone number */
     private EditText mPhoneNumber;
 
+    /* The gender the user entered */
+    String gender;
+
+
     //******************  Firebase Objects ****************//
     /* Represents the database */
     DatabaseReference databaseUsers;
@@ -51,6 +56,29 @@ public class RegisterStepOne extends AppCompatActivity {
         mUserName = (EditText) findViewById(R.id.username);
         mPhoneNumber = (EditText) findViewById(R.id.phonenumber);
         mUserName = (EditText) findViewById(R.id.username);
+
+        RadioGroup rg = (RadioGroup) findViewById(R.id.radioGroup);
+        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch(checkedId){
+                    case R.id.radioButton:
+                        gender = "male";
+                        // do operations specific to this selection
+                        break;
+                    case R.id.radioButton2:
+                        gender = "female";
+                        // do operations specific to this selection
+                        break;
+
+                    case R.id.radioButton3:
+                        gender = "other";
+                        // do operations specific to this selection
+                        break;
+                }
+            }
+        });
+
 
         nextbutton = (Button) findViewById(R.id.next_register);
         nextbutton.setOnClickListener(new View.OnClickListener() {
@@ -75,6 +103,7 @@ public class RegisterStepOne extends AppCompatActivity {
         registerNextIntent.putExtra("password", password);
         registerNextIntent.putExtra("phoneNumber", phoneNumber);
         registerNextIntent.putExtra("userName", userName);
+        registerNextIntent.putExtra("gender", gender);
 
         // Start the new activity.
         startActivity(registerNextIntent);

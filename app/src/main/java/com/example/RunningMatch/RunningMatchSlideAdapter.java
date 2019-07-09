@@ -11,8 +11,11 @@ import android.widget.Adapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.lang.reflect.Array;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * The slide adapter of Running match home page
@@ -27,6 +30,8 @@ public class RunningMatchSlideAdapter extends PagerAdapter {
 
     /* Potential running partners array*/
     ArrayList<User> users;
+
+    User currentUser;
 
     /* Calculate the rate of a potential partner */
     CalculateRate calculator = new CalculateRate();
@@ -73,9 +78,10 @@ public class RunningMatchSlideAdapter extends PagerAdapter {
      * @param context
      * @param users
      */
-    public RunningMatchSlideAdapter(Context context, ArrayList<User> users) {
+    public RunningMatchSlideAdapter(Context context, ArrayList<User> users, User currentUser) {
         this.context = context;
         this.users = users;
+        this.currentUser = currentUser;
     }
 
     /**
@@ -107,15 +113,15 @@ public class RunningMatchSlideAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.newcard,container,false);
+        View view = inflater.inflate(R.layout.card,container,false);
 
-        LinearLayout layoutslide = (LinearLayout) view.findViewById(R.id.slidelinearlayout2);
-        ImageView imgslide = (ImageView)  view.findViewById(R.id.slideimg2);
-        TextView txttitle= (TextView) view.findViewById(R.id.txttitle2);
-        TextView description = (TextView) view.findViewById(R.id.txtdescription2);
-        TextView time = (TextView) view.findViewById(R.id.time_input2);
-        TextView km = (TextView) view.findViewById(R.id.km_input2);
-        TextView distance = (TextView) view.findViewById(R.id.distance_input2);
+        ImageView imgslide = (ImageView)  view.findViewById(R.id.card_image);
+        TextView txttitle= (TextView) view.findViewById(R.id.txttitle);
+        TextView time = (TextView) view.findViewById(R.id.time_input);
+        TextView km = (TextView) view.findViewById(R.id.km_input);
+        TextView distance = (TextView) view.findViewById(R.id.distance_input);
+        TextView teezer = (TextView) view.findViewById(R.id.teezer);
+
         RecyclerView goalsAdapter = view.findViewById(R.id.goals_adapter);
         GoalsAdapter adapter = new GoalsAdapter(context, users.get(position));
         goalsAdapter.setAdapter(adapter);
@@ -124,7 +130,7 @@ public class RunningMatchSlideAdapter extends PagerAdapter {
 
 
         String userName = users.get(position).getUserName();
-        String des = users.get(position).getUserDescription();
+//        String des = users.get(position).getUserDescription();
         String timeInput = users.get(position).getTime();
         String kmInput = users.get(position).getKm();
 
@@ -136,9 +142,10 @@ public class RunningMatchSlideAdapter extends PagerAdapter {
         float distanceInput = (float) doubleDistance;
 
 
-        imgslide.setImageResource(R.mipmap.ic_launcher);
+
+        imgslide.setImageResource(R.mipmap.ic_launcher_round);
         txttitle.setText(userName);
-        description.setText(des);
+        teezer.setText(getTeezer(position, distanceInput));
         container.addView(view);
         time.setText(timeInput);
         km.setText(kmInput);
@@ -158,4 +165,51 @@ public class RunningMatchSlideAdapter extends PagerAdapter {
     public void destroyItem(ViewGroup container, int position, Object object) {
         container.removeView((LinearLayout)object);
     }
+
+    // get a relevent teezer for a specific user
+    private String getTeezer(int position, float distance){
+        String eventTeezer = "omg! you are both going to the ";
+        String distanceTeezer = "wow, you two are in  spitting distance from each other!";
+        String goalTeezer = " this is so great! you have a common goal. together you will definitely ";
+        String kmTeezer = "you two run the same disnances! a partner from heaven...";
+
+        ArrayList<String> possibleTeezers = new ArrayList<>();
+
+        User otherUser = users.get(position);
+
+        //km teezer
+        if(otherUser.getKm().equals(currentUser.getKm()))
+            possibleTeezers.add(kmTeezer);
+
+        if(distance < 0.5){
+            possibleTeezers.add(distanceTeezer);
+        }
+
+        // goal teezer
+        ArrayList<String > othersGoals = otherUser.getGoals();
+        for (String goal: currentUser.getGoals()) {
+            if (othersGoals.contains(goal)) {
+                possibleTeezers.add(goalTeezer+goal);
+                break;
+            }
+        }
+
+        //event teezer
+        ArrayList<String > othersEvents = otherUser.getEvents();
+        for (String event: currentUser.getEvents()){
+            if(othersEvents.contains(event)){
+                possibleTeezers.add(eventTeezer+event);
+                break;
+            }
+        }
+        if(possibleTeezers.isEmpty()){
+            return "I have a good feeling about this one!";
+        }
+        Random rand = new Random();
+        int randIndex = rand.nextInt(possibleTeezers.size());
+        return possibleTeezers.get(randIndex);
+
+    }
+
+
 }
