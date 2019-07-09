@@ -78,7 +78,7 @@ public class RegisterStepTwo extends AppCompatActivity {
     private Button nextButton;
 
     /* The button for uploading an image */
-    private Button mSelectImage;
+    private ImageView mSelectImage;
 
     private ToggleButton toggleGoal1;
     private ToggleButton toggleGoal2;
@@ -140,7 +140,7 @@ public class RegisterStepTwo extends AppCompatActivity {
                 registerNext();
             }
         });
-        mSelectImage = (Button) findViewById(R.id.profile_pucture_upload);
+        mSelectImage = (ImageView) findViewById(R.id.profile_pucture_upload);
         mSelectImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
