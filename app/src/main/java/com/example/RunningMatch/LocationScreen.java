@@ -270,13 +270,19 @@ public class LocationScreen extends AppCompatActivity {
 
                 cleanEmail = email;
                 email = email.replace(".", "");
+                //TODO update times after adding it to layout
+                ArrayList<String> times = new ArrayList<>();
+                times.add("check");
                 ArrayList<String> myLikesArray = new ArrayList<>();
                 myLikesArray.add("check");
                 ArrayList<String> matches = new ArrayList<>();
                 matches.add("check");
                 ArrayList<String> not4me = new ArrayList<>();
                 not4me.add("check");
-                User newUser = new User(email, phone, km, time, name, description, gender, longitude, latitude, myLikesArray, matches,not4me, goals, times);
+
+                ArrayList<String> eventsList = new ArrayList<>();
+                eventsList.add("check");
+                User newUser = new User(email, phone, km, time, name, description, gender, longitude, latitude, myLikesArray, matches,not4me, goals, times, eventsList);
 
                 //todo: delete if using firestore
                 databaseReference.child("users").child(email).setValue(newUser);

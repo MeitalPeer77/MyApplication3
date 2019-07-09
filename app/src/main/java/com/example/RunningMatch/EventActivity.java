@@ -9,12 +9,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Represents the events screen
  */
-public class EventActivity extends AppCompatActivity {
+public class EventActivity extends AppCompatActivity implements Serializable {
 
     private static final String TAG = "EventActivity";
 
@@ -30,6 +31,8 @@ public class EventActivity extends AppCompatActivity {
     /* A list of the sign uo urls of the events */
     private ArrayList<Integer> mSighUp = new ArrayList<>();
 
+    private ArrayList<Button> mButtons = new ArrayList<>();
+
     //******************  Buttons and fields ****************//
 
                       //  Action Bar Buttons //
@@ -41,6 +44,8 @@ public class EventActivity extends AppCompatActivity {
 
     /* A button that navigated to the Profile screen */
     private Button profileButton;
+
+    private Button joinButton;
 
     /**
      * Creates the buttons and their listeners
@@ -79,6 +84,8 @@ public class EventActivity extends AppCompatActivity {
             }
         });
 
+        joinButton = (Button) findViewById(R.id.join);
+
         Log.d(TAG, "onCreate: started.");
 
         initImageBotmap();
@@ -94,44 +101,50 @@ public class EventActivity extends AppCompatActivity {
         mNames.add("Golan Race");
         mEventDetails.add("Majdal Shams, 01.06.19");
         mSighUp.add(R.string.golan_link);
+        mButtons.add(joinButton);
 
         mImagesURI.add("http://www.winning.co.il/events/2019/kiryat-gat/header.png");
         mNames.add("Night Run");
         mEventDetails.add("Kiryat Gat, 06.06.19");
         mSighUp.add(R.string.kiryat_gat_link);
+        mButtons.add(joinButton);
 
         mImagesURI.add("http://liga.org.il/wp-content/uploads/2017/12/liga-logo-200.jpg");
         mNames.add("Running in Work");
         mEventDetails.add("Herzliya, 14.06.19");
         mSighUp.add(R.string.work_link);
+        mButtons.add(joinButton);
 
         mImagesURI.add("https://www.shvoong.co.il/wp-content/uploads/2017/05/unnamed.jpg");
         mNames.add("Running With Shahar");
         mEventDetails.add("Alonei Habashan, 14.06.19");
         mSighUp.add(R.string.shahar_link);
+        mButtons.add(joinButton);
 
         mImagesURI.add("https://aradmasadarun.co.il/wp-content/uploads/2019/04/arad-masada-cover-event.png");
         mNames.add("Half Marathon Arad Masada");
         mEventDetails.add("Arad, 27.06.19");
         mSighUp.add(R.string.arad_link);
+        mButtons.add(joinButton);
 
         mImagesURI.add("https://www.shvoong.co.il/wp-content/uploads/2017/08/Nahal_july.png");
         mNames.add("Nachal Race");
         mEventDetails.add("Tel Aviv, 12.07.19");
         mSighUp.add(R.string.nachal_link);
+        mButtons.add(joinButton);
 
         initRecyclerView();
-
     }
 
     /**
      * initialize the recycle view
      */
     private void initRecyclerView(){
+        User currentUser = (User)getIntent().getSerializableExtra("user");
         Log.d(TAG, "initRecyclerView: init recyclerView");
         RecyclerView recyclerViewAdapter = findViewById(R.id.event_recycler);
         EventRecyclerAdapter adapter = new EventRecyclerAdapter(this, mNames, mImagesURI,
-                mEventDetails, mSighUp);
+                mEventDetails, mSighUp, mButtons, currentUser);
         recyclerViewAdapter.setAdapter(adapter);
         recyclerViewAdapter.setLayoutManager(new LinearLayoutManager(this));
 

@@ -246,7 +246,7 @@
         >
 
         <Button
-            android:id="@+id/contact"
+            android:id="@+id/update"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_gravity="right"

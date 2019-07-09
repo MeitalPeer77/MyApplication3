@@ -1,6 +1,8 @@
 package com.example.RunningMatch;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Map;
 
 import java.lang.reflect.Array;
@@ -9,7 +11,7 @@ import java.util.ArrayList;
 /**
  * Class represents the user in running match-app
  */
-public class User {
+public class User implements Serializable {
     /* The id of the user */
     private String userId;
 
@@ -47,13 +49,15 @@ public class User {
     private ArrayList<String> goals;
 
     /* Events the user is going to*/
-    private ArrayList<String> events = new ArrayList<>();
+    private ArrayList<String> events;
 
     /* Times in the day that the user want to run*/
     private ArrayList<String> times;
 
     /* Runner the user does't want to run with */
     private ArrayList<String> not4me;
+
+    private Date signInTime;
 
 
     //TODO: check how it is on firebase
@@ -77,7 +81,8 @@ public class User {
      */
     public User(String email,  String phoneNumber, String km, String time, String userName,
                 String userDescription, String gender, String latitude, String longitude ,
-                ArrayList<String> myLikesArray, ArrayList<String> matches, ArrayList<String> not4me, ArrayList<String> goals, ArrayList<String> times){
+                ArrayList<String> myLikesArray, ArrayList<String> matches, ArrayList<String> not4me,
+                ArrayList<String> goals, ArrayList<String> times, ArrayList<String> events){
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.km = km;
@@ -92,7 +97,8 @@ public class User {
         this.goals = goals;
         this.times = times;
         this.not4me = not4me;
-
+        this.events = events;
+        this.signInTime = new Date();
 
     }
 
@@ -286,6 +292,11 @@ public class User {
         this.events = events;
     }
 
+    public ArrayList<String> setSingleEvent(String event){
+        this.events.add(event);
+        return this.events;
+    }
+
     public boolean isInRange(User otherUser){
         double distance = CalculateRate.calculateDistance(this, otherUser);
         return (distance <= Double.parseDouble(this.getDistanceRangeFromUser()));
@@ -298,4 +309,9 @@ public class User {
     public void setNot4me(ArrayList<String> not4me) {
         this.not4me = not4me;
     }
+
+    public Date getSignInTime(){return signInTime;}
+
+    public void setSignInTime(Date newDate) {this.signInTime = newDate;}
+
 }
