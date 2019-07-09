@@ -131,8 +131,7 @@ public class LocationScreen extends AppCompatActivity {
 
         setContentView(R.layout.activity_location);
 
-        locationView = (TextView) findViewById(R.id.textView5);
-        enableLocation = (Button) findViewById(R.id.lets_run);
+        enableLocation = (Button) findViewById(R.id.enable_location);
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 

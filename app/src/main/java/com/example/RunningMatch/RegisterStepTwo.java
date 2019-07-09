@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.NumberPicker;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -38,10 +39,10 @@ public class RegisterStepTwo extends AppCompatActivity {
     //******************  Buttons and fields ****************//
 
     /* The spinner for entering km */
-    Spinner spinnerKm;
+    NumberPicker pickerKm;
 
     /* The spinner for entering time */
-    Spinner spinnerMin;
+    NumberPicker pickerMin;
 
     /* The password the user entered */
     String password;
@@ -167,40 +168,29 @@ public class RegisterStepTwo extends AppCompatActivity {
         // creates the km spinner
         ArrayAdapter<String> arrayaddapterKm = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, kmArray);
         arrayaddapterKm.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerKm = (Spinner)findViewById(R.id.spinner_km);
-        spinnerKm.setAdapter(arrayaddapterKm);
-        spinnerKm.setOnItemSelectedListener(new OnItemSelectedListener(){
-
+        pickerKm = findViewById(R.id.spinner_km);
+        pickerKm.setMinValue(1);
+        pickerKm.setMaxValue(50);
+        pickerKm.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view,
-                                       int position, long id) {
-                km = spinnerKm.getSelectedItem().toString();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                // TODO Auto-generated method stub
-
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                Integer val= pickerKm.getValue();
+                km = val.toString();
             }
         });
 
         // creates the time spinner
-        ArrayAdapter<String> arrayaddapterMin = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, minArray);
-        arrayaddapterMin.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerMin = (Spinner)findViewById(R.id.spinner_min);
-        spinnerMin.setAdapter(arrayaddapterMin);
-        spinnerMin.setOnItemSelectedListener(new OnItemSelectedListener(){
-
+        pickerMin = findViewById(R.id.spinner_min);
+        pickerMin.setMinValue(1);
+        pickerMin.setMaxValue(200);
+        pickerMin.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view,
-                                       int position, long id) {
-                time = spinnerMin.getSelectedItem().toString();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                // TODO Auto-generated method stub
-
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                Integer val= pickerMin.getValue();
+                time = val.toString();
             }
         });
+
 
         goals = new ArrayList<>();
 

@@ -139,7 +139,7 @@ public class CalculateRate  extends AppCompatActivity {
     }
 
     private int likeRate(User mainUser, User user){
-        ArrayList<String> likesArray = user.getMyLikesArray();
+        ArrayList<String> likesArray = (ArrayList<String>) user.getMyLikesArray();
         String myName = mainUser.getEmail().replace(".", "");
         for (String runner : likesArray){
             if(runner.equals(myName)){

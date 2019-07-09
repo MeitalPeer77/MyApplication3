@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:scrollbars="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -74,24 +76,25 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
-                <Spinner
+                <NumberPicker
                     android:id="@+id/spinner_km"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="100dp"
+                    android:orientation="horizontal"
                     app:fontFamily="@font/nunito" />
 
                 <TextView
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="km/ " />
+                    android:text="  km in  " />
 
-                <Spinner
+                <NumberPicker
                     android:id="@+id/spinner_min"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="100dp">
 
-                </Spinner>
+                </NumberPicker>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -212,126 +215,133 @@
                 android:layout_height="10dp" />
 
 
-            <GridLayout
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:columnCount="3"
-                android:rowCount="2">
-
-                <View
-                    android:id="@+id/divider20"
-                    android:layout_width="7dp"
-                    android:layout_height="5dp" />
+                android:orientation="vertical">
 
 
-                <ToggleButton
-                    android:id="@+id/run_10K"
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="22dp"
-                    android:padding="5dp"
-                    android:background="@drawable/toggleselector"
-                    android:checked="false"
-                    android:textOff="run 10 Km."
-                    android:textOn="run 10 km."
-                    android:textSize="10sp"
-                    app:layout_column="6"
-                    app:layout_row="0" />
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ToggleButton
+                        android:id="@+id/stay_in_shape"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/toggleselector"
+                        android:checked="false"
+                        android:textOff="stay in shape"
+                        android:textOn="stay in shape"
+                        android:textSize="10sp" />
+                    <View
+                        android:layout_width="15dp"
+                        android:layout_height="10dp"
+                        />
+
+
+                    <ToggleButton
+
+                        android:id="@+id/run_for_fun"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/toggleselector"
+                        android:checked="false"
+                        android:padding="5dp"
+                        android:textOff="run for fun"
+                        android:textOn="run for fun"
+                        android:textSize="10sp" />
+                    <View
+                        android:layout_width="15dp"
+                        android:layout_height="10dp"
+                        />
+
+                    <ToggleButton
+                        android:id="@+id/run_half_marathon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginLeft="0dp"
+                        android:background="@drawable/toggleselector"
+                        android:checked="false"
+                        android:padding="5dp"
+                        android:textOff="half marathon"
+                        android:textOn="half marathon"
+                        android:textSize="10sp" />
+
+
+                </LinearLayout>
 
                 <View
-                    android:id="@+id/divider12"
-                    android:layout_width="7dp"
-                    android:layout_height="5dp" />
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    />
 
-
-                <ToggleButton
-                    android:id="@+id/run_marathon"
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="22dp"
-                    android:padding="5dp"
-                    android:background="@drawable/toggleselector"
-                    android:checked="false"
-                    android:textOff="run marathon"
-                    android:textOn="run marathon"
-                    android:textSize="10dp" />
+                    android:layout_height="wrap_content">
 
-                <View
-                    android:id="@+id/divider15"
-                    android:layout_width="7dp"
-                    android:layout_height="5dp" />
+                    <View
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        />
 
-
-                <ToggleButton
-                    android:id="@+id/run_5K"
-                    android:layout_width="wrap_content"
-                    android:layout_height="22dp"
-                    android:padding="5dp"
-                    android:background="@drawable/toggleselector"
-                    android:checked="false"
-                    android:textOff="run 5 Km."
-                    android:textOn="run 5 km."
-                    android:textSize="10sp" />
-
-                <View
-                    android:id="@+id/divider13"
-                    android:layout_width="10dp"
-                    android:layout_height="5dp" />
+                    <ToggleButton
+                        android:id="@+id/run_10K"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/toggleselector"
+                        android:checked="false"
+                        android:textOff="10 Km."
+                        android:textOn="10 km."
+                        android:textSize="10sp"
+                        app:layout_column="6"
+                        app:layout_row="0" />
+                    <View
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        />
 
 
 
-                <ToggleButton
-                    android:id="@+id/stay_in_shape"
-                    android:layout_width="wrap_content"
-                    android:layout_height="22dp"
-                    android:padding="5dp"
-                    android:background="@drawable/toggleselector"
-                    android:checked="false"
-                    android:textOff="stay in shape"
-                    android:textOn="stay in shape"
-                    android:textSize="10sp" />
-                <View
-                    android:id="@+id/divider16"
-                    android:layout_width="7dp"
-                    android:layout_height="5dp" />
+                    <ToggleButton
+                        android:id="@+id/run_marathon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/toggleselector"
+                        android:checked="false"
+                        android:textOff="marathon"
+                        android:textOn="marathon"
+                        android:textSize="10dp" />
+                    <View
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        />
 
 
-                <ToggleButton
 
-                    android:id="@+id/run_for_fun"
-                    android:layout_width="wrap_content"
-                    android:layout_height="22dp"
-                    android:padding="5dp"
-                    android:background="@drawable/toggleselector"
-                    android:checked="false"
-                    android:textOff="run for fun"
-                    android:textOn="run for fun"
-                    android:textSize="10sp" />
-
-                <View
-                    android:id="@+id/divider14"
-                    android:layout_width="5dp"
-                    android:layout_height="5dp" />
-
-
-                <ToggleButton
-                    android:id="@+id/run_half_marathon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="22dp"
-                    android:padding="5dp"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginLeft="0dp"
-                    android:background="@drawable/toggleselector"
-                    android:checked="false"
-                    android:textOff="run half marathon"
-                    android:textOn="run half marathon"
-                    android:textSize="10sp" />
-                <View
-                    android:id="@+id/divider17"
-                    android:layout_width="7dp"
-                    android:layout_height="5dp" />
+                    <ToggleButton
+                        android:id="@+id/run_5K"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/toggleselector"
+                        android:checked="false"
+                        android:padding="5dp"
+                        android:textOff="5 Km."
+                        android:textOn="5 km."
+                        android:textSize="10sp" />
+                    <View
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        />
 
 
-            </GridLayout>
+                </LinearLayout>
+
+
+
+            </LinearLayout>
             <View
                 android:id="@+id/divider11"
                 android:layout_width="match_parent"
@@ -367,7 +377,7 @@
 
             <EditText
                 android:id="@+id/editText5"
-                android:layout_width="343dp"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/textView17"
                 android:ems="10"
@@ -408,14 +418,27 @@
                 android:shadowRadius="5"
                 android:text="Done!"
                 android:textColor="#FFFFFF"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+
+                />
+
+
 
         </LinearLayout>
-
+        <View
+            android:id="@+id/divider25"
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
 
 
     </LinearLayout>
 
 
 
-</android.support.constraint.ConstraintLayout>
+</ScrollView>
