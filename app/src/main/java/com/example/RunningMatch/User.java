@@ -17,6 +17,8 @@ public class User implements Serializable {
     /* The gender of the user*/
     private String gender;
 
+    private String profilePic;
+
     /* The km the user running */
     private String km;
 
@@ -60,6 +62,8 @@ public class User implements Serializable {
     private ArrayList<String> myLikesArray;
     private ArrayList<String> matches;
 
+
+    public User(){}
     /**
      * Creates a User object
      * @param email
@@ -75,12 +79,10 @@ public class User implements Serializable {
      * @param matches
      *
      */
-
-    public User(){}
     public User(String email,  String phoneNumber, String km, String time, String userName,
                 String userDescription, String gender, String latitude, String longitude ,
                 ArrayList<String> myLikesArray, ArrayList<String> matches, ArrayList<String> not4me,
-                ArrayList<String> goals, ArrayList<String> times, ArrayList<String> events){
+                ArrayList<String> goals, ArrayList<String> times, ArrayList<String> events, String profilePica){
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.km = km;
@@ -97,6 +99,7 @@ public class User implements Serializable {
         this.not4me = not4me;
         this.events = events;
         this.signInTime = new Date();
+        this.profilePic = profilePica;
 
     }
 
@@ -311,4 +314,11 @@ public class User implements Serializable {
 
     public void setSignInTime(Date newDate) {this.signInTime = newDate;}
 
+    public void setProfilePic(String profilePic) {
+        this.profilePic = profilePic;
+    }
+
+    public String getProfilePic() {
+        return profilePic;
+    }
 }

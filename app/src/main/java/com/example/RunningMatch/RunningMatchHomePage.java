@@ -222,10 +222,11 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
 
                                 String email = userMap.get("email").toString();
 
-                                String name, km, time, phoneNumber, description,gender, latitude, longtitude ,myLikes, myMatches;
+                                String name, km, time, phoneNumber, description,gender, latitude, longtitude ,myLikes, myMatches, picUrl;
                                 name = userMap.get("userName").toString();
                                 km = userMap.get("km").toString();
                                 time = userMap.get("time").toString();
+                                picUrl = userMap.get("profilePic").toString();
                                 phoneNumber = userMap.get("phoneNumber").toString();
                                 description = userMap.get("userDescription").toString();
                                 gender = userMap.get("gender").toString();
@@ -239,7 +240,7 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
                                 ArrayList<String> times = (ArrayList<String>) userMap.get("times");
                                 ArrayList<String> events = (ArrayList<String>) userMap.get("events");
 
-                                User otherUser = new User(email, phoneNumber, km, time, name, description, gender, latitude, longtitude, myLikesArray, matches, not4me,goals,times, events );
+                                User otherUser = new User(email, phoneNumber, km, time, name, description, gender, latitude, longtitude, myLikesArray, matches, not4me,goals,times, events, picUrl );
 
 
                                 if (!email.equals(currentUserEmail)){

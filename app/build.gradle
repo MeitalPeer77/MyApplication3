@@ -75,6 +75,9 @@ dependencies {
     //custom spinner
     implementation 'com.github.travijuu:numberpicker:1.0.7'
 
+    //picture loading
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
 
 
 }
