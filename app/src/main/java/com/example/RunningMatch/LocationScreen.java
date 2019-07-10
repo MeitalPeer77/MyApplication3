@@ -118,8 +118,6 @@ public class LocationScreen extends AppCompatActivity {
     FirebaseFirestore fireStoreDatabase;
 
 
-
-
     /**
      * Creates the buttons and their listeners, and takes the information from the previous screen
      * @param savedInstanceState
