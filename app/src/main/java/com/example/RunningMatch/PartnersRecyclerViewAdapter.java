@@ -141,6 +141,7 @@ public class PartnersRecyclerViewAdapter extends RecyclerView.Adapter<PartnersRe
             location = itemView.findViewById(R.id.partner_list_location);
             parentLayout=itemView.findViewById(R.id.parent_layout);
 
+
         }
     }
 
