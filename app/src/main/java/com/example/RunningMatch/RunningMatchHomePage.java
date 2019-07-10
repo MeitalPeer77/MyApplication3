@@ -108,7 +108,9 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
         getUsers();
 
 
+
         viewPager = (ViewPager) findViewById(R.id.viewpager);
+
 
         profileButton = (Button) findViewById(R.id.action_bar_profile);
         profileButton.setOnClickListener(new View.OnClickListener() {
@@ -170,8 +172,9 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
 
 
                     if (otherUserLikesArray.contains(currentUser.getEmail())) {
-
+                        user.setDoIHaveNewMatch(true);
                         String phone = user.getPhoneNumber();
+                        fireStoreDatabase.collection("users").document(user.getEmail()).update("doIHaveNewMatch", true);
 
                         // update other user match Array
                         ArrayList<String> otherUserMatches = user.getMatches();
@@ -239,8 +242,9 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
                                 ArrayList<String> goals = (ArrayList<String>) userMap.get("goals");
                                 ArrayList<String> times = (ArrayList<String>) userMap.get("times");
                                 ArrayList<String> events = (ArrayList<String>) userMap.get("events");
+                                boolean doIHaveNewMatch = (boolean) userMap.get(("doIHaveNewMatch")) ;
 
-                                User otherUser = new User(email, phoneNumber, km, time, name, description, gender, latitude, longtitude, myLikesArray, matches, not4me,goals,times, events );
+                                User otherUser = new User(email, phoneNumber, km, time, name, description, gender, latitude, longtitude, myLikesArray, matches, not4me,goals,times, events, doIHaveNewMatch);
 
 
                                 if (!email.equals(currentUserEmail)){
@@ -266,6 +270,14 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
                             myAdapter = new RunningMatchSlideAdapter(context, usersArray, currentUser);
                             myAdapter.notifyDataSetChanged();
                             viewPager.setAdapter(myAdapter);
+                            //Pop- UP If i have a new match and i wans not in the app
+                            if (currentUser.getDoIHaveNewMatch()){
+                                currentUser.setDoIHaveNewMatch(false);
+                                fireStoreDatabase.collection("users").document(currentUserEmail).update("doIHaveNewMatch", false);
+                                Intent popup = new Intent(RunningMatchHomePage.this, MatchingPopUP.class);
+                                popup.putExtra("phoneNumber", "0543455456");
+                                startActivity(popup);
+                            }
 
                             //checkLastSignIn();
                         }

@@ -30,6 +30,8 @@ public class PartnersRecyclerViewAdapter extends RecyclerView.Adapter<PartnersRe
     /* The distances from the partners */
     private ArrayList<String> mDistances = new ArrayList<>();
 
+    private ArrayList<String> mInfo = new ArrayList<>();
+
     /* The paces of the partners */
     private ArrayList<String> mPace = new ArrayList<>();
 
@@ -45,13 +47,14 @@ public class PartnersRecyclerViewAdapter extends RecyclerView.Adapter<PartnersRe
      * @param mDistance
      * @param mPace
      */
-    public PartnersRecyclerViewAdapter(Context mContext, ArrayList<String> mImageNames, ArrayList<String> mImages, ArrayList<String> mLocation, ArrayList<String> mDistance, ArrayList<String> mPace) {
+    public PartnersRecyclerViewAdapter(Context mContext, ArrayList<String> mImageNames, ArrayList<String> mImages, ArrayList<String> mLocation, ArrayList<String> mDistance, ArrayList<String> mPace, ArrayList<String> mInfo) {
         this.mImageNames = mImageNames;
         this.mImages = mImages;
         this.mContext = mContext;
         this.mDistances = mDistance;
         this.mLocation= mLocation;
         this.mPace = mPace;
+        this.mInfo = mInfo;
     }
 
     /**
@@ -94,6 +97,7 @@ public class PartnersRecyclerViewAdapter extends RecyclerView.Adapter<PartnersRe
                 intent.putExtra("location", mLocation.get(position));
                 intent.putExtra("pace", mPace.get(position));
                 intent.putExtra("distances", mDistances.get(position));
+                intent.putExtra("info", mInfo.get(position));
 
                 mContext.startActivity(intent);
             }
