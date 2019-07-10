@@ -3,10 +3,6 @@ package com.example.RunningMatch;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Map;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 
 /**
  * Class represents the user in running match-app
@@ -79,6 +75,8 @@ public class User implements Serializable {
      * @param matches
      *
      */
+
+    public User(){}
     public User(String email,  String phoneNumber, String km, String time, String userName,
                 String userDescription, String gender, String latitude, String longitude ,
                 ArrayList<String> myLikesArray, ArrayList<String> matches, ArrayList<String> not4me,
@@ -102,9 +100,8 @@ public class User implements Serializable {
 
     }
 
-    public User(){
 
-    }
+    public User(String email, String phoneNumber, String km, String time, String stam, String userDescription, String male, int i, int i1, ArrayList<User> myLikesArray, ArrayList<User> matches, ArrayList<String> not4me, ArrayList<String> goals, ArrayList<String> times){}
     /**
      * Get the user's ID
      */

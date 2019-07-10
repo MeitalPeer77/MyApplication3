@@ -74,9 +74,6 @@ public class RegisterStepTwo extends AppCompatActivity {
 
     ArrayList<String> goals;
 
-    /* The possibilities given in the km spinner*/
-    String[] kmArray = {"1", "2", "3", "4","5", "6","7", "8","9", "10", "11", "12", "13", "14", "15"};
-
     /* The next button of the screen */
     private Button nextButton;
 
@@ -194,19 +191,47 @@ public class RegisterStepTwo extends AppCompatActivity {
         });
 
         //get times this users likes running
-        CheckBox checkBox = (CheckBox) findViewById(R.id.morning);
-        if(checkBox.isChecked())
-            times.add("morning");
-        checkBox = (CheckBox) findViewById(R.id.noon);
-        if(checkBox.isChecked())
-            times.add("noon");
-        checkBox = (CheckBox) findViewById(R.id.evening);
-        if(checkBox.isChecked())
-            times.add("evening");
-        checkBox = (CheckBox) findViewById(R.id.anytime);
-        if(checkBox.isChecked())
-            times.add("any time");
+        times.add("any time");
+        CheckBox morning = (CheckBox) findViewById(R.id.morning);
+        morning.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(((CheckBox) v).isChecked()){
+                    times.add("morning");
+                }
+            }
+        });
 
+        CheckBox noon = (CheckBox) findViewById(R.id.noon);
+        noon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(((CheckBox) v).isChecked()){
+                    times.add("noon");
+                }
+            }
+        });
+
+        CheckBox evening = (CheckBox) findViewById(R.id.evening);
+        evening.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(((CheckBox) v).isChecked()){
+                    times.add("evening");
+                }
+            }
+        });
+
+
+        CheckBox anyTime = (CheckBox) findViewById(R.id.anytime);
+        anyTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!((CheckBox) v).isChecked()){
+                    times.remove("any time");
+                }
+            }
+        });
 
         goals = new ArrayList<>();
 
