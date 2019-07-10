@@ -1,41 +1,33 @@
 package com.example.RunningMatch;
 
+import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.firestore.WriteBatch;
 
-import android.content.Context;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 /**
  * Represents the homepage screen
  */
-public class RunningMatchHomePage extends AppCompatActivity {
+public class RunningMatchHomePage extends AppCompatActivity implements Serializable {
 
     //******************  Buttons and fields ****************//
 
@@ -108,7 +100,7 @@ public class RunningMatchHomePage extends AppCompatActivity {
         currentUserEmail = mAuth.getCurrentUser().getEmail();
         currentUserEmail = currentUserEmail.replace(".", "");
 
-        server.getUser(currentUserEmail, user);
+//        server.getUser(currentUserEmail, user);
         context = this;
 
         getUsers();
@@ -172,30 +164,30 @@ public class RunningMatchHomePage extends AppCompatActivity {
 
 
                 ArrayList<String> otherUserLikesArray = user.getMyLikesArray();
-                if (otherUserLikesArray != null) {
+                    if (otherUserLikesArray != null) {
 
 
-                    for (String usr : otherUserLikesArray) {
-                        if (usr.equals(currentUserEmail)) {
-                            String phone = user.getPhoneNumber();
+                    if (otherUserLikesArray.contains(currentUser.getEmail())) {
 
-                            // update other user match Array
-                            ArrayList<String> otherUserMatches = user.getMatches();
-                            otherUserMatches.add(currentUserEmail);
-                            fireStoreDatabase.collection("users").document(user.getEmail()).update("matches", otherUserMatches);
-                            user.setMatches(otherUserMatches);
+                        String phone = user.getPhoneNumber();
 
-                            // update current user match Array
-                            ArrayList<String> myMatches = currentUser.getMatches();
-                            myMatches.add(user.getEmail());
-                            fireStoreDatabase.collection("users").document(currentUserEmail).update("matches", myMatches);
-                            currentUser.setMatches(myMatches);
-                            //pop up
-                            Intent popup = new Intent(RunningMatchHomePage.this, MatchingPopUP.class);
-                            popup.putExtra("phoneNumber", phone);
-                            startActivity(popup);
+                        // update other user match Array
+                        ArrayList<String> otherUserMatches = user.getMatches();
+                        otherUserMatches.add(currentUser.getEmail());
+                        fireStoreDatabase.collection("users").document(user.getEmail()).update("matches", otherUserMatches);
+                        user.setMatches(otherUserMatches);
 
-                        }
+                        // update current user match Array
+                        ArrayList<String> myMatches = currentUser.getMatches();
+                        myMatches.add(user.getEmail());
+                        fireStoreDatabase.collection("users").document(currentUserEmail).update("matches", myMatches);
+                        currentUser.setMatches(myMatches);
+                        //pop up
+                        Intent popup = new Intent(RunningMatchHomePage.this, MatchingPopUP.class);
+                        popup.putExtra("phoneNumber", phone);
+                        startActivity(popup);
+
+
                     }
                 }
 
@@ -295,7 +287,9 @@ public class RunningMatchHomePage extends AppCompatActivity {
     public void partners() {
         // Create an Intent to start the  activity
         Intent partnersIntent = new Intent(this, PartnersList.class);
-        partnersIntent.putExtra("userArray", currentUser.getMatches());
+        partnersIntent.putExtra("user", currentUser);
+        partnersIntent.putExtra("usersMap", usersMap);
+        partnersIntent.putExtra("userMatches", currentUser.getMatches());
 
         // Start the new activity.
         startActivity(partnersIntent);
