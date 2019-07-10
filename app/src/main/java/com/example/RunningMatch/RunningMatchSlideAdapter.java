@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.lang.reflect.Array;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -36,42 +38,7 @@ public class RunningMatchSlideAdapter extends PagerAdapter {
     /* Calculate the rate of a potential partner */
     CalculateRate calculator = new CalculateRate();
 
-
-    /* The images of the potential running partners */
-    int[] lstImages = {
-            R.drawable.netta,
-            R.drawable.maayanm,
-            R.drawable.yehonatans,
-            R.drawable.noam,
-            R.drawable.liors,
-            R.drawable.toms,
-            R.drawable.almoga, R.drawable.almoga, R.drawable.almoga
-
-    };
-
-    /* The names of the potential running partners */
-    public String[] lstNames = {
-            "Netta Zohar",
-            "Maayan Yossef Magenheim",
-            "Jehonathan Spigelman",
-            "Noa Menasheof",
-            "Lior Saadon",
-            "Tom Saltsberg",
-            "Almog Argaman"
-
-    }   ;
-
-    /* The descriptions of the potential running partners */
-    public String[] lst_description = {
-            "Looking for a running partner who will keep me motivated!",
-            "I just want to stay in shape with short runs once a week.",
-            "Running the marathon next year and need a partner to train with.",
-            "Looking for a running partner. Twice a week. Early mornings.",
-            "I like running at night. 10pm at the earliest.",
-            "I hate running but want to stay in shape. Help me do this!",
-            "I'm a serious sprinter. Catch me if you can!",
-
-    };
+    Context con;
 
     /**
      * Creates a Slide Adapter object
@@ -115,7 +82,10 @@ public class RunningMatchSlideAdapter extends PagerAdapter {
         inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.card,container,false);
 
+        Context con = this.context;
+
         ImageView imgslide = (ImageView)  view.findViewById(R.id.card_image);
+
         TextView txttitle= (TextView) view.findViewById(R.id.txttitle);
         TextView times = (TextView) view.findViewById(R.id.times_input) ;
         TextView time = (TextView) view.findViewById(R.id.time_input);
@@ -142,8 +112,8 @@ public class RunningMatchSlideAdapter extends PagerAdapter {
         float distanceInput = (float) doubleDistance;
 
 
+        Glide.with(con).load(RunningMatchHomePage.currentUser.getProfilePic()).into(imgslide);
 
-        imgslide.setImageResource(R.mipmap.ic_launcher_round);
         txttitle.setText(userName);
         teezer.setText(getTeezer(position, distanceInput));
         container.addView(view);
