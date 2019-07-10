@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -27,8 +29,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 /**
@@ -92,6 +97,8 @@ public class LocationScreen extends AppCompatActivity {
     /* The description the user entered */
     private String description;
 
+    private Uri filePath;
+    private String picUrl;
 
 
 //    /* The new user after getting all his information*/
@@ -142,6 +149,7 @@ public class LocationScreen extends AppCompatActivity {
         description = extras.getString("description");
         goals = extras.getStringArrayList("goals");
         times = extras.getStringArrayList("times");
+        picUrl = extras.getString("url");
 
 
         listener = new LocationListener() {
@@ -274,7 +282,8 @@ public class LocationScreen extends AppCompatActivity {
 
                 ArrayList<String> eventsList = new ArrayList<>();
                 eventsList.add("check");
-                User newUser = new User(email, phone, km, time, name, description, gender, longitude, latitude, myLikesArray, matches,not4me, goals, times, eventsList);
+
+                User newUser = new User(email, phone, km, time, name, description, gender, longitude, latitude, myLikesArray, matches,not4me, goals, times, eventsList, picUrl);
 
                 //todo: delete if using firestore
                 databaseReference.child("users").child(email).setValue(newUser);
@@ -301,7 +310,6 @@ public class LocationScreen extends AppCompatActivity {
             }
 
         });
-
 
     }
     /**
