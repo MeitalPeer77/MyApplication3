@@ -69,7 +69,7 @@
 
             <ImageView
                 android:layout_width="300dp"
-                android:layout_height="150dp"
+                android:layout_height="190dp"
                 android:layout_gravity="center"
                 android:background="@drawable/runner4" />
 

@@ -103,7 +103,6 @@ public class RunningMatchHomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.suggestion_tab);
-//        FirebaseAuth.getInstance().signOut();
         mAuth = FirebaseAuth.getInstance();
         fireStoreDatabase = FirebaseFirestore.getInstance();
 
