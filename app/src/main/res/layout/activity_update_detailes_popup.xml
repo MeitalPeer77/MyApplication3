@@ -19,7 +19,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:gravity="center"
-        android:text="You found somebody to run with!"
+        android:text="Greate to see you again! Would you like to update your running details?"
         android:textColor="@color/pink"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -49,7 +49,7 @@
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="5"
-        android:text="Contact"
+        android:text="Sure!"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
         app:fontFamily="@font/nunito"
@@ -93,23 +93,6 @@
         app:layout_constraintVertical_bias="0.716"
 
         />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="88dp"
-        android:layout_height="109dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/update"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.775"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.617"
-        app:srcCompat="@drawable/coupletwo" />
 
 
 </android.support.constraint.ConstraintLayout>

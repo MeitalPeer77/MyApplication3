@@ -13,30 +13,22 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 
 /**
@@ -88,7 +80,11 @@ public class LocationScreen extends AppCompatActivity {
     /* The gender the user entered */
     String gender;
 
+    /* the goals of this user */
     ArrayList<String> goals;
+
+    /* the times of this user */
+    ArrayList<String> times;
 
     /* The time specified by the user */
     private String time;
@@ -131,8 +127,7 @@ public class LocationScreen extends AppCompatActivity {
 
         setContentView(R.layout.activity_location);
 
-        locationView = (TextView) findViewById(R.id.textView5);
-        enableLocation = (Button) findViewById(R.id.lets_run);
+        enableLocation = (Button) findViewById(R.id.enable_location);
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
@@ -146,7 +141,7 @@ public class LocationScreen extends AppCompatActivity {
         time = extras.getString("time");
         description = extras.getString("description");
         goals = extras.getStringArrayList("goals");
-
+        times = extras.getStringArrayList("times");
 
 
         listener = new LocationListener() {
@@ -269,15 +264,17 @@ public class LocationScreen extends AppCompatActivity {
                 email = email.replace(".", "");
                 //TODO update times after adding it to layout
                 ArrayList<String> times = new ArrayList<>();
-                times.add("morning");
-                times.add("evening");
+                times.add("check");
                 ArrayList<String> myLikesArray = new ArrayList<>();
                 myLikesArray.add("check");
                 ArrayList<String> matches = new ArrayList<>();
                 matches.add("check");
                 ArrayList<String> not4me = new ArrayList<>();
                 not4me.add("check");
-                User newUser = new User(email, phone, km, time, name, description, gender, longitude, latitude, myLikesArray, matches,not4me, goals, times);
+
+                ArrayList<String> eventsList = new ArrayList<>();
+                eventsList.add("check");
+                User newUser = new User(email, phone, km, time, name, description, gender, longitude, latitude, myLikesArray, matches,not4me, goals, times, eventsList);
 
                 //todo: delete if using firestore
                 databaseReference.child("users").child(email).setValue(newUser);

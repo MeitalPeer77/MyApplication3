@@ -138,6 +138,17 @@ public class CalculateRate  extends AppCompatActivity {
         return 0;
     }
 
+    private int likeRate(User mainUser, User user){
+        ArrayList<String> likesArray = (ArrayList<String>) user.getMyLikesArray();
+        String myName = mainUser.getEmail().replace(".", "");
+        for (String runner : likesArray){
+            if(runner.equals(myName)){
+                return 100;
+            }
+        }
+        return 0;
+    }
+
 
 
     /**
@@ -153,7 +164,8 @@ public class CalculateRate  extends AppCompatActivity {
         int kmtRate = kmRate(mainUser, user);
         int goalsRate = goalsRate(mainUser, user);
         int timeRate = timesRate(mainUser, user);
-        return distRate+paceRate+kmtRate+goalsRate+timeRate;
+        int likeRate = likeRate(mainUser, user);
+        return distRate+paceRate+kmtRate+goalsRate+timeRate+likeRate;
     }
 
 }

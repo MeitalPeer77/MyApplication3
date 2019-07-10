@@ -86,7 +86,7 @@ public class GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.ViewHolder> 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            image = itemView.findViewById(R.id.slideimg2);
+            image = itemView.findViewById(R.id.goalimage);
 
 
         }

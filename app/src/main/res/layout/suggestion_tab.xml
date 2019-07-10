@@ -19,7 +19,7 @@
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="450dp"
-        android:paddingTop="50dp"
+        android:paddingTop="30dp"
         android:paddingBottom="10dp">
 
     </android.support.v4.view.ViewPager>
@@ -32,10 +32,10 @@
 
         <Button
             android:id="@+id/reject"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
             android:layout_gravity="center"
-            android:background="@drawable/ic_shortcut_clear"
+            android:background="@drawable/button_not4me"
 
 
             />
@@ -48,11 +48,11 @@
 
         <Button
             android:id="@+id/lets_run"
-            android:layout_width="58dp"
-            android:layout_height="60dp"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
             android:layout_gravity="center"
 
-            android:background="@drawable/ic_shortcut_directions_run"
+            android:background="@drawable/button_lets_run"
 
             />
     </LinearLayout>
