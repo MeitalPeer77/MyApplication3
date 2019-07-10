@@ -124,7 +124,7 @@ public class RunningMatchSlideAdapter extends PagerAdapter {
         TextView teezer = (TextView) view.findViewById(R.id.teezer);
 
         RecyclerView goalsAdapter = view.findViewById(R.id.goals_adapter);
-        GoalsAdapter adapter = new GoalsAdapter(context, users.get(position));
+        GoalsAdapter adapter = new GoalsAdapter(context, users.get(position).getGoals());
         goalsAdapter.setAdapter(adapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
         goalsAdapter.setLayoutManager(layoutManager);

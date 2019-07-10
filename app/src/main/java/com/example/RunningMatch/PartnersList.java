@@ -54,6 +54,8 @@ public class PartnersList extends AppCompatActivity implements Serializable {
 
     private ArrayList<String> mDescription = new ArrayList<>();
 
+    private ArrayList<ArrayList<String>> mGoals = new ArrayList<>();
+
     /* A list of all the matched users */
     public ArrayList<User> matchesArray;
 
@@ -198,6 +200,8 @@ public class PartnersList extends AppCompatActivity implements Serializable {
                     mPace.add(cur.getTime());
                     mLocations.add(Double.toString(distance));
                     mDescription.add(cur.getUserDescription());
+                    mGoals.add(cur.getGoals());
+
 
                 }
             }
@@ -210,7 +214,7 @@ public class PartnersList extends AppCompatActivity implements Serializable {
      */
     private void initRecycleView(){
         RecyclerView recycleView = findViewById(R.id.recycler_view);
-        PartnersRecyclerViewAdapter adapter = new PartnersRecyclerViewAdapter(this, mNames, mImageUrls, mLocations, mDistance, mPace);
+        PartnersRecyclerViewAdapter adapter = new PartnersRecyclerViewAdapter(this, mNames, mImageUrls, mLocations, mDistance, mPace, mGoals);
         recycleView.setAdapter(adapter);
         recycleView.setLayoutManager(new LinearLayoutManager(this));
     }

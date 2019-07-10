@@ -6,10 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="4"
+    android:weightSum="5"
     android:background="@drawable/gradient_backround"
     tools:context="com.example.RunningMatch.RunningMatchHomePage"
-    android:layout_gravity = "center" >
+    android:gravity = "center" >
 
     <include
         android:id="@+id/include"
@@ -21,7 +21,7 @@
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="0px"
-        android:layout_weight="3"
+        android:layout_weight="4"
         android:paddingTop="30dp"
         android:paddingBottom="10dp">
 

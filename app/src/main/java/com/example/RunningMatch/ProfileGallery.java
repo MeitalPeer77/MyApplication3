@@ -11,6 +11,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class ProfileGallery extends AppCompatActivity {
 
     private Button homePageButton;
@@ -55,17 +58,18 @@ public class ProfileGallery extends AppCompatActivity {
     }
 
     private void getIncomingIntent(){
-        if(getIntent().hasExtra("image") && getIntent().hasExtra("Profile name") && getIntent().hasExtra("distances") && getIntent().hasExtra("location") && getIntent().hasExtra("pace")){
+        if(getIntent().hasExtra("image") && getIntent().hasExtra("Profile name") && getIntent().hasExtra("distances") && getIntent().hasExtra("location") && getIntent().hasExtra("pace") && getIntent().hasExtra("goals")){
             String imageUrl = getIntent().getStringExtra("image");
             String name = getIntent().getStringExtra("Profile name");
             String distance = getIntent().getStringExtra("distances");
             String location = getIntent().getStringExtra("location");
             String pace = getIntent().getStringExtra("pace");
+            ArrayList<String> goals =  getIntent().getStringArrayListExtra("goals");
 
-            setProfileContent(imageUrl, name, distance, location, pace);
+            setProfileContent(imageUrl, name, distance, location, pace, goals);
         }
     }
-    private void setProfileContent(String imageUrl, String profileName, String profileDistance, String profileLocation, String profilePace){
+    private void setProfileContent(String imageUrl, String profileName, String profileDistance, String profileLocation, String profilePace, ArrayList<String> goals){
         TextView name = findViewById(R.id.profile_other_name);
         name.setText(profileName);
 
@@ -85,11 +89,11 @@ public class ProfileGallery extends AppCompatActivity {
                 .into(image);
 
         //TODO after updating activity to work with user pbjects, enable this and update
-//        RecyclerView goalsAdapter = view.findViewById(R.id.goals_adapter_others_profile);
-//        GoalsAdapter adapter = new GoalsAdapter(context, users.get(position));
-//        goalsAdapter.setAdapter(adapter);
-//        LinearLayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
-//        goalsAdapter.setLayoutManager(layoutManager);
+        RecyclerView goalsAdapter = findViewById(R.id.goals_adapter_others_profile);
+        GoalsAdapter adapter = new GoalsAdapter(this, goals);
+        goalsAdapter.setAdapter(adapter);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        goalsAdapter.setLayoutManager(layoutManager);
 
 
     }
