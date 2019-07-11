@@ -71,6 +71,8 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
 
     static public User currentUser;
 
+    static public boolean showPartnerNotofication = false;
+
     //******************  Firebase Objects ****************//
 
     /* The authentication object of the app */
@@ -95,7 +97,8 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.suggestion_tab);
-//        FirebaseAuth.getInstance().signOut();
+
+
         mAuth = FirebaseAuth.getInstance();
         fireStoreDatabase = FirebaseFirestore.getInstance();
 
@@ -121,6 +124,10 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
         });
 
         matchButton = (Button) findViewById(R.id.action_bar_matches);
+        if (RunningMatchHomePage.showPartnerNotofication){
+            matchButton.setBackgroundResource(R.drawable.group2);
+        }
+        else{matchButton.setBackgroundResource(R.drawable.ic_launcher);}
         matchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -175,6 +182,7 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
                         user.setDoIHaveNewMatch(true);
                         String phone = user.getPhoneNumber();
                         fireStoreDatabase.collection("users").document(user.getEmail()).update("doIHaveNewMatch", true);
+                        showPartnerNotofication = true;
 
                         // update other user match Array
                         ArrayList<String> otherUserMatches = user.getMatches();
@@ -187,10 +195,14 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
                         myMatches.add(user.getEmail());
                         fireStoreDatabase.collection("users").document(currentUserEmail).update("matches", myMatches);
                         currentUser.setMatches(myMatches);
+
+                        matchButton.setBackgroundResource(R.drawable.group2);
+
                         //pop up
                         Intent popup = new Intent(RunningMatchHomePage.this, MatchingPopUP.class);
                         popup.putExtra("phoneNumber", phone);
                         startActivity(popup);
+
 
 
                     }
@@ -273,6 +285,8 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
                             viewPager.setAdapter(myAdapter);
                             //Pop- UP If i have a new match and i wans not in the app
                             if (currentUser.getDoIHaveNewMatch()){
+                                showPartnerNotofication = true;
+                                matchButton.setBackgroundResource(R.drawable.group2);
                                 currentUser.setDoIHaveNewMatch(false);
                                 fireStoreDatabase.collection("users").document(currentUserEmail).update("doIHaveNewMatch", false);
                                 Intent popup = new Intent(RunningMatchHomePage.this, MatchingPopUP.class);

@@ -43,6 +43,7 @@ public class Profile extends AppCompatActivity {
         setContentView(R.layout.profile_main);
 
 
+
         signOutBtn = (Button) findViewById(R.id.sign_out);
         signOutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +63,10 @@ public class Profile extends AppCompatActivity {
 
         });
         partnersButton = (Button) findViewById(R.id.action_bar_matches);
+        if (RunningMatchHomePage.showPartnerNotofication){
+            partnersButton.setBackgroundResource(R.drawable.group2);
+        }
+        else{partnersButton.setBackgroundResource(R.drawable.ic_launcher);}
         partnersButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
