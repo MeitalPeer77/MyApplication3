@@ -20,8 +20,8 @@ public class GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.ViewHolder> 
     private Context mContext;
 
 
-    public GoalsAdapter(Context context, User user) {
-        this.goals = user.getGoals();
+    public GoalsAdapter(Context context, ArrayList<String> goals) {
+        this.goals =goals;
         this.mContext = context;
     }
 
