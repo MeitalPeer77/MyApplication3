@@ -30,11 +30,22 @@ public class PartnersRecyclerViewAdapter extends RecyclerView.Adapter<PartnersRe
     /* The distances from the partners */
     private ArrayList<String> mDistances = new ArrayList<>();
 
+    private ArrayList<String> mInfo = new ArrayList<>();
+
     /* The paces of the partners */
     private ArrayList<String> mPace = new ArrayList<>();
 
     /* The context of the current activity */
     private Context mContext;
+
+    /* The goals of the partners */
+    private ArrayList<ArrayList<String>> mGoals;
+
+    /* The goals of the partners */
+    private ArrayList<ArrayList<String>> mEvents;
+
+
+
 
     /**
      * Creates a Recycle view adapter object
@@ -45,13 +56,16 @@ public class PartnersRecyclerViewAdapter extends RecyclerView.Adapter<PartnersRe
      * @param mDistance
      * @param mPace
      */
-    public PartnersRecyclerViewAdapter(Context mContext, ArrayList<String> mImageNames, ArrayList<String> mImages, ArrayList<String> mLocation, ArrayList<String> mDistance, ArrayList<String> mPace) {
+    public PartnersRecyclerViewAdapter(Context mContext, ArrayList<String> mImageNames, ArrayList<String> mImages, ArrayList<String> mLocation, ArrayList<String> mInfo,ArrayList<String> mDistance, ArrayList<String> mPace, ArrayList<ArrayList<String>> mGoals, ArrayList<ArrayList<String>> mEvents) {
         this.mImageNames = mImageNames;
         this.mImages = mImages;
         this.mContext = mContext;
         this.mDistances = mDistance;
         this.mLocation= mLocation;
         this.mPace = mPace;
+        this.mGoals = mGoals;
+        this.mEvents = mEvents;
+        this.mInfo = mInfo;
     }
 
     /**
@@ -94,6 +108,10 @@ public class PartnersRecyclerViewAdapter extends RecyclerView.Adapter<PartnersRe
                 intent.putExtra("location", mLocation.get(position));
                 intent.putExtra("pace", mPace.get(position));
                 intent.putExtra("distances", mDistances.get(position));
+                intent.putExtra("goals", mGoals.get(position));
+                intent.putExtra("events", mEvents.get(position));
+
+                intent.putExtra("info", mInfo.get(position));
 
                 mContext.startActivity(intent);
             }

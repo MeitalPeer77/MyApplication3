@@ -2,7 +2,10 @@ package com.example.RunningMatch;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
+import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,17 +24,23 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ToggleButton;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.UUID;
 
 /**
  * Presents the register step two screen
@@ -105,6 +114,13 @@ public class RegisterStepTwo extends AppCompatActivity {
     String time;
 
 
+    // some constants and variables to declare
+    private static final int PICK_IMAGE_REQ = 0;
+    private Uri filePath;
+    private String picUrl;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+
     //******************  Firebase Objects ****************//
 
     /* Represents the database */
@@ -129,7 +145,6 @@ public class RegisterStepTwo extends AppCompatActivity {
         setContentView(R.layout.activity_register_step_two);
 
         userDescription = (EditText) findViewById(R.id.editText5);
-        mStorage = FirebaseStorage.getInstance().getReference();
         mImageView = (ImageView) findViewById(R.id.profile_pucture_upload);
         progressDialog = new ProgressDialog(this);
 
@@ -281,7 +296,6 @@ public class RegisterStepTwo extends AppCompatActivity {
     }
 
 
-
     /**
      * Transfer the user's information to the next register screen and open it
      */
@@ -300,6 +314,7 @@ public class RegisterStepTwo extends AppCompatActivity {
         registerNextIntent.putExtra("time", time);
         registerNextIntent.putStringArrayListExtra("goals", goals);
         registerNextIntent.putStringArrayListExtra("times", times);
+        registerNextIntent.putExtra("url", picUrl);
 
         // Start the new activity.
         startActivity(registerNextIntent);
@@ -315,39 +330,112 @@ public class RegisterStepTwo extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requsetCode, int resultCode, Intent data){
         super.onActivityResult(requsetCode, resultCode, data);
-        if (requsetCode == GALERRY_INTENT && resultCode == RESULT_OK){
+        if (requsetCode == GALERRY_INTENT && resultCode == RESULT_OK  &&
+                data != null && data.getData() != null){
 
-            progressDialog.setMessage("Uploading...");
+            filePath = data.getData();
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
+                ImageView imageView = mSelectImage;
+                imageView.setImageBitmap(bitmap);
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+            saveProfileChanges(filePath);
+//
+//            Uri uri = data.getData();
+//
+//            StorageReference filePath = mStorage.child("Photos").child(uri.getLastPathSegment());
+//
+//
+//            filePath.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+//                @Override
+//                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+//
+//                    Task<Uri> downloadUri = taskSnapshot.getStorage().getDownloadUrl();
+//
+//                    Uri generatedFilePath = downloadUri.getResult();
+//
+//                    Glide.with(RegisterStepTwo.this)
+//                            .asBitmap()
+//                            .load(generatedFilePath)
+//                            .into(mImageView);
+//
+//                    //Picasso.get().load(generatedFilePath).fit().centerCrop().into(mImageView);
+//
+//                    progressDialog.dismiss();
+//
+//                    Toast.makeText(RegisterStepTwo.this, "upload done", Toast.LENGTH_LONG).show();
+//
+//                }
+//            });
+
+
+        }
+    }
+
+
+
+	/*  <<< this is the function that actually uploads the data to the server!
+			call it when user clicks "save changes" or something				>>> */
+
+    private void saveProfileChanges(Uri filePath) {
+
+        // in case user picked a picture:
+        if (filePath != null) {
+            final ProgressDialog progressDialog = new ProgressDialog(this);
+            progressDialog.setTitle("Uploading...");
             progressDialog.show();
 
-            Uri uri = data.getData();
+            StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+            final UUID filename = UUID.randomUUID(); // generate a random name for the uploaded file
 
-            StorageReference filePath = mStorage.child("Photos").child(uri.getLastPathSegment());
+            StorageReference ref = storageReference.child("users/" + email.replace(".", "") + "/" + filename);
 
+            // uploading the file:
+            ref.putFile(filePath)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            progressDialog.dismiss();
+                            Toast.makeText(RegisterStepTwo.this, "Image Uploaded Successfully.", Toast.LENGTH_SHORT).show();
+                            Task<Uri> uri = taskSnapshot.getStorage().getDownloadUrl();
+                            while (!uri.isComplete()) ;
 
-            filePath.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            picUrl = uri.getResult().toString();
 
-                    Task<Uri> downloadUri = taskSnapshot.getStorage().getDownloadUrl();
+                            // create a hashMap with the data you want to put under the user's document
+                            HashMap<String, Object> data = new HashMap<>();
+                            data.put("profilePic", picUrl); // puts the link to the uploaded image under the user's document
 
-                    Uri generatedFilePath = downloadUri.getResult();
+							/*
+								if you want to put more data to the user, use the same code - data.put("key",value);
+							*/
 
-                    Glide.with(RegisterStepTwo.this)
-                            .asBitmap()
-                            .load(generatedFilePath)
-                            .into(mImageView);
+                            // updates the server data
+                            db.collection("users").document(email.replace(".", ""))
+                                    .update(data);
 
-                    //Picasso.get().load(generatedFilePath).fit().centerCrop().into(mImageView);
-
-                    progressDialog.dismiss();
-
-                    Toast.makeText(RegisterStepTwo.this, "upload done", Toast.LENGTH_LONG).show();
-
-                }
-            });
-
-
+                        }
+                    })
+                    /* in case upload fails: */
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            progressDialog.dismiss();
+                            Toast.makeText(RegisterStepTwo.this, "Image Upload Failed." + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                            double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot
+                                    .getTotalByteCount());
+                            progressDialog.setMessage("Uploaded " + (int) progress + "%");
+                        }
+                    });
         }
     }
 

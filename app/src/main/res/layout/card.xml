@@ -6,6 +6,8 @@
     android:layout_width="350dp"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
+    android:padding="10dp"
+
     android:id="@+id/slidelinearlayout"
     app:cardCornerRadius="10dp">
 
@@ -17,8 +19,12 @@
         android:layout_gravity="center"
         android:background="@drawable/customborder"
         android:orientation="vertical"
-        android:elevation="3dp"
-        android:paddingBottom="5dp">
+        android:elevation="10dp"
+        android:paddingBottom="10dp"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="30"
+        android:shadowDy="30"
+        android:shadowRadius="100">
 
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -62,7 +68,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="distance"
-                android:textSize="15sp"
+                android:textSize="16sp"
                 app:fontFamily="@font/nunito" />
 
             <TextView
@@ -70,7 +76,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" km from you  "
-                android:textSize="15sp"
+                android:textSize="16sp"
                 app:fontFamily="@font/nunito" />
 
         </LinearLayout>
@@ -94,6 +100,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textSize="16sp"
+
                 android:text="  Runs " />
 
             <TextView
@@ -102,7 +110,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="5dp"
                 android:text="5"
-                android:textSize="15sp"
+                android:textSize="16sp"
 
                 app:fontFamily="@font/nunito" />
 
@@ -112,7 +120,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="5dp"
                 android:text=" km   "
-                android:textSize="15sp"
+                android:textSize="16sp"
                 app:fontFamily="@font/nunito" />
 
             <ImageView
@@ -136,7 +144,7 @@
                 android:layout_gravity="center"
                 android:paddingLeft="5dp"
                 android:text="30"
-                android:textSize="15sp"
+                android:textSize="16sp"
                 app:fontFamily="@font/nunito" />
 
             <TextView
@@ -145,7 +153,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text=" minutes"
-                android:textSize="15sp"
+                android:textSize="16sp"
                 app:fontFamily="@font/nunito" />
 
         </LinearLayout>
@@ -160,12 +168,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="16sp"
+
                 android:text="best time of day to run: "/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/times_input"
+                android:textSize="16sp"
+
                 android:text="morning, evening"/>
         </LinearLayout>
 
@@ -183,6 +195,8 @@
                 android:layout_height="match_parent"
                 android:id="@+id/goals"
                 android:text="Goals "
+                android:textSize="16sp"
+
                 android:paddingRight="10dp"
                 />
 
@@ -190,6 +204,7 @@
                 android:id="@+id/goals_adapter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingTop="3dp"
                 android:orientation="horizontal">
 
             </android.support.v7.widget.RecyclerView>
@@ -209,7 +224,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="OMG! you are both going to the TLV marathon!"
-                android:textAllCaps="true"
                 android:padding="10dp"
                 android:textColor="@color/lightBlue"
                 android:textAlignment="center"
@@ -220,6 +234,12 @@
 
         </LinearLayout>
 
+
     </LinearLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:padding="10dp"
+        android:layout_height="10dp"/>
 
 </LinearLayout>

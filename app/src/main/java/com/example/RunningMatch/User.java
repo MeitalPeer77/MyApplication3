@@ -17,6 +17,8 @@ public class User implements Serializable {
     /* The gender of the user*/
     private String gender;
 
+    private String profilePic;
+
     /* The km the user running */
     private String km;
 
@@ -55,10 +57,13 @@ public class User implements Serializable {
 
     private Date signInTime;
 
+    private boolean doIHaveNewMatch = false;
+
 
     //TODO: check how it is on firebase
     private ArrayList<String> myLikesArray;
     private ArrayList<String> matches;
+
 
     /**
      * Creates a User object
@@ -80,7 +85,7 @@ public class User implements Serializable {
     public User(String email,  String phoneNumber, String km, String time, String userName,
                 String userDescription, String gender, String latitude, String longitude ,
                 ArrayList<String> myLikesArray, ArrayList<String> matches, ArrayList<String> not4me,
-                ArrayList<String> goals, ArrayList<String> times, ArrayList<String> events){
+                ArrayList<String> goals, ArrayList<String> times, ArrayList<String> events, boolean doIHaveNewMatch, String profilePica){
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.km = km;
@@ -97,6 +102,8 @@ public class User implements Serializable {
         this.not4me = not4me;
         this.events = events;
         this.signInTime = new Date();
+        this.doIHaveNewMatch = doIHaveNewMatch;
+        this.profilePic = profilePica;
 
     }
 
@@ -317,4 +324,18 @@ public class User implements Serializable {
 
     public void setSignInTime(Date newDate) {this.signInTime = newDate;}
 
+    public boolean getDoIHaveNewMatch() {
+        return doIHaveNewMatch;
+    }
+
+    public void setDoIHaveNewMatch(boolean doIHaveNewMatch) {
+        this.doIHaveNewMatch = doIHaveNewMatch;
+    }
+    public void setProfilePic(String profilePic) {
+        this.profilePic = profilePic;
+    }
+
+    public String getProfilePic() {
+        return profilePic;
+    }
 }

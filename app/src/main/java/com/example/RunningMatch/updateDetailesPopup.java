@@ -37,9 +37,8 @@ public class updateDetailesPopup extends AppCompatActivity {
         setContentView(R.layout.activity_update_detailes_popup);
         final FirebaseFirestore fireStoreDatabase = FirebaseFirestore.getInstance();
 
-        final User currentUser = (User)getIntent().getSerializableExtra("user");
+        final User currentUser = (User)getIntent().getSerializableExtra("currentUser");
 
-        extras = getIntent().getExtras();
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
