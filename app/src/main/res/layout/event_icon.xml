@@ -8,6 +8,12 @@
     android:orientation="vertical"
     >
 
+    <TextView
+        android:id="@+id/input_no_events"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito"
+        android:textSize="18dp" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/event_image"
@@ -15,12 +21,15 @@
         android:layout_height="40dp"
         android:padding="5dp"
         android:layout_gravity="center"
-        android:src="@mipmap/ic_launcher" />
+         />
 
     <TextView
         android:id="@+id/event_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="event name"/>
+        />
+
+
+
 
 </LinearLayout>

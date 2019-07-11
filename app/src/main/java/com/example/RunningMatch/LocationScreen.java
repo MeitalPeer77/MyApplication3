@@ -283,7 +283,8 @@ public class LocationScreen extends AppCompatActivity {
                 ArrayList<String> eventsList = new ArrayList<>();
                 eventsList.add("check");
 
-                User newUser = new User(email, phone, km, time, name, description, gender, longitude, latitude, myLikesArray, matches,not4me, goals, times, eventsList, picUrl);
+                boolean doIHaveNewMatch = false;
+                User newUser = new User(email, phone, km, time, name, description, gender, longitude, latitude, myLikesArray, matches,not4me, goals, times, eventsList, doIHaveNewMatch, picUrl);
 
                 //todo: delete if using firestore
                 databaseReference.child("users").child(email).setValue(newUser);
@@ -310,6 +311,7 @@ public class LocationScreen extends AppCompatActivity {
             }
 
         });
+
 
     }
     /**

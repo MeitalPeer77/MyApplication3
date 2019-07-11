@@ -38,6 +38,17 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
                     urls.add("http://liga.org.il/wp-content/uploads/2017/12/liga-logo-200.jpg");
                     break;
 
+                case "Running With Shahar":
+                    urls.add("\"https://www.shvoong.co.il/wp-content/uploads/2017/05/unnamed.jpg");
+                    break;
+
+                case "Half Marathon Arad Masada":
+                    urls.add("\"https://aradmasadarun.co.il/wp-content/uploads/2019/04/arad-masada-cover-event.png");
+                    break;
+
+                case "Nachal Race":
+                    urls.add("\"https://www.shvoong.co.il/wp-content/uploads/2017/08/Nahal_july.png");
+                    break;
             }
         }
         return urls;
@@ -58,25 +69,33 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
         ArrayList<String> mImages = eventsList();
         if (!mImages.isEmpty()) {
             Glide.with(mContext).load(mImages.get(i)).into(viewHolder.image);
-            viewHolder.text.setText(events.get(i+1));
+            viewHolder.eventName.setText(events.get(i+1));
+        }else{
+            Glide.with(mContext)
+                    .asBitmap()
+                    .load(R.drawable.enmpty_drawable)
+                    .into(viewHolder.image);
+            viewHolder.noEvent.setText("no upcoming events");
         }
     }
 
 
     @Override
     public int getItemCount() {
-        return events.size()-1;
+        return events.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView image;
-        TextView text;
+        TextView eventName;
+        TextView noEvent;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.event_image);
-            text = itemView.findViewById(R.id.event_text);
-
+            eventName = itemView.findViewById(R.id.event_text);
+            noEvent = itemView.findViewById(R.id.input_no_events);
         }
 
     }

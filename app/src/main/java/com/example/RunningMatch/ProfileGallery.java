@@ -1,8 +1,8 @@
 package com.example.RunningMatch;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -66,13 +66,17 @@ public class ProfileGallery extends AppCompatActivity {
             String pace = getIntent().getStringExtra("pace");
             ArrayList<String> goals =  getIntent().getStringArrayListExtra("goals");
             ArrayList<String> events =  getIntent().getStringArrayListExtra("events");
+            String info = getIntent().getStringExtra("info");
 
-            setProfileContent(imageUrl, name, distance, location, pace, goals, events);
+            setProfileContent(imageUrl, name, distance, location, pace, info, goals, events);
         }
     }
-    private void setProfileContent(String imageUrl, String profileName, String profileDistance, String profileLocation, String profilePace, ArrayList<String> goals, ArrayList<String> events){
+    private void setProfileContent(String imageUrl, String profileName, String profileDistance, String profileLocation, String profilePace, String profileInfo, ArrayList<String> goals, ArrayList<String> events){
         TextView name = findViewById(R.id.profile_other_name);
         name.setText(profileName);
+
+        TextView info = findViewById(R.id.profile_other_info);
+        info.setText(profileInfo);
 
         TextView distance = findViewById(R.id.prifile_other_distances_input);
         distance.setText(profileDistance);
