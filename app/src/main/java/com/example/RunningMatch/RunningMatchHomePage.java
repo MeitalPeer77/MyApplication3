@@ -275,7 +275,7 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
                             if (currentUser.getDoIHaveNewMatch()){
                                 currentUser.setDoIHaveNewMatch(false);
                                 fireStoreDatabase.collection("users").document(currentUserEmail).update("doIHaveNewMatch", false);
-                                Intent popup = new Intent(RunningMatchHomePage.this, MatchingPopUP.class);
+                                Intent popup = new Intent(RunningMatchHomePage.this, MatchNotInAppPopUp.class);
                                 popup.putExtra("phoneNumber", "0543455456");
                                 startActivity(popup);
                             }
