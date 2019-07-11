@@ -43,6 +43,8 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
 
     private FirebaseFirestore fireStoreDatabase;
 
+    private Boolean isButtonClicked = false;
+
     /**
      * Creates a EventRecyclerAdapter object
      * @param mContext
@@ -99,9 +101,18 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
             public void onClick(View v) {
                 fireStoreDatabase = FirebaseFirestore.getInstance();
                 String eventName = mImageName.get(position);
-                ArrayList<String> newEvents = currentUser.setSingleEvent(eventName);
-                currentUser.setevents(newEvents);
-                fireStoreDatabase.collection("users").document(currentUser.getEmail()).update("events", newEvents);
+
+                if(!isButtonClicked) {
+                    isButtonClicked = true;
+                    ArrayList<String> newEvents = currentUser.setSingleEvent(eventName);
+                    currentUser.setevents(newEvents);
+                    fireStoreDatabase.collection("users").document(currentUser.getEmail()).update("events", newEvents);
+                } else {
+                    isButtonClicked = false;
+                    ArrayList<String> newEvents = currentUser.removeSigleEvent(eventName);
+                    currentUser.setevents(newEvents);
+                    fireStoreDatabase.collection("users").document(currentUser.getEmail()).update("events", newEvents);
+                }
 
                 //fireStoreDatabase.collection("users").document(user.getEmail()).update("matches", otherUserMatches);
             }
