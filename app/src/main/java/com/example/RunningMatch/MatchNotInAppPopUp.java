@@ -30,7 +30,7 @@ public class MatchNotInAppPopUp extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.popupwindow);
+        setContentView(R.layout.popup_2);
 
         extras = getIntent().getExtras();
         final String phoneNumber = extras.getString("phoneNumber");
