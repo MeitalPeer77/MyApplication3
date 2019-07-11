@@ -1,69 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="wrap_content"
     android:padding="15dp"
-    android:id="@+id/event_parent_layout">
+    android:id="@+id/event_parent_layout"
+    android:orientation="vertical"
+    android:gravity="center">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/customborder"
+        android:padding="10dp"
+        android:orientation="vertical"
+        >
+
+    <ImageView
         android:id="@+id/event_image"
-        android:src="@mipmap/ic_launcher"/>
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:src="@mipmap/ic_launcher" />
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Marathon"
-        android:id="@+id/event_name"
-        android:layout_toRightOf="@id/event_image"
-        android:textColor="@color/darkBlue"
-        android:layout_marginLeft="20dp"
-        android:textSize="17sp"
-        android:layout_alignTop="@id/event_image"
-        />
+        android:orientation="horizontal">
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Haifa, 01.01.20"
-        android:layout_toRightOf="@id/event_image"
-        android:layout_marginLeft="20dp"
-        android:layout_centerVertical="true"
-        android:id="@+id/event_details"
-        />
-
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sign Up"
-            android:id="@+id/sign_up_event"
-            android:layout_toRightOf="@id/event_image"
-            android:layout_alignBottom="@id/event_image"
-            android:layout_marginLeft="20dp"
-            />
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/event_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:paddingTop="15dp"
+                android:text="Marathon"
+                android:textColor="@color/darkBlue"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/event_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:paddingTop="7dp"
+                android:text="Haifa, 01.01.20" />
+
+            <TextView
+                android:id="@+id/sign_up_event"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:paddingTop="7dp"
+                android:text="Sign Up" />
+
+            <TextView
+                android:id="@+id/number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:paddingTop="15dp"
+                android:text="X of your friends are going!"
+                android:textSize="17sp" />
 
 
-   <!-- <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_alignParentRight="true"
-        android:text="Join"
-        android:id="@+id/join_button"
-        android:background="@drawable/join_button"-->
+        </LinearLayout>
 
-        />
 
-    <ToggleButton
-        android:id="@+id/join"
-        android:layout_width="50dp"
-        android:layout_height="30dp"
-        android:background="@drawable/event_toggle_selector"
-        android:checked="false"
-        android:textOff="Join"
-        android:textOn="Going"
-        android:layout_centerVertical="true"
-        android:layout_alignParentRight="true"/>
 
-</RelativeLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <ToggleButton
+                android:id="@+id/join"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:background="@drawable/event_toggle_selector"
+                android:checked="false"
+                android:padding="5dp"
+                android:textOff="Join"
+                android:textOn="Going" />
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
