@@ -21,6 +21,7 @@
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="0px"
+        android:padding="10dp"
         android:layout_weight="4"
         >
 
@@ -39,7 +40,9 @@
             android:layout_width="72dp"
             android:layout_height="72dp"
             android:layout_gravity="center"
-            android:background="@drawable/button_not4me"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:background="@drawable/not_for_me_w_shadow"
 
 
             />
@@ -56,7 +59,7 @@
             android:layout_height="72dp"
             android:layout_gravity="center"
 
-            android:background="@drawable/button_lets_run"
+            android:background="@drawable/lets_run_w_shadow"
 
             />
     </LinearLayout>

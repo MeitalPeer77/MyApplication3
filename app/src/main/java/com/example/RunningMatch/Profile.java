@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.NumberPicker;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -25,12 +27,28 @@ public class Profile extends AppCompatActivity {
     /* A button that navigated to the events screen */
     private Button eventButton;
 
+    private User currentUser = RunningMatchHomePage.currentUser;
+
                     // Screen Buttons //
     /* Button to personal details page */
     private Button personalDetailsBtn;
 
     /* Sign out button */
-    private Button signOutBtn;
+    private TextView signOutBtn;
+
+
+    /* The spinner for entering km */
+    NumberPicker pickerKm;
+
+    /* The spinner for entering time */
+    NumberPicker pickerMin;
+
+    /* The km specified by the user */
+    String km;
+
+    /* The time specified by the user */
+    String time;
+
 
 
     /**
@@ -43,7 +61,7 @@ public class Profile extends AppCompatActivity {
         setContentView(R.layout.profile_main);
 
 
-        signOutBtn = (Button) findViewById(R.id.sign_out);
+        signOutBtn = (TextView) findViewById(R.id.sign_out);
         signOutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,6 +70,8 @@ public class Profile extends AppCompatActivity {
             }
 
         });
+
+        //toolbar buttons
         homePageButton = (Button) findViewById(R.id.action_bar_homepage);
         homePageButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,16 +90,6 @@ public class Profile extends AppCompatActivity {
             }
 
         });
-        personalDetailsBtn = (Button) findViewById(R.id.edit_button);
-        personalDetailsBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                personalDetails();
-
-            }
-
-        });
-
         eventButton = (Button)findViewById(R.id.action_bar_event);
         eventButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,16 +98,38 @@ public class Profile extends AppCompatActivity {
             }
         });
 
+
+        // creates the km spinner
+        pickerKm = findViewById(R.id.profile_km);
+        pickerKm.setMinValue(1);
+        pickerKm.setMaxValue(50);
+        pickerKm.setValue(Integer.parseInt(currentUser.getKm()));
+        pickerKm.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                Integer val= pickerKm.getValue();
+                km = val.toString();
+            }
+        });
+
+        // creates the time spinner
+        pickerMin = findViewById(R.id.profile_min);
+        pickerMin.setMinValue(1);
+        pickerMin.setMaxValue(200);
+        pickerKm.setValue(Integer.parseInt(currentUser.getTime()));
+        pickerMin.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                Integer val= pickerMin.getValue();
+                time = val.toString();
+
+            }
+        });
+
+
+
     }
 
-    /**
-     * Transfer to settings page
-     * @param view
-     */
-    public void btnSetting_onClick(View view) {
-        Intent intent = new Intent(this, SettingsActivity.class);
-        startActivity(intent);
-    }
 
     /**
      * Sign out from the app
