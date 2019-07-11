@@ -125,7 +125,7 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
 
         matchButton = (Button) findViewById(R.id.action_bar_matches);
         if (RunningMatchHomePage.showPartnerNotofication){
-            matchButton.setBackgroundResource(R.drawable.gruop2);
+            matchButton.setBackgroundResource(R.drawable.group2);
         }
         else{matchButton.setBackgroundResource(R.drawable.ic_launcher);}
         matchButton.setOnClickListener(new View.OnClickListener() {
