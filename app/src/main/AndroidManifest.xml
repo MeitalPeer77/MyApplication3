@@ -16,7 +16,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".updateDetailesPopup"></activity>
         <activity android:name=".EventActivity" />
         <activity
             android:name=".LocationScreen"
@@ -46,10 +45,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
         <activity
             android:name=".MatchingPopUP"
             android:theme="@style/PopUp" />
+
+
+        <activity
+            android:name=".updateDetailesPopup"
+            android:theme="@style/PopUp" />
+
+
         <activity android:name=".Profile" />
+        <activity android:name=".MatchNotInAppPopUp" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

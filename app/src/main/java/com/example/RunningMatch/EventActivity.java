@@ -103,37 +103,37 @@ public class EventActivity extends AppCompatActivity implements Serializable {
 
         mImagesURI.add("http://www.winning.co.il/events/2019/golan/header.png");
         mNames.add("Golan Race");
-        mEventDetails.add("Majdal Shams, 01.06.19");
+        mEventDetails.add("Majdal Shams, 17.07.19");
         mSighUp.add(R.string.golan_link);
         mButtons.add(joinButton);
 
         mImagesURI.add("http://www.winning.co.il/events/2019/kiryat-gat/header.png");
         mNames.add("Night Run");
-        mEventDetails.add("Kiryat Gat, 06.06.19");
+        mEventDetails.add("Kiryat Gat, 22.07.19");
         mSighUp.add(R.string.kiryat_gat_link);
         mButtons.add(joinButton);
 
         mImagesURI.add("http://liga.org.il/wp-content/uploads/2017/12/liga-logo-200.jpg");
         mNames.add("Running in Work");
-        mEventDetails.add("Herzliya, 14.06.19");
+        mEventDetails.add("Herzliya, 29.07.19");
         mSighUp.add(R.string.work_link);
         mButtons.add(joinButton);
 
         mImagesURI.add("https://www.shvoong.co.il/wp-content/uploads/2017/05/unnamed.jpg");
         mNames.add("Running With Shahar");
-        mEventDetails.add("Alonei Habashan, 14.06.19");
+        mEventDetails.add("Alonei Habashan, 01.08.19");
         mSighUp.add(R.string.shahar_link);
         mButtons.add(joinButton);
 
         mImagesURI.add("https://aradmasadarun.co.il/wp-content/uploads/2019/04/arad-masada-cover-event.png");
         mNames.add("Half Marathon Arad Masada");
-        mEventDetails.add("Arad, 27.06.19");
+        mEventDetails.add("Arad, 07.08.19");
         mSighUp.add(R.string.arad_link);
         mButtons.add(joinButton);
 
         mImagesURI.add("https://www.shvoong.co.il/wp-content/uploads/2017/08/Nahal_july.png");
         mNames.add("Nachal Race");
-        mEventDetails.add("Tel Aviv, 12.07.19");
+        mEventDetails.add("Tel Aviv, 25.08.19");
         mSighUp.add(R.string.nachal_link);
         mButtons.add(joinButton);
 
