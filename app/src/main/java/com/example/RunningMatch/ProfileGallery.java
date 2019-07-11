@@ -65,11 +65,12 @@ public class ProfileGallery extends AppCompatActivity {
             String location = getIntent().getStringExtra("location");
             String pace = getIntent().getStringExtra("pace");
             ArrayList<String> goals =  getIntent().getStringArrayListExtra("goals");
+            ArrayList<String> events =  getIntent().getStringArrayListExtra("events");
 
-            setProfileContent(imageUrl, name, distance, location, pace, goals);
+            setProfileContent(imageUrl, name, distance, location, pace, goals, events);
         }
     }
-    private void setProfileContent(String imageUrl, String profileName, String profileDistance, String profileLocation, String profilePace, ArrayList<String> goals){
+    private void setProfileContent(String imageUrl, String profileName, String profileDistance, String profileLocation, String profilePace, ArrayList<String> goals, ArrayList<String> events){
         TextView name = findViewById(R.id.profile_other_name);
         name.setText(profileName);
 
@@ -88,13 +89,17 @@ public class ProfileGallery extends AppCompatActivity {
                 .load(imageUrl)
                 .into(image);
 
-        //TODO after updating activity to work with user pbjects, enable this and update
         RecyclerView goalsAdapter = findViewById(R.id.goals_adapter_others_profile);
         GoalsAdapter adapter = new GoalsAdapter(this, goals);
         goalsAdapter.setAdapter(adapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         goalsAdapter.setLayoutManager(layoutManager);
 
+        RecyclerView eventAdapter = findViewById(R.id.events_adapter_others_profile);
+        EventAdapter adapter2 = new EventAdapter(this, events);
+        eventAdapter.setAdapter(adapter2);
+        LinearLayoutManager layoutManager2 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        eventAdapter.setLayoutManager(layoutManager2);
 
     }
 

@@ -14,11 +14,9 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
-public class EventAdapter extends RecyclerView.Adapter {
+public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
     private Context mContext;
     private ArrayList<String> events;
-    ImageView image;
-    TextView text;
 
 
     public EventAdapter(Context context, ArrayList<String> events) {
@@ -48,33 +46,36 @@ public class EventAdapter extends RecyclerView.Adapter {
 
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.event_list, viewGroup, false);
-        EventAdapter.ViewHolder holder = new EventAdapter.ViewHolder(view);
+    public EventAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.event_icon, viewGroup, false);
+        ViewHolder holder = new ViewHolder(view);
         return holder;
 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         ArrayList<String> mImages = eventsList();
-        Glide.with(mContext).load(mImages.get(i)).into(image);
-        text.setText(events.get(i));
+        if (!mImages.isEmpty()) {
+            Glide.with(mContext).load(mImages.get(i)).into(viewHolder.image);
+            viewHolder.text.setText(events.get(i+1));
+        }
     }
 
 
     @Override
     public int getItemCount() {
-        return events.size();
+        return events.size()-1;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
+        ImageView image;
+        TextView text;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
-            image = itemView.findViewById(R.id.goalimage);
-
+            image = itemView.findViewById(R.id.event_image);
+            text = itemView.findViewById(R.id.event_text);
 
         }
 

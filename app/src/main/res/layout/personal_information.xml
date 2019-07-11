@@ -175,7 +175,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="72dp"
-        android:background="@drawable/border"
+        android:background="@drawable/customborder"
         android:ems="10"
         android:gravity="start|top"
         android:text="Like long runs on the beach, at sun set"

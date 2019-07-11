@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:scrollbars="vertical">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".Profile">
 
 
@@ -38,8 +45,8 @@
             <de.hdodenhof.circleimageview.CircleImageView
 
                 android:id="@+id/profile_other_image"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:padding="5dp"
                 android:paddingBottom="15dp"
                 android:src="@mipmap/ic_launcher" />
@@ -180,59 +187,68 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/goals_display"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:padding="5dp"
-            android:layout_gravity="center"
-            android:orientation="horizontal"
-            android:paddingTop="15dp">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@drawable/customborder"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/goals_others_profile"
+            <LinearLayout
+                android:id="@+id/goals_display"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                android:paddingTop="15dp">
+
+                <TextView
+                    android:id="@+id/goals_others_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:paddingRight="10dp"
+                    android:text="Goals "
+                    android:textSize="18dp" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/goals_adapter_others_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                </android.support.v7.widget.RecyclerView>
+
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:paddingRight="10dp"
-                android:textSize="18dp"
-                android:text="Goals " />
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/goals_adapter_others_profile"
-                android:layout_width="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="5dp"
                 android:orientation="horizontal">
 
-            </android.support.v7.widget.RecyclerView>
+                <TextView
+                    android:id="@+id/events_others_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="18dp"
+                    android:fontFamily="@font/nunito"
+                    android:text="Events " />
 
-        </LinearLayout>
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/events_adapter_others_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                </android.support.v7.widget.RecyclerView>
 
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:padding="5dp"
-            android:orientation="horizontal">
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/events_others_profile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:textSize="18dp"
-                android:fontFamily="@font/nunito"
-                android:text="Events " />
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/events_adapter_others_profile"
-                android:layout_width="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-            </android.support.v7.widget.RecyclerView>
 
 
 
@@ -261,3 +277,4 @@
     </LinearLayout>
 
 </RelativeLayout>
+</ScrollView>
