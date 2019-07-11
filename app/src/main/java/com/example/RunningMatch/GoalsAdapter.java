@@ -20,8 +20,8 @@ public class GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.ViewHolder> 
     private Context mContext;
 
 
-    public GoalsAdapter(Context context, ArrayList<String> goals) {
-        this.goals =goals;
+    GoalsAdapter(Context context, ArrayList<String> goals) {
+        this.goals = goals;
         this.mContext = context;
     }
 
@@ -48,7 +48,6 @@ public class GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.ViewHolder> 
                 case "run for fun":
                     drawables.add(R.drawable.run_for_fun);
                     break;
-
             }
         }
         return drawables;
@@ -85,10 +84,7 @@ public class GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.ViewHolder> 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
             image = itemView.findViewById(R.id.goalimage);
-
-
         }
     }
 

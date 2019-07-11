@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
@@ -134,7 +136,7 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         /* The circled image view of the event */
-        CircleImageView image;
+        ImageView image;
 
         /* The name of the event's image */
         TextView imageName;
@@ -143,7 +145,7 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
         TextView eventDetails;
 
         /* The relative layout of the events*/
-        RelativeLayout parentLayout;
+        LinearLayout parentLayout;
 
         /* The sign up to event text*/
         TextView sighUpText;
