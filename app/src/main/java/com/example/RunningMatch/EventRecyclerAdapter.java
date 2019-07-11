@@ -10,11 +10,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import com.bumptech.glide.Glide;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
@@ -27,6 +28,8 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
 
     /* A list of the images of the events */
     private ArrayList<String> mImages = new ArrayList<>();
+
+    private ArrayList<String> mFriendsGoing = new ArrayList<>();
 
     /* A list of the details of the events */
     private ArrayList<String> mDetails = new ArrayList<>();
@@ -56,7 +59,7 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
     public EventRecyclerAdapter(Context mContext, ArrayList<String> mImageName,
                                 ArrayList<String> mImages, ArrayList<String> mEventDetails,
                                 ArrayList<Integer> mRegister,
-                                ArrayList<Button> mJoin,
+                                ArrayList<Button> mJoin, ArrayList<String> mFriendsGoing,
                                 User currentUser) {
         this.mImageName = mImageName;
         this.mImages = mImages;
@@ -65,6 +68,7 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
         this.mJoinButtons = mJoin;
         this.mContext = mContext;
         this.currentUser = currentUser;
+        this.mFriendsGoing = mFriendsGoing;
     }
 
     /**
@@ -95,6 +99,7 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
         holder.imageName.setText(mImageName.get(position));
         holder.eventDetails.setText(mDetails.get(position));
         holder.sighUpText.setText(mSignUp.get(position));
+
 
         holder.mJoinBtn.setOnClickListener(new View.OnClickListener() {
             @Override

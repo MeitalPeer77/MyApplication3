@@ -324,6 +324,8 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
         // Create an Intent to start the second activity
         Intent eventIntent = new Intent(this, EventActivity.class);
         eventIntent.putExtra("user", currentUser);
+        eventIntent.putExtra("userMatches", currentUser.getMatches());
+        eventIntent.putExtra("usersMap", usersMap);
         // Start the new activity.
         startActivity(eventIntent);
     }

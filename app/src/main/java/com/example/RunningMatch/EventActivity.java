@@ -1,8 +1,8 @@
 package com.example.RunningMatch;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -11,6 +11,7 @@ import android.widget.Button;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Represents the events screen
@@ -25,11 +26,32 @@ public class EventActivity extends AppCompatActivity implements Serializable {
     /* A list of the images of the events */
     private ArrayList<String> mImagesURI = new ArrayList<>();
 
+    /* currenet user */
+    private User currentUser;
+
+    /* current user matches*/
+    private ArrayList<String> currentUserMatches;
+
+    private Integer GOLAN_RACE_COUNTER;
+    private Integer NIGHT_RUN_COUNTER;
+    private Integer RUNNUNG_IN_WORK_COUNTER;
+    private Integer RUNNUNG_IN_SHAHAR;
+    private Integer MASSADA_COUNTER;
+    private Integer NACHAL_COUNTER;
+
+    private final static  String FRIENDS_GOING = " of your friends are going";
+
+    /* all app users hash map*/
+
+    private HashMap<String, User> usersMap;
+
     /* A list of the details of the events */
     private ArrayList<String> mEventDetails = new ArrayList<>();
 
     /* A list of the sign uo urls of the events */
     private ArrayList<Integer> mSighUp = new ArrayList<>();
+
+    private ArrayList<String> mFriendsGoing = new ArrayList<>();
 
     private ArrayList<Button> mButtons = new ArrayList<>();
 
@@ -84,11 +106,55 @@ public class EventActivity extends AppCompatActivity implements Serializable {
             }
         });
 
+        currentUser = RunningMatchHomePage.currentUser;
+        currentUserMatches =(ArrayList<String>) getIntent().getSerializableExtra("userMatches");
+        usersMap = (HashMap<String, User>) getIntent().getSerializableExtra("usersMap");
+
         joinButton = (Button) findViewById(R.id.join);
 
         Log.d(TAG, "onCreate: started.");
 
+        setMatchesGoingToEvent();
         initImageBotmap();
+    }
+
+    /**
+     * set the number of friends going to the same event
+     */
+    private void setMatchesGoingToEvent() {
+        if (currentUserMatches != null) {
+            for (String mail : currentUserMatches) {
+                User cur = usersMap.get(mail);
+                if (cur != null) {
+                    for (String raceName: currentUser.getEvents()){
+                        if (cur.getEvents().contains(raceName)){
+                            switch (raceName){
+                                case "Golan Race":
+                                    GOLAN_RACE_COUNTER++;
+                                    break;
+                                case "Night Run":
+                                    NIGHT_RUN_COUNTER++;
+                                    break;
+                                case "Running in Work":
+                                    RUNNUNG_IN_WORK_COUNTER++;
+                                    break;
+                                case "Running With Shahar":
+                                    RUNNUNG_IN_SHAHAR++;
+                                    break;
+                                case "Half Marathon Arad Masada":
+                                    MASSADA_COUNTER++;
+                                    break;
+                                case "Nachal Race":
+                                    NACHAL_COUNTER++;
+                                    break;
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+
     }
 
     /**
@@ -102,36 +168,43 @@ public class EventActivity extends AppCompatActivity implements Serializable {
         mEventDetails.add("Majdal Shams, 17.07.19");
         mSighUp.add(R.string.golan_link);
         mButtons.add(joinButton);
+        mFriendsGoing.add(GOLAN_RACE_COUNTER + FRIENDS_GOING);
 
         mImagesURI.add("http://www.winning.co.il/events/2019/kiryat-gat/header.png");
         mNames.add("Night Run");
         mEventDetails.add("Kiryat Gat, 22.07.19");
         mSighUp.add(R.string.kiryat_gat_link);
         mButtons.add(joinButton);
+        mFriendsGoing.add((NIGHT_RUN_COUNTER) + FRIENDS_GOING);
 
         mImagesURI.add("http://liga.org.il/wp-content/uploads/2017/12/liga-logo-200.jpg");
         mNames.add("Running in Work");
         mEventDetails.add("Herzliya, 29.07.19");
         mSighUp.add(R.string.work_link);
         mButtons.add(joinButton);
+        mFriendsGoing.add(RUNNUNG_IN_WORK_COUNTER + FRIENDS_GOING);
+
 
         mImagesURI.add("https://www.shvoong.co.il/wp-content/uploads/2017/05/unnamed.jpg");
         mNames.add("Running With Shahar");
         mEventDetails.add("Alonei Habashan, 01.08.19");
         mSighUp.add(R.string.shahar_link);
         mButtons.add(joinButton);
+        mFriendsGoing.add(RUNNUNG_IN_SHAHAR + FRIENDS_GOING);
 
         mImagesURI.add("https://aradmasadarun.co.il/wp-content/uploads/2019/04/arad-masada-cover-event.png");
         mNames.add("Half Marathon Arad Masada");
         mEventDetails.add("Arad, 07.08.19");
         mSighUp.add(R.string.arad_link);
         mButtons.add(joinButton);
+        mFriendsGoing.add(MASSADA_COUNTER + FRIENDS_GOING);
 
         mImagesURI.add("https://www.shvoong.co.il/wp-content/uploads/2017/08/Nahal_july.png");
         mNames.add("Nachal Race");
         mEventDetails.add("Tel Aviv, 25.08.19");
         mSighUp.add(R.string.nachal_link);
         mButtons.add(joinButton);
+        mFriendsGoing.add(NACHAL_COUNTER + FRIENDS_GOING);
 
         initRecyclerView();
     }
@@ -144,7 +217,7 @@ public class EventActivity extends AppCompatActivity implements Serializable {
         Log.d(TAG, "initRecyclerView: init recyclerView");
         RecyclerView recyclerViewAdapter = findViewById(R.id.event_recycler);
         EventRecyclerAdapter adapter = new EventRecyclerAdapter(this, mNames, mImagesURI,
-                mEventDetails, mSighUp, mButtons, currentUser);
+                mEventDetails, mSighUp, mButtons, mFriendsGoing,currentUser);
         recyclerViewAdapter.setAdapter(adapter);
         recyclerViewAdapter.setLayoutManager(new LinearLayoutManager(this));
 
