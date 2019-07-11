@@ -133,6 +133,7 @@ public class RegisterStepTwo extends AppCompatActivity {
     private StorageReference mStorage;
 
 
+
     /**
      * Creates the buttons, fields and the listeners of the screen.
      * Gets the information from the previous screen
@@ -291,8 +292,6 @@ public class RegisterStepTwo extends AppCompatActivity {
                     goals.add("run 10K");
             }
         });
-
-
 
     }
 

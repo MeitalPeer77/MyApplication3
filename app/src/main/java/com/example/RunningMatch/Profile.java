@@ -6,14 +6,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.NumberPicker;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 /**
  * Represents the user's Profile page
  */
 public class Profile extends AppCompatActivity {
+
+    private FirebaseFirestore fireStoreDatabase;
+
 
     //******************  Buttons and fields ****************//
 
@@ -43,11 +48,6 @@ public class Profile extends AppCompatActivity {
     /* The spinner for entering time */
     NumberPicker pickerMin;
 
-    /* The km specified by the user */
-    String km;
-
-    /* The time specified by the user */
-    String time;
 
 
 
@@ -59,6 +59,8 @@ public class Profile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_main);
+
+        fireStoreDatabase = FirebaseFirestore.getInstance();
 
 
         signOutBtn = (TextView) findViewById(R.id.sign_out);
@@ -98,17 +100,28 @@ public class Profile extends AppCompatActivity {
             }
         });
 
+        setNumberPickers();
 
+
+
+    }
+
+
+    private void setNumberPickers(){
         // creates the km spinner
         pickerKm = findViewById(R.id.profile_km);
         pickerKm.setMinValue(1);
         pickerKm.setMaxValue(50);
         pickerKm.setValue(Integer.parseInt(currentUser.getKm()));
+
         pickerKm.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
                 Integer val= pickerKm.getValue();
-                km = val.toString();
+                String km = val.toString();
+                currentUser.setKm(km);
+                fireStoreDatabase.collection("users").document(currentUser.getEmail()).update("km", km);
+
             }
         });
 
@@ -116,17 +129,46 @@ public class Profile extends AppCompatActivity {
         pickerMin = findViewById(R.id.profile_min);
         pickerMin.setMinValue(1);
         pickerMin.setMaxValue(200);
-        pickerKm.setValue(Integer.parseInt(currentUser.getTime()));
+        pickerMin.setValue(Integer.parseInt(currentUser.getTime()));
         pickerMin.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
                 Integer val= pickerMin.getValue();
-                time = val.toString();
+                String time = val.toString();
+                currentUser.setTime(time);
+                fireStoreDatabase.collection("users").document(currentUser.getEmail()).update("time", time);
+
 
             }
         });
 
 
+
+    }
+
+    private void setRadioButton(){
+        RadioGroup rg = (RadioGroup) findViewById(R.id.radioGroup);
+        
+        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch(checkedId){
+                    case R.id.radioButton:
+                        gender = "male";
+                        // do operations specific to this selection
+                        break;
+                    case R.id.radioButton2:
+                        gender = "female";
+                        // do operations specific to this selection
+                        break;
+
+                    case R.id.radioButton3:
+                        gender = "other";
+                        // do operations specific to this selection
+                        break;
+                }
+            }
+        });
 
     }
 

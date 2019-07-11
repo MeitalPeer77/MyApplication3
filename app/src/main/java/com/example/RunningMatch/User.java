@@ -296,8 +296,14 @@ public class User implements Serializable {
         this.events = events;
     }
 
+
     public ArrayList<String> setSingleEvent(String event){
         this.events.add(event);
+        return this.events;
+    }
+
+    public ArrayList<String> removeSigleEvent(String event){
+        this.events.remove(event);
         return this.events;
     }
 
