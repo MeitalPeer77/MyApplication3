@@ -20,6 +20,9 @@ public class MatchingPopUP extends Activity {
     /* Do not contact now button */
     private Button notNow;
 
+    /*flag to mark if the user want to update details ot not*/
+    public boolean toCheck = true;
+
     /* The bundle for getting the information from the previous screen */
     Bundle extras;
 
@@ -45,6 +48,7 @@ public class MatchingPopUP extends Activity {
         notNow = (Button)findViewById(R.id.notNow);
         notNow.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                toCheck = false;
                 suggestions();
             }
         });
@@ -62,6 +66,7 @@ public class MatchingPopUP extends Activity {
     public void suggestions(){
         // Create an Intent to start the  activity
         Intent suggestionsIntent = new Intent(this, RunningMatchHomePage.class);
+        suggestionsIntent.putExtra("flag", toCheck);
 
         // Start the new activity.
         startActivity(suggestionsIntent);

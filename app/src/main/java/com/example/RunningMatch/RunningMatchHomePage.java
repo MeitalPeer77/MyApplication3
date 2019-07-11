@@ -240,7 +240,10 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
                                 ArrayList<String> times = (ArrayList<String>) userMap.get("times");
                                 ArrayList<String> events = (ArrayList<String>) userMap.get("events");
 
-                                User otherUser = new User(email, phoneNumber, km, time, name, description, gender, latitude, longtitude, myLikesArray, matches, not4me,goals,times, events );
+                                User otherUser = new User(email, phoneNumber, km, time, name,
+                                                        description, gender, latitude, longtitude,
+                                                        myLikesArray, matches, not4me,goals,times,
+                                                        events );
 
 
                                 if (!email.equals(currentUserEmail)){
@@ -267,7 +270,10 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
                             myAdapter.notifyDataSetChanged();
                             viewPager.setAdapter(myAdapter);
 
-                            //checkLastSignIn();
+                            Bundle extras = getIntent().getExtras();
+
+                            checkLastSignIn();
+
                         }
                     }
                 });
@@ -283,7 +289,6 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
 
         // Start the new activity.
         startActivity(profileIntent);
-
     }
 
     /**
@@ -314,17 +319,23 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
 
     }
 
-    private boolean checkLastSignIn(){
+    private void checkLastSignIn(){
         TimeUnit timeUnit = TimeUnit.SECONDS;
         Date date = new Date();
-        currentUser.getEmail();
-/*        long signInTime = currentUser.getSignInTime().getTime();
+
+
+        long signInTime = currentUser.getSignInTime().getTime();
         long timeDifference = date.getTime() - signInTime;
         long timeInSeconds = timeUnit.convert(timeDifference,TimeUnit.SECONDS);
-        // TODO return timeInSeconds < 30
-        System.out.println(timeInSeconds < 30);
-        */
-        return false;
+
+        currentUser.setSignInTime(date);
+
+        if(timeInSeconds < 1200000) {
+            // number of seconds in two weeks
+            Intent popup = new Intent(RunningMatchHomePage.this, updateDetailesPopup.class);
+            popup.putExtra("currentUser", currentUser);
+            startActivity(popup);
+        }
     }
 
 

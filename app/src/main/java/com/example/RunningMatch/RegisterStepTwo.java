@@ -116,7 +116,6 @@ public class RegisterStepTwo extends AppCompatActivity {
     /* Firebase object which stores the picture of the user*/
     private StorageReference mStorage;
 
-    private FirebaseFirestore fireStoreDatabase;
 
 
     /**
@@ -278,8 +277,6 @@ public class RegisterStepTwo extends AppCompatActivity {
                     goals.add("run 10K");
             }
         });
-
-
 
     }
 
