@@ -47,77 +47,76 @@
                     android:layout_width="match_parent"
                     android:layout_height="30dp" />
 
-                <TextView
-                    android:id="@+id/sign_out"
-                    android:clickable="true"
-                    android:text="sign out"
-                    android:textSize="15sp"
-                    android:paddingRight="15sp"
-                    android:textAllCaps="true"
 
-                    android:layout_gravity="right"
-
-                    android:textColor="@color/pink"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    />
-
-
-                        <EditText
-                            android:id="@+id/profile_username"
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:background="@android:color/transparent"
-                            android:inputType="textEmailAddress"
-                            android:text="user name"
-                            android:textColor="@color/darkBlue"
-                            android:textSize="24sp"
-                            android:textStyle="bold"
-                             />
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/profile_picture_upload"
+                                android:layout_width="110dp"
+                                android:layout_height="110dp"
+                                android:clickable="true"
+                                android:src="@drawable/com_facebook_profile_picture_blank_portrait" />
+
+                            <View
+                                android:id="@+id/divider_1"
+                                android:layout_width="20dp"
+                                android:layout_height="30dp" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <EditText
+                                    android:id="@+id/profile_username"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:background="@android:color/transparent"
+                                    android:inputType="textEmailAddress"
+                                    android:text="user name"
+                                    android:textColor="@color/darkBlue"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold" />
+
+
+
+                                <EditText
+                                android:id="@+id/profile_email"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="@android:color/transparent"
+                                android:inputType="textEmailAddress"
+
+                                android:text="email"
+                                android:textColor="@color/darkBlue"
+                                android:textSize="15dp" />
+
+                            <EditText
+                                android:id="@+id/profile_phone_number"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="@android:color/transparent"
+                                android:inputType="number"
+                                android:text="phone number"
+                                android:textColor="@color/darkBlue"
+                                android:textSize="15dp" />
+                        </LinearLayout>
+
+                        </LinearLayout>
+
+
+
 
                         <View
-                    android:id="@+id/divider_3"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp" />
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/profile_picture_upload"
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
-                    android:clickable="true"
-                    android:src="@drawable/com_facebook_profile_picture_blank_portrait" />
-
-                <View
-                    android:id="@+id/divider_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp" />
-
-
-                        <EditText
-                    android:id="@+id/profile_email"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="email"
-                    android:textColor="@color/darkBlue"
-
-                    android:background="@android:color/transparent"
-                    android:inputType="textEmailAddress"
-                    android:textSize="15dp" />
-
-
-                <EditText
-                    android:id="@+id/profile_phone_number"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="phone number"
-                    android:inputType="number"
-                    android:background="@android:color/transparent"
-                    android:textColor="@color/darkBlue"
-                    android:textSize="15dp" />
-                <View
                     android:id="@+id/divider_7"
                     android:layout_width="match_parent"
                     android:layout_height="30dp" />
@@ -507,6 +506,20 @@
                     android:id="@+id/divider24"
                     android:layout_width="match_parent"
                     android:layout_height="20dp" />
+
+                        <TextView
+                            android:id="@+id/sign_out"
+                            android:clickable="true"
+                            android:text="sign out"
+                            android:textSize="15sp"
+                            android:paddingRight="20dp"
+                            android:textAllCaps="true"
+                            android:paddingBottom="10dp"
+                            android:layout_gravity="right"
+                            android:textColor="@color/pink"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            />
 
                     </LinearLayout>
                 </ScrollView>
