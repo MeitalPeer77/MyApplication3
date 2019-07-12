@@ -348,7 +348,7 @@
                             android:orientation="horizontal">
 
                             <ToggleButton
-                                android:id="@+id/stay_in_shape"
+                                android:id="@+id/profile_stay_in_shape"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/toggleselector"
@@ -364,7 +364,7 @@
 
                             <ToggleButton
 
-                                android:id="@+id/run_for_fun"
+                                android:id="@+id/profile_run_for_fun"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/toggleselector"
@@ -379,7 +379,7 @@
                                 />
 
                             <ToggleButton
-                                android:id="@+id/run_half_marathon"
+                                android:id="@+id/profile_run_half_marathon"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="0dp"
@@ -409,7 +409,7 @@
                                 />
 
                             <ToggleButton
-                                android:id="@+id/run_10K"
+                                android:id="@+id/profile_run_10K"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/toggleselector"
@@ -427,7 +427,7 @@
 
 
                             <ToggleButton
-                                android:id="@+id/run_marathon"
+                                android:id="@+id/profile_run_marathon"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/toggleselector"
@@ -443,7 +443,7 @@
 
 
                             <ToggleButton
-                                android:id="@+id/run_5K"
+                                android:id="@+id/profile_run_5K"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/toggleselector"

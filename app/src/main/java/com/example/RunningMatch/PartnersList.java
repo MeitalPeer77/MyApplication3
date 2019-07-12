@@ -54,6 +54,8 @@ public class PartnersList extends AppCompatActivity implements Serializable {
 
     private ArrayList<String> mInfo = new ArrayList<>();
 
+    private ArrayList<String> mPhones = new ArrayList<>();
+
     private ArrayList<ArrayList<String>> mGoals = new ArrayList<>();
 
     private ArrayList<ArrayList<String>> mEvents = new ArrayList<>();
@@ -93,6 +95,10 @@ public class PartnersList extends AppCompatActivity implements Serializable {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (RunningMatchHomePage.showPartnerNotofication == true) {
+            RunningMatchHomePage.showPartnerNotofication = false;
+        }
         setContentView(R.layout.group_tab);
 
 
@@ -192,7 +198,7 @@ public class PartnersList extends AppCompatActivity implements Serializable {
             for (String mail : currentUserMatches) {
                 User cur = usersMap.get(mail);
                 if (cur != null) {
-                    mImageUrls.add("https://scontent.ftlv6-1.fna.fbcdn.net/v/t1.0-9/559079_10151809848077388_1166275349_n.jpg?_nc_cat=102&_nc_ht=scontent.ftlv6-1.fna&oh=7aade7d7463f3d5ed16c32c2f30562ef&oe=5D326041");
+                    mImageUrls.add(cur.getProfilePic());
                     double distance = CalculateRate.distance(Double.parseDouble(currentUser.getLatitude()),
                             Double.parseDouble(currentUser.getLongitude()),
                             Double.parseDouble(cur.getLatitude()),
@@ -204,6 +210,7 @@ public class PartnersList extends AppCompatActivity implements Serializable {
                     mGoals.add(cur.getGoals());
                     mEvents.add(cur.getEvents());
                     mInfo.add(cur.getUserDescription());
+                    mPhones.add(cur.getPhoneNumber());
 
                 }
             }
@@ -216,7 +223,7 @@ public class PartnersList extends AppCompatActivity implements Serializable {
      */
     private void initRecycleView(){
         RecyclerView recycleView = findViewById(R.id.recycler_view);
-        PartnersRecyclerViewAdapter adapter = new PartnersRecyclerViewAdapter(this, mNames, mImageUrls, mLocations, mDistance, mInfo, mPace, mGoals, mEvents);
+        PartnersRecyclerViewAdapter adapter = new PartnersRecyclerViewAdapter(this, mNames, mImageUrls, mLocations, mDistance, mInfo, mPace, mGoals, mEvents, mPhones);
         recycleView.setAdapter(adapter);
         recycleView.setLayoutManager(new LinearLayoutManager(this));
     }

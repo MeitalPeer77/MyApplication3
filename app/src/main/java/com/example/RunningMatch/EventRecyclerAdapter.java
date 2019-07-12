@@ -8,14 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.RelativeLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import com.bumptech.glide.Glide;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
-import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * The adapter of event screen
@@ -27,6 +27,8 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
 
     /* A list of the images of the events */
     private ArrayList<String> mImages = new ArrayList<>();
+
+    private ArrayList<String> mFriendsGoing = new ArrayList<>();
 
     /* A list of the details of the events */
     private ArrayList<String> mDetails = new ArrayList<>();
@@ -56,7 +58,7 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
     public EventRecyclerAdapter(Context mContext, ArrayList<String> mImageName,
                                 ArrayList<String> mImages, ArrayList<String> mEventDetails,
                                 ArrayList<Integer> mRegister,
-                                ArrayList<Button> mJoin,
+                                ArrayList<Button> mJoin, ArrayList<String> mFriendsGoing,
                                 User currentUser) {
         this.mImageName = mImageName;
         this.mImages = mImages;
@@ -65,6 +67,7 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
         this.mJoinButtons = mJoin;
         this.mContext = mContext;
         this.currentUser = currentUser;
+        this.mFriendsGoing = mFriendsGoing;
     }
 
     /**
@@ -95,6 +98,8 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
         holder.imageName.setText(mImageName.get(position));
         holder.eventDetails.setText(mDetails.get(position));
         holder.sighUpText.setText(mSignUp.get(position));
+        holder.friends.setText(mFriendsGoing.get(position));
+
 
         holder.mJoinBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -134,16 +139,18 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         /* The circled image view of the event */
-        CircleImageView image;
+        ImageView image;
 
         /* The name of the event's image */
         TextView imageName;
+        /* The number of the friends going */
+        TextView friends;
 
         /* The details of the event */
         TextView eventDetails;
 
         /* The relative layout of the events*/
-        RelativeLayout parentLayout;
+        LinearLayout parentLayout;
 
         /* The sign up to event text*/
         TextView sighUpText;
@@ -159,6 +166,7 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
             super(itemView);
 
             image = itemView.findViewById(R.id.event_image);
+            friends = itemView.findViewById(R.id.number);
             imageName = itemView.findViewById(R.id.event_name);
             eventDetails = itemView.findViewById(R.id.event_details);
             parentLayout = itemView.findViewById(R.id.event_parent_layout);

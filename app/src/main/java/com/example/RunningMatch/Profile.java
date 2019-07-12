@@ -9,10 +9,12 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -59,6 +61,8 @@ public class Profile extends AppCompatActivity {
     private EditText email;
     private EditText phoneNumber;
     private ArrayList<String> times;
+    ArrayList<String> goals;
+
 
 
 
@@ -99,6 +103,10 @@ public class Profile extends AppCompatActivity {
 
         });
         partnersButton = (Button) findViewById(R.id.action_bar_matches);
+        if (RunningMatchHomePage.showPartnerNotofication){
+            partnersButton.setBackgroundResource(R.drawable.group2);
+        }
+        else{partnersButton.setBackgroundResource(R.drawable.ic_launcher);}
         partnersButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,6 +115,16 @@ public class Profile extends AppCompatActivity {
             }
 
         });
+//        personalDetailsBtn = (Button) findViewById(R.id.edit_button);
+//        personalDetailsBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                personalDetails();
+//
+//            }
+//
+//        });
+
         eventButton = (Button)findViewById(R.id.action_bar_event);
         eventButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -342,6 +360,90 @@ public class Profile extends AppCompatActivity {
 
 
     }
+
+    private void setToggles(){
+
+        goals = currentUser.getGoals();
+
+        ToggleButton toggleGoal1 = (ToggleButton) findViewById(R.id.profile_run_marathon);
+        if(goals.contains("marathon"))
+            toggleGoal1.setChecked(true);
+        toggleGoal1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked)
+                    goals.add("marathon");
+                else
+                    goals.remove("marathon");
+            }
+        });
+
+        ToggleButton toggleGoal2 = (ToggleButton) findViewById(R.id.profile_stay_in_shape);
+        if(goals.contains("stay in shape"))
+            toggleGoal2.setChecked(true);
+        toggleGoal2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked)
+                    goals.add("stay in shape");
+                else
+                    goals.remove("stay in shape");
+            }
+        });
+        ToggleButton toggleGoal3 = (ToggleButton) findViewById(R.id.profile_run_half_marathon);
+        if(goals.contains("run half marathon"))
+            toggleGoal3.setChecked(true);
+        toggleGoal3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked)
+                    goals.add("run half marathon");
+                else
+                    goals.remove("run half marathon");
+            }
+        });
+
+        ToggleButton toggleGoal4 = (ToggleButton) findViewById(R.id.profile_run_5K);
+        if(goals.contains("run 5K"))
+            toggleGoal4.setChecked(true);
+        toggleGoal4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked)
+                    goals.add("run 5K");
+                else
+                    goals.remove("run 5K");
+
+            }
+        });
+
+        ToggleButton toggleGoal5 = (ToggleButton) findViewById(R.id.profile_run_for_fun);
+        if(goals.contains("run for fun"))
+            toggleGoal5.setChecked(true);
+        toggleGoal5.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked)
+                    goals.add("run for fun");
+                else
+                    goals.remove("run for fun");
+            }
+        });
+
+        ToggleButton toggleGoal6 = (ToggleButton) findViewById(R.id.profile_run_10K);
+        if(goals.contains("run 10K"))
+            toggleGoal6.setChecked(true);
+        toggleGoal6.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked)
+                    goals.add("run 10K");
+                else
+                    goals.remove("run 10K");
+
+            }
+        });
+
+        currentUser.setGoals(goals);
+        fireStoreDatabase.collection("users").document(currentUser.getEmail()).update("goals", goals);
+
+
+    }
+
 
 
     /**
