@@ -71,25 +71,11 @@
         <LinearLayout
             android:layout_width="350dp"
             android:layout_height="0px"
-            android:background="@drawable/register_border"
             android:gravity="center_vertical"
             android:layout_weight="2"
+
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/sign_up_main_activity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_toRightOf="@id/dont_have_account"
-                android:clickable="true"
-                android:gravity="bottom"
-                android:textSize="15sp"
-                android:paddingLeft="5dp"
-                android:paddingBottom="10dp"
-                android:text="@string/sign_up_string"
-                app:fontFamily="@font/nunito"
-                android:textColor="@color/pink" />
             <EditText
                 android:id="@+id/email"
                 android:layout_width="280dp"
@@ -164,6 +150,22 @@
             android:textSize="15sp"
             app:fontFamily="@font/nunito"
             android:text="Don't have an account?" />
+
+        <TextView
+            android:id="@+id/sign_up_main_activity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/dont_have_account"
+            android:clickable="true"
+            android:gravity="bottom"
+            android:paddingLeft="5dp"
+            android:paddingBottom="10dp"
+            android:text="@string/sign_up_string"
+            android:textColor="@color/pink"
+            android:textSize="15sp"
+            app:fontFamily="@font/nunito" />
+
 
 
 
