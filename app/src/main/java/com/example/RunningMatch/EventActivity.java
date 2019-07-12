@@ -97,9 +97,9 @@ public class EventActivity extends AppCompatActivity implements Serializable {
 
         partnersButton = (Button) findViewById(R.id.action_bar_matches);
         if (RunningMatchHomePage.showPartnerNotofication){
-            partnersButton.setBackgroundResource(R.drawable.group2);
+            partnersButton.setBackgroundResource(R.drawable.partner_notification_color);
         }
-        else{partnersButton.setBackgroundResource(R.drawable.ic_launcher);}
+        else{partnersButton.setBackgroundResource(R.drawable.partner_icon_color);}
         partnersButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

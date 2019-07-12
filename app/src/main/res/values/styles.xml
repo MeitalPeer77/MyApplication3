@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/darkBlue</item>
         <item name="colorPrimaryDark">@color/darkBlue</item>
         <item name="colorAccent">@color/red</item>
+        <item name="android:windowAnimationStyle">@null</item>
 
     </style>
     <!-- Customize your theme here. -->
@@ -25,6 +26,8 @@
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@null</item>
+
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
@@ -38,4 +41,10 @@
         <item name="android:colorControlHighlight" tools:targetApi="lollipop">@color/pink</item>
         <item name="android:colorButtonNormal" tools:targetApi="lollipop">@color/red</item>
     </style>
+
+    <style name="noAnimationStyle" parent="android:Theme">
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
+
 </resources>

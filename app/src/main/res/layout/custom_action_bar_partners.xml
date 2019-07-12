@@ -35,7 +35,7 @@
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_alignParentLeft="true"
-                android:background="@drawable/profile_icon_shadow"
+                android:background="@drawable/profile_icon_color"
                 android:clickable="true"
                 android:paddingLeft="50dp"
                 android:paddingRight="120dp" />
@@ -76,7 +76,7 @@
                 android:id="@+id/action_bar_matches"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:background="@drawable/partner_icon_color"
+                android:background="@drawable/partner_icon_shadow"
                 android:clickable="true" />
 
         </LinearLayout>
