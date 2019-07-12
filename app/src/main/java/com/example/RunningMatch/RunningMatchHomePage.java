@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -45,10 +46,10 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
 
                       // Cards Buttons //
     /* Match button for the current card of a potential running partner*/
-    private Button popupButton;
+    private ImageButton popupButton;
 
     /* Not for me button for the current card of a potential running partner*/
-    private Button not4meButton;
+    private ImageButton not4meButton;
 
     // card slide suggestions
     /* The view pager of the cards */
@@ -143,7 +144,7 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
             }
         });
 
-        not4meButton = (Button) findViewById(R.id.reject);
+        not4meButton = (ImageButton) findViewById(R.id.reject);
         not4meButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -158,7 +159,7 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
         });
 
 
-        popupButton = (Button)findViewById(R.id.lets_run);
+        popupButton = (ImageButton) findViewById(R.id.lets_run);
         popupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
