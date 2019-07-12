@@ -10,6 +10,7 @@
     android:weightSum="6"
     android:gravity = "center_vertical"
     android:background="@color/darkBlue"
+
     >
 
     <LinearLayout
@@ -100,10 +101,23 @@
                 android:layout_width="42dp"
                 android:layout_height="42dp"
                 android:background="@drawable/running_mach_icon_shadow"
-                android:clickable="true" />
+                android:clickable="true"
+
+                />
+
+
         </LinearLayout>
 
 
     </LinearLayout>
+
+    <ImageView
+        android:layout_marginLeft="-97dp"
+
+        android:layout_width="42dp"
+        android:layout_gravity="bottom"
+        android:layout_height="5dp"
+        android:background="@drawable/line" />
+
 
 </LinearLayout>

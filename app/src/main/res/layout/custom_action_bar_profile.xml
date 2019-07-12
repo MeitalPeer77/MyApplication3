@@ -105,5 +105,12 @@
 
 
     </LinearLayout>
+    <ImageView
+        android:layout_marginLeft="-397dp"
+
+        android:layout_width="42dp"
+        android:layout_gravity="bottom"
+        android:layout_height="5dp"
+        android:background="@drawable/line" />
 
 </LinearLayout>
