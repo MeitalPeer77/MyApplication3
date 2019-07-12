@@ -7,7 +7,7 @@
 
     <include
         android:id="@+id/include"
-        layout="@layout/custom_action_bar_partners"
+        layout="@layout/custom_action_bar_profile"
         />
 
     <LinearLayout
