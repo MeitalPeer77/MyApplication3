@@ -15,22 +15,28 @@
         layout="@layout/custom_action_bar_partners"
         app:layout_constraintVertical_chainStyle="packed" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/include"
+        android:background="@drawable/customborder">
+
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_below="@id/include">
 
-    <android.support.v7.widget.RecyclerView
-        android:paddingTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/recycler_view"
-        android:layout_gravity = "left"
-        android:layout_below="@+id/include"
-        >
-
-
-    </android.support.v7.widget.RecyclerView>
+        <android.support.v7.widget.RecyclerView
+            android:paddingTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/recycler_view"
+            android:layout_gravity = "left"
+            android:layout_below="@+id/include"
+            >
+        </android.support.v7.widget.RecyclerView>
     </ScrollView>
+    </LinearLayout>
+
 
 </RelativeLayout>

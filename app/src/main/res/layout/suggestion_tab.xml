@@ -20,6 +20,7 @@
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="0px"
+        android:padding="10dp"
         android:layout_weight="4"
         >
 
@@ -34,11 +35,14 @@
         android:orientation="horizontal">
 
         <ImageButton
+
             android:id="@+id/reject"
             android:layout_width="72dp"
             android:layout_height="72dp"
             android:layout_gravity="center"
-            android:background="@drawable/stam"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:background="@drawable/stam_2"
 
 
             />
@@ -50,13 +54,13 @@
              />
 
 
-        <Button
+        <ImageButton
             android:id="@+id/lets_run"
             android:layout_width="72dp"
             android:layout_height="72dp"
             android:layout_gravity="center"
 
-            android:background="@drawable/button_lets_run"
+            android:background="@drawable/stam"
 
             />
     </LinearLayout>

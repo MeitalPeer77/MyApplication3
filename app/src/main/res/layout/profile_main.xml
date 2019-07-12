@@ -1,103 +1,519 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    tools:context=".Profile">
-
+    android:orientation="vertical">
 
     <include
         android:id="@+id/include"
-        layout="@layout/custom_action_bar_profile"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        app:layout_constraintTop_toBottomOf="parent"
+        layout="@layout/custom_action_bar_partners"
         />
 
     <LinearLayout
-        android:paddingTop="150dp"
-        android:id="@+id/profile_header"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_below="@id/include"
+        android:padding="5dp">
 
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:id="@+id/profile_image"
-            android:src="@drawable/amircagan"
-            android:gravity = "center_vertical"
-            android:padding="10dp"
-            />
+        <View
+            android:id="@+id/divider_6"
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:padding="15dp"
-            android:text="Amir Cagan"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textColor="@color/darkBlue"
-            android:textSize="26sp"
-            app:fontFamily="@font/nunito" />
 
-        <TextView
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:padding="15dp"
-            android:text="I enjoy long runs on the beach at sunset. Also I'm single."
-            android:textAlignment="center"
-            android:textColor="@color/darkBlue"
-            android:textSize="15sp"
-            app:fontFamily="@font/nunito" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:background="@drawable/register_border"
+                >
+
+                <ScrollView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                <View
+                    android:id="@+id/divider_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp" />
+
+                <TextView
+                    android:id="@+id/sign_out"
+                    android:clickable="true"
+                    android:text="sign out"
+                    android:textSize="15sp"
+                    android:paddingRight="15sp"
+                    android:textAllCaps="true"
+
+                    android:layout_gravity="right"
+
+                    android:textColor="@color/pink"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    />
+
+
+                        <EditText
+                            android:id="@+id/profile_username"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@android:color/transparent"
+                            android:inputType="textEmailAddress"
+                            android:text="user name"
+                            android:textColor="@color/darkBlue"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                             />
+
+                        <View
+                    android:id="@+id/divider_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_picture_upload"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:clickable="true"
+                    android:src="@drawable/com_facebook_profile_picture_blank_portrait" />
+
+                <View
+                    android:id="@+id/divider_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp" />
+
+
+                        <EditText
+                    android:id="@+id/profile_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="email"
+                    android:textColor="@color/darkBlue"
+
+                    android:background="@android:color/transparent"
+                    android:inputType="textEmailAddress"
+                    android:textSize="15dp" />
+
+
+                <EditText
+                    android:id="@+id/profile_phone_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="phone number"
+                    android:inputType="number"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/darkBlue"
+                    android:textSize="15dp" />
+                <View
+                    android:id="@+id/divider_7"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp" />
+
+                <RadioGroup
+                    android:id="@+id/profile_gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:layout_below="@id/running_profile"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="I am : "
+                        android:textSize="15sp" />
+
+                    <RadioButton
+                        android:id="@+id/profile_male"
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:layout_alignTop="@+id/radioGroup"
+                        android:layout_weight="1"
+                        android:text="Male"
+                        android:textColor="@color/darkBlue"
+                        android:textSize="15sp"
+                        app:fontFamily="@font/nunito" />
+
+                    <RadioButton
+                        android:id="@+id/profile_female"
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:layout_weight="1"
+                        android:text="Female"
+                        android:textColor="@color/darkBlue"
+                        android:textSize="15sp"
+                        app:fontFamily="@font/nunito" />
+                    <RadioButton
+                        android:id="@+id/profile_other"
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:layout_weight="1"
+                        android:text="other"
+                        android:textColor="@color/darkBlue"
+                        android:textSize="15sp"
+                        app:fontFamily="@font/nunito" />
+
+
+
+                </RadioGroup>
+
+                <View
+                    android:id="@+id/divider3"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Current pace: "
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/darkBlue"
+                    android:textSize="15sp"
+                    android:textAllCaps="true"
+                    app:fontFamily="@font/nunito" />
+
+                <View
+                    android:id="@+id/divider2"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <NumberPicker
+                        android:id="@+id/profile_km"
+                        android:layout_width="wrap_content"
+                        android:layout_height="100dp"
+                        android:orientation="horizontal"
+                        app:fontFamily="@font/nunito" />
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="  km in  " />
+
+                    <NumberPicker
+                        android:id="@+id/profile_min"
+                        android:layout_width="wrap_content"
+                        android:layout_height="100dp">
+
+                    </NumberPicker>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="minutes" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    >
+
+                    <View
+                        android:id="@+id/divider5"
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAllCaps="true"
+
+                        android:text="time of day i like runing" />
+
+                    <View
+                        android:id="@+id/divider6"
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <CheckBox
+                            android:id="@+id/profile_morning"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/darkBlue"
+                            android:textSize="15sp"
+                            android:text="morning" />
+
+                        <CheckBox
+                            android:id="@+id/profile_noon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/darkBlue"
+                            android:textSize="15sp"
+                            android:text="noon" />
+
+                        <CheckBox
+                            android:id="@+id/profile_evening"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/darkBlue"
+                            android:textSize="15sp"
+
+                            android:text="evening" />
+
+                        <CheckBox
+                            android:id="@+id/profile_anytime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/darkBlue"
+                            android:textSize="15sp"
+
+                            android:text="any time!" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/divider9"
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp" />
+
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/divider22"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                    <View
+                        android:id="@+id/divider10"
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAllCaps="true"
+                        android:text="Goals" />
+
+                    <View
+                        android:id="@+id/divider21"
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp" />
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ToggleButton
+                                android:id="@+id/profile_stay_in_shape"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/toggleselector"
+                                android:checked="false"
+                                android:textOff="stay in shape"
+                                android:textOn="stay in shape"
+                                android:textSize="10sp" />
+                            <View
+                                android:layout_width="15dp"
+                                android:layout_height="10dp"
+                                />
+
+
+                            <ToggleButton
+
+                                android:id="@+id/profile_run_for_fun"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/toggleselector"
+                                android:checked="false"
+                                android:padding="5dp"
+                                android:textOff="run for fun"
+                                android:textOn="run for fun"
+                                android:textSize="10sp" />
+                            <View
+                                android:layout_width="15dp"
+                                android:layout_height="10dp"
+                                />
+
+                            <ToggleButton
+                                android:id="@+id/profile_run_half_marathon"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginLeft="0dp"
+                                android:background="@drawable/toggleselector"
+                                android:checked="false"
+                                android:padding="5dp"
+                                android:textOff="half marathon"
+                                android:textOn="half marathon"
+                                android:textSize="10sp" />
+
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="10dp"
+                            />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <View
+                                android:layout_width="10dp"
+                                android:layout_height="10dp"
+                                />
+
+                            <ToggleButton
+                                android:id="@+id/profile_run_10K"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/toggleselector"
+                                android:checked="false"
+                                android:textOff="10 Km."
+                                android:textOn="10 km."
+                                android:textSize="10sp"
+                                app:layout_column="6"
+                                app:layout_row="0" />
+                            <View
+                                android:layout_width="10dp"
+                                android:layout_height="10dp"
+                                />
+
+
+
+                            <ToggleButton
+                                android:id="@+id/profile_run_marathon"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/toggleselector"
+                                android:checked="false"
+                                android:textOff="marathon"
+                                android:textOn="marathon"
+                                android:textSize="10dp" />
+                            <View
+                                android:layout_width="10dp"
+                                android:layout_height="10dp"
+                                />
+
+
+
+                            <ToggleButton
+                                android:id="@+id/profile_run_5K"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/toggleselector"
+                                android:checked="false"
+                                android:padding="5dp"
+                                android:textOff="5 Km."
+                                android:textOn="5 km."
+                                android:textSize="10sp" />
+                            <View
+                                android:layout_width="10dp"
+                                android:layout_height="10dp"
+                                />
+
+
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+                    <View
+                        android:id="@+id/divider11"
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp" />
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/divider23"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:textAllCaps="true"
+                        android:layout_marginRight="8dp"
+                        android:text="your favorite motivation quote"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/profile_description"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/textView17"
+                        android:ems="10"
+
+                        android:gravity="start|top"
+                        android:hint=""
+                        android:inputType="textMultiLine"
+                        android:textSize="15sp" />
+
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/divider24"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp" />
+
+                    </LinearLayout>
+                </ScrollView>
+
+
+            </LinearLayout>
 
 
     </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_below="@id/profile_header"
-        android:paddingTop="50dp"
-        android:paddingBottom="50dp"
-        android:paddingLeft="100dp"
-        android:paddingRight="100dp"
-        >
-
-        <Button
-            android:id="@+id/edit_button"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_alignParentLeft="true"
-            android:background="@drawable/pencil"
-            />
-
-        <Button
-            android:id="@+id/btnSetting"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/settings"
-            android:onClick="btnSetting_onClick" />
-
-        <Button
-            android:id="@+id/sign_out"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_below="@id/btnSetting"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="64dp"
-            android:text = "sign out"
-            android:shadowColor="@color/pink"
-            android:textColor="@color/pink"/>
-
-    </RelativeLayout>
-
 </RelativeLayout>

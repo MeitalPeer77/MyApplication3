@@ -46,7 +46,7 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
 
                       // Cards Buttons //
     /* Match button for the current card of a potential running partner*/
-    private Button popupButton;
+    private ImageButton popupButton;
 
     /* Not for me button for the current card of a potential running partner*/
     private ImageButton not4meButton;
@@ -159,7 +159,7 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
         });
 
 
-        popupButton = (Button)findViewById(R.id.lets_run);
+        popupButton = (ImageButton) findViewById(R.id.lets_run);
         popupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
