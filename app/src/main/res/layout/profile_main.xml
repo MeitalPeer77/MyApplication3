@@ -25,21 +25,22 @@
 
 
 
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-
-
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
                 android:gravity="center"
                 android:background="@drawable/register_border"
                 >
+
+                <ScrollView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
 
                 <View
                     android:id="@+id/divider_2"
@@ -51,8 +52,9 @@
                     android:clickable="true"
                     android:text="sign out"
                     android:textSize="15sp"
-                    android:paddingRight="5dp"
+                    android:paddingRight="15sp"
                     android:textAllCaps="true"
+
                     android:layout_gravity="right"
 
                     android:textColor="@color/pink"
@@ -60,27 +62,30 @@
                     android:layout_height="30dp"
                     />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/darkBlue"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
 
-                    android:text="personal information"/>
+                        <EditText
+                            android:id="@+id/profile_username"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@android:color/transparent"
+                            android:inputType="textEmailAddress"
+                            android:text="user name"
+                            android:textColor="@color/darkBlue"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                             />
 
-
-                <View
+                        <View
                     android:id="@+id/divider_3"
                     android:layout_width="match_parent"
                     android:layout_height="30dp" />
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/profile_pucture_upload"
+                    android:id="@+id/profile_picture_upload"
                     android:layout_width="110dp"
                     android:layout_height="110dp"
                     android:clickable="true"
-                    android:layout_alignParentRight="true"
                     android:src="@drawable/com_facebook_profile_picture_blank_portrait" />
 
                 <View
@@ -89,19 +94,7 @@
                     android:layout_height="30dp" />
 
 
-                <EditText
-                    android:id="@+id/profile_username"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:textColor="@color/darkBlue"
-                    android:text="user name"
-                    android:background="@android:color/transparent"
-                    android:inputType="textEmailAddress"
-                    android:textSize="20dp" />
-
-
-                <EditText
+                        <EditText
                     android:id="@+id/profile_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -496,7 +489,7 @@
                         android:textSize="16sp" />
 
                     <EditText
-                        android:id="@+id/editText5"
+                        android:id="@+id/profile_description"
                         android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/textView17"
@@ -515,12 +508,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="20dp" />
 
-
+                    </LinearLayout>
+                </ScrollView>
 
 
             </LinearLayout>
 
-        </ScrollView>
 
     </LinearLayout>
 </RelativeLayout>

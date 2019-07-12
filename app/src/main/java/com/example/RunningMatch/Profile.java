@@ -11,11 +11,13 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.NumberPicker;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -60,6 +62,8 @@ public class Profile extends AppCompatActivity {
     private EditText userName;
     private EditText email;
     private EditText phoneNumber;
+    private EditText description;
+
     private ArrayList<String> times;
     ArrayList<String> goals;
 
@@ -132,12 +136,15 @@ public class Profile extends AppCompatActivity {
                 event();
             }
         });
+        ImageView profilePicture = (ImageView) findViewById(R.id.profile_picture_upload);
+        Glide.with(this).load(RunningMatchHomePage.currentUser.getProfilePic()).into(profilePicture);
+
 
         setNumberPickers();
         setRadioButton();
         setTexts();
         setCheckBox();
-
+        setToggles();
     }
 
     private void setTexts(){
@@ -195,6 +202,25 @@ public class Profile extends AppCompatActivity {
             public void afterTextChanged(Editable s) { }
 
         });
+
+        description = findViewById(R.id.profile_description);
+        description.setText(currentUser.getUserDescription());
+        description.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String newDes = description.getText().toString();
+                currentUser.setUserDescription(newDes);
+                fireStoreDatabase.collection("users").document(currentUser.getEmail()).update("userDescription", newDes);
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) { }
+
+        });
+
 
 
 
