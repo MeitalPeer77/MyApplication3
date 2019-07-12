@@ -33,12 +33,12 @@
         android:padding="10dp"
         android:orientation="horizontal">
 
-        <Button
+        <ImageButton
             android:id="@+id/reject"
             android:layout_width="72dp"
             android:layout_height="72dp"
             android:layout_gravity="center"
-            android:background="@drawable/button_not4me"
+            android:background="@drawable/stam"
 
 
             />
