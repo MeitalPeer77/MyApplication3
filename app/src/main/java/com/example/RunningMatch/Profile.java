@@ -513,6 +513,9 @@ public class Profile extends AppCompatActivity {
         // Create an Intent to start the activity
         Intent partnersIntent = new Intent(this, PartnersList.class);
 
+        partnersIntent.putExtra("user", currentUser);
+        partnersIntent.putExtra("usersMap", RunningMatchHomePage.usersMap);
+        partnersIntent.putExtra("userMatches", currentUser.getMatches());
         // Start the new activity.
         startActivity(partnersIntent);
 

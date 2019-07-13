@@ -27,7 +27,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
         ArrayList<String> urls = new ArrayList<>();
         for (String event : events) {
             switch (event) {
-                case "Golan race":
+                case "Golan Race":
                     urls.add("http://www.winning.co.il/events/2019/golan/header.png");
                     break;
                 case "Night Run":
@@ -81,7 +81,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
 
     @Override
     public int getItemCount() {
-        return events.size();
+        return events.size()-1;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

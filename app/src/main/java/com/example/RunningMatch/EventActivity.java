@@ -85,6 +85,10 @@ public class EventActivity extends AppCompatActivity implements Serializable {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_acticity);
 
+        currentUser = RunningMatchHomePage.currentUser;
+        currentUserMatches =(ArrayList<String>) getIntent().getSerializableExtra("userMatches");
+        usersMap = (HashMap<String, User>) getIntent().getSerializableExtra("usersMap");
+
         homePageButton = (Button) findViewById(R.id.action_bar_homepage);
         homePageButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,10 +120,6 @@ public class EventActivity extends AppCompatActivity implements Serializable {
                 profile();
             }
         });
-
-        currentUser = RunningMatchHomePage.currentUser;
-        currentUserMatches =(ArrayList<String>) getIntent().getSerializableExtra("userMatches");
-        usersMap = (HashMap<String, User>) getIntent().getSerializableExtra("usersMap");
 
         joinButton = (Button) findViewById(R.id.join);
 
@@ -182,7 +182,6 @@ public class EventActivity extends AppCompatActivity implements Serializable {
                 }
             }
         }
-
 
 
     /**
@@ -284,6 +283,9 @@ public class EventActivity extends AppCompatActivity implements Serializable {
     public void partners() {
         // Create an Intent to start the second activity
         Intent partnersIntent = new Intent(this, PartnersList.class);
+        partnersIntent.putExtra("user", currentUser);
+        partnersIntent.putExtra("usersMap", usersMap);
+        partnersIntent.putExtra("userMatches", currentUser.getMatches());
         // Start the new activity.
         startActivity(partnersIntent);
     }

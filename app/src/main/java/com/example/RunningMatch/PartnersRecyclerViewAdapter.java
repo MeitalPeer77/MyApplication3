@@ -32,6 +32,8 @@ public class PartnersRecyclerViewAdapter extends RecyclerView.Adapter<PartnersRe
 
     private ArrayList<String> mInfo = new ArrayList<>();
 
+    private ArrayList<String> mEmails = new ArrayList<>();
+
     /* The paces of the partners */
     private ArrayList<String> mPace = new ArrayList<>();
 
@@ -57,7 +59,7 @@ public class PartnersRecyclerViewAdapter extends RecyclerView.Adapter<PartnersRe
      * @param mDistance
      * @param mPace
      */
-    public PartnersRecyclerViewAdapter(Context mContext, ArrayList<String> mImageNames, ArrayList<String> mImages, ArrayList<String> mLocation, ArrayList<String> mInfo,ArrayList<String> mDistance, ArrayList<String> mPace, ArrayList<ArrayList<String>> mGoals, ArrayList<ArrayList<String>> mEvents, ArrayList<String> mphones) {
+    public PartnersRecyclerViewAdapter(Context mContext, ArrayList<String> mImageNames, ArrayList<String> mImages, ArrayList<String> mLocation, ArrayList<String> mInfo,ArrayList<String> mDistance, ArrayList<String> mPace, ArrayList<ArrayList<String>> mGoals, ArrayList<ArrayList<String>> mEvents, ArrayList<String> mphones, ArrayList<String> memails) {
         this.mImageNames = mImageNames;
         this.mImages = mImages;
         this.mContext = mContext;
@@ -68,6 +70,7 @@ public class PartnersRecyclerViewAdapter extends RecyclerView.Adapter<PartnersRe
         this.mEvents = mEvents;
         this.mInfo = mInfo;
         this.mPhones = mphones;
+        this.mEmails = memails;
     }
 
     /**
@@ -114,6 +117,7 @@ public class PartnersRecyclerViewAdapter extends RecyclerView.Adapter<PartnersRe
                 intent.putExtra("events", mEvents.get(position));
                 intent.putExtra("phone", mPhones.get(position));
                 intent.putExtra("info", mInfo.get(position));
+                intent.putExtra("email", mEmails.get(position));
 
                 mContext.startActivity(intent);
             }

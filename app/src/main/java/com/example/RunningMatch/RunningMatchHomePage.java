@@ -62,7 +62,7 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
     private ArrayList<User> usersArray= new ArrayList<User>();
 
     /* All the suggestions for the current user*/
-    private HashMap<String, User> usersMap = new HashMap<String, User>();
+    static HashMap<String, User> usersMap = new HashMap<String, User>();
 
     private String matches="matches";
     private Context context;
@@ -99,7 +99,6 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.suggestion_tab);
 
-
         mAuth = FirebaseAuth.getInstance();
         fireStoreDatabase = FirebaseFirestore.getInstance();
 
@@ -110,8 +109,6 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
         context = this;
 
         getUsers();
-
-
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
 
@@ -174,7 +171,6 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
                 currentUser.setMyLikesArray(myLikes);
                 fireStoreDatabase.collection("users").document(currentUserEmail).update("myLikesArray", myLikes);
 
-
                 ArrayList<String> otherUserLikesArray = user.getMyLikesArray();
                     if (otherUserLikesArray != null) {
 
@@ -197,7 +193,7 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
                         fireStoreDatabase.collection("users").document(currentUserEmail).update("matches", myMatches);
                         currentUser.setMatches(myMatches);
 
-                        matchButton.setBackgroundResource(R.drawable.group2);
+                        matchButton.setBackgroundResource(R.drawable.partner_notofication_shadow);
 
                         //pop up
                         Intent popup = new Intent(RunningMatchHomePage.this, MatchingPopUP.class);
@@ -209,15 +205,9 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
                     }
                 }
 
-
                 String phone = user.getPhoneNumber();
-
-
                 getUsers();
-
-
             }
-
                 });
     }
 

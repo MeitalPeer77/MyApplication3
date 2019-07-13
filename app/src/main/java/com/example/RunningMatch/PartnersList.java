@@ -56,6 +56,9 @@ public class PartnersList extends AppCompatActivity implements Serializable {
 
     private ArrayList<String> mPhones = new ArrayList<>();
 
+
+    private ArrayList<String> mEmails = new ArrayList<>();
+
     private ArrayList<ArrayList<String>> mGoals = new ArrayList<>();
 
     private ArrayList<ArrayList<String>> mEvents = new ArrayList<>();
@@ -96,11 +99,15 @@ public class PartnersList extends AppCompatActivity implements Serializable {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (RunningMatchHomePage.showPartnerNotofication == true) {
+        if (RunningMatchHomePage.showPartnerNotofication) {
             RunningMatchHomePage.showPartnerNotofication = false;
         }
         setContentView(R.layout.group_tab);
 
+
+        //TODO: make it pink
+        matchButton = (Button) findViewById(R.id.action_bar_matches);
+        matchButton.setBackgroundResource(R.drawable.partner_icon_color);
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -111,7 +118,7 @@ public class PartnersList extends AppCompatActivity implements Serializable {
         User s = RunningMatchHomePage.currentUser;
         currentUser =(User) getIntent().getSerializableExtra("user");
         currentUserMatches =(ArrayList<String>) getIntent().getSerializableExtra("userMatches");
-        usersMap = (HashMap<String, User>) getIntent().getSerializableExtra("usersMap");
+        usersMap = RunningMatchHomePage.usersMap;
 
 
         currentUserEmail = mAuth.getCurrentUser().getEmail();
@@ -153,42 +160,6 @@ public class PartnersList extends AppCompatActivity implements Serializable {
      * Add the images of he matched partners
      */
     private void initImageBitMap(){
-        //Todo: add from firebase, do it in a loop
-//        //mImageUrls.add("https://firebasestorage.googleapis.com/v0/b/runningmatch-f9e90.appspot.com/o/Photos%2F6433?alt=media&token=2deb2ceb-13bc-4d0b-8969-5640ea8530af");
-//        mImageUrls.add("https://scontent.ftlv6-1.fna.fbcdn.net/v/t1.0-9/10570528_663942363682968_3472551542158599282_n.jpg?_nc_cat=108&_nc_ht=scontent.ftlv6-1.fna&oh=4b5e98824fb8295aad9b55de97be83be&oe=5D6910B9");
-//        mNames.add("Nathaniel Tavisal");
-//        mDistance.add("5");
-//        mPace.add("35");
-//        mLocations.add("0.7");
-//
-//
-//        mImageUrls.add("https://scontent.ftlv6-1.fna.fbcdn.net/v/t1.0-9/314570_2286081785515_743884461_n.jpg?_nc_cat=108&_nc_ht=scontent.ftlv6-1.fna&oh=72538202dcbfa0c5da9f3f8aeb3b8435&oe=5D75FC76");
-//        mNames.add("Meital Peer");
-//        mDistance.add("5");
-//        mPace.add("30");
-//        mLocations.add("1.3");
-//
-//        mImageUrls.add("https://scontent.ftlv6-1.fna.fbcdn.net/v/t31.0-8/21122579_1833916359957237_6719538012298659073_o.jpg?_nc_cat=109&_nc_ht=scontent.ftlv6-1.fna&oh=b0fd68b0be099e148062a31a3d20a348&oe=5D2AC9E7");
-//        mNames.add("Shira Weitman");
-//        mDistance.add("6");
-//        mPace.add("35");
-//        mLocations.add("1.8");
-//
-//
-//        mImageUrls.add("https://scontent.ftlv6-1.fna.fbcdn.net/v/t1.0-9/559079_10151809848077388_1166275349_n.jpg?_nc_cat=102&_nc_ht=scontent.ftlv6-1.fna&oh=7aade7d7463f3d5ed16c32c2f30562ef&oe=5D326041");
-//        mNames.add("Michal Gordon");
-//        mDistance.add("4");
-//        mPace.add("25");
-//        mLocations.add("1.7");
-//
-//
-//        mImageUrls.add("https://scontent.ftlv6-1.fna.fbcdn.net/v/t1.0-9/10898096_10152956054335912_5153974417356391101_n.jpg?_nc_cat=109&_nc_ht=scontent.ftlv6-1.fna&oh=f131a44166cc0a4d57b4737366da0a16&oe=5D6512E9");
-//        mNames.add("Liav Alter");
-//        mDistance.add("4");
-//        mPace.add("25");
-//        mLocations.add("1.9");
-//
-
         setUserMatches();
         initRecycleView();
     }
@@ -211,6 +182,7 @@ public class PartnersList extends AppCompatActivity implements Serializable {
                     mEvents.add(cur.getEvents());
                     mInfo.add(cur.getUserDescription());
                     mPhones.add(cur.getPhoneNumber());
+                    mEmails.add(cur.getEmail());
 
                 }
             }
@@ -223,7 +195,7 @@ public class PartnersList extends AppCompatActivity implements Serializable {
      */
     private void initRecycleView(){
         RecyclerView recycleView = findViewById(R.id.recycler_view);
-        PartnersRecyclerViewAdapter adapter = new PartnersRecyclerViewAdapter(this, mNames, mImageUrls, mLocations, mDistance, mInfo, mPace, mGoals, mEvents, mPhones);
+        PartnersRecyclerViewAdapter adapter = new PartnersRecyclerViewAdapter(this, mNames, mImageUrls, mLocations, mDistance, mInfo, mPace, mGoals, mEvents, mPhones,mEmails);
         recycleView.setAdapter(adapter);
         recycleView.setLayoutManager(new LinearLayoutManager(this));
     }
@@ -262,9 +234,6 @@ public class PartnersList extends AppCompatActivity implements Serializable {
         // Start the new activity.
         startActivity(eventIntent);
     }
-
-    //Todo: use it to get the past matches!
-
 
 }
 
