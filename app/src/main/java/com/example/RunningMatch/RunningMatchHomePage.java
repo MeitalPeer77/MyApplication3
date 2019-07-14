@@ -121,7 +121,7 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
             }
         });
 
-        matchButton = (Button) findViewById(R.id.action_bar_matches_1);
+        matchButton = (Button) findViewById(R.id.action_bar_partners_1);
         if (RunningMatchHomePage.showPartnerNotofication){
             matchButton.setBackgroundResource(R.drawable.partner_notofication_shadow);
         }
@@ -133,7 +133,7 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
             }
         });
 
-        eventButton = (Button)findViewById(R.id.action_bar_event_1);
+        eventButton = (Button)findViewById(R.id.action_bar_events_1);
         eventButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
