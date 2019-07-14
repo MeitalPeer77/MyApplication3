@@ -58,7 +58,10 @@
 
 
         <activity android:name=".Profile" />
-        <activity android:name=".MatchNotInAppPopUp" />
+
+        <activity
+            android:name=".MatchNotInAppPopUp"
+            android:theme="@style/PopUp"/>
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
