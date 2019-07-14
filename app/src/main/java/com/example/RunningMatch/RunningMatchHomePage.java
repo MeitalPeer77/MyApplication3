@@ -113,7 +113,7 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
         viewPager = (ViewPager) findViewById(R.id.viewpager);
 
 
-        profileButton = (Button) findViewById(R.id.action_bar_profile);
+        profileButton = (Button) findViewById(R.id.action_bar_profile_1);
         profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -121,7 +121,7 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
             }
         });
 
-        matchButton = (Button) findViewById(R.id.action_bar_matches);
+        matchButton = (Button) findViewById(R.id.action_bar_matches_1);
         if (RunningMatchHomePage.showPartnerNotofication){
             matchButton.setBackgroundResource(R.drawable.partner_notofication_shadow);
         }
@@ -133,7 +133,7 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
             }
         });
 
-        eventButton = (Button)findViewById(R.id.action_bar_event);
+        eventButton = (Button)findViewById(R.id.action_bar_event_1);
         eventButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

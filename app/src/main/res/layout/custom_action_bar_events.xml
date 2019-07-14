@@ -27,7 +27,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/action_bar_profile"
+                android:id="@+id/action_bar_profile_3"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_gravity="center_vertical|center_horizontal"
@@ -55,7 +55,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/actio_bar_events"
+                android:id="@+id/actio_bar_events_3"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_gravity="center_vertical|center_horizontal"
@@ -82,13 +82,12 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/actio_bar_partners"
+                android:id="@+id/action_bar_partners_3"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:background="@drawable/partner_icon_color"
-                android:clickable="true"
-                />
+                android:clickable="true" />
             <View
                 android:layout_width="match_parent"
                 android:layout_height="5dp"/>
@@ -115,7 +114,7 @@
                 android:layout_height="10dp" />
 
             <Button
-                android:id="@+id/action_bar_homepage"
+                android:id="@+id/action_bar_homepage_3"
                 android:layout_width="42dp"
                 android:layout_height="42dp"
                 android:background="@drawable/logo2"

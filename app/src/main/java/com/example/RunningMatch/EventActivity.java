@@ -89,7 +89,7 @@ public class EventActivity extends AppCompatActivity implements Serializable {
         currentUserMatches =(ArrayList<String>) getIntent().getSerializableExtra("userMatches");
         usersMap = (HashMap<String, User>) getIntent().getSerializableExtra("usersMap");
 
-        homePageButton = (Button) findViewById(R.id.action_bar_homepage);
+        homePageButton = (Button) findViewById(R.id.action_bar_homepage_3);
         homePageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,7 +99,7 @@ public class EventActivity extends AppCompatActivity implements Serializable {
 
         });
 
-        partnersButton = (Button) findViewById(R.id.action_bar_matches);
+        partnersButton = (Button) findViewById(R.id.action_bar_partners_3);
         if (RunningMatchHomePage.showPartnerNotofication){
             partnersButton.setBackgroundResource(R.drawable.partner_notification_color);
         }
@@ -113,7 +113,7 @@ public class EventActivity extends AppCompatActivity implements Serializable {
 
         });
 
-        profileButton = (Button) findViewById(R.id.action_bar_profile);
+        profileButton = (Button) findViewById(R.id.action_bar_profile_3);
         profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -106,7 +106,7 @@ public class PartnersList extends AppCompatActivity implements Serializable {
 
 
         //TODO: make it pink
-        matchButton = (Button) findViewById(R.id.action_bar_matches);
+        matchButton = (Button) findViewById(R.id.action_bar_partners_2);
         matchButton.setBackgroundResource(R.drawable.partner_icon_color);
 
 
@@ -128,7 +128,7 @@ public class PartnersList extends AppCompatActivity implements Serializable {
 //        getMatches();
         initImageBitMap();
 
-        eventButton = (Button)findViewById(R.id.action_bar_event);
+        eventButton = (Button)findViewById(R.id.actio_bar_events_2);
         eventButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -136,7 +136,7 @@ public class PartnersList extends AppCompatActivity implements Serializable {
             }
         });
 
-        matchButton = (Button) findViewById(R.id.action_bar_homepage);
+        matchButton = (Button) findViewById(R.id.action_bar_homepage_2);
         matchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -146,7 +146,7 @@ public class PartnersList extends AppCompatActivity implements Serializable {
 
         });
 
-        profileButton = (Button) findViewById(R.id.action_bar_profile);
+        profileButton = (Button) findViewById(R.id.action_bar_profile_2);
         profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
