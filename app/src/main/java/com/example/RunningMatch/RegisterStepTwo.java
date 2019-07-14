@@ -173,7 +173,7 @@ public class RegisterStepTwo extends AppCompatActivity {
         email = extras.getString("email");
         phone = extras.getString("phoneNumber");
         name = extras.getString("userName");
-        gender = extras.getString("userName");
+        gender = extras.getString("gender");
 
 
 

@@ -215,7 +215,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical"
             android:padding="5dp">
@@ -223,8 +223,7 @@
             <TextView
                 android:id="@+id/teezer"
                 android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:padding="10dp"
+                android:layout_height="wrap_content"
                 android:text="OMG! you are both going to the TLV marathon!"
                 android:textAlignment="center"
                 android:textAllCaps="true"

@@ -375,7 +375,7 @@
                 android:layout_marginEnd="8dp"
                 android:textAllCaps="true"
                 android:layout_marginRight="8dp"
-                android:text="your favorite motivation quote:"
+                android:text="your favorite motivational quote:"
                 android:textSize="16sp" />
 
             <EditText

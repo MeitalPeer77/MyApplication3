@@ -112,7 +112,7 @@
                 android:layout_height="30dp" />
 
             <RadioGroup
-                android:id="@+id/radioGroup"
+                android:id="@+id/register_step_1_radio_group"
                 android:layout_width="wrap_content"
                 android:layout_height="70dp"
                 android:layout_gravity="center"
@@ -126,7 +126,7 @@
                     android:textSize="15sp" />
 
                 <RadioButton
-                    android:id="@+id/radioButton"
+                    android:id="@+id/register_male"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
                     android:layout_alignTop="@+id/radioGroup"
@@ -137,7 +137,7 @@
                     app:fontFamily="@font/nunito" />
 
                 <RadioButton
-                    android:id="@+id/radioButton2"
+                    android:id="@+id/register_female"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
                     android:layout_weight="1"
@@ -146,7 +146,7 @@
                     android:textSize="15sp"
                     app:fontFamily="@font/nunito" />
                 <RadioButton
-                    android:id="@+id/radioButton3"
+                    android:id="@+id/register_other"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
                     android:layout_weight="1"

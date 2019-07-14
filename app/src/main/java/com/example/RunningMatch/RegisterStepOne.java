@@ -60,21 +60,21 @@ public class RegisterStepOne extends AppCompatActivity {
         mPhoneNumber = (EditText) findViewById(R.id.phonenumber);
         mUserName = (EditText) findViewById(R.id.username);
 
-        RadioGroup rg = (RadioGroup) findViewById(R.id.radioGroup);
+        RadioGroup rg = (RadioGroup) findViewById(R.id.register_step_1_radio_group);
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
         {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch(checkedId){
-                    case R.id.radioButton:
+                    case R.id.register_male:
                         gender = "male";
                         // do operations specific to this selection
                         break;
-                    case R.id.radioButton2:
+                    case R.id.register_female:
                         gender = "female";
                         // do operations specific to this selection
                         break;
 
-                    case R.id.radioButton3:
+                    case R.id.register_other:
                         gender = "other";
                         // do operations specific to this selection
                         break;
