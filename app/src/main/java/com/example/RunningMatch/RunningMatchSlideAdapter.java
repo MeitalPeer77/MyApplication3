@@ -127,9 +127,9 @@ public class RunningMatchSlideAdapter extends PagerAdapter {
 
         String usersG = users.get(position).getGender();
         if(usersG.equals("female"))
-            gender.setText("  (F)");
+            gender.setText("female");
         if(usersG.equals("male"))
-            gender.setText("  (M)");
+            gender.setText("male");
 
 
         if(isStarPartner(position)){
