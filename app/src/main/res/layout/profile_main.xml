@@ -193,7 +193,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="60dp"
                         android:layout_weight="1"
-                        android:text="other"
+                        android:text="Other"
                         android:textColor="@color/darkBlue"
                         android:textSize="15sp"
                         app:fontFamily="@font/nunito" />
@@ -240,7 +240,7 @@
                         android:id="@+id/textView4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="  km in  " />
+                        android:text="  KM in  " />
 
                     <NumberPicker
                         android:id="@+id/profile_min"
@@ -252,7 +252,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="minutes" />
+                        android:text="Minutes" />
 
                 </LinearLayout>
 
@@ -293,7 +293,7 @@
                             android:layout_height="wrap_content"
                             android:textColor="@color/darkBlue"
                             android:textSize="15sp"
-                            android:text="morning" />
+                            android:text="Morning" />
 
                         <CheckBox
                             android:id="@+id/profile_noon"
@@ -301,7 +301,7 @@
                             android:layout_height="wrap_content"
                             android:textColor="@color/darkBlue"
                             android:textSize="15sp"
-                            android:text="noon" />
+                            android:text="Noon" />
 
                         <CheckBox
                             android:id="@+id/profile_evening"
@@ -310,7 +310,7 @@
                             android:textColor="@color/darkBlue"
                             android:textSize="15sp"
 
-                            android:text="evening" />
+                            android:text="Evening" />
 
                         <CheckBox
                             android:id="@+id/profile_anytime"
@@ -319,7 +319,7 @@
                             android:textColor="@color/darkBlue"
                             android:textSize="15sp"
 
-                            android:text="any time!" />
+                            android:text="Anytime!" />
 
                     </LinearLayout>
 
@@ -439,8 +439,8 @@
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/toggleselector"
                                 android:checked="false"
-                                android:textOff="10 Km."
-                                android:textOn="10 km."
+                                android:textOff="10 KM"
+                                android:textOn="10 KM"
                                 android:textSize="10sp"
                                 app:layout_column="6"
                                 app:layout_row="0" />
@@ -474,8 +474,8 @@
                                 android:background="@drawable/toggleselector"
                                 android:checked="false"
                                 android:padding="5dp"
-                                android:textOff="5 Km."
-                                android:textOn="5 km."
+                                android:textOff="5 KM"
+                                android:textOn="5 KM"
                                 android:textSize="10sp" />
                             <View
                                 android:layout_width="10dp"
@@ -517,7 +517,7 @@
                         android:layout_marginEnd="8dp"
                         android:textAllCaps="true"
                         android:layout_marginRight="8dp"
-                        android:text="your favorite motivation quote"
+                        android:text="your favorite motivational quote"
                         android:textSize="16sp" />
 
                     <EditText

@@ -157,7 +157,7 @@ public class RunningMatchSlideAdapter extends PagerAdapter {
         // goal teezer
         ArrayList<String > othersGoals = otherUser.getGoals();
         for (String goal: currentUser.getGoals()) {
-            if (othersGoals.contains(goal)) {
+            if (othersGoals.contains(goal)&& !goal.equals("check")) {
                 possibleTeezers.add(goalTeezer+goal);
                 break;
             }
@@ -166,7 +166,7 @@ public class RunningMatchSlideAdapter extends PagerAdapter {
         //event teezer
         ArrayList<String > othersEvents = otherUser.getEvents();
         for (String event: currentUser.getEvents()){
-            if(othersEvents.contains(event)){
+            if(othersEvents.contains(event)&&!event.equals("check")){
                 possibleTeezers.add(eventTeezer+event);
                 break;
             }
@@ -185,7 +185,9 @@ public class RunningMatchSlideAdapter extends PagerAdapter {
         String newString = "";
         int len = times.size();
         if(len==1)
-            return times.get(0);
+            if(times.get(0).equals("check")){
+                return "anytime!";
+            }else return times.get(0);
         for(int i=0; i< len; i++){
             if(i == len-1)
                 return newString + " and "+ times.get(i);

@@ -96,7 +96,7 @@ public class Profile extends AppCompatActivity {
         });
 
         //toolbar buttons
-        homePageButton = (Button) findViewById(R.id.action_bar_homepage);
+        homePageButton = (Button) findViewById(R.id.action_bar_homepage_4);
         homePageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,7 +105,7 @@ public class Profile extends AppCompatActivity {
             }
 
         });
-        partnersButton = (Button) findViewById(R.id.action_bar_matches);
+        partnersButton = (Button) findViewById(R.id.actio_bar_partners_4);
         if (RunningMatchHomePage.showPartnerNotofication){
             partnersButton.setBackgroundResource(R.drawable.partner_notification_color);
         }
@@ -128,7 +128,7 @@ public class Profile extends AppCompatActivity {
 //
 //        });
 
-        eventButton = (Button)findViewById(R.id.action_bar_event);
+        eventButton = (Button)findViewById(R.id.actio_bar_events_4);
         eventButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

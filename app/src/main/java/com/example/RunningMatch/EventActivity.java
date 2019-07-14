@@ -89,7 +89,7 @@ public class EventActivity extends AppCompatActivity implements Serializable {
         currentUserMatches =(ArrayList<String>) getIntent().getSerializableExtra("userMatches");
         usersMap = (HashMap<String, User>) getIntent().getSerializableExtra("usersMap");
 
-        homePageButton = (Button) findViewById(R.id.action_bar_homepage);
+        homePageButton = (Button) findViewById(R.id.action_bar_homepage_3);
         homePageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,7 +99,7 @@ public class EventActivity extends AppCompatActivity implements Serializable {
 
         });
 
-        partnersButton = (Button) findViewById(R.id.action_bar_matches);
+        partnersButton = (Button) findViewById(R.id.action_bar_partners_3);
         if (RunningMatchHomePage.showPartnerNotofication){
             partnersButton.setBackgroundResource(R.drawable.partner_notification_color);
         }
@@ -113,7 +113,7 @@ public class EventActivity extends AppCompatActivity implements Serializable {
 
         });
 
-        profileButton = (Button) findViewById(R.id.action_bar_profile);
+        profileButton = (Button) findViewById(R.id.action_bar_profile_3);
         profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -190,44 +190,44 @@ public class EventActivity extends AppCompatActivity implements Serializable {
     private void initImageBotmap() {
         Log.d(TAG, "initImageBotmap: prapering bitmap");
 
-        mImagesURI.add("http://www.winning.co.il/events/2019/golan/header.png");
+        mImagesURI.add("http://pipman.co.il/wp-content/uploads/banners-Paskal-3-1200x630-300x158.jpg");
         mNames.add("Golan Race");
-        mEventDetails.add("Majdal Shams, 17.07.19");
+        mEventDetails.add("Majdal Shams, 04.09.19");
         mSighUp.add(R.string.golan_link);
         mButtons.add(joinButton);
         friendsGoingHelper(GOLAN_RACE_Array,GOLAN_RACE_COUNTER);
 
-        mImagesURI.add("http://www.winning.co.il/events/2019/kiryat-gat/header.png");
+        mImagesURI.add("http://www.biblemarathon.co.il/webfiles/Gallery/3/815/bible2016run.JPG");
         mNames.add("Night Run");
-        mEventDetails.add("Kiryat Gat, 22.07.19");
+        mEventDetails.add("Kiryat Gat, 12.09.19");
         mSighUp.add(R.string.kiryat_gat_link);
         mButtons.add(joinButton);
         friendsGoingHelper(NIGHT_RUN_COUNTER_Array,NIGHT_RUN_COUNTER);
 
-        mImagesURI.add("http://liga.org.il/wp-content/uploads/2017/12/liga-logo-200.jpg");
+        mImagesURI.add("https://i.ytimg.com/vi/vkP2kygkl6c/hqdefault.jpg");
         mNames.add("Running in Work");
-        mEventDetails.add("Herzliya, 29.07.19");
+        mEventDetails.add("Herzliya, 07.09.19");
         mSighUp.add(R.string.work_link);
         mButtons.add(joinButton);
         friendsGoingHelper(RUNNUNG_IN_WORK_COUNTER_Array,RUNNUNG_IN_WORK_COUNTER);
 
-        mImagesURI.add("https://www.shvoong.co.il/wp-content/uploads/2017/05/unnamed.jpg");
+        mImagesURI.add("https://cdn.isnet.co.il/dyncontent/tmp/267/2018_5_14_fb9e3423-12df-4f52-af78-5250ae9c5876_510_1000_Fit_.png");
         mNames.add("Running With Shahar");
-        mEventDetails.add("Alonei Habashan, 01.08.19");
+        mEventDetails.add("Alonei Habashan, 19.09.19");
         mSighUp.add(R.string.shahar_link);
         mButtons.add(joinButton);
         friendsGoingHelper(RUNNUNG_IN_SHAHAR_Array,RUNNUNG_IN_SHAHAR);
 
-        mImagesURI.add("https://aradmasadarun.co.il/wp-content/uploads/2019/04/arad-masada-cover-event.png");
+        mImagesURI.add("https://www.shvoong.co.il/wp-content/uploads/2014/10/52151-300x1992.jpg");
         mNames.add("Half Marathon Arad Masada");
-        mEventDetails.add("Arad, 07.08.19");
+        mEventDetails.add("Arad, 15.09.19");
         mSighUp.add(R.string.arad_link);
         mButtons.add(joinButton);
         friendsGoingHelper(MASSADA_COUNTER_Array,MASSADA_COUNTER);
 
         mImagesURI.add("https://www.shvoong.co.il/wp-content/uploads/2017/08/Nahal_july.png");
         mNames.add("Nachal Race");
-        mEventDetails.add("Tel Aviv, 25.08.19");
+        mEventDetails.add("Tel Aviv, 25.09.19");
         mSighUp.add(R.string.nachal_link);
         mButtons.add(joinButton);
         friendsGoingHelper(NACHAL_COUNTER_Array,NACHAL_COUNTER);
@@ -237,7 +237,7 @@ public class EventActivity extends AppCompatActivity implements Serializable {
 
     private void friendsGoingHelper(String[] lst, Integer counter){
         if(lst[0] == null){
-            mFriendsGoing.add("nun of your friends go to this event");
+            mFriendsGoing.add("Be the first of your friends to attent this event!");
         }
         else if(lst[1] == null){
             mFriendsGoing.add(lst[0] + " is going to this event, talk to him!");

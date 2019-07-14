@@ -46,7 +46,7 @@ public class ProfileGallery extends AppCompatActivity {
 
         setContentView(R.layout.activity_profile_others_gallery);
 
-        homePageButton = (Button) findViewById(R.id.action_bar_homepage);
+        homePageButton = (Button) findViewById(R.id.action_bar_homepage_2);
         homePageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,7 +67,7 @@ public class ProfileGallery extends AppCompatActivity {
             }
         });
 
-        profileButton = (Button) findViewById(R.id.action_bar_profile);
+        profileButton = (Button) findViewById(R.id.actio_bar_events_2);
         profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,7 +76,7 @@ public class ProfileGallery extends AppCompatActivity {
             }
 
         });
-        partnersButton = (Button) findViewById(R.id.action_bar_matches);
+        partnersButton = (Button) findViewById(R.id.action_bar_partners_2);
 
         if (RunningMatchHomePage.showPartnerNotofication){
             partnersButton.setBackgroundResource(R.drawable.partner_notification_color);

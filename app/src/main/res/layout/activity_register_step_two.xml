@@ -87,7 +87,7 @@
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="  km in  " />
+                    android:text="  KM  /  " />
 
                 <NumberPicker
                     android:id="@+id/spinner_min"
@@ -99,7 +99,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="minutes" />
+                    android:text=" Minutes" />
 
             </LinearLayout>
 
@@ -129,7 +129,7 @@
                 android:layout_height="wrap_content"
                 android:textAllCaps="true"
 
-                android:text="time of day i like runing" />
+                android:text="time of day i like running:" />
 
             <View
                 android:id="@+id/divider6"
@@ -149,7 +149,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/darkBlue"
                     android:textSize="15sp"
-                    android:text="morning" />
+                    android:text="Morning" />
 
                 <CheckBox
                     android:id="@+id/noon"
@@ -157,7 +157,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/darkBlue"
                     android:textSize="15sp"
-                    android:text="noon" />
+                    android:text="Noon" />
 
                 <CheckBox
                     android:id="@+id/evening"
@@ -166,7 +166,7 @@
                     android:textColor="@color/darkBlue"
                     android:textSize="15sp"
 
-                    android:text="evening" />
+                    android:text="Evening" />
 
                 <CheckBox
                     android:id="@+id/anytime"
@@ -175,7 +175,7 @@
                     android:textColor="@color/darkBlue"
                     android:textSize="15sp"
 
-                    android:text="any time!" />
+                    android:text="Anytime!" />
 
             </LinearLayout>
 
@@ -210,7 +210,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAllCaps="true"
-                android:text="Goals" />
+                android:text="Goals:" />
 
             <View
                 android:id="@+id/divider21"
@@ -375,7 +375,7 @@
                 android:layout_marginEnd="8dp"
                 android:textAllCaps="true"
                 android:layout_marginRight="8dp"
-                android:text="your favorite motivation quote"
+                android:text="your favorite motivation quote:"
                 android:textSize="16sp" />
 
             <EditText
