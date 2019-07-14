@@ -64,7 +64,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull EventAdapter.ViewHolder viewHolder, int i) {
         ArrayList<String> mImages = eventsList();
         if (!mImages.isEmpty()) {
             Glide.with(mContext).load(mImages.get(i)).into(viewHolder.image);
