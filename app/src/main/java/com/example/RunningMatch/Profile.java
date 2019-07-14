@@ -15,11 +15,15 @@ import android.widget.ImageView;
 import android.widget.NumberPicker;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.util.ArrayList;
 
@@ -66,11 +70,6 @@ public class Profile extends AppCompatActivity {
 
     private ArrayList<String> times;
     ArrayList<String> goals;
-
-
-
-
-
 
 
     /**
