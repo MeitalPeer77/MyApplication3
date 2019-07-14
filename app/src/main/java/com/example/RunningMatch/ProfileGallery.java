@@ -154,7 +154,7 @@ public class ProfileGallery extends AppCompatActivity {
         TextView distance = findViewById(R.id.prifile_other_distances_input);
         DecimalFormat df = new DecimalFormat("#.#");
         distance.setText(df.format(profileDistance));
-        
+
         TextView pace = findViewById(R.id.profile_other_pace_input);
         pace.setText(profilePace);
 

@@ -120,7 +120,21 @@
                     android:id="@+id/divider_7"
                     android:layout_width="match_parent"
                     android:layout_height="30dp" />
-                    <LinearLayout
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Your Running Details"
+                            android:textColor="@color/darkBlue"
+                            android:textSize="18dp"
+                            android:fontFamily="@font/nunito"/>
+
+                        <View
+                            android:id="@+id/divider3"
+                            android:layout_width="match_parent"
+                            android:layout_height="10dp" />
+
+                        <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
@@ -129,7 +143,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Process in Kilometers"
+                            android:text="KM Process"
                             android:textColor="@color/darkBlue"
                             android:textSize="18dp"
                             />
@@ -147,71 +161,12 @@
                             android:layout_width="match_parent"
                             android:layout_height="10dp" />
 
+
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Your Running Details"
-                            android:textColor="@color/darkBlue"
-                            android:textSize="18dp"
-                            android:fontFamily="@font/nunito"/>
-                        <RadioGroup
-                    android:id="@+id/profile_gender"
-                    android:layout_width="wrap_content"
-                    android:layout_height="70dp"
-                    android:layout_gravity="center"
-                    android:layout_below="@id/running_profile"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="I am : "
-                        android:textSize="15sp" />
-
-                    <RadioButton
-                        android:id="@+id/profile_male"
-                        android:layout_width="wrap_content"
-                        android:layout_height="60dp"
-                        android:layout_alignTop="@+id/radioGroup"
-                        android:layout_weight="1"
-                        android:text="Male"
-                        android:textColor="@color/darkBlue"
-                        android:textSize="15sp"
-                        app:fontFamily="@font/nunito" />
-
-                    <RadioButton
-                        android:id="@+id/profile_female"
-                        android:layout_width="wrap_content"
-                        android:layout_height="60dp"
-                        android:layout_weight="1"
-                        android:text="Female"
-                        android:textColor="@color/darkBlue"
-                        android:textSize="15sp"
-                        app:fontFamily="@font/nunito" />
-                    <RadioButton
-                        android:id="@+id/profile_other"
-                        android:layout_width="wrap_content"
-                        android:layout_height="60dp"
-                        android:layout_weight="1"
-                        android:text="Other"
-                        android:textColor="@color/darkBlue"
-                        android:textSize="15sp"
-                        app:fontFamily="@font/nunito" />
-
-
-
-                </RadioGroup>
-
-                <View
-                    android:id="@+id/divider3"
-                    android:layout_width="match_parent"
-                    android:layout_height="5dp" />
-
-                <TextView
                     android:id="@+id/textView6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Current pace: "
+                    android:text="Current pace:"
                     android:layout_gravity="center_horizontal"
                     android:textColor="@color/darkBlue"
                     android:textSize="15sp"
@@ -500,8 +455,57 @@
                     android:layout_width="match_parent"
                     android:layout_height="10dp" />
 
+                        <RadioGroup
+                            android:id="@+id/profile_gender"
+                            android:layout_width="wrap_content"
+                            android:layout_height="70dp"
+                            android:layout_gravity="center"
+                            android:layout_below="@id/running_profile"
+                            android:orientation="horizontal">
 
-                <LinearLayout
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="I am : "
+                                android:textSize="15sp" />
+
+                            <RadioButton
+                                android:id="@+id/profile_male"
+                                android:layout_width="wrap_content"
+                                android:layout_height="60dp"
+                                android:layout_alignTop="@+id/radioGroup"
+                                android:layout_weight="1"
+                                android:text="Male"
+                                android:textColor="@color/darkBlue"
+                                android:textSize="15sp"
+                                app:fontFamily="@font/nunito" />
+
+                            <RadioButton
+                                android:id="@+id/profile_female"
+                                android:layout_width="wrap_content"
+                                android:layout_height="60dp"
+                                android:layout_weight="1"
+                                android:text="Female"
+                                android:textColor="@color/darkBlue"
+                                android:textSize="15sp"
+                                app:fontFamily="@font/nunito" />
+                            <RadioButton
+                                android:id="@+id/profile_other"
+                                android:layout_width="wrap_content"
+                                android:layout_height="60dp"
+                                android:layout_weight="1"
+                                android:text="Other"
+                                android:textColor="@color/darkBlue"
+                                android:textSize="15sp"
+                                app:fontFamily="@font/nunito" />
+
+
+
+                        </RadioGroup>
+
+
+
+                        <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
