@@ -7,92 +7,118 @@
     android:gravity="center">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:background="@drawable/customborder"
-        android:padding="10dp"
         android:orientation="vertical"
-        >
+        android:padding="10dp">
 
-    <ImageView
-        android:id="@+id/event_image"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:src="@mipmap/ic_launcher" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
+        <ImageView
+            android:id="@+id/event_image"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:src="@mipmap/ic_launcher" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/event_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:paddingTop="15dp"
-                android:text="Marathon"
-                android:textColor="@color/darkBlue"
-                android:textSize="17sp" />
 
-            <TextView
-                android:id="@+id/event_details"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:paddingTop="7dp"
-                android:text="Haifa, 01.01.20" />
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/sign_up_event"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:paddingTop="7dp"
-                android:text="Sign Up" />
+                <TextView
+                    android:id="@+id/event_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:paddingTop="15dp"
+                    android:text="Marathon"
+                    android:textColor="@color/darkBlue"
+                    android:textSize="17sp" />
 
-            <TextView
-                android:id="@+id/number"
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/event_details"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:paddingTop="7dp"
+                        android:text="Haifa, 01.01.20" />
+
+                    <TextView
+                        android:id="@+id/sign_up_event"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:paddingTop="7dp"
+                        android:text="Sign Up" />
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="20dp"
+                    android:text="X of your friends are going!"
+                    android:textSize="17sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ToggleButton
+                        android:id="@+id/join"
+                        android:layout_width="150dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/event_toggle_selector"
+                        android:checked="false"
+                        android:padding="5dp"
+                        android:textOff="Join"
+                        android:textOn="Going" />
+
+
+
+
+
+            </LinearLayout>
+
+<!--
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:paddingTop="15dp"
-                android:text="X of your friends are going!"
-                android:textSize="17sp" />
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ToggleButton
+                    android:id="@+id/join"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/event_toggle_selector"
+                    android:checked="false"
+                    android:padding="5dp"
+                    android:textOff="Join"
+                    android:textOn="Going" />-->
+
+
+            </LinearLayout>
 
 
         </LinearLayout>
-
-
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:gravity="center">
-
-            <ToggleButton
-                android:id="@+id/join"
-                android:layout_width="80dp"
-                android:layout_height="40dp"
-                android:background="@drawable/event_toggle_selector"
-                android:checked="false"
-                android:padding="5dp"
-                android:textOff="Join"
-                android:textOn="Going" />
-
-
-
-        </LinearLayout>
-
-
-    </LinearLayout>
 
     </LinearLayout>
 
