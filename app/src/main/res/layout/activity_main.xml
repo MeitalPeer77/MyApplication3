@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:paddingTop="10dp"
-            android:text="Find the perfect running partner"
+            android:text="Find the Perfect Running Partner"
             android:textColor="@color/pink"
             app:fontFamily="@font/nunito"
             android:textSize="22sp" />
@@ -73,7 +73,6 @@
             android:layout_height="0px"
             android:gravity="center_vertical"
             android:layout_weight="2"
-
             android:orientation="vertical">
 
             <EditText
