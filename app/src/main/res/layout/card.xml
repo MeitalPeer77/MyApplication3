@@ -11,26 +11,40 @@
     app:cardCornerRadius="10dp">
 
 
-
     <LinearLayout
         android:id="@+id/minutes_text"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:paddingTop="10dp"
         android:background="@drawable/card_background"
         android:orientation="vertical"
+        android:paddingTop="10dp"
         android:paddingBottom="10dp">
 
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/card_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:paddingTop="10dp"
-            android:layout_gravity="center"
-            android:clickable="true"
-            android:src="@mipmap/ic_launcher" />
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/card_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_centerHorizontal="true"
+                android:clickable="true"
+                android:src="@mipmap/ic_launcher" />
+
+            <ImageView
+                android:id="@+id/star_partner"
+                android:layout_width="90dp"
+                android:layout_height="60dp"
+                
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="27dp" />
+        </RelativeLayout>
+
+
 
         <TextView
             android:id="@+id/txttitle"
@@ -148,51 +162,51 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:orientation="vertical"
-            android:paddingVertical="5dp"
-            android:gravity="center">
+            android:paddingVertical="5dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:text="best time of day to run: "
 
-                android:text="best time of day to run: "/>
+                android:textSize="16sp" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/times_input"
-                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="morning, evening"
 
-                android:text="morning, evening"/>
+                android:textSize="16sp" />
         </LinearLayout>
 
 
         <LinearLayout
             android:id="@+id/goals_display"
-            android:paddingTop="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="15dp">
 
             <TextView
+                android:id="@+id/goals"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/goals"
-                android:text="Goals "
-                android:textSize="16sp"
-
                 android:paddingRight="10dp"
-                />
+                android:paddingTop="5dp"
+                android:text="Goals "
+
+                android:textSize="16sp" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/goals_adapter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="3dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingTop="3dp">
 
             </android.support.v7.widget.RecyclerView>
 
@@ -202,22 +216,20 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:gravity="center"
-            android:padding="5dp"
-            >
+            android:orientation="vertical"
+            android:padding="5dp">
 
             <TextView
                 android:id="@+id/teezer"
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
-                android:text="OMG! you are both going to the TLV marathon!"
                 android:padding="10dp"
-                android:textColor="@color/lightBlue"
+                android:text="OMG! you are both going to the TLV marathon!"
                 android:textAlignment="center"
                 android:textAllCaps="true"
+                android:textColor="@color/lightBlue"
                 app:fontFamily="@font/nunito" />
-
 
 
         </LinearLayout>

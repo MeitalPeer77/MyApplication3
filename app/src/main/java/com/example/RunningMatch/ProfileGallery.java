@@ -132,7 +132,7 @@ public class ProfileGallery extends AppCompatActivity {
         if(getIntent().hasExtra("image") && getIntent().hasExtra("Profile name") && getIntent().hasExtra("distances") && getIntent().hasExtra("location") && getIntent().hasExtra("pace") && getIntent().hasExtra("goals")){
             imageUrl = getIntent().getStringExtra("image");
             name = getIntent().getStringExtra("Profile name");
-            distance = getIntent().getStringExtra("distances");
+            distance = getIntent().getStringExtra("km");
             location = getIntent().getStringExtra("location");
             pace = getIntent().getStringExtra("pace");
             goals =  getIntent().getStringArrayListExtra("goals");

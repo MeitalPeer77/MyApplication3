@@ -191,7 +191,7 @@ public class EventActivity extends AppCompatActivity implements Serializable {
         Log.d(TAG, "initImageBotmap: prapering bitmap");
 
         mImagesURI.add("http://pipman.co.il/wp-content/uploads/banners-Paskal-3-1200x630-300x158.jpg");
-        mNames.add("Golan Race");
+        mNames.add("Megido Race");
         mEventDetails.add("Majdal Shams, 04.09.19");
         mSighUp.add(R.string.golan_link);
         mButtons.add(joinButton);
@@ -219,7 +219,7 @@ public class EventActivity extends AppCompatActivity implements Serializable {
         friendsGoingHelper(RUNNUNG_IN_SHAHAR_Array,RUNNUNG_IN_SHAHAR);
 
         mImagesURI.add("https://www.shvoong.co.il/wp-content/uploads/2014/10/52151-300x1992.jpg");
-        mNames.add("Half Marathon Arad Masada");
+        mNames.add("Half Marathon");
         mEventDetails.add("Arad, 15.09.19");
         mSighUp.add(R.string.arad_link);
         mButtons.add(joinButton);

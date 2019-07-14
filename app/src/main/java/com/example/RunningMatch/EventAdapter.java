@@ -24,25 +24,29 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
     }
 
     private ArrayList<String> eventsList() {
+
         ArrayList<String> urls = new ArrayList<>();
+            if(events.size()==1& events.contains("check")) {
+                urls.add("no upcoming events");
+                return urls;
+            }
         for (String event : events) {
             switch (event) {
                 case "Golan Race":
-                    urls.add("http://www.winning.co.il/events/2019/golan/header.png");
+                    urls.add("https://i.ytimg.com/vi/vkP2kygkl6c/hqdefault.jpg");
                     break;
                 case "Night Run":
-                    urls.add("http://www.winning.co.il/events/2019/kiryat-gat/header.png");
+                    urls.add("http://www.biblemarathon.co.il/webfiles/Gallery/3/815/bible2016run.JPG");
                     break;
                 case "Running in Work":
-                    urls.add("http://liga.org.il/wp-content/uploads/2017/12/liga-logo-200.jpg");
+                    urls.add("https://i.ytimg.com/vi/vkP2kygkl6c/hqdefault.jpg");
                     break;
-
                 case "Running With Shahar":
-                    urls.add("\"https://www.shvoong.co.il/wp-content/uploads/2017/05/unnamed.jpg");
+                    urls.add("\"https://cdn.isnet.co.il/dyncontent/tmp/267/2018_5_14_fb9e3423-12df-4f52-af78-5250ae9c5876_510_1000_Fit_.png\"");
                     break;
 
                 case "Half Marathon Arad Masada":
-                    urls.add("\"https://aradmasadarun.co.il/wp-content/uploads/2019/04/arad-masada-cover-event.png");
+                    urls.add("\"https://www.shvoong.co.il/wp-content/uploads/2014/10/52151-300x1992.jpg\"");
                     break;
 
                 case "Nachal Race":
@@ -64,7 +68,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull EventAdapter.ViewHolder viewHolder, int i) {
         ArrayList<String> mImages = eventsList();
         if (!mImages.isEmpty()) {
             Glide.with(mContext).load(mImages.get(i)).into(viewHolder.image);
@@ -74,7 +78,6 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
                     .asBitmap()
                     .load(R.drawable.enmpty_drawable)
                     .into(viewHolder.image);
-            viewHolder.noEvent.setText("no upcoming events");
         }
     }
 
