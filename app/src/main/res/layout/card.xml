@@ -17,6 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
+        android:paddingTop="10dp"
         android:background="@drawable/card_background"
         android:orientation="vertical"
         android:paddingBottom="10dp">
@@ -70,7 +71,7 @@
                 android:id="@+id/distance_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" km from you  "
+                android:text=" KM away  "
                 android:textSize="16sp"
                 app:fontFamily="@font/nunito" />
 
@@ -91,15 +92,6 @@
                 android:paddingLeft="10dp" />
 
             <TextView
-                android:id="@+id/textView9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="16sp"
-
-                android:text="  Runs " />
-
-            <TextView
                 android:id="@+id/km_input"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -114,9 +106,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="5dp"
-                android:text=" km   "
+                android:text=" KM "
                 android:textSize="16sp"
                 app:fontFamily="@font/nunito" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text=" /  " />
 
             <ImageView
                 android:id="@+id/shoe_icon"
@@ -124,13 +123,6 @@
                 android:layout_height="24dp"
                 android:background="@drawable/chronometer"
                 android:text="km   |" />
-
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="  In " />
 
             <TextView
                 android:id="@+id/time_input"
@@ -147,7 +139,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text=" minutes"
+                android:text=" Minutes"
                 android:textSize="16sp"
                 app:fontFamily="@font/nunito" />
 
@@ -212,17 +204,18 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:gravity="center"
+            android:padding="5dp"
             >
 
             <TextView
                 android:id="@+id/teezer"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="fill_parent"
                 android:text="OMG! you are both going to the TLV marathon!"
                 android:padding="10dp"
                 android:textColor="@color/lightBlue"
                 android:textAlignment="center"
-                android:textSize="20sp"
+                android:textAllCaps="true"
                 app:fontFamily="@font/nunito" />
 
 

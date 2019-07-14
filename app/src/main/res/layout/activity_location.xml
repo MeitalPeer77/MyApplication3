@@ -53,7 +53,7 @@
                 android:layout_gravity="center"
                 android:paddingTop="20dp"
                 android:paddingHorizontal="20dp"
-                android:text="Location Services allows apps to gather and use data indicating your approximate location."
+                android:text="Location Services allows apps to gather and use data indicating your approximate location"
                 android:textAlignment="center"
                 android:textSize="15sp"
                 app:fontFamily="@font/nunito" />
