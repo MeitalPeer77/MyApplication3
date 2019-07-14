@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -45,10 +46,10 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
 
                       // Cards Buttons //
     /* Match button for the current card of a potential running partner*/
-    private Button popupButton;
+    private ImageButton popupButton;
 
     /* Not for me button for the current card of a potential running partner*/
-    private Button not4meButton;
+    private ImageButton not4meButton;
 
     // card slide suggestions
     /* The view pager of the cards */
@@ -70,6 +71,8 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
     public String currentUserEmail;
 
     static public User currentUser;
+
+    static public boolean showPartnerNotofication = false;
 
     //******************  Firebase Objects ****************//
 
@@ -95,7 +98,8 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.suggestion_tab);
-//        FirebaseAuth.getInstance().signOut();
+
+
         mAuth = FirebaseAuth.getInstance();
         fireStoreDatabase = FirebaseFirestore.getInstance();
 
@@ -121,6 +125,10 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
         });
 
         matchButton = (Button) findViewById(R.id.action_bar_matches);
+        if (RunningMatchHomePage.showPartnerNotofication){
+            matchButton.setBackgroundResource(R.drawable.partner_notofication_shadow);
+        }
+        else{matchButton.setBackgroundResource(R.drawable.partner_icon_color);}
         matchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -136,7 +144,7 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
             }
         });
 
-        not4meButton = (Button) findViewById(R.id.reject);
+        not4meButton = (ImageButton) findViewById(R.id.reject);
         not4meButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -151,7 +159,7 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
         });
 
 
-        popupButton = (Button)findViewById(R.id.lets_run);
+        popupButton = (ImageButton) findViewById(R.id.lets_run);
         popupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -175,6 +183,7 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
                         user.setDoIHaveNewMatch(true);
                         String phone = user.getPhoneNumber();
                         fireStoreDatabase.collection("users").document(user.getEmail()).update("doIHaveNewMatch", true);
+                        showPartnerNotofication = true;
 
                         // update other user match Array
                         ArrayList<String> otherUserMatches = user.getMatches();
@@ -187,10 +196,14 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
                         myMatches.add(user.getEmail());
                         fireStoreDatabase.collection("users").document(currentUserEmail).update("matches", myMatches);
                         currentUser.setMatches(myMatches);
+
+                        matchButton.setBackgroundResource(R.drawable.group2);
+
                         //pop up
                         Intent popup = new Intent(RunningMatchHomePage.this, MatchingPopUP.class);
                         popup.putExtra("phoneNumber", phone);
                         startActivity(popup);
+
 
 
                     }
@@ -273,6 +286,8 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
                             viewPager.setAdapter(myAdapter);
                             //Pop- UP If i have a new match and i wans not in the app
                             if (currentUser.getDoIHaveNewMatch()){
+                                showPartnerNotofication = true;
+                                matchButton.setBackgroundResource(R.drawable.group2);
                                 currentUser.setDoIHaveNewMatch(false);
                                 fireStoreDatabase.collection("users").document(currentUserEmail).update("doIHaveNewMatch", false);
                                 Intent popup = new Intent(RunningMatchHomePage.this, MatchNotInAppPopUp.class);
@@ -324,6 +339,8 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
         // Create an Intent to start the second activity
         Intent eventIntent = new Intent(this, EventActivity.class);
         eventIntent.putExtra("user", currentUser);
+        eventIntent.putExtra("userMatches", currentUser.getMatches());
+        eventIntent.putExtra("usersMap", usersMap);
         // Start the new activity.
         startActivity(eventIntent);
     }

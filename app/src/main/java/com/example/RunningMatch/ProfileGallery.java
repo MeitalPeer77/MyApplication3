@@ -1,6 +1,7 @@
 package com.example.RunningMatch;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -19,11 +20,13 @@ public class ProfileGallery extends AppCompatActivity {
     private Button homePageButton;
     private Button partnersButton;
     private Button profileButton;
+    private Button contactButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_others_gallery);
+
 
         homePageButton = (Button) findViewById(R.id.action_bar_homepage);
         homePageButton.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +48,11 @@ public class ProfileGallery extends AppCompatActivity {
 
         });
         partnersButton = (Button) findViewById(R.id.action_bar_matches);
+
+        if (RunningMatchHomePage.showPartnerNotofication){
+            partnersButton.setBackgroundResource(R.drawable.group2);
+
+        }
         partnersButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,6 +62,16 @@ public class ProfileGallery extends AppCompatActivity {
 
 
         });
+
+        final String phoneNumber = getIntent().getStringExtra("phone");
+        contactButton = (Button)findViewById(R.id.update);
+        contactButton.setOnClickListener(new View.OnClickListener() {
+                                             public void onClick(View v) {
+                                                 Intent intent = new Intent(Intent.ACTION_DIAL);
+                                                 intent.setData(Uri.parse("tel:" + phoneNumber));
+                                                 startActivity(intent);
+                                             }
+                                         });
         getIncomingIntent();
     }
 
