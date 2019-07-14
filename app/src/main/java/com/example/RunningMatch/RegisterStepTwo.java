@@ -249,6 +249,7 @@ public class RegisterStepTwo extends AppCompatActivity {
             }
         });
 
+
         goals = new ArrayList<>();
 
         toggleGoal1 = (ToggleButton) findViewById(R.id.run_marathon);
