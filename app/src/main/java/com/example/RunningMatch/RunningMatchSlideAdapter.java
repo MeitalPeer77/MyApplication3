@@ -91,8 +91,8 @@ public class RunningMatchSlideAdapter extends PagerAdapter {
         TextView km = (TextView) view.findViewById(R.id.km_input);
         TextView distance = (TextView) view.findViewById(R.id.distance_input);
         TextView teezer = (TextView) view.findViewById(R.id.teezer);
+        TextView gender = view.findViewById(R.id.users_gender);
         ImageView star = view.findViewById(R.id.star_partner);
-
 
 
         RecyclerView goalsAdapter = view.findViewById(R.id.goals_adapter);
@@ -124,6 +124,13 @@ public class RunningMatchSlideAdapter extends PagerAdapter {
         times.setText(getTimesString(users.get(position)));
         DecimalFormat df = new DecimalFormat("#.#");
         distance.setText(df.format(distanceInput));
+
+        String usersG = users.get(position).getGender();
+        if(usersG.equals("female"))
+            gender.setText("  (F)");
+        if(usersG.equals("male"))
+            gender.setText("  (M)");
+
 
         if(isStarPartner(position)){
             Glide.with(context)
