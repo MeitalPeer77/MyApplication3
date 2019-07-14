@@ -114,7 +114,7 @@ public class RunningMatchSlideAdapter extends PagerAdapter {
         float distanceInput = (float) doubleDistance;
 
 
-        Glide.with(con).load(RunningMatchHomePage.currentUser.getProfilePic()).into(imgslide);
+        Glide.with(con).load(users.get(position).getProfilePic()).into(imgslide);
 
         txttitle.setText(userName);
         teezer.setText(getTeezer(position, distanceInput));
