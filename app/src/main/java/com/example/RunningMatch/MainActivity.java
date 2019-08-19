@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -39,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
 
     /* The field object of entering password */
     private EditText mPasswordField;
+
+    /*the privacy policy link button */
+    private TextView privacyPolicy;
 
     //******************  Firebase Objects ****************//
     /* The authentication object of the app */
@@ -103,6 +107,10 @@ public class MainActivity extends AppCompatActivity {
                 register();
             }
         });
+
+        privacyPolicy = (TextView) findViewById(R.id.privacy_policy);
+        privacyPolicy.setMovementMethod(LinkMovementMethod.getInstance());
+        privacyPolicy.setText(R.string.privacy);
     }
 
 

@@ -119,4 +119,8 @@
         <a href="https://riverrun.shvoong.co.il/">Sign Up</a>
     </string>
 
+    <string name="privacy">
+        <a href="https://docs.google.com/document/d/e/2PACX-1vSCJDPMrYbWIxl0L3PEiDmf-msgKqD8tvjXPPfBfAbtyCZWlysPXXsQW-H0dxT_8N7WNwZTtgzdVuVQ/pub">Privacy Policy</a>
+    </string>
+
 </resources>
