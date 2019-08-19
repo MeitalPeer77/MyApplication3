@@ -1,0 +1,51 @@
+
+
+***************************
+*      RUNNING MATCH      *
+***************************
+
+
+ App Description:
+ This app help you find the perfect running partner!
+ Our algorithm order the users in your area according to their match rate, so the user can find the
+ best partner easily.
+ The algorithm is based on simple data the user provide in the registration - pace, running distance
+ goals and etc.
+ In order to use the app the user need to create account, provide simple data,
+ Each user can mark other users if he want to run with them. If two user mark each other, they have
+ a match and they can contact each user and run together.
+
+Event Mode:
+The app have event page that contain running events that coming up. The user can mark if he
+interested in certain event, see which of his previous running partners is interested in any events
+and go to the event website for more information.
+
+
+Java Files:
+This files active screens in the app:
+    EventActivity
+    LocationScreen
+    MainActivity
+    MatchingPopUp
+    MatchNotFindPopUp
+    PartnersList
+    PersonalDetails
+    Profiles
+    ProfileGallery
+    RegisterStepOne
+    RegisterStepTwo
+    RunningMatchHomePage
+    SettingActivity
+    UpdateDetailsPopup
+
+Adapters for certain screens:
+    EventAdapter
+    EventRecyclerAdapter
+    GoalsAdapter
+    PartnersRecyclerViewAdapter
+    RunningMatchSlideAdapter
+
+General files:
+    CalculateRate - calculate the matching rate for certain user.
+    RateComparator - order the user according to the matching rate.
+    User - create user object.
