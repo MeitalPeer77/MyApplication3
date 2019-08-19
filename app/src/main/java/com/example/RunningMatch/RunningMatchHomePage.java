@@ -335,6 +335,7 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
         startActivity(eventIntent);
     }
 
+
     private void checkLastSignIn(){
         TimeUnit timeUnit = TimeUnit.SECONDS;
         Date date = new Date();
