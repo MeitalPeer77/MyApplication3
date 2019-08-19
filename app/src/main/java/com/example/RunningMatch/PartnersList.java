@@ -230,11 +230,14 @@ public class PartnersList extends AppCompatActivity implements Serializable {
     public void event() {
         // Create an Intent to start the activity
         Intent eventIntent = new Intent(this, EventActivity.class);
-
+        // Create an Intent to start the second activity
+        eventIntent.putExtra("user", currentUser);
+        eventIntent.putExtra("userMatches", currentUser.getMatches());
+        eventIntent.putExtra("usersMap", usersMap);
+        // Start the new activity.
+        startActivity(eventIntent);
         // Start the new activity.
         startActivity(eventIntent);
     }
 
 }
-
-
