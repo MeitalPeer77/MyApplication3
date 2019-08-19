@@ -118,7 +118,7 @@ public class RegisterStepTwo extends AppCompatActivity {
     // some constants and variables to declare
     private static final int PICK_IMAGE_REQ = 0;
     private Uri filePath;
-    private String picUrl;
+    private String picUrl="https://image.flaticon.com/icons/svg/149/149071.svg";
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 

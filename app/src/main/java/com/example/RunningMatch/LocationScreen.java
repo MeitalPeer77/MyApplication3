@@ -68,10 +68,10 @@ public class LocationScreen extends AppCompatActivity {
     String password;
 
     /* The phone the user entered */
-    String phone;
+    String phone="0";
 
     /* The mane the user entered */
-    String name;
+    String name="0";
 
     /* Initial location longitude of the user */
     String longitude = "0";
@@ -80,10 +80,10 @@ public class LocationScreen extends AppCompatActivity {
     String latitude = "0";
 
     /* The km specified by the user*/
-    String km;
+    String km="0";
 
     /* The gender the user entered */
-    String gender;
+    String gender="0";
 
     /* the goals of this user */
     ArrayList<String> goals;
@@ -92,13 +92,13 @@ public class LocationScreen extends AppCompatActivity {
     ArrayList<String> times;
 
     /* The time specified by the user */
-    private String time;
+    private String time="0";
 
     /* The description the user entered */
     private String description;
 
     private Uri filePath;
-    private String picUrl;
+    private String picUrl="https://image.flaticon.com/icons/svg/149/149071.svg";
 
 
 //    /* The new user after getting all his information*/
@@ -304,6 +304,7 @@ public class LocationScreen extends AppCompatActivity {
             @Override
             public void onSuccess(Void aVoid) {
 
+                suggestions();
                 busRef.collection("myLikesArray");
                 busRef.collection("matches");
             }
