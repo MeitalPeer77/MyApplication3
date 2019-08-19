@@ -139,20 +139,8 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:gravity="center">
+                            
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="KM Process"
-                            android:textColor="@color/darkBlue"
-                            android:textSize="18dp"
-                            />
-
-                        <android.support.v7.widget.AppCompatImageView
-                            android:layout_width="300dp"
-                            android:layout_height="150dp"
-                            android:background="@drawable/graph"
-                            />
 
                     </LinearLayout>
 
