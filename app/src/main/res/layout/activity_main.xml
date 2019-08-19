@@ -128,51 +128,66 @@
 
     </LinearLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0px"
-        android:layout_alignParentBottom="true"
-        android:gravity="center"
-        android:layout_weight="1"
-        android:layout_gravity="bottom"
         android:orientation="vertical"
+        android:layout_height="0px"
+        android:gravity="bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_weight="1"
         >
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/dont_have_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                android:text="Don't have an account?"
+                android:textColor="@color/pink"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+                app:fontFamily="@font/nunito" />
+
+            <TextView
+                android:id="@+id/sign_up_main_activity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/dont_have_account"
+                android:clickable="true"
+                android:gravity="bottom"
+                android:paddingLeft="5dp"
+                android:text="@string/sign_up_string"
+                android:textColor="@color/pink"
+                android:textSize="15sp"
+                app:fontFamily="@font/nunito" />
+
+
+        </RelativeLayout>
+        <View
+            android:id="@+id/divider_33"
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
         <TextView
-            android:id="@+id/dont_have_account"
+            android:id="@+id/privacy_policy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/pink"
+            android:layout_gravity="center_horizontal|bottom"
             android:gravity="bottom"
-            android:layout_alignParentBottom="true"
-            android:paddingBottom="10dp"
-            android:textSize="15sp"
-            app:fontFamily="@font/nunito"
-            android:text="Don't have an account?" />
+            android:text="Privacy Policy"/>
+        <View
+            android:id="@+id/divider_34"
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
 
-        <TextView
-            android:id="@+id/sign_up_main_activity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@id/dont_have_account"
-            android:clickable="true"
-            android:gravity="bottom"
-            android:paddingLeft="5dp"
-            android:paddingBottom="10dp"
-            android:text="@string/sign_up_string"
-            android:textColor="@color/pink"
-            android:textSize="15sp"
-            app:fontFamily="@font/nunito" />
-
-
-
-
-
-
-
-    </RelativeLayout>
+    </LinearLayout>
 
 </LinearLayout>
 

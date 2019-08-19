@@ -15,17 +15,14 @@ import android.widget.ImageView;
 import android.widget.NumberPicker;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.jjoe64.graphview.GraphView;
-import com.jjoe64.graphview.series.DataPoint;
-import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Represents the user's Profile page
@@ -46,6 +43,8 @@ public class Profile extends AppCompatActivity {
 
     /* A button that navigated to the events screen */
     private Button eventButton;
+
+    HashMap<String, User> usersMap;
 
     private User currentUser = RunningMatchHomePage.currentUser;
 
@@ -83,6 +82,8 @@ public class Profile extends AppCompatActivity {
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
         fireStoreDatabase = FirebaseFirestore.getInstance();
+
+        usersMap = RunningMatchHomePage.usersMap;
 
 
         signOutBtn = (TextView) findViewById(R.id.sign_out);
@@ -526,7 +527,12 @@ public class Profile extends AppCompatActivity {
     public void event() {
         // Create an Intent to start the activity
         Intent eventIntent = new Intent(this, EventActivity.class);
-
+        // Create an Intent to start the second activity
+        eventIntent.putExtra("user", currentUser);
+        eventIntent.putExtra("userMatches", currentUser.getMatches());
+        eventIntent.putExtra("usersMap", usersMap);
+        // Start the new activity.
+        startActivity(eventIntent);
         // Start the new activity.
         startActivity(eventIntent);
 
