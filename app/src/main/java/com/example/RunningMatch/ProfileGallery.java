@@ -8,14 +8,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.bumptech.glide.Glide;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.lang.reflect.Array;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class ProfileGallery extends AppCompatActivity {
@@ -152,8 +150,8 @@ public class ProfileGallery extends AppCompatActivity {
         info.setText(profileInfo);
 
         TextView distance = findViewById(R.id.prifile_other_distances_input);
-        DecimalFormat df = new DecimalFormat("#.#");
-        distance.setText(df.format(profileDistance));
+//        DecimalFormat df = new DecimalFormat(".#");
+        distance.setText(profileDistance);
 
         TextView pace = findViewById(R.id.profile_other_pace_input);
         pace.setText(profilePace);

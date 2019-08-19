@@ -45,11 +45,15 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
                     urls.add("\"https://cdn.isnet.co.il/dyncontent/tmp/267/2018_5_14_fb9e3423-12df-4f52-af78-5250ae9c5876_510_1000_Fit_.png\"");
                     break;
 
-                case "Half Marathon Arad Masada":
+                case "Half Marathon":
                     urls.add("\"https://www.shvoong.co.il/wp-content/uploads/2014/10/52151-300x1992.jpg\"");
                     break;
 
                 case "Nachal Race":
+                    urls.add("\"https://www.shvoong.co.il/wp-content/uploads/2017/08/Nahal_july.png");
+                    break;
+
+                case "Megido Race":
                     urls.add("\"https://www.shvoong.co.il/wp-content/uploads/2017/08/Nahal_july.png");
                     break;
             }

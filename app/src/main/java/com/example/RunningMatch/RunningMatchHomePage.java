@@ -287,6 +287,7 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
 
                             Bundle extras = getIntent().getExtras();
 
+
                             checkLastSignIn();
 
                         }
@@ -345,7 +346,13 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
 
         currentUser.setSignInTime(date);
 
-        if(timeInSeconds > 1200000) {
+//        if(timeInSeconds > 1200000) {
+//            // number of seconds in two weeks
+//            Intent popup = new Intent(RunningMatchHomePage.this, updateDetailesPopup.class);
+//            popup.putExtra("currentUser", currentUser);
+//            startActivity(popup);
+//        }
+        if(currentUserEmail.equals("liav@gmailcom")) {
             // number of seconds in two weeks
             Intent popup = new Intent(RunningMatchHomePage.this, updateDetailesPopup.class);
             popup.putExtra("currentUser", currentUser);
