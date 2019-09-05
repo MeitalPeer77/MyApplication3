@@ -252,18 +252,10 @@ public class LocationScreen extends AppCompatActivity {
             return;
         }
 
-
-        // this code won'locationView execute IF permissions are not allowed, because in the line above there is return statement.
         enableLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //noinspection MissingPermission
-//                databaseReference = FirebaseDatabase.getInstance().getReference();
-//                cleanEmail = email;
-//                email = email.replace(".", "");
-//                User newUser = new User(email, phone, km, time, name, description, gender, longitude, latitude, "", "");
-//                databaseReference.child("users").child(email).setValue(newUser);
-//                RunningMatchHomePage.currentUser = newUser;
+
                 locationManager.requestLocationUpdates("gps", 5000, 0, listener);
 
                 cleanEmail = email;
@@ -288,8 +280,7 @@ public class LocationScreen extends AppCompatActivity {
                 databaseReference.child("users").child(email).setValue(newUser);
                 createAccount(cleanEmail, password, newUser);
 
-//                suggestions();
-//                addUser(newUser);
+
             }
         });
     }
@@ -345,12 +336,8 @@ public class LocationScreen extends AppCompatActivity {
                                     Toast.LENGTH_SHORT).show();
 
                         }
-
-                        // [START_EXCLUDE]
-                        // [END_EXCLUDE]
                     }
                 });
-        // [END create_user_with_email]
     }
 
 }

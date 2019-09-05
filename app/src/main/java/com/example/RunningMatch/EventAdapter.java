@@ -13,16 +13,29 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
+/**
+ ** Represents the adapter of events in Profile Gallery
+ */
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
+    /* screen context */
     private Context mContext;
+    /* a list of all events */
     private ArrayList<String> events;
 
 
+    /**
+     * Creates an event adapter
+     * @param context
+     * @param events
+     */
     public EventAdapter(Context context, ArrayList<String> events) {
         this.mContext = context;
         this.events = events;
     }
 
+    /*
+     * Creates a list of all the event's URLs
+     */
     private ArrayList<String> eventsList() {
 
         ArrayList<String> urls = new ArrayList<>();
@@ -91,12 +104,19 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
         return events.size()-1;
     }
 
+    /**
+     * Represents a view holder of the event
+     */
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView image;
         TextView eventName;
         TextView noEvent;
 
 
+        /**
+         * Creates a view holder of the event
+         * @param itemView
+         */
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.event_image);

@@ -41,10 +41,13 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
     /* The context of the activity */
     private Context mContext;
 
+    /* athe user logged to app*/
     private User currentUser;
 
+    /* Reference to DB*/
     private FirebaseFirestore fireStoreDatabase;
 
+    /* True if the user clicked to join an event */
     private Boolean isButtonClicked = false;
 
     /**
@@ -155,6 +158,7 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
         /* The sign up to event text*/
         TextView sighUpText;
 
+        /* Reference to "join" button of the event */
         Button mJoinBtn;
 
         /**
@@ -165,13 +169,13 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
 
             super(itemView);
 
+            /* view holder attributes */
             image = itemView.findViewById(R.id.event_image);
             friends = itemView.findViewById(R.id.number);
             imageName = itemView.findViewById(R.id.event_name);
             eventDetails = itemView.findViewById(R.id.event_details);
             parentLayout = itemView.findViewById(R.id.event_parent_layout);
             mJoinBtn = itemView.findViewById(R.id.join);
-
             sighUpText = itemView.findViewById(R.id.sign_up_event);
             sighUpText.setMovementMethod(LinkMovementMethod.getInstance());
 

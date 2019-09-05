@@ -90,6 +90,7 @@ public class RegisterStepTwo extends AppCompatActivity {
     /* The button for uploading an image */
     private ImageView mSelectImage;
 
+    /* Toggles for goal selection */
     private ToggleButton toggleGoal1;
     private ToggleButton toggleGoal2;
     private ToggleButton toggleGoal3;

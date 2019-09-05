@@ -14,12 +14,15 @@ import java.util.ArrayList;
 
 public class GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.ViewHolder> {
 
-    /*Array lost of the user goals*/
-
+    /*Array list of the user goals*/
     private ArrayList<String> goals = new ArrayList<>();
+    /* curretn contar*/
     private Context mContext;
 
 
+    /**
+     ** Represents the adapter of Goals
+     */
     GoalsAdapter(Context context, ArrayList<String> goals) {
         this.goals = goals;
         this.mContext = context;

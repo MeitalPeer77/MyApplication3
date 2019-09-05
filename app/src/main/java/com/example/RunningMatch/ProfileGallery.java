@@ -16,8 +16,12 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
+/**
+ * Represents the profile of a potential matching partner (clicked from home page )
+ */
 public class ProfileGallery extends AppCompatActivity {
 
+    /* The buttons of the screen */
     private Button homePageButton;
     private Button partnersButton;
     private Button profileButton;
@@ -25,6 +29,7 @@ public class ProfileGallery extends AppCompatActivity {
     private Button backbutton;
     private Button removeButton;
 
+    /* The Strings appear in the screen */
     private String imageUrl;
     private String name;
     private String distance;
@@ -35,6 +40,7 @@ public class ProfileGallery extends AppCompatActivity {
     private String info;
     private String email;
 
+    /* Reference to data base*/
     FirebaseFirestore fireStoreDatabase;
 
 
@@ -92,12 +98,12 @@ public class ProfileGallery extends AppCompatActivity {
         final String phoneNumber = getIntent().getStringExtra("phone");
         contactButton = (Button)findViewById(R.id.update);
         contactButton.setOnClickListener(new View.OnClickListener() {
-                                             public void onClick(View v) {
-                                                 Intent intent = new Intent(Intent.ACTION_DIAL);
-                                                 intent.setData(Uri.parse("tel:" + phoneNumber));
-                                                 startActivity(intent);
-                                             }
-                                         });
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:" + phoneNumber));
+                startActivity(intent);
+            }
+        });
         getIncomingIntent();
 
         removeButton.setOnClickListener(new View.OnClickListener() {
@@ -127,6 +133,7 @@ public class ProfileGallery extends AppCompatActivity {
         });
     }
 
+    /* Receives the information fof the profile to show*/
     private void getIncomingIntent(){
         if(getIntent().hasExtra("image") && getIntent().hasExtra("Profile name") && getIntent().hasExtra("distances") && getIntent().hasExtra("location") && getIntent().hasExtra("pace") && getIntent().hasExtra("goals")){
             imageUrl = getIntent().getStringExtra("image");
@@ -142,6 +149,8 @@ public class ProfileGallery extends AppCompatActivity {
             setProfileContent(imageUrl, name, distance, location, pace, info, goals, events);
         }
     }
+
+    /* Sets the content of the profile */
     private void setProfileContent(String imageUrl, String profileName, String profileDistance, String profileLocation, String profilePace, String profileInfo, ArrayList<String> goals, ArrayList<String> events){
         TextView name = findViewById(R.id.profile_other_name);
         name.setText(profileName);
@@ -179,6 +188,7 @@ public class ProfileGallery extends AppCompatActivity {
 
     }
 
+    /* Go to suggestion page */
     public void suggestions() {
         // Create an Intent to start the second activity
         Intent suggestiosIntent = new Intent(this, RunningMatchHomePage.class);
@@ -188,6 +198,7 @@ public class ProfileGallery extends AppCompatActivity {
 
     }
 
+    /* Go to current user profile page */
     public void profile() {
         // Create an Intent to start the second activity
         Intent profileIntent = new Intent(this, Profile.class);
@@ -196,6 +207,8 @@ public class ProfileGallery extends AppCompatActivity {
         startActivity(profileIntent);
 
     }
+
+    /* Go to partners list page */
     public void partners() {
         // Create an Intent to start the second activity
         Intent partnersIntent = new Intent(this, PartnersList.class);

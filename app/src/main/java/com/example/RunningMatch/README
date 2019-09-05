@@ -35,7 +35,6 @@ This files active screens in the app:
     RegisterStepOne
     RegisterStepTwo
     RunningMatchHomePage
-    SettingActivity
     UpdateDetailsPopup
 
 Adapters for certain screens:
@@ -49,3 +48,15 @@ General files:
     CalculateRate - calculate the matching rate for certain user.
     RateComparator - order the user according to the matching rate.
     User - create user object.
+
+Installation and usage instructions:
+    1. Download the app from Google play store
+    2. First, sign up. Please make sure you enter all the necessary details.
+       Your password should contain english letters and numbers. the length of the password should be at least.
+        8 characters.
+    3. Insert all your running details and enable location services.
+    4. At the main page you can see all the potential running partners in your area (of there are users in your location)
+       and choose the perfect running partner for you.
+    5. If there is a match between you and your chosen partner, a pop-up will appear and you can choose to call your partner.
+    6. From the menu above you can go to events page and join running events, see your running partners at partners screen (if you have any)
+       or change your personal details at the profile page.

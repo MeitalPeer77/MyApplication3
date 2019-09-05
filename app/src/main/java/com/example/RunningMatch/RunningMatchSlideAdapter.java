@@ -206,6 +206,7 @@ public class RunningMatchSlideAdapter extends PagerAdapter {
 
     }
 
+    /* Gets the time of the user */
     private String getTimesString(User user){
         ArrayList<String> times = user.getTimes();
         String newString = "";

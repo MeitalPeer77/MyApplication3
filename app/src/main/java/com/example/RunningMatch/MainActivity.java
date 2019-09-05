@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
     /* Represents the FireStore database */
     FirebaseFirestore fireStoreDatabase;
 
-    Server server;
 
 
     /**
@@ -69,10 +68,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
 
-
         setContentView(R.layout.activity_main);
-
-        server = new Server();
 
         mEmailField = (EditText) findViewById(R.id.email);
         mPasswordField = (EditText) findViewById(R.id.password);

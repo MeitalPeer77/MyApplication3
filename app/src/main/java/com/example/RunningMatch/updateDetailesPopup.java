@@ -26,8 +26,7 @@ public class updateDetailesPopup extends AppCompatActivity {
     /* The bundle for getting the information from the previous screen */
     Bundle extras;
 
-    private FirebaseFirestore fireStoreDatabase = FirebaseFirestore.getInstance();
-
+    /* Done button */
     private Button doneButton;
 
 

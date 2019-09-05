@@ -85,8 +85,6 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
     /* Represents the FireStore database */
     FirebaseFirestore fireStoreDatabase;
 
-    Server server = new Server();
-
     static final User[] user = new User[1];
 
 
@@ -105,7 +103,6 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
         currentUserEmail = mAuth.getCurrentUser().getEmail();
         currentUserEmail = currentUserEmail.replace(".", "");
 
-//        server.getUser(currentUserEmail, user);
         context = this;
 
         getUsers();
@@ -336,7 +333,7 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
         startActivity(eventIntent);
     }
 
-
+    /* Checks when was the last time the user sugned in */
     private void checkLastSignIn(){
         TimeUnit timeUnit = TimeUnit.SECONDS;
         Date date = new Date();
@@ -347,12 +344,6 @@ public class RunningMatchHomePage extends AppCompatActivity implements Serializa
 
         currentUser.setSignInTime(date);
 
-//        if(timeInSeconds > 1200000) {
-//            // number of seconds in two weeks
-//            Intent popup = new Intent(RunningMatchHomePage.this, updateDetailesPopup.class);
-//            popup.putExtra("currentUser", currentUser);
-//            startActivity(popup);
-//        }
         if(currentUserEmail.equals("liav@gmailcom")) {
             // number of seconds in two weeks
             Intent popup = new Intent(RunningMatchHomePage.this, updateDetailesPopup.class);

@@ -55,8 +55,10 @@ public class User implements Serializable {
     /* Runner the user does't want to run with */
     private ArrayList<String> not4me;
 
+    /* sign in time of the user*/
     private Date signInTime;
 
+    /* True if the current user have a new match*/
     private boolean doIHaveNewMatch = false;
 
 
@@ -64,9 +66,12 @@ public class User implements Serializable {
     private ArrayList<String> myLikesArray;
     private ArrayList<String> matches;
 
+    /* Default constructor */
+    public User(){}
+
 
     /**
-     * Creates a User object
+     * Creates a new user object
      * @param email
      * @param phoneNumber
      * @param km
@@ -78,10 +83,13 @@ public class User implements Serializable {
      * @param longitude
      * @param myLikesArray
      * @param matches
-     *
+     * @param not4me
+     * @param goals
+     * @param times
+     * @param events
+     * @param doIHaveNewMatch
+     * @param profilePica
      */
-
-    public User(){}
     public User(String email,  String phoneNumber, String km, String time, String userName,
                 String userDescription, String gender, String latitude, String longitude ,
                 ArrayList<String> myLikesArray, ArrayList<String> matches, ArrayList<String> not4me,
@@ -107,8 +115,25 @@ public class User implements Serializable {
 
     }
 
-
+    /**
+     * Creates a new user
+     * @param email
+     * @param phoneNumber
+     * @param km
+     * @param time
+     * @param stam
+     * @param userDescription
+     * @param male
+     * @param i
+     * @param i1
+     * @param myLikesArray
+     * @param matches
+     * @param not4me
+     * @param goals
+     * @param times
+     */
     public User(String email, String phoneNumber, String km, String time, String stam, String userDescription, String male, int i, int i1, ArrayList<User> myLikesArray, ArrayList<User> matches, ArrayList<String> not4me, ArrayList<String> goals, ArrayList<String> times){}
+
     /**
      * Get the user's ID
      */

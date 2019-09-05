@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
- * Represents the recycler vie adapter of partners list screen
+ * Represents the recycler view adapter of partners list screen
  */
 public class PartnersRecyclerViewAdapter extends RecyclerView.Adapter<PartnersRecyclerViewAdapter.ViewHolder>{
 
@@ -101,8 +101,6 @@ public class PartnersRecyclerViewAdapter extends RecyclerView.Adapter<PartnersRe
         //layout_list_item holders
         holder.imageName.setText(mImageNames.get(position));
         holder.location.setText(mLocation.get(position));
-//        holder.Pace.setText(mPace.get(position));
-
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -161,7 +159,6 @@ public class PartnersRecyclerViewAdapter extends RecyclerView.Adapter<PartnersRe
             super(itemView);
             image= itemView.findViewById(R.id.partner_list_image);
             imageName=itemView.findViewById(R.id.partner_list_name);
-//            Pace = itemView.findViewById(R.id.partner_list_pace);
             location = itemView.findViewById(R.id.partner_list_location);
             parentLayout=itemView.findViewById(R.id.parent_layout);
 

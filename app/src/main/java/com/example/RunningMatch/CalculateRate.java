@@ -26,19 +26,19 @@ public class CalculateRate  extends AppCompatActivity {
         return (dist);
     }
 
-    /**
+    /*
      * Converts degrees to radius
      * @param deg
-     * @return
+     * @return degrees to radius
      */
     private static double deg2rad(double deg) {
         return (deg * Math.PI / 180.0);
     }
 
-    /**
+    /*
      * Converts radius to degrees
      * @param rad
-     * @return
+     * @return radius to degrees
      */
     private static double rad2deg(double rad) {
         return (rad * 180.0 / Math.PI);
@@ -56,11 +56,11 @@ public class CalculateRate  extends AppCompatActivity {
 
     }
 
-    /**
+    /*
      * Rates the distance between 2 users
      * @param mainUser
      * @param user
-     * @return
+     * @return distance rate
      */
     private static int distanceRate (User mainUser, User user){
         double myDistance = calculateDistance(mainUser, user);
@@ -78,11 +78,11 @@ public class CalculateRate  extends AppCompatActivity {
         return 0;
     }
 
-    /**
+    /*
      * Rates the pace of two users
      * @param mainUser
      * @param user
-     * @return
+     * @return pace rate
      */
     private static int paceRate (User mainUser, User user) {
         double myPace = Double.parseDouble(mainUser.getTime())/Double.parseDouble(mainUser.getKm());
@@ -101,11 +101,11 @@ public class CalculateRate  extends AppCompatActivity {
 
     }
 
-    /**
+    /*
      * Rates the km of 2 users
      * @param mainUser
      * @param user
-     * @return
+     * @return km rate
      */
     private  int kmRate(User mainUser, User user) {
         if (mainUser.getKm() == user.getKm()) {
@@ -118,6 +118,12 @@ public class CalculateRate  extends AppCompatActivity {
         return 0;
     }
 
+    /*
+     * Rates the goals of 2 users
+     * @param mainUser
+     * @param user
+     * @return goals rate
+     */
     private int goalsRate(User mainUser, User user){
         ArrayList<String> userGoals = user.getGoals();
         for (String goal : mainUser.getGoals()){
@@ -128,6 +134,12 @@ public class CalculateRate  extends AppCompatActivity {
         return 0;
     }
 
+    /*
+     * Rates the time of 2 users
+     * @param mainUser
+     * @param user
+     * @return time rate
+     */
     private int timesRate(User mainUser, User user) {
         ArrayList<String> userTimes = user.getTimes();
         for (String time : mainUser.getTimes()) {
@@ -138,6 +150,12 @@ public class CalculateRate  extends AppCompatActivity {
         return 0;
     }
 
+    /*
+     * Rates the like of 2 users
+     * @param mainUser
+     * @param user
+     * @return like rate
+     */
     private int likeRate(User mainUser, User user){
         ArrayList<String> likesArray = (ArrayList<String>) user.getMyLikesArray();
         String myName = mainUser.getEmail().replace(".", "");
@@ -155,7 +173,7 @@ public class CalculateRate  extends AppCompatActivity {
      * Returns a final matching rate for 2 users
      * @param mainUser
      * @param user
-     * @return
+     * @return matching rate
      */
     public int rateCalculator(User mainUser, User user) {
 

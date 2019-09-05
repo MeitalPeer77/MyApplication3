@@ -32,6 +32,7 @@ public class EventActivity extends AppCompatActivity implements Serializable {
     /* current user matches*/
     private ArrayList<String> currentUserMatches;
 
+    /* Integers represents the number of participants in each event */
     private Integer GOLAN_RACE_COUNTER = 0;
     private Integer NIGHT_RUN_COUNTER = 0;
     private Integer RUNNUNG_IN_WORK_COUNTER = 0;
@@ -39,6 +40,7 @@ public class EventActivity extends AppCompatActivity implements Serializable {
     private Integer MASSADA_COUNTER = 0;
     private Integer NACHAL_COUNTER = 0;
 
+    /* Arrays of participants in each event */
     private String[] GOLAN_RACE_Array = new String[2];
     private String[] NIGHT_RUN_COUNTER_Array = new String[2];
     private String[] RUNNUNG_IN_WORK_COUNTER_Array = new String[2];
@@ -61,6 +63,7 @@ public class EventActivity extends AppCompatActivity implements Serializable {
     private ArrayList<String> mFriendsGoing = new ArrayList<>();
 
     private ArrayList<Button> mButtons = new ArrayList<>();
+
 
     //******************  Buttons and fields ****************//
 
